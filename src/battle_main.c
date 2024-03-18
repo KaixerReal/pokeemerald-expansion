@@ -118,6 +118,7 @@ static void SpriteCB_UnusedBattleInit_Main(struct Sprite *sprite);
 static void TrySpecialEvolution(void);
 static u32 Crc32B (const u8 *data, u32 size);
 static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i);
+static u8 ConvertAbilityNumToAbility(u8 abilityNum, u16 species);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -2209,6 +2210,28 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     }
 }
 
+static u8 ConvertAbilityNumToAbility(u8 abilityNum, u16 species)
+{
+	u8 ability = ABILITY_NONE;
+
+	switch (abilityNum) {
+		case ABILITY_ONE:
+			ability = gSpeciesInfo[species].abilities[0];
+			break;
+		case ABILITY_TWO:
+			ability = gSpeciesInfo[species].abilities[1];
+			break;
+		case ABILITY_HIDDEN:
+			ability = gSpeciesInfo[species].abilities[2];
+			break;
+	}
+
+	if (ability == ABILITY_NONE)
+		ability = gSpeciesInfo[species].abilities[0];
+
+	return ability;
+}
+
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
@@ -2218,6 +2241,9 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
     {
+    
+        FlagSet(B_FLAG_NO_BAG_USE);
+
         if (firstTrainer == TRUE)
             ZeroEnemyPartyMons();
 

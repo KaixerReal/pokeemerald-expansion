@@ -3206,11 +3206,18 @@ static const struct TrainerMon sParty_Drake[] = {
 
 static const struct TrainerMon sParty_Roxanne1[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 12,
-    .species = SPECIES_GEODUDE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+        .species = SPECIES_NOSEPASS,
+        .lvl = 14,
+        .ability = ABILITY_ONE,
+        .moves = {MOVE_STEALTH_ROCK, MOVE_ROCK_TOMB, MOVE_BULLDOZE, MOVE_SELF_DESTRUCT},
+        .nature = NATURE_ADAMANT,
+        .gender = TRAINER_MON_FEMALE,
+        .friendship = 255,
+        .heldItem = ITEM_CUSTAP_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_HEAVY_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
