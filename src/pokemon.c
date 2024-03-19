@@ -6473,6 +6473,11 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
     SetBoxMonData(boxMon, MON_DATA_TERA_TYPE, &teraType);
 }
 
+const u8 *GetAbilityName(u16 ability)
+{
+    return gAbilitiesInfo[ability].name;
+}
+
 void HealPokemon(struct Pokemon *mon)
 {
     u32 data;

@@ -24,13 +24,16 @@
 #include "fieldmap.h"
 #include "item.h"
 #include "lilycove_lady.h"
+#include "m4a.h"
 #include "main.h"
 #include "menu.h"
 #include "money.h"
 #include "mystery_event_script.h"
+//#include "outfit_menu.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokemon_storage_system.h"
+#include "pokemon_summary_screen.h"
 #include "random.h"
 #include "overworld.h"
 #include "rotating_tile_puzzle.h"
@@ -51,6 +54,12 @@
 #include "list_menu.h"
 #include "malloc.h"
 #include "constants/event_objects.h"
+//#include "day_night.h"
+//#include "constants/rtc.h"
+#include "constants/items.h"
+//#include "pokevial.h"
+#include "starter_choose.h"
+#include "pokemon_summary_screen.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -1448,6 +1457,62 @@ bool8 ScrCmd_dynmultipush(struct ScriptContext *ctx)
     MultichoiceDynamic_PushElement(item);
     return FALSE;
 }
+
+//New
+bool8 ScrCmd_bufferregionname(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u16 region = VarGet(ScriptReadHalfword(ctx));
+
+    StringCopy(sScriptStringVars[stringVarIndex], GetRegionName(region));
+    return FALSE;
+}
+
+bool8 ScrCmd_settimeofday(struct ScriptContext *ctx) //Being Worked on.
+{
+    u8 timeOfDay = VarGet(ScriptReadHalfword(ctx));
+    u8 hour;
+
+    switch(timeOfDay)
+    {
+        case TIME_MORNING:
+            hour = MORNING_HOUR_BEGIN;
+            break;
+        case TIME_DAY:
+            hour = DAY_HOUR_BEGIN;
+            break;
+        case TIME_EVENING:
+            hour = EVENING_HOUR_BEGIN;
+            break;
+        case TIME_NIGHT:
+            hour = NIGHT_HOUR_BEGIN;
+            break;
+        default: 
+            hour = 0;
+    }
+
+    //RtcAdvanceTimeTo(hour, 0, 0);
+    return FALSE;
+}
+
+bool8 ScrCmd_bufferabilityname(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u16 ability = VarGet(ScriptReadHalfword(ctx));
+
+    StringCopy(sScriptStringVars[stringVarIndex], GetAbilityName(ability));
+    return FALSE;
+}
+
+bool8 ScrCmd_buffernaturename(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u16 nature = VarGet(ScriptReadHalfword(ctx));
+
+    StringCopy(sScriptStringVars[stringVarIndex], gNatureNamePointers[nature]);
+    return FALSE;
+}
+//To Here
 
 bool8 ScrCmd_multichoice(struct ScriptContext *ctx)
 {

@@ -1,6 +1,11 @@
 #ifndef GUARD_STARTER_CHOOSE_H
 #define GUARD_STARTER_CHOOSE_H
 
+//New
+#include "constants/starter_choose.h"
+const u8 *GetRegionName(u16 region);
+//To Here
+
 extern const u16 gBirchBagGrass_Pal[];
 extern const u32 gBirchBagTilemap[];
 extern const u32 gBirchGrassTilemap[];

@@ -1,4 +1,5 @@
-
+raw
+`
 @ Local IDs are the same for both players houses
 .set LOCALID_MOM, 1
 .set LOCALID_DAD, 5
@@ -679,54 +680,26 @@ PlayersHouse_1F_Movement_PlayerApproachTVForLatiFemale:
 EventScript_RunningShoesManual::
 	msgbox PlayersHouse_1F_Text_RunningShoesManual, MSGBOX_SIGN
 	end
+`
 
-RivalsHouse_1F_EventScript_RegionChoice::
-	msgbox RivalsHouse_1F_Text_WhichRegion, MSGBOX_DEFAULT
-	dynmultichoice 0, 0, TRUE, 6, 0, DYN_MULTICHOICE_CB_NONE, RivalsHouse_1F_EventScript_RegionChoice_Text_0, RivalsHouse_1F_EventScript_RegionChoice_Text_1, RivalsHouse_1F_EventScript_RegionChoice_Text_2, RivalsHouse_1F_EventScript_RegionChoice_Text_3, RivalsHouse_1F_EventScript_RegionChoice_Text_4, RivalsHouse_1F_EventScript_RegionChoice_Text_5, RivalsHouse_1F_EventScript_RegionChoice_Text_6, RivalsHouse_1F_EventScript_RegionChoice_Text_7, RivalsHouse_1F_EventScript_RegionChoice_Text_8
-	bufferregionname STR_VAR_1, VAR_RESULT
-	msgbox RivalsHouse_1F_EventScript_RegionChoice_Text_9, MSGBOX_DEFAULT
-	copyvar VAR_REGION_CHOICE, VAR_RESULT
-	return
+text RivalsHouse_1F_Text_WhichRegion {
+    format("You Know, I heard that Dad just received some rare Pokémon…\p"
+	       "Which region were they from again?")
+}
 
+text RivalsHouse_1F_Text_OhIForgot {
+    format("Oh, no! I forgot!\p"
+	       "I was supposed to go help Dad catch\n"
+	       "some wild Pokémon!\p"
+	       "{PLAYER}, I'll catch you later!")
+}
 
-RivalsHouse_1F_EventScript_RegionChoice_Text_0:
-	.string "Kanto$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_1:
-	.string "Johto$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_2:
-	.string "Hoenn$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_3:
-	.string "Sinnoh$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_4:
-	.string "Unova$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_5:
-	.string "Kalos$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_6:
-	.string "Alola$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_7:
-	.string "Galar$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_8:
-	.string "Paldea$"
-
-RivalsHouse_1F_EventScript_RegionChoice_Text_9:
-	.string "Ah yes that's right - they're from the\n"
-	.string "{STR_VAR_1} region!$"
-
-RivalsHouse_1F_Text_WhichRegion::
-	.string "You Know, I heard that Dad just\n"
-	.string "received some rare Pokémon…\p"
-	.string "Which region were they from again?$"
-
-RivalsHouse_1F_Text_OhIForgot::
-	.string "Oh, no! I forgot!\p"
-	.string "I was supposed to go help Dad catch\n"
-	.string "some wild Pokémon!\p"
-	.string "{PLAYER}, I'll catch you later!$"
+script RivalsHouse_1F_EventScript_RegionChoice {
+    msgbox(RivalsHouse_1F_Text_WhichRegion, MSGBOX_DEFAULT)
+    dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE,
+                  "Kanto","Johto","Hoenn","Sinnoh","Unova","Kalos","Alola","Galar","Paldea")
+        bufferregionname(STR_VAR_1, VAR_RESULT)
+        msgbox(format("Ah yes that's right - they're from the {STR_VAR_1} region!"), MSGBOX_DEFAULT)
+    copyvar(VAR_REGION_CHOICE, VAR_RESULT)
+    return
+}

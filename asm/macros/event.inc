@@ -1813,6 +1813,33 @@
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, NULL
 	.endm
 
+	@ Writes the name of the given region to the specified buffer.
+	.macro bufferregionname stringVarId:req, region:req
+	.byte 0xe5
+	stringvar \stringVarId
+	.2byte \region
+	.endm
+
+	@ Advances the fake RTC to the time of day provided
+	.macro settimeofday timeOfDay:req
+	.byte 0xe6
+	.2byte \timeOfDay
+	.endm
+
+	@ Writes the name of the given ability to the specified buffer.
+	.macro bufferabilityname stringVarId:req, ability:req
+	.byte 0xe7
+	stringvar \stringVarId
+	.2byte \ability
+	.endm
+
+	@ Writes the name of the given ability to the specified buffer.
+	.macro buffernaturename stringVarId:req, nature:req
+	.byte 0xe8
+	stringvar \stringVarId
+	.2byte \nature
+	.endm
+
 
 @ Supplementary
 
