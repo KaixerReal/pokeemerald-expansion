@@ -5683,7 +5683,18 @@ void SetWildMonHeldItem(void)
 
 bool8 IsMonShiny(struct Pokemon *mon)
 {
-    return GetMonData(mon, MON_DATA_IS_SHINY, NULL);
+    u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
+    u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
+    return IsShinyOtIdPersonality(otId, personality);
+}
+
+bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
+{
+    bool8 retVal = FALSE;
+    u32 shinyValue = GET_SHINY_VALUE(otId, personality);
+    if (shinyValue < SHINY_ODDS)
+        retVal = TRUE;
+    return retVal;
 }
 
 const u8 *GetTrainerPartnerName(void)
