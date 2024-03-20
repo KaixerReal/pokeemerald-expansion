@@ -23,6 +23,8 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "day_night.h"
+#include "rtc.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -352,7 +354,7 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
     }
 }
 
-static u16 GetCurrentMapWildMonHeaderId(void)
+u16 GetCurrentMapWildMonHeaderId(void)
 {
     u16 i;
 
@@ -365,6 +367,25 @@ static u16 GetCurrentMapWildMonHeaderId(void)
         if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
             gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
         {
+
+            if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(ALTERING_CAVE) ||
+                gSaveBlock1Ptr->location.mapNum != MAP_NUM(ALTERING_CAVE))
+            {
+                RtcCalcLocalTime();
+                if (GetTimeOfDay() == TIME_NIGHT &&
+                    gWildMonHeaders[i + 1].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
+                    gWildMonHeaders[i + 1].mapNum == gSaveBlock1Ptr->location.mapNum)
+                {
+                    i += 1; // Night
+                }
+                else if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
+                         gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
+                {
+                    i += 0; // Day
+                }
+            }
+        
+
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
             {

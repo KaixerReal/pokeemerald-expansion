@@ -1549,7 +1549,7 @@ static u8 LoadSpritePalette_HandleDayNight(const struct SpritePalette *palette, 
     }
 }
 
-u8 LoadSpritePaletteDouble(const struct SpritePalette *palette)
+/*u8 LoadSpritePaletteDouble(const struct SpritePalette *palette)
 {
     u8 index = IndexOfSpritePaletteTag(palette->tag);
 
@@ -1569,7 +1569,7 @@ u8 LoadSpritePaletteDouble(const struct SpritePalette *palette)
         DoLoadSpritePalette(palette->data, 112 + index * 16);
         return index + 112;
     }
-}
+}*/
 
 u8 LoadSpritePalette(const struct SpritePalette *palette)
 {

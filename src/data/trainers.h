@@ -9264,7 +9264,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("ROXANNE"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
-        .aiFlags = AI_NORMAL_FLAGS,
+        .aiFlags = AI_STANDARD_FLAGS,
         .party = TRAINER_PARTY(sParty_Roxanne2),
     },
 
