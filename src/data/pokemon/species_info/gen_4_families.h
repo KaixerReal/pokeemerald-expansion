@@ -52,6 +52,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .iconSprite = gMonIcon_Turtwig,
         .iconPalIndex = 1,
         FOOTPRINT(Turtwig)
+        .isStarter = TRUE,
         .levelUpLearnset = sTurtwigLevelUpLearnset,
         .teachableLearnset = sTurtwigTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_GROTLE}),
@@ -222,6 +223,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .iconSprite = gMonIcon_Chimchar,
         .iconPalIndex = 1,
         FOOTPRINT(Chimchar)
+        .isStarter = TRUE,
         .levelUpLearnset = sChimcharLevelUpLearnset,
         .teachableLearnset = sChimcharTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 14, SPECIES_MONFERNO}),
@@ -396,6 +398,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .iconSprite = gMonIcon_Piplup,
         .iconPalIndex = 0,
         FOOTPRINT(Piplup)
+        .isStarter = TRUE,
         .levelUpLearnset = sPiplupLevelUpLearnset,
         .teachableLearnset = sPiplupTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_PRINPLUP}),

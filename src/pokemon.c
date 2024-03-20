@@ -836,7 +836,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u16 checksum;
     u8 i;
     u8 availableIVs[NUM_STATS];
-    u8 selectedIvs[LEGENDARY_PERFECT_IV_COUNT];
+    u8 selectedIvs[THREE_PERFECT_IV_COUNT];
     bool32 isShiny;
 
     ZeroBoxMonData(boxMon);
@@ -952,12 +952,13 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
             SetBoxMonData(boxMon, MON_DATA_SPATK_IV, &iv);
             SetBoxMonData(boxMon, MON_DATA_SPDEF_IV, &iv);
         }
-        else if (P_LEGENDARY_PERFECT_IVS >= GEN_6
-         && (gSpeciesInfo[species].isLegendary
-          || gSpeciesInfo[species].isMythical
-          || gSpeciesInfo[species].isUltraBeast
-          || gSpeciesInfo[species].isTotem))
-        {
+        else if //(P_LEGENDARY_PERFECT_IVS >= GEN_6
+          (gSpeciesInfo[species].isLegendary //Legendary,
+          || gSpeciesInfo[species].isMythical //Mythical,
+          || gSpeciesInfo[species].isUltraBeast //Ultra Beast,
+          || gSpeciesInfo[species].isParadoxForm //Paradox,
+          || gSpeciesInfo[species].isStarter) //Starter,
+        {                                      //These Pokemon have 3 perfect ivs
             iv = MAX_PER_STAT_IVS;
             // Initialize a list of IV indices.
             for (i = 0; i < NUM_STATS; i++)
@@ -966,13 +967,13 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
             }
 
             // Select the 3 IVs that will be perfected.
-            for (i = 0; i < LEGENDARY_PERFECT_IV_COUNT; i++)
+            for (i = 0; i < THREE_PERFECT_IV_COUNT; i++)
             {
                 u8 index = Random() % (NUM_STATS - i);
                 selectedIvs[i] = availableIVs[index];
                 RemoveIVIndexFromList(availableIVs, index);
             }
-            for (i = 0; i < LEGENDARY_PERFECT_IV_COUNT; i++)
+            for (i = 0; i < THREE_PERFECT_IV_COUNT; i++)
             {
                 switch (selectedIvs[i])
                 {

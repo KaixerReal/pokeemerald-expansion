@@ -52,6 +52,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .iconSprite = gMonIcon_Rowlet,
         .iconPalIndex = 0,
         FOOTPRINT(Rowlet)
+        .isStarter = TRUE,
         .levelUpLearnset = sRowletLevelUpLearnset,
         .teachableLearnset = sRowletTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 17, SPECIES_DARTRIX}),
@@ -271,6 +272,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .iconSprite = gMonIcon_Litten,
         .iconPalIndex = 0,
         FOOTPRINT(Litten)
+        .isStarter = TRUE,
         .levelUpLearnset = sLittenLevelUpLearnset,
         .teachableLearnset = sLittenTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 17, SPECIES_TORRACAT}),
@@ -431,6 +433,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .iconSprite = gMonIcon_Popplio,
         .iconPalIndex = 0,
         FOOTPRINT(Popplio)
+        .isStarter = TRUE,
         .levelUpLearnset = sPopplioLevelUpLearnset,
         .teachableLearnset = sPopplioTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 17, SPECIES_BRIONNE}),

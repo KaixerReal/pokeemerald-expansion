@@ -52,6 +52,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .iconSprite = gMonIcon_Chespin,
         .iconPalIndex = 1,
         FOOTPRINT(Chespin)
+        .isStarter = TRUE,
         .levelUpLearnset = sChespinLevelUpLearnset,
         .teachableLearnset = sChespinTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_QUILLADIN}),
@@ -212,6 +213,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .iconSprite = gMonIcon_Fennekin,
         .iconPalIndex = 0,
         FOOTPRINT(Fennekin)
+        .isStarter = TRUE,
         .levelUpLearnset = sFennekinLevelUpLearnset,
         .teachableLearnset = sFennekinTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_BRAIXEN}),
@@ -318,6 +320,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .iconSprite = gMonIcon_Delphox,
         .iconPalIndex = 0,
         FOOTPRINT(Delphox)
+        .isStarter = TRUE,
         .levelUpLearnset = sDelphoxLevelUpLearnset,
         .teachableLearnset = sDelphoxTeachableLearnset,
     },

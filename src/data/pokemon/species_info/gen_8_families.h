@@ -52,6 +52,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .iconSprite = gMonIcon_Grookey,
         .iconPalIndex = 1,
         FOOTPRINT(Grookey)
+        .isStarter = TRUE,
         .levelUpLearnset = sGrookeyLevelUpLearnset,
         .teachableLearnset = sGrookeyTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_THWACKEY}),
@@ -268,6 +269,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .iconSprite = gMonIcon_Scorbunny,
         .iconPalIndex = 0,
         FOOTPRINT(Scorbunny)
+        .isStarter = TRUE,
         .levelUpLearnset = sScorbunnyLevelUpLearnset,
         .teachableLearnset = sScorbunnyTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RABOOT}),
@@ -487,6 +489,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .iconSprite = gMonIcon_Sobble,
         .iconPalIndex = 2,
         FOOTPRINT(Sobble)
+        .isStarter = TRUE,
         .levelUpLearnset = sSobbleLevelUpLearnset,
         .teachableLearnset = sSobbleTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_DRIZZILE}),

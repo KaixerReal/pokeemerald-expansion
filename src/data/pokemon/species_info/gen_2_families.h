@@ -52,6 +52,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .iconSprite = gMonIcon_Chikorita,
         .iconPalIndex = 1,
         FOOTPRINT(Chikorita)
+        .isStarter = TRUE,
         .levelUpLearnset = sChikoritaLevelUpLearnset,
         .teachableLearnset = sChikoritaTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_BAYLEEF}),
@@ -224,6 +225,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .iconSprite = gMonIcon_Cyndaquil,
         .iconPalIndex = 3,
         FOOTPRINT(Cyndaquil)
+        .isStarter = TRUE,
         .levelUpLearnset = sCyndaquilLevelUpLearnset,
         .teachableLearnset = sCyndaquilTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 14, SPECIES_QUILAVA}),
@@ -452,6 +454,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .iconSprite = gMonIcon_Totodile,
         .iconPalIndex = 0,
         FOOTPRINT(Totodile)
+        .isStarter = TRUE,
         .levelUpLearnset = sTotodileLevelUpLearnset,
         .teachableLearnset = sTotodileTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_CROCONAW}),
