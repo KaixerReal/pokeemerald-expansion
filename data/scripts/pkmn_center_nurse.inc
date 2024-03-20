@@ -120,3 +120,10 @@ Movement_PkmnCenterNurse_Bow:
 	nurse_joy_bow
 	delay_4
 	step_end
+
+EventScript_PkmnCenterUnionNurse::
+	call Common_EventScript_PkmnCenterUnionNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end

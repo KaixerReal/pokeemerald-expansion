@@ -1,7 +1,7 @@
 script Common_EventScript_PkmnCenterUnionNurse {
 	lock
 	faceplayer
-	message(format("Hi, I'm the Pokéhelper! How may I help you today?"))
+	message(format("Hi, I'm the Pokéhelper!"))
 	waitmessage
     call(EventScript_PkmnCenterUnionNurse_Multichoice)
     release
@@ -9,6 +9,8 @@ script Common_EventScript_PkmnCenterUnionNurse {
 }
 
 script EventScript_PkmnCenterUnionNurse_Multichoice {
+    message(format("How may I help you today?"))
+	waitmessage
     dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Relearn move","Change nickname","Change Nature","Cancel")
     switch (var(VAR_RESULT)) {
         case 0:
@@ -96,15 +98,15 @@ script EventScript_PkmnCenterUnionNurse_ChangeNickname {
 script EventScript_PkmnCenterUnionNurse_ChangeNature {
     lock
     faceplayer
-    msgbox(format("Hello, child. I am known as the Nature Master.\pI can train with one of your Pokémon to grant them an entirely new Nature.\pWould you like one of your Pokémon to change their Nature?"),MSGBOX_YESNO)
+    //msgbox(format("Hello, child. I am known as the Nature Master.\pI can train with one of your Pokémon to grant them an entirely new Nature.\pWould you like one of your Pokémon to change their Nature?"),MSGBOX_YESNO)
     
-    if(var(VAR_RESULT) == NO) {goto(SlateportCity_House3_EventScript_NatureMasterNo)}
+    if(var(VAR_RESULT) == NO) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
 
     msgbox(format("Which Pokémon should I train?"))
     special(ChoosePartyMon)
     waitstate
 
-    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {goto(SlateportCity_House3_EventScript_NatureMasterNo)}
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
 
     specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 
@@ -147,14 +149,14 @@ script EventScript_PkmnCenterUnionNurse_ChangeNature {
     //*setting initial selected to a non-existant ID will always have it point to the first option
 	dynmultistack(0, 0, TRUE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
 
-    if (var(VAR_RESULT) == MULTI_B_PRESSED) {goto(SlateportCity_House3_EventScript_NatureMasterNo)}
+    if (var(VAR_RESULT) == MULTI_B_PRESSED) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
 
     copyvar(VAR_0x8005, VAR_RESULT)
     buffernaturename(STR_VAR_2, VAR_RESULT)
 
     msgbox(format("So {STR_VAR_1} should acquire the {STR_VAR_2} Nature?"), MSGBOX_YESNO)
 
-    if(var(VAR_RESULT) == NO) {goto(SlateportCity_House3_EventScript_NatureMasterNo)}
+    if(var(VAR_RESULT) == NO) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
 
     msgbox(format("Excellent. We shall begin at once!"))
 
