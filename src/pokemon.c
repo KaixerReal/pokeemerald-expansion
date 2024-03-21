@@ -11,6 +11,7 @@
 #include "battle_tower.h"
 #include "battle_z_move.h"
 #include "data.h"
+#include "dexnav.h"
 #include "event_data.h"
 #include "evolution_scene.h"
 #include "field_specials.h"
@@ -837,7 +838,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u8 i;
     u8 availableIVs[NUM_STATS];
     u8 selectedIvs[THREE_PERFECT_IV_COUNT];
-    bool32 isShiny;
 
     ZeroBoxMonData(boxMon);
 
@@ -847,32 +847,47 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         personality = Random32();
 
     // Determine original trainer ID
-    if (otIdType == OT_ID_RANDOM_NO_SHINY)
+    if (otIdType == OT_ID_RANDOM_NO_SHINY) // Pokemon cannot be shiny
     {
-        value = Random32();
-        isShiny = FALSE;
+        u32 shinyValue;
+        do
+        {
+            // Choose random OT IDs until one that results in a non-shiny Pokémon
+            value = Random32();
+            shinyValue = GET_SHINY_VALUE(value, personality);
+        } while (shinyValue < SHINY_ODDS);
     }
     else if (otIdType == OT_ID_PRESET)
     {
         value = fixedOtId;
-        isShiny = GET_SHINY_VALUE(value, personality) < SHINY_ODDS;
     }
     else // Player is the OT
-    {
+    {        
         value = gSaveBlock2Ptr->playerTrainerId[0]
               | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
               | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
 
-        if (P_FLAG_FORCE_NO_SHINY != 0 && FlagGet(P_FLAG_FORCE_NO_SHINY))
+#if P_FLAG_FORCE_NO_SHINY != 0
+        if (FlagGet(P_FLAG_FORCE_NO_SHINY))
         {
-            isShiny = FALSE;
+            while (GET_SHINY_VALUE(value, personality) < SHINY_ODDS)
+                personality = Random32();
         }
-        else if (P_FLAG_FORCE_SHINY != 0 && FlagGet(P_FLAG_FORCE_SHINY))
-        {
-            isShiny = TRUE;
-        }
+#endif
+#if P_FLAG_FORCE_SHINY != 0
+    #if P_FLAG_FORCE_NO_SHINY != 0
         else
+    #endif
+        if (FlagGet(P_FLAG_FORCE_SHINY))
+        {
+            while (GET_SHINY_VALUE(value, personality) >= SHINY_ODDS)
+                personality = Random32();
+        }
+#endif
+#if P_FLAG_FORCE_SHINY != 0 || P_FLAG_FORCE_NO_SHINY != 0
+        else
+#endif
         {
             u32 totalRerolls = 0;
             if (CheckBagHasItem(ITEM_SHINY_CHARM, 1))
@@ -886,7 +901,18 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                 totalRerolls--;
             }
 
-            isShiny = GET_SHINY_VALUE(value, personality) < SHINY_ODDS;
+            // force shiny creation for dexnav
+            if (FlagGet(FLAG_SHINY_CREATION) && GET_SHINY_VALUE(value, personality) >= SHINY_ODDS)
+            {
+                u8 nature = personality % NUM_NATURES;  // keep current nature
+                do {
+                    personality = Random32();
+                    personality = ((((Random() % SHINY_ODDS) ^ (HIHALF(value) ^ LOHALF(value))) ^ LOHALF(personality)) << 16) | LOHALF(personality);
+                } while (nature != GetNatureFromPersonality(personality));
+
+                // clear the flag after use
+                FlagClear(FLAG_SHINY_CREATION);
+            }
         }
     }
 
@@ -5623,7 +5649,8 @@ static inline bool32 CanFirstMonBoostHeldItemRarity(void)
 
 void SetWildMonHeldItem(void)
 {
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_TRAINER | BATTLE_TYPE_PYRAMID | BATTLE_TYPE_PIKE)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_TRAINER | BATTLE_TYPE_PYRAMID | BATTLE_TYPE_PIKE))
+      && !gDexnavBattle)
     {
         u16 rnd;
         u16 species;
@@ -5921,6 +5948,9 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
         if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
             gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
     }
+    
+    if (caseId == FLAG_SET_SEEN)
+        TryIncrementSpeciesSearchLevel(nationalNum);    // encountering pokemon increments its search level
 }
 
 bool8 HasTwoFramesAnimation(u16 species)
