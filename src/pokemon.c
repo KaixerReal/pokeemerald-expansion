@@ -838,7 +838,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u8 i;
     u8 availableIVs[NUM_STATS];
     u8 selectedIvs[THREE_PERFECT_IV_COUNT];
-    bool32 isShiny = GetBoxMonData(boxMon, MON_DATA_IS_SHINY, NULL);
+    //bool32 isShiny = GetBoxMonData(boxMon, MON_DATA_IS_SHINY, NULL);
 
     ZeroBoxMonData(boxMon);
 

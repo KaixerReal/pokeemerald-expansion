@@ -141,6 +141,7 @@ static void DrawPartyMonIcons(void);
 static void TintPartyMonIcons(u16 tm);
 static void DestroyPartyMonIcons(void);
 
+
 //extern const struct SpritePalette gMonIconPaletteTable[6];
 
 static const struct BgTemplate sBGTemplates[] = {
