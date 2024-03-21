@@ -27,5 +27,6 @@ void SpriteCB_MonIcon(struct Sprite *sprite);
 void SetPartyHPBarSprite(struct Sprite *sprite, u8 animNum);
 u8 GetMonIconPaletteIndexFromSpecies(u16 species);
 void SafeFreeMonIconPalette(u16 species);
+void LoadMonIconPalettesTinted(void); //in tm_case.c and for dexnav.c
 
 #endif // GUARD_POKEMON_ICON_H
