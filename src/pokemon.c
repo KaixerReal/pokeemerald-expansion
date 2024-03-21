@@ -6489,10 +6489,6 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
     struct PokemonSubstruct3 *old3, *new3;
     struct BoxPokemon old;
 
-    bool32 isShiny = GetBoxMonData(boxMon, MON_DATA_IS_SHINY, NULL);
-    u32 hiddenNature = GetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, NULL);
-    u32 teraType = GetBoxMonData(boxMon, MON_DATA_TERA_TYPE, NULL);
-
     old = *boxMon;
     old0 = &(GetSubstruct(&old, old.personality, 0)->type0);
     old1 = &(GetSubstruct(&old, old.personality, 1)->type1);
@@ -6513,9 +6509,13 @@ void UpdateMonPersonality(struct BoxPokemon *boxMon, u32 personality)
     boxMon->checksum = CalculateBoxMonChecksum(boxMon);
     EncryptBoxMon(boxMon);
 
-    SetBoxMonData(boxMon, MON_DATA_IS_SHINY, &isShiny);
-    SetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, &hiddenNature);
-    SetBoxMonData(boxMon, MON_DATA_TERA_TYPE, &teraType);
+    //bool32 isShiny = GetBoxMonData(boxMon, MON_DATA_IS_SHINY, NULL);
+    //u32 hiddenNature = GetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, NULL);
+    //u32 teraType = GetBoxMonData(boxMon, MON_DATA_TERA_TYPE, NULL);
+
+    //SetBoxMonData(boxMon, MON_DATA_IS_SHINY, &isShiny);
+    //SetBoxMonData(boxMon, MON_DATA_HIDDEN_NATURE, &hiddenNature);
+    //SetBoxMonData(boxMon, MON_DATA_TERA_TYPE, &teraType);
 }
 
 const u8 *GetAbilityName(u16 ability)

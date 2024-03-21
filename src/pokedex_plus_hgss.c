@@ -4364,7 +4364,11 @@ static void SetSpriteInvisibility(u8 spriteArrayId, bool8 invisible)
 {
     gSprites[sPokedexView->typeIconSpriteIds[spriteArrayId]].invisible = invisible;
 }
-static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES] =
+// different from pokemon_summary_screen
+#define TYPE_ICON_PAL_NUM_0     13
+#define TYPE_ICON_PAL_NUM_1     14
+#define TYPE_ICON_PAL_NUM_2     15
+static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] =
 {
     [TYPE_NORMAL] = 15,
     [TYPE_FIGHTING] = 13,
@@ -4385,6 +4389,11 @@ static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES] =
     [TYPE_DRAGON] = 14,
     [TYPE_DARK] = 15,
     [TYPE_FAIRY] = 15,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = 13,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = 14,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = 15,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = 13,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = 13,
 };
 static void SetTypeIconPosAndPal(u8 typeId, u8 x, u8 y, u8 spriteArrayId)
 {
