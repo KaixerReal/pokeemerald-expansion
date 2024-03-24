@@ -39,7 +39,13 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+#include "constants/abilities.h"
 #include "level_caps.h"
+
+#define COLOR_SUPER_EFFECTIVE 24
+#define COLOR_NOT_VERY_EFFECTIVE 25
+#define COLOR_IMMUNE 26
+#define COLOR_EFFECTIVE 10
 
 static void PlayerBufferExecCompleted(u32 battler);
 static void PlayerHandleLoadMonSprite(u32 battler);
@@ -982,7 +988,7 @@ static u32 UNUSED HandleMoveInputUnused(u32 battler)
     }
 
     return var;
-}
+};
 
 static void HandleMoveSwitching(u32 battler)
 {
@@ -1431,7 +1437,7 @@ void Task_PlayerController_RestoreBgmAfterCry(u8 taskId)
 static s32 GetTaskExpValue(u8 taskId)
 {
     return (u16)(gTasks[taskId].tExpTask_gainedExp_1) | (gTasks[taskId].tExpTask_gainedExp_2 << 16);
-}
+};
 
 static void Task_GiveExpToMon(u8 taskId)
 {
@@ -1725,40 +1731,104 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
     ConvertIntToDecimalStringN(txtPtr, moveInfo->maxPp[gMoveSelectionCursor[battler]], STR_CONV_MODE_RIGHT_ALIGN, 2);
 
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP_REMAINING);
+};
+
+static const u8 gText_MoveInterfaceSuperEffective[] = _(" {UP_ARROW}");
+static const u8 gText_MoveInterfaceNotVeryEffective[] = _(" {DOWN_ARROW}");
+static const u8 gText_MoveInterfaceImmune[] = _(" X");
+static const u8 gText_MoveInterfaceSTAB[] = _("+");
+
+// todo: account for ivy cudgel here
+u8 TypeEffectiveness(u8 targetId, u32 battler)
+{
+    struct Pokemon *mon = mon;
+    u16 move;
+    u32 moveType;
+    uq4_12_t modifier;
+    move = gBattleMons[battler].moves[gMoveSelectionCursor[battler]];
+    //TODO: account for hidden power and maybe other dynamic move types?
+    moveType = gMovesInfo[move].type;
+    modifier = CalcTypeEffectivenessMultiplier(move, moveType, battler, targetId, GetBattlerAbility(targetId), TRUE);
+
+    switch(moveType){
+    //TODO: Account for all abilities, and items
+    case TYPE_GROUND:
+        //Levitate
+        if(gBattleMons[targetId].ability == ABILITY_LEVITATE)
+            return COLOR_IMMUNE;
+        //Earth Eater
+        if(gBattleMons[targetId].ability == ABILITY_EARTH_EATER)
+            return COLOR_IMMUNE;
+        //Air Balloon
+        if (gBattleMons[targetId].item == ITEM_AIR_BALLOON)
+            return COLOR_IMMUNE;
+    break;
+    case TYPE_ELECTRIC:
+        //Volt Absorb
+        if(gBattleMons[targetId].ability == ABILITY_VOLT_ABSORB)
+            return COLOR_IMMUNE; 
+        //Lighting Rod
+        if(gBattleMons[targetId].ability == ABILITY_LIGHTNING_ROD ||
+            (gBattleMons[BATTLE_PARTNER(targetId)].ability == ABILITY_LIGHTNING_ROD && IsBattlerAlive(BATTLE_PARTNER(targetId))))
+            return COLOR_IMMUNE;
+        //Motor Drive
+        if(gBattleMons[targetId].ability == ABILITY_MOTOR_DRIVE)
+            return COLOR_IMMUNE;
+    break;
+    }
+    
+    if (modifier == UQ_4_12(0.0)) {
+			return COLOR_IMMUNE; // 26 - no effect
+    }
+    else if (modifier <= UQ_4_12(0.5)) {
+            return COLOR_NOT_VERY_EFFECTIVE; // 25 - not very effective
+    }
+    else if (modifier >= UQ_4_12(2.0)) {
+            return COLOR_SUPER_EFFECTIVE; // 24 - super effective
+    }
+    else
+        return COLOR_EFFECTIVE; // 10 - normal effectiveness
 }
 
+//todo: account for ivy cudgel (see 1.7.0 expansion update)
 static void MoveSelectionDisplayMoveType(u32 battler)
 {
     u8 *txtPtr;
-    u8 type;
-    u32 speciesId;
-    struct Pokemon *mon;
+    u8 typeColor = IsDoubleBattle() ? B_WIN_MOVE_TYPE : TypeEffectiveness(GetBattlerAtPosition(BATTLE_OPPOSITE(GetBattlerPosition(battler))), battler);
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
+    u8 moveType = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
+    u8 movePower = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].power;
+    u8 battlerType1 = gBattleMons[battler].type1;
+    u8 battlerType2 = gBattleMons[battler].type2;
 
-    txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
-    *(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
-    *(txtPtr)++ = EXT_CTRL_CODE_FONT;
-    *(txtPtr)++ = FONT_NORMAL;
+    txtPtr = StringCopy(gDisplayedStringBattle, gTypesInfo[moveType].name);
 
-    if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_IVY_CUDGEL)
-    {
-        mon = &GetSideParty(GetBattlerSide(battler))[gBattlerPartyIndexes[battler]];
-        speciesId = GetMonData(mon, MON_DATA_SPECIES);
+    if (typeColor != COLOR_EFFECTIVE) {
+        *(txtPtr)++ = EXT_CTRL_CODE_BEGIN;
+        *(txtPtr)++ = EXT_CTRL_CODE_FONT;
+        *(txtPtr)++ = FONT_NORMAL;
 
-        if (speciesId == SPECIES_OGERPON_WELLSPRING_MASK || speciesId == SPECIES_OGERPON_WELLSPRING_MASK_TERA
-            || speciesId == SPECIES_OGERPON_HEARTHFLAME_MASK || speciesId == SPECIES_OGERPON_HEARTHFLAME_MASK_TERA
-            || speciesId == SPECIES_OGERPON_CORNERSTONE_MASK || speciesId == SPECIES_OGERPON_CORNERSTONE_MASK_TERA)
-            type = gBattleMons[battler].type2;
-        else
-            type = gMovesInfo[MOVE_IVY_CUDGEL].type;
+        switch (typeColor) {
+            case COLOR_IMMUNE:
+                StringCopy(txtPtr, gText_MoveInterfaceImmune);
+                break;
+            case COLOR_NOT_VERY_EFFECTIVE:
+                StringCopy(txtPtr, gText_MoveInterfaceNotVeryEffective);
+                break;
+            case COLOR_SUPER_EFFECTIVE:
+                StringCopy(txtPtr, gText_MoveInterfaceSuperEffective);
+                break;
+        }
     }
-    else
-        type = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
 
-    StringCopy(txtPtr, gTypesInfo[type].name);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
+    BattlePutTextOnWindow(gDisplayedStringBattle, typeColor);
+
+    if (movePower > 0 && (moveType == battlerType1 || moveType == battlerType2))
+    {
+        StringCopy(gDisplayedStringBattle, gText_MoveInterfaceSTAB);
+        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_STAB_SYMBOL);
+    }
 }
-
 void MoveSelectionCreateCursorAt(u8 cursorPosition, u8 baseTileNum)
 {
     u16 src[2];

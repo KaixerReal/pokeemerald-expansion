@@ -226,13 +226,13 @@ void LoadMonIconPalettes(void)
 }
 
 // unused
-void SafeLoadMonIconPalette(u16 species)
+void UNUSED SafeLoadMonIconPalette(u16 species)
 {
     u8 palIndex;
     palIndex = gSpeciesInfo[SanitizeSpeciesId(species)].iconPalIndex;
     if (IndexOfSpritePaletteTag(gMonIconPaletteTable[palIndex].tag) == 0xFF)
         LoadSpritePalette(&gMonIconPaletteTable[palIndex]);
-}
+};
 
 void LoadMonIconPalette(u16 species)
 {
@@ -261,7 +261,7 @@ void FreeMonIconPalettes(void)
 }
 
 // unused
-void SafeFreeMonIconPalette(u16 species)
+void UNUSED SafeFreeMonIconPalette(u16 species)
 {
     u8 palIndex;
     palIndex = gSpeciesInfo[SanitizeSpeciesId(species)].iconPalIndex;
