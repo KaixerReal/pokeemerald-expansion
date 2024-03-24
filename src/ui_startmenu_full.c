@@ -47,6 +47,7 @@
 #include "link.h"
 #include "frontier_pass.h"
 #include "start_menu.h"
+#include "dexnav.h"
 
 /*
     Full Screen Start Menu
@@ -83,7 +84,7 @@ enum StartMenuBoxes
     START_MENU_PARTY,
     START_MENU_BAG,
     START_MENU_CARD,
-    START_MENU_MAP,
+    START_MENU_DEXNAV,
     START_MENU_OPTIONS,
 };
 
@@ -202,7 +203,7 @@ static const u8 sHPBar_0_Percent_Gfx[]    = INCBIN_U8("graphics/ui_startmenu_ful
 static const u16 sHP_Pal[] = INCBIN_U16("graphics/ui_startmenu_full/hpbar_pal.gbapal");
 
 // greyed buttons
-static const u32 sGreyMenuButtonMap_Gfx[] = INCBIN_U32("graphics/ui_startmenu_full/map_dark_sprite.4bpp.lz");
+static const u32 sGreyMenuButtonDexnav_Gfx[] = INCBIN_U32("graphics/ui_startmenu_full/map_dark_sprite.4bpp.lz");
 static const u32 sGreyMenuButtonDex_Gfx[] = INCBIN_U32("graphics/ui_startmenu_full/dex_dark_sprite.4bpp.lz");
 static const u32 sGreyMenuButtonParty_Gfx[] = INCBIN_U32("graphics/ui_startmenu_full/party_dark_sprite.4bpp.lz");
 static const u16 sGreyMenuButton_Pal[] = INCBIN_U16("graphics/ui_startmenu_full/menu_dark.gbapal");
@@ -400,7 +401,7 @@ static const struct SpriteTemplate sSpriteTemplate_StatusIcons =
 };
 
 #define TAG_GREY_ICON 20001
-#define TAG_GREY_ICON_MAP 20003
+#define TAG_GREY_ICON_DEXNAV 20003
 #define TAG_GREY_ICON_DEX 20005
 #define TAG_GREY_ICON_PARTY 20007
 
@@ -411,11 +412,11 @@ static const struct OamData sOamData_GreyMenuButton =
     .priority = 1,
 };
 
-static const struct CompressedSpriteSheet sSpriteSheet_GreyMenuButtonMap =
+static const struct CompressedSpriteSheet sSpriteSheet_GreyMenuButtonDexnav =
 {
-    .data = sGreyMenuButtonMap_Gfx,
+    .data = sGreyMenuButtonDexnav_Gfx,
     .size = 64*32*4/2,
-    .tag = TAG_GREY_ICON_MAP,
+    .tag = TAG_GREY_ICON_DEXNAV,
 };
 
 static const struct CompressedSpriteSheet sSpriteSheet_GreyMenuButtonParty =
@@ -449,9 +450,9 @@ static const union AnimCmd *const sSpriteAnimTable_GreyMenuButton[] =
     sSpriteAnim_GreyMenuButton0,
 };
 
-static const struct SpriteTemplate sSpriteTemplate_GreyMenuButtonMap =
+static const struct SpriteTemplate sSpriteTemplate_GreyMenuButtonDexnav =
 {
-    .tileTag = TAG_GREY_ICON_MAP,
+    .tileTag = TAG_GREY_ICON_DEXNAV,
     .paletteTag = TAG_GREY_ICON,
     .oam = &sOamData_GreyMenuButton,
     .anims = sSpriteAnimTable_GreyMenuButton,
@@ -601,7 +602,7 @@ static void CreatePartyMonIcons()
     u8 i = 0;
     s16 x = ICON_BOX_1_START_X;
     s16 y = ICON_BOX_1_START_Y;
-    struct Pokemon *mon;
+    //struct Pokemon *mon;
     LoadMonIconPalettes();
     for(i = 0; i < gPlayerPartyCount; i++)
     {   
@@ -776,10 +777,10 @@ static void CreateGreyedMenuBoxes()
         StartSpriteAnim(&gSprites[sStartMenuDataPtr->greyMenuBoxIds[1]], 0);
     }
 
-    if(!FlagGet(FLAG_SYS_POKENAV_GET))
+    if(!FlagGet(FLAG_SYS_DEXNAV_GET))
     {
         if (sStartMenuDataPtr->greyMenuBoxIds[2] == SPRITE_NONE)
-            sStartMenuDataPtr->greyMenuBoxIds[2] = CreateSprite(&sSpriteTemplate_GreyMenuButtonMap, CURSOR_LEFT_COL_X, CURSOR_BTM_ROW_Y, 1);
+            sStartMenuDataPtr->greyMenuBoxIds[2] = CreateSprite(&sSpriteTemplate_GreyMenuButtonDexnav, CURSOR_LEFT_COL_X, CURSOR_BTM_ROW_Y, 1);
         gSprites[sStartMenuDataPtr->greyMenuBoxIds[2]].invisible = FALSE;
         StartSpriteAnim(&gSprites[sStartMenuDataPtr->greyMenuBoxIds[2]], 0);
     }
@@ -883,7 +884,7 @@ static void DestroyStatusSprites()
 // These next few functions are from the Ghoulslash UI Shell, they are the basic functions to init a brand new UI
 void Task_OpenStartMenuFullScreen(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
+    //s16 *data = gTasks[taskId].data;
     if (!gPaletteFade.active)
     {
         CleanupOverworldWindowsAndTilemaps();
@@ -1123,7 +1124,7 @@ static bool8 StartMenuFull_LoadGraphics(void) // Load the Tilesets, Tilemaps, Sp
         LoadCompressedSpriteSheet(&sSpriteSheet_StatusIcons);
         LoadCompressedSpritePalette(&sSpritePalette_StatusIcons);
 
-        LoadCompressedSpriteSheet(&sSpriteSheet_GreyMenuButtonMap);
+        LoadCompressedSpriteSheet(&sSpriteSheet_GreyMenuButtonDexnav);
         LoadCompressedSpriteSheet(&sSpriteSheet_GreyMenuButtonDex);
         LoadCompressedSpriteSheet(&sSpriteSheet_GreyMenuButtonParty);
         LoadSpritePalette(&sSpritePal_GreyMenuButton);
@@ -1314,16 +1315,18 @@ void Task_OpenTrainerCardFromStartMenu(u8 taskId)
     }
 }
 
-void Task_OpenPokenavStartMenu(u8 taskId)
+
+void Task_OpenDexnavStartMenu(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
         StartMenuFull_FreeResources();
 		PlayRainStoppingSoundEffect();
 		CleanupOverworldWindowsAndTilemaps();
-        SetMainCallback2(CB2_InitPokeNav);
+        CreateTask(Task_OpenDexNavFromStartMenu, 0);
     }
 }
+
 
 void Task_OpenOptionsMenuStartMenu(u8 taskId)
 {
@@ -1447,12 +1450,11 @@ static void Task_StartMenuFullMain(u8 taskId)
                     PlaySE(SE_BOO);
                 }
                 break;
-            case START_MENU_MAP:
-                if(FlagGet(FLAG_SYS_POKENAV_GET))
-                {
+            case START_MENU_DEXNAV:
+                if(FlagGet(FLAG_SYS_DEXNAV_GET)){
                     PlaySE(SE_SELECT);
                     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-                    gTasks[taskId].func = Task_OpenPokenavStartMenu;
+                    gTasks[taskId].func = Task_OpenDexnavStartMenu;
                 }
                 else{
                     PlaySE(SE_BOO);
