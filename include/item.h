@@ -79,6 +79,8 @@ u32 ItemId_GetFlingPower(u32 itemId);
 u32 GetItemStatus1Mask(u16 itemId);
 u32 GetItemStatus2Mask(u16 itemId);
 
+void Task_AccessPokemonBoxLink(u8);
+
 /* Expands to:
  * enum
  * {

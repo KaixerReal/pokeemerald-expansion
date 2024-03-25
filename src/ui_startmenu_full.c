@@ -83,7 +83,7 @@ enum StartMenuBoxes
     START_MENU_POKEDEX,
     START_MENU_PARTY,
     START_MENU_BAG,
-    START_MENU_CARD,
+    START_MENU_PC,
     START_MENU_DEXNAV,
     START_MENU_OPTIONS,
 };
@@ -1178,7 +1178,6 @@ static void PrintSaveConfirmToWindow()
     CopyWindowToVram(WINDOW_BOTTOM_BAR, COPYWIN_FULL);
 }
 
-
 //
 //  Print Time, Location, and Dayof Week
 //
@@ -1200,12 +1199,15 @@ static const u8 * const sDayOfWeekStrings[7] =
     sText_Saturday,
 };
 
+static const u8 sText_AM[] = _("AM");
+static const u8 sText_PM[] = _("PM");
+
 static void PrintMapNameAndTime(void) //this code is ripped froom different parts of pokeemerald and is a mess because of that, but it all works
 {
     u8 mapDisplayHeader[24];
     u8 *withoutPrefixPtr;
     u8 x;
-    const u8 *str;
+    const u8 *str, *suffix = NULL;
     u8 sTimeTextColors[] = {TEXT_COLOR_TRANSPARENT, 2, 3};
 
     u16 hours;
@@ -1226,6 +1228,24 @@ static void PrintMapNameAndTime(void) //this code is ripped froom different part
 
     RtcCalcLocalTime();
     hours = gLocalTime.hours;
+
+        if (gLocalTime.hours < 12)
+        {
+            hours = (gLocalTime.hours == 0) ? 12 : gLocalTime.hours;
+            suffix = sText_AM;
+        }
+        else if (gLocalTime.hours == 12)
+        {
+            hours = 12;
+            if (suffix == sText_AM)
+                suffix = sText_PM;
+        }
+        else
+        {
+            hours = gLocalTime.hours - 12;
+            suffix = sText_PM;
+        }
+
     minutes = gLocalTime.minutes;
     dayOfWeek = gLocalTime.days % 7;
     if (hours > 999)
@@ -1254,6 +1274,14 @@ static void PrintMapNameAndTime(void) //this code is ripped froom different part
     x += width;
     ConvertIntToDecimalStringN(gStringVar4, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
     AddTextPrinterParameterized3(WINDOW_TOP_BAR, FONT_NORMAL, x, y, sTimeTextColors, TEXT_SKIP_DRAW, gStringVar4);
+
+    if (suffix != NULL)
+    {
+        width = GetStringWidth(FONT_NORMAL, gStringVar4, 0) + 3; // CHAR_SPACE is 3 pixels wide
+        x += width;
+        StringExpandPlaceholders(gStringVar4, suffix);
+        AddTextPrinterParameterized3(WINDOW_TOP_BAR, FONT_NORMAL, x, y, sTimeTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
 
     PutWindowTilemap(WINDOW_TOP_BAR);
     CopyWindowToVram(WINDOW_TOP_BAR, COPYWIN_FULL);
@@ -1314,6 +1342,21 @@ void Task_OpenTrainerCardFromStartMenu(u8 taskId)
             ShowPlayerTrainerCard(CB2_ReturnToFullScreenStartMenu);
     }
 }
+
+extern const u8 EventScript_PC_FromStartMenu[];
+
+void Task_OpenPokeStorageFromStartMenu(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        StartMenuFull_FreeResources();
+        PlayRainStoppingSoundEffect();
+        CleanupOverworldWindowsAndTilemaps();
+        CreateTask(Task_StartMenuFullTurnOff, 0);
+        ScriptContext_SetupScript(EventScript_PC_FromStartMenu);
+    }
+}
+
 
 
 void Task_OpenDexnavStartMenu(u8 taskId)
@@ -1460,10 +1503,10 @@ static void Task_StartMenuFullMain(u8 taskId)
                     PlaySE(SE_BOO);
                 }
                 break;
-            case START_MENU_CARD:
+            case START_MENU_PC:
                 PlaySE(SE_SELECT);
                 BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-                gTasks[taskId].func = Task_OpenTrainerCardFromStartMenu;
+                gTasks[taskId].func = Task_OpenPokeStorageFromStartMenu;
                 break;
             case START_MENU_OPTIONS:
                 PlaySE(SE_SELECT);
@@ -1477,6 +1520,13 @@ static void Task_StartMenuFullMain(u8 taskId)
     {
         PrintSaveConfirmToWindow();
         gTasks[taskId].func = Task_HandleSaveConfirmation;
+    }
+
+    if(JOY_NEW(SELECT_BUTTON)) // If start button pressed go to Save Confirmation Control Task
+    {
+        PlaySE(SE_SELECT);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+        gTasks[taskId].func = Task_OpenTrainerCardFromStartMenu;
     }
 
     if(gTasks[taskId].sFrameToSecondTimer >= 60) // every 60 frames update the time

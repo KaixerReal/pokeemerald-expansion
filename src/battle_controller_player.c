@@ -1752,6 +1752,7 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
 
     switch(moveType){
     //TODO: Account for all abilities, and items
+    //Ground Type
     case TYPE_GROUND:
         //Levitate
         if(gBattleMons[targetId].ability == ABILITY_LEVITATE)
@@ -1763,6 +1764,7 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
         if (gBattleMons[targetId].item == ITEM_AIR_BALLOON)
             return COLOR_IMMUNE;
     break;
+    //Electric Type
     case TYPE_ELECTRIC:
         //Volt Absorb
         if(gBattleMons[targetId].ability == ABILITY_VOLT_ABSORB)
@@ -1773,6 +1775,14 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
             return COLOR_IMMUNE;
         //Motor Drive
         if(gBattleMons[targetId].ability == ABILITY_MOTOR_DRIVE)
+            return COLOR_IMMUNE;
+    break;
+    case TYPE_WATER:
+        if (gBattleWeather == B_WEATHER_SUN_PRIMAL)
+            return COLOR_IMMUNE;
+    break;
+    case B_WEATHER_RAIN_PRIMAL:
+        if (moveType == TYPE_FIRE)
             return COLOR_IMMUNE;
     break;
     }
