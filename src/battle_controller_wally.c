@@ -31,6 +31,7 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/rgb.h"
+#include "event_data.h"
 
 static void WallyHandleDrawTrainerPic(u32 battler);
 static void WallyHandleTrainerSlide(u32 battler);
@@ -192,6 +193,7 @@ static void WallyHandleActions(u32 battler)
         {
             PlaySE(SE_SELECT);
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_USE_ITEM, 0);
+            FlagSet(FLAG_DISABLE_BAG);
             WallyBufferExecCompleted(battler);
         }
         break;
