@@ -411,7 +411,7 @@
 #define FLAG_REMATCH_MIGUEL                  0x17C
 #define FLAG_REMATCH_TIMOTHY                 0x17D
 #define FLAG_REMATCH_SHELBY                  0x17E
-#define FLAG_REMATCH_CALVIN                  0x17F
+#define FLAG_UNUSED_0x17F                    0x17F //Unused Flag
 #define FLAG_REMATCH_ELLIOT                  0x180
 #define FLAG_REMATCH_ISAIAH                  0x181
 #define FLAG_REMATCH_MARIA                   0x182

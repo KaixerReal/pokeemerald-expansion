@@ -3950,28 +3950,28 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Dillon),
     },
 
-    [TRAINER_CALVIN_2] =
+    [TRAINER_HUSSU] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("CALVIN"),
-        .items = {},
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("Hussu"),
+        .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
-        .aiFlags = AI_STANDARD_FLAGS,
-        .party = TRAINER_PARTY(sParty_Calvin2),
+        .aiFlags = AI_BOSS_FLAGS,
+        .party = TRAINER_PARTY(sParty_Hussu),
     },
 
-    [TRAINER_CALVIN_3] =
+    [TRAINER_CYRO] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("CALVIN"),
-        .items = {},
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("Cyro"),
+        .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
-        .aiFlags = AI_STANDARD_FLAGS,
-        .party = TRAINER_PARTY(sParty_Calvin3),
+        .aiFlags = AI_BOSS_FLAGS,
+        .party = TRAINER_PARTY(sParty_Cyro),
     },
 
     [TRAINER_CALVIN_4] =
