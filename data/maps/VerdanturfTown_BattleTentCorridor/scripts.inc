@@ -1,3 +1,4 @@
+
 .set LOCALID_ATTENDANT, 1
 
 VerdanturfTown_BattleTentCorridor_MapScripts::
@@ -73,4 +74,3 @@ VerdanturfTown_ContestHall_Text_MyMonRules:
 VerdanturfTown_ContestHall_Text_NormalRankStage:
 	.string "POKéMON CONTESTS\n"
 	.string "NORMAL RANK STAGE!$"
-

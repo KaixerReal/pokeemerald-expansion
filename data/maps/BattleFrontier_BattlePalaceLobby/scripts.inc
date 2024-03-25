@@ -1,3 +1,4 @@
+
 .set LOCALID_ATTENDANT_SINGLES, 1
 .set LOCALID_ATTENDANT_DOUBLES, 6
 
@@ -647,4 +648,3 @@ BattleFrontier_BattlePalaceLobby_Text_ExplainRulesWhenInDanger:
 	.string "nature when it is in trouble.\p"
 	.string "If a POKéMON begins behaving oddly\n"
 	.string "in a pinch, watch it carefully.$"
-

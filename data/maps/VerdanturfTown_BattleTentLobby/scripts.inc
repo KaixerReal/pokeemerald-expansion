@@ -1,3 +1,4 @@
+
 .set LOCALID_ATTENDANT, 1
 
 VerdanturfTown_BattleTentLobby_MapScripts::

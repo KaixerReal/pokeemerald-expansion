@@ -1,3 +1,4 @@
+
 .set LOCALID_OLD_WOMAN, 2
 
 BattleFrontier_Mart_MapScripts::
@@ -66,4 +67,3 @@ BattleFrontier_Mart_Text_FacilitiesDontAllowItems:
 	.string "during battles.\p"
 	.string "That rule makes things tougher than\n"
 	.string "they already are!$"
-

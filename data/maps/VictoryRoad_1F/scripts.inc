@@ -1,3 +1,4 @@
+
 .set LOCALID_WALLY_ENTRANCE, 4
 
 VictoryRoad_1F_MapScripts::
