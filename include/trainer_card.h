@@ -26,6 +26,7 @@ struct TrainerCard
     /*0x02*/ bool8 hasPokedex;
     /*0x03*/ bool8 caughtAllHoenn;
     /*0x04*/ bool8 hasAllPaintings;
+             bool8 levelCap;
     /*0x06*/ u16 hofDebutHours;
     /*0x08*/ u16 hofDebutMinutes;
     /*0x0A*/ u16 hofDebutSeconds;

@@ -53,7 +53,7 @@ static const struct TrainerMon sParty_BrendanRoute103Treecko[] = {
 //May Treecko
 static const struct TrainerMon sParty_MayRoute103Treecko[] = {
     {
-        .species = SPECIES_TORCHIC,
+        .species = SPECIES_GRIMMSNARL,
         .lvl = 5,
         //.ability = ABILITY_ONE,
         .moves = {MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE},

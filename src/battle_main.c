@@ -5761,7 +5761,7 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
-        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS == TRUE)
+        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_ITEMS == TRUE)
             TryRestoreHeldItems();
 
         // Undo Dynamax HP multiplier before recalculating stats.

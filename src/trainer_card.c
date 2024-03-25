@@ -32,6 +32,7 @@
 #include "constants/rgb.h"
 #include "constants/trainers.h"
 #include "constants/union_room.h"
+#include "level_caps.h"
 
 enum {
     WIN_MSG,
@@ -718,6 +719,8 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
     trainerCard->hasPokedex = FlagGet(FLAG_SYS_POKEDEX_GET);
     trainerCard->caughtAllHoenn = HasAllHoennMons();
     trainerCard->caughtMonsCount = GetCaughtMonsCount();
+
+    trainerCard->levelCap = GetCurrentLevelCap();
 
     trainerCard->trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
 

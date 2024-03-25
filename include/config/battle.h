@@ -122,7 +122,7 @@
 // Ability settings
 #define B_EXPANDED_ABILITY_NAMES    TRUE       // If TRUE, ability names are increased from 12 characters to 16 characters.
 #define B_ABILITY_WEATHER           GEN_LATEST // In Gen6+, ability-induced weather lasts 5 turns. Before, it lasted until the battle ended or until it was changed by a move or a different weather-affecting ability.
-#define B_GALE_WINGS                GEN_LATEST // In Gen7+ requires full HP to trigger.
+#define B_GALE_WINGS                GEN_6 // In Gen7+ requires full HP to trigger.
 #define B_STANCE_CHANGE_FAIL        GEN_LATEST // In Gen7+, Stance Change fails if the Pokémon is unable to use a move because of confusion, paralysis, etc. In Gen6, it doesn't.
 #define B_SHADOW_TAG_ESCAPE         GEN_LATEST // In Gen4+, if both sides have a Pokémon with Shadow Tag, all battlers can escape. Before, neither side could escape this situation.
 #define B_MOODY_ACC_EVASION         GEN_LATEST // In Gen8, Moody CANNOT raise Accuracy and Evasion anymore.
@@ -151,7 +151,7 @@
 #define B_X_ITEMS_BUFF              GEN_LATEST // In Gen7+, the X Items raise a stat by 2 stages instead of 1.
 #define B_MENTAL_HERB               GEN_LATEST // In Gen5+, the Mental Herb cures Taunt, Encore, Torment, Heal Block, and Disable in addition to Infatuation from before.
 #define B_TRAINERS_KNOCK_OFF_ITEMS  TRUE       // If TRUE, trainers can steal/swap your items (non-berries are restored after battle). In vanilla games trainers cannot steal items.
-#define B_RESTORE_HELD_BATTLE_ITEMS TRUE       // In Gen9 all non berry items are restored after battle.
+#define B_RESTORE_HELD_ITEMS TRUE       // In Gen9 all non berry items are restored after battle.
 #define B_SOUL_DEW_BOOST            GEN_LATEST // In Gens3-6, Soul Dew boosts Latis' Sp. Atk and Sp. Def. In Gen7+ it boosts the power of their Psychic and Dragon type moves instead.
 #define B_NET_BALL_MODIFIER         GEN_LATEST // In Gen7+, Net Ball's catch multiplier is x5 instead of x3.
 #define B_DIVE_BALL_MODIFIER        GEN_LATEST // In Gen4+, Dive Ball's effectiveness increases by when Surfing or Fishing.

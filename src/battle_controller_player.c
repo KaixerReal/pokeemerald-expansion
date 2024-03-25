@@ -1750,43 +1750,6 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
     moveType = gMovesInfo[move].type;
     modifier = CalcTypeEffectivenessMultiplier(move, moveType, battler, targetId, GetBattlerAbility(targetId), TRUE);
 
-    switch(moveType){
-    //TODO: Account for all abilities, and items
-    //Ground Type
-    case TYPE_GROUND:
-        //Levitate
-        if(gBattleMons[targetId].ability == ABILITY_LEVITATE)
-            return COLOR_IMMUNE;
-        //Earth Eater
-        if(gBattleMons[targetId].ability == ABILITY_EARTH_EATER)
-            return COLOR_IMMUNE;
-        //Air Balloon
-        if (gBattleMons[targetId].item == ITEM_AIR_BALLOON)
-            return COLOR_IMMUNE;
-    break;
-    //Electric Type
-    case TYPE_ELECTRIC:
-        //Volt Absorb
-        if(gBattleMons[targetId].ability == ABILITY_VOLT_ABSORB)
-            return COLOR_IMMUNE; 
-        //Lighting Rod
-        if(gBattleMons[targetId].ability == ABILITY_LIGHTNING_ROD ||
-            (gBattleMons[BATTLE_PARTNER(targetId)].ability == ABILITY_LIGHTNING_ROD && IsBattlerAlive(BATTLE_PARTNER(targetId))))
-            return COLOR_IMMUNE;
-        //Motor Drive
-        if(gBattleMons[targetId].ability == ABILITY_MOTOR_DRIVE)
-            return COLOR_IMMUNE;
-    break;
-    case TYPE_WATER:
-        if (gBattleWeather == B_WEATHER_SUN_PRIMAL)
-            return COLOR_IMMUNE;
-    break;
-    case B_WEATHER_RAIN_PRIMAL:
-        if (moveType == TYPE_FIRE)
-            return COLOR_IMMUNE;
-    break;
-    }
-    
     if (modifier == UQ_4_12(0.0)) {
 			return COLOR_IMMUNE; // 26 - no effect
     }

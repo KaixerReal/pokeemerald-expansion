@@ -1367,6 +1367,7 @@ void Task_OpenDexnavStartMenu(u8 taskId)
 		PlayRainStoppingSoundEffect();
 		CleanupOverworldWindowsAndTilemaps();
         CreateTask(Task_OpenDexNavFromStartMenu, 0);
+        gMain.savedCallback = CB2_ReturnToFullScreenStartMenu;
     }
 }
 
