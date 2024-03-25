@@ -127,7 +127,7 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
 	}
 	reflectionPalette.data = gReflectionPaletteBuffer;
 	reflectionPalette.tag = GetSpritePaletteTagByPaletteNum(sprite->oam.paletteNum) + 0x1000;
-	LoadSpritePalette(&reflectionPalette);
+	LoadSpritePaletteDayNight(&reflectionPalette);
 	sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
 	UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_ALT);
 	UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
@@ -187,7 +187,7 @@ extern const struct SpritePalette gSpritePalette_ArrowEmotionsFieldEffect;
 u8 CreateWarpArrowSprite(void)
 {
     u8 spriteId;
-    struct Sprite *sprite;
+    //struct Sprite *sprite;
 
     LoadFieldEffectPalette_(FLDEFFOBJ_ARROW, FALSE);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_ARROW], 0, 0, 0x52);

@@ -219,7 +219,10 @@ void ProcessImmediateTimeEvents(void)
 
                 #define paletteIndex period
                 for (paletteIndex = 0; paletteIndex < NUM_PALS_TOTAL; paletteIndex++)
+                {
                     ApplyWeatherColorMapToPal(paletteIndex);
+                    UpdateSpritePaletteWithWeather(paletteIndex);
+                }
                 #undef paletteIndex
             }
         }
