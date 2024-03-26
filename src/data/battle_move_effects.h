@@ -706,7 +706,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_HIDDEN_POWER] =
     {
-        .battleScript = BattleScript_EffectHit,
+        .battleScript = BattleScript_EffectPhotonGeyser,
         .battleTvScore = 1,
     },
 

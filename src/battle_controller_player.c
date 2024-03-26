@@ -5,6 +5,7 @@
 #include "battle_controllers.h"
 #include "battle_dome.h"
 #include "battle_interface.h"
+#include "battle_main.h"
 #include "battle_message.h"
 #include "battle_setup.h"
 #include "battle_tv.h"
@@ -30,6 +31,7 @@
 #include "text.h"
 #include "util.h"
 #include "window.h"
+#include "config/battle.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_partner.h"
 #include "constants/hold_effects.h"
@@ -41,6 +43,7 @@
 #include "constants/rgb.h"
 #include "constants/abilities.h"
 #include "level_caps.h"
+#include "constants/battle_move_effects.h"
 
 #define COLOR_SUPER_EFFECTIVE 24
 #define COLOR_NOT_VERY_EFFECTIVE 25
@@ -1747,7 +1750,7 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
     uq4_12_t modifier;
     move = gBattleMons[battler].moves[gMoveSelectionCursor[battler]];
     //TODO: account for hidden power and maybe other dynamic move types?
-    moveType = gMovesInfo[move].type;
+    moveType = GetTypeBeforeUsingMove(move, battler);
     modifier = CalcTypeEffectivenessMultiplier(move, moveType, battler, targetId, GetBattlerAbility(targetId), TRUE);
 
     if (modifier == UQ_4_12(0.0)) {
@@ -1769,7 +1772,8 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     u8 *txtPtr;
     u8 typeColor = IsDoubleBattle() ? B_WIN_MOVE_TYPE : TypeEffectiveness(GetBattlerAtPosition(BATTLE_OPPOSITE(GetBattlerPosition(battler))), battler);
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
-    u8 moveType = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].type;
+    u16 move = moveInfo->moves[gMoveSelectionCursor[battler]];
+    u8 moveType = GetTypeBeforeUsingMove(move, battler);
     u8 movePower = gMovesInfo[moveInfo->moves[gMoveSelectionCursor[battler]]].power;
     u8 battlerType1 = gBattleMons[battler].type1;
     u8 battlerType2 = gBattleMons[battler].type2;

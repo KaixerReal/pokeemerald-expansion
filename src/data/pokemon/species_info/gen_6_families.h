@@ -802,13 +802,13 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         FOOTPRINT(Fletchinder)
         .levelUpLearnset = sFletchinderLevelUpLearnset,
         .teachableLearnset = sFletchinderTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_TALONFLAME}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_TALONFLAME}),
     },
 
     [SPECIES_TALONFLAME] =
     {
         .baseHP        = 78,
-        .baseAttack    = 81,
+        .baseAttack    = 96,
         .baseDefense   = 71,
         .baseSpeed     = 126,
         .baseSpAttack  = 74,
@@ -822,7 +822,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_FLAME_BODY, ABILITY_NONE, ABILITY_GALE_WINGS },
+        .abilities = { ABILITY_TECHNICIAN, ABILITY_FLAME_BODY, ABILITY_GALE_WINGS },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Talonflame"),
         .cryId = CRY_TALONFLAME,
