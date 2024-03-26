@@ -1,3 +1,22 @@
+//New Mega Test Trainer.
+
+static const struct TrainerMon sParty_Jose[] = {
+    {
+        .species = SPECIES_VENUSAUR,
+        .lvl = 8,
+        //.ability = ABILITY_ONE,
+        .moves = {MOVE_POUND, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        //.nature = NATURE_ADAMANT,
+        //.gender = TRAINER_MON_FEMALE,
+        //.friendship = 255,
+        .heldItem = ITEM_VENUSAURITE_Y,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+    },
+};
+
 //Rival 103
 //Brendan Mudkip
 static const struct TrainerMon sParty_BrendanRoute103Mudkip[] = {
@@ -8592,19 +8611,6 @@ static const struct TrainerMon sParty_Crissy[] = {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
     .lvl = 39,
     .species = SPECIES_WAILMER,
-    }
-};
-
-static const struct TrainerMon sParty_Jose[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 8,
-    .species = SPECIES_WURMPLE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 8,
-    .species = SPECIES_NINCADA,
     }
 };
 

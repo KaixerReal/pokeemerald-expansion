@@ -1593,7 +1593,7 @@
 #define SPECIES_TOGEDEMARU_TOTEM                        1486
 #define SPECIES_PIKACHU_PARTNER                         1487
 #define SPECIES_EEVEE_PARTNER                           1488
-#define SPECIES_VENUSAUR_GIGANTAMAX                     1489
+#define SPECIES_VENUSAUR_MEGA_Y                     1489
 #define SPECIES_BLASTOISE_GIGANTAMAX                    1490
 #define SPECIES_CHARIZARD_GIGANTAMAX                    1491
 #define SPECIES_BUTTERFREE_GIGANTAMAX                   1492

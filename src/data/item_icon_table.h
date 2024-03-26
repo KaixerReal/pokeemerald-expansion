@@ -876,6 +876,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
 
     // Custom Mega Stones
     [ITEM_MACHAMPITE] = {gItemIcon_Kangaskhanite, gItemIconPalette_Kangaskhanite},
+    [ITEM_VENUSAURITE_Y] = {gItemIcon_Venusaurite, gItemIconPalette_Venusaurite},
 
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
