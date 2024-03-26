@@ -385,6 +385,11 @@ const u16 gObjectEventPaletteWinona[]         = INCBIN_U16("graphics/object_even
 const u16 gObjectEventPaletteTateLiza[]       = INCBIN_U16("graphics/object_events/palettes/tateliza.gbapal"); //*Done
 const u16 gObjectEventPaletteJuan[]           = INCBIN_U16("graphics/object_events/palettes/juan.gbapal"); //*Done
 const u16 gObjectEventPaletteWallace[]        = INCBIN_U16("graphics/object_events/palettes/wallace.gbapal"); //*Done
+//Mega Trainers
+const u32 gObjectEventPic_MegaTrainerM[]      = INCBIN_U32("graphics/object_events/pics/people/megatrainer_m.4bpp");
+const u32 gObjectEventPic_MegaTrainerF[]      = INCBIN_U32("graphics/object_events/pics/people/megatrainer_f.4bpp");
+const u16 gObjectEventPaletteMegaTrainerM[]   = INCBIN_U16("graphics/object_events/palettes/megatrainers.gbapal"); //*Done
+const u16 gObjectEventPaletteMegaTrainerF[]   = INCBIN_U16("graphics/object_events/palettes/megatrainers_f.gbapal"); //*Done
 //Champion
 //const u16 gObjectEventPaletteSteven[]         = INCBIN_U16("graphics/object_events/palettes/winona.gbapal"); //TODO
 

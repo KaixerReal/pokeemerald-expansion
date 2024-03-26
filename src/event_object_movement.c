@@ -448,6 +448,9 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_TATELIZA                (OBJ_EVENT_PAL_TAG_RS_MAY + 7) //*Done
 #define OBJ_EVENT_PAL_TAG_JUAN                    (OBJ_EVENT_PAL_TAG_RS_MAY + 8) //*Done
 #define OBJ_EVENT_PAL_TAG_WALLACE                 (OBJ_EVENT_PAL_TAG_RS_MAY + 9) //*Done
+//Mega Trainers
+#define OBJ_EVENT_PAL_TAG_MEGATRAINER_M           (OBJ_EVENT_PAL_TAG_RS_MAY + 10) //*Done
+#define OBJ_EVENT_PAL_TAG_MEGATRAINER_F           (OBJ_EVENT_PAL_TAG_RS_MAY + 11) //*Done
 //Champion
 //#define OBJ_EVENT_PAL_TAG_JUAN                  (OBJ_EVENT_PAL_TAG_RS_MAY + 10) //TODO
 
@@ -506,6 +509,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPaletteTateLiza,           OBJ_EVENT_PAL_TAG_TATELIZA}, //*Done
     {gObjectEventPaletteJuan,               OBJ_EVENT_PAL_TAG_JUAN}, //*Done
     {gObjectEventPaletteWallace,            OBJ_EVENT_PAL_TAG_WALLACE}, //*Done
+    //Mega Trainers
+    {gObjectEventPaletteMegaTrainerM,       OBJ_EVENT_PAL_TAG_MEGATRAINER_M}, //*Done
+    {gObjectEventPaletteMegaTrainerF,       OBJ_EVENT_PAL_TAG_MEGATRAINER_F}, //*Done
     //Champion
     //{gObjectEventPaletteSteven,             OBJ_EVENT_PAL_TAG_NPC_1}, //TODO
 #ifdef BUGFIX
