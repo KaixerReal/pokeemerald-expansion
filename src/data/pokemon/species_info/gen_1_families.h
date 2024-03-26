@@ -9348,7 +9348,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_MEGA_EVOLUTIONS
 
 #if P_GIGANTAMAX_FORMS
-    [SPECIES_GENGAR_MEGA] =
+    [SPECIES_GENGAR_MEGA_Y] =
     {
         .baseHP        = 60,
         .baseAttack    = 65,

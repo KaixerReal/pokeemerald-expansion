@@ -678,6 +678,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(PIKE_QUEEN, "PIKE QUEEN"),
     TRAINER_CLASS(PYRAMID_KING, "PYRAMID KING"),
     TRAINER_CLASS(RS_PROTAG, "{PKMN} TRAINER"),
+    TRAINER_CLASS(MEGATRAINER, "MEGA TRAINER"),
 };
 
 static void (* const sTurnActionsFuncsTable[])(void) =
@@ -5614,6 +5615,7 @@ static void HandleEndTurn_BattleWon(void)
         case TRAINER_CLASS_MAGMA_LEADER:
             PlayBGM(MUS_VICTORY_AQUA_MAGMA);
             break;
+        case TRAINER_CLASS_MEGATRAINER:
         case TRAINER_CLASS_LEADER:
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;

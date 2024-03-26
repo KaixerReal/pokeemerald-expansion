@@ -3952,9 +3952,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HUSSU] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_MEGATRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerPic = TRAINER_PIC_MEGATRAINER_M,
         .trainerName = _("Hussu"),
         .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
@@ -3964,9 +3964,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_CYRO] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_MEGATRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerPic = TRAINER_PIC_MEGATRAINER_M,
         .trainerName = _("Cyro"),
         .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
@@ -3976,9 +3976,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DUSKIE] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_MEGATRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerPic = TRAINER_PIC_MEGATRAINER_M,
         .trainerName = _("Duskie"),
         .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
@@ -3988,10 +3988,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_MEGATESTER] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_MEGATRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LEADER_NORMAN,
-        .trainerName = _("MegaTester"),
+        .trainerPic = TRAINER_PIC_MEGATRAINER_M,
+        .trainerName = _("Tester"),
         .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
         .aiFlags = AI_STANDARD_FLAGS,

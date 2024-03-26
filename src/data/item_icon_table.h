@@ -895,6 +895,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_APPLITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
     [ITEM_GARBORDITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
     [ITEM_LAPRASITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_ORBEETLITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
     
 
     // Return to field arrow
