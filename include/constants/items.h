@@ -1001,7 +1001,10 @@
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 828
+// CUSTOM MEGA STONES
+#define ITEM_MACHAMPITE (ITEM_POKESHI_DOLL + 1)
+
+#define ITEMS_COUNT (ITEM_MACHAMPITE + 1)
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

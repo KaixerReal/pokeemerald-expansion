@@ -1599,7 +1599,7 @@
 #define SPECIES_BUTTERFREE_GIGANTAMAX                   1492
 #define SPECIES_PIKACHU_GIGANTAMAX                      1493
 #define SPECIES_MEOWTH_GIGANTAMAX                       1494
-#define SPECIES_MACHAMP_GIGANTAMAX                      1495
+#define SPECIES_MACHAMP_MEGA                      1495
 #define SPECIES_GENGAR_GIGANTAMAX                       1496
 #define SPECIES_KINGLER_GIGANTAMAX                      1497
 #define SPECIES_LAPRAS_GIGANTAMAX                       1498
