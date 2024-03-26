@@ -1601,7 +1601,7 @@
 #define SPECIES_MEOWTH_GIGANTAMAX                       1494
 #define SPECIES_MACHAMP_MEGA                      1495
 #define SPECIES_GENGAR_GIGANTAMAX                       1496
-#define SPECIES_KINGLER_GIGANTAMAX                      1497
+#define SPECIES_KINGLER_MEGA                      1497
 #define SPECIES_LAPRAS_GIGANTAMAX                       1498
 #define SPECIES_EEVEE_GIGANTAMAX                        1499
 #define SPECIES_SNORLAX_GIGANTAMAX                      1500
