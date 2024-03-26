@@ -990,7 +990,7 @@ static const struct FormChange sHattereneFormChangeTable[] =
 #if P_FAMILY_IMPIDIMP
 static const struct FormChange sGrimmsnarlFormChangeTable[] =
 {
-    {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_GRIMMSNARL_GIGANTAMAX},
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM, SPECIES_GRIMMSNARL_MEGA, ITEM_GRIMMSNARLITE},
     {FORM_CHANGE_TERMINATOR},
 };
 #endif //P_FAMILY_IMPIDIMP

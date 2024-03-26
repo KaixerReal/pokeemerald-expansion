@@ -2,14 +2,14 @@
 
 static const struct TrainerMon sParty_MegaTester[] = {
     {
-        .species = SPECIES_KINGLER,
+        .species = SPECIES_GRIMMSNARL,
         .lvl = 100,
         //.ability = ABILITY_ONE,
         .moves = {MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE},
         //.nature = NATURE_ADAMANT,
         //.gender = TRAINER_MON_FEMALE,
         //.friendship = 255,
-        .heldItem = ITEM_KINGLERITE,
+        .heldItem = ITEM_GRIMMSNARLITE,
         .isShiny = TRUE,
         .ball = ITEM_POKE_BALL,
         //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.

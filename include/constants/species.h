@@ -1621,7 +1621,7 @@
 #define SPECIES_TOXTRICITY_LOW_KEY_GIGANTAMAX           1514
 #define SPECIES_CENTISKORCH_GIGANTAMAX                  1515
 #define SPECIES_HATTERENE_GIGANTAMAX                    1516
-#define SPECIES_GRIMMSNARL_GIGANTAMAX                   1517
+#define SPECIES_GRIMMSNARL_MEGA                   1517
 #define SPECIES_ALCREMIE_GIGANTAMAX                     1518
 #define SPECIES_COPPERAJAH_GIGANTAMAX                   1519
 #define SPECIES_DURALUDON_GIGANTAMAX                    1520

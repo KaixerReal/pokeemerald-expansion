@@ -1652,7 +1652,7 @@ static const u16 sHattereneFormSpeciesIdTable[] = {
 #if P_FAMILY_IMPIDIMP
 static const u16 sGrimmsnarlFormSpeciesIdTable[] = {
     SPECIES_GRIMMSNARL,
-    SPECIES_GRIMMSNARL_GIGANTAMAX,
+    SPECIES_GRIMMSNARL_MEGA,
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_IMPIDIMP

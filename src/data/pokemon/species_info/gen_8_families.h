@@ -3976,15 +3976,15 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .formChangeTable = sGrimmsnarlFormChangeTable,
     },
 
-#if P_GIGANTAMAX_FORMS
-    [SPECIES_GRIMMSNARL_GIGANTAMAX] =
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_GRIMMSNARL_MEGA] =
     {
         .baseHP        = 95,
-        .baseAttack    = 120,
-        .baseDefense   = 65,
-        .baseSpeed     = 60,
+        .baseAttack    = 130,
+        .baseDefense   = 95,
+        .baseSpeed     = 70,
         .baseSpAttack  = 95,
-        .baseSpDefense = 75,
+        .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_DARK, TYPE_FAIRY),
         .catchRate = 45,
         .expYield = 255,
@@ -3994,7 +3994,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_PRANKSTER, ABILITY_FRISK, ABILITY_PICKPOCKET },
+        .abilities = { ABILITY_PRANKSTER, ABILITY_PRANKSTER, ABILITY_PRANKSTER },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Grimmsnarl"),
         .cryId = CRY_GRIMMSNARL,
@@ -4025,13 +4025,13 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .iconSprite = gMonIcon_GrimmsnarlGigantamax,
         .iconPalIndex = 0,
         FOOTPRINT(Grimmsnarl)
-        .isGigantamax = TRUE,
+        .isMegaEvolution = TRUE,
         .levelUpLearnset = sGrimmsnarlLevelUpLearnset,
         .teachableLearnset = sGrimmsnarlTeachableLearnset,
         .formSpeciesIdTable = sGrimmsnarlFormSpeciesIdTable,
         .formChangeTable = sGrimmsnarlFormChangeTable,
     },
-#endif //P_GIGANTAMAX_FORMS
+#endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_IMPIDIMP
 
 #if P_FAMILY_MILCERY

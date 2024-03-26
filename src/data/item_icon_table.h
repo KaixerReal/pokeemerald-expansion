@@ -879,6 +879,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_VENUSAURITE_Y] = {gItemIcon_Venusaurite, gItemIconPalette_Venusaurite},
     [ITEM_BLASTOISINITE_Y] = {gItemIcon_Blastoisinite, gItemIconPalette_Blastoisinite},
     [ITEM_KINGLERITE] = {gItemIcon_Latiosite, gItemIconPalette_Latiosite},
+    [ITEM_GRIMMSNARLITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
     
 
     // Return to field arrow
