@@ -1019,3 +1019,20 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
+
+LittlerootTown_EventScript_MegaTrainerTest::
+	lockall
+	message LittlerootTown_EventScript_MegaTrainerTest_Text_0
+	waitmessage
+	trainerbattle_no_intro TRAINER_MEGATESTER, LittlerootTown_EventScript_MegaTrainerTest_Text_1
+	releaseall
+	end
+
+
+LittlerootTown_EventScript_MegaTrainerTest_Text_0:
+	.string "Hi im the Mega Pokemon Tester. I ONLY\n"
+	.string "exists in beta version of the game,\l"
+	.string "when theres a new mega to be a tested.$"
+
+LittlerootTown_EventScript_MegaTrainerTest_Text_1:
+	.string "Good New Mega...\nEy?$"

@@ -21,7 +21,7 @@ static const u16 sCharizardFormSpeciesIdTable[] = {
 static const u16 sBlastoiseFormSpeciesIdTable[] = {
     SPECIES_BLASTOISE,
     SPECIES_BLASTOISE_MEGA,
-    SPECIES_BLASTOISE_GIGANTAMAX,
+    SPECIES_BLASTOISE_MEGA_Y,
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_SQUIRTLE

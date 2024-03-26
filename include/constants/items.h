@@ -1004,8 +1004,9 @@
 // CUSTOM MEGA STONES
 #define ITEM_MACHAMPITE (ITEM_POKESHI_DOLL + 1)
 #define ITEM_VENUSAURITE_Y (ITEM_POKESHI_DOLL + 2)
+#define ITEM_BLASTOISINITE_Y (ITEM_POKESHI_DOLL + 3)
 
-#define ITEMS_COUNT (ITEM_VENUSAURITE_Y + 1)
+#define ITEMS_COUNT (ITEM_BLASTOISINITE_Y + 1)
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

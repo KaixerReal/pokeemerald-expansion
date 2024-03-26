@@ -1,8 +1,25 @@
 //New Mega Test Trainer.
 
+static const struct TrainerMon sParty_MegaTester[] = {
+    {
+        .species = SPECIES_BLASTOISE,
+        .lvl = 100,
+        //.ability = ABILITY_ONE,
+        .moves = {MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        //.nature = NATURE_ADAMANT,
+        //.gender = TRAINER_MON_FEMALE,
+        //.friendship = 255,
+        .heldItem = ITEM_BLASTOISINITE_Y,
+        .isShiny = TRUE,
+        .ball = ITEM_POKE_BALL,
+        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+    },
+};
+
 static const struct TrainerMon sParty_Jose[] = {
     {
-        .species = SPECIES_VENUSAUR,
+        .species = SPECIES_BLASTOISE,
         .lvl = 8,
         //.ability = ABILITY_ONE,
         .moves = {MOVE_POUND, MOVE_NONE, MOVE_NONE, MOVE_NONE},
@@ -5161,24 +5178,6 @@ static const struct TrainerMon sParty_Dillon[] = {
     {
     .lvl = 19,
     .species = SPECIES_ARON,
-    }
-};
-
-static const struct TrainerMon sParty_Calvin5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 34,
-    .species = SPECIES_SWELLOW,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 32,
-    .species = SPECIES_LINOONE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 36,
-    .species = SPECIES_MIGHTYENA,
     }
 };
 

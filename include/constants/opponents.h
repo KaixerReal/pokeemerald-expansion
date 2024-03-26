@@ -334,7 +334,7 @@
 #define TRAINER_HUSSU                    328
 #define TRAINER_CYRO                    329
 #define TRAINER_DUSKIE                    330
-#define TRAINER_CALVIN_5                    331
+#define TRAINER_MEGATESTER                    331
 #define TRAINER_EDDIE                       332
 #define TRAINER_ALLEN                       333
 #define TRAINER_TIMMY                       334

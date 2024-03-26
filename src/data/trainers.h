@@ -3986,16 +3986,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Duskie),
     },
 
-    [TRAINER_CALVIN_5] =
+    [TRAINER_MEGATESTER] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("CALVIN"),
-        .items = {},
+        .trainerPic = TRAINER_PIC_LEADER_NORMAN,
+        .trainerName = _("MegaTester"),
+        .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
         .aiFlags = AI_STANDARD_FLAGS,
-        .party = TRAINER_PARTY(sParty_Calvin5),
+        .party = TRAINER_PARTY(sParty_MegaTester),
     },
 
     [TRAINER_EDDIE] =

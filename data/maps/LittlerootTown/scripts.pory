@@ -1021,3 +1021,12 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "Let's go to my LAB.$"
 
 `
+
+script LittlerootTown_EventScript_MegaTrainerTest{
+	lockall
+	message(format("Hi im the Mega Pokemon Tester. I ONLY exists in beta version of the game, when theres a new mega to be a tested."))
+	waitmessage
+	trainerbattle_no_intro(TRAINER_MEGATESTER, ("Good New Mega...\nEy?"))
+	releaseall
+	end
+}

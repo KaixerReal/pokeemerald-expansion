@@ -1594,7 +1594,7 @@
 #define SPECIES_PIKACHU_PARTNER                         1487
 #define SPECIES_EEVEE_PARTNER                           1488
 #define SPECIES_VENUSAUR_MEGA_Y                     1489
-#define SPECIES_BLASTOISE_GIGANTAMAX                    1490
+#define SPECIES_BLASTOISE_MEGA_Y                    1490
 #define SPECIES_CHARIZARD_GIGANTAMAX                    1491
 #define SPECIES_BUTTERFREE_GIGANTAMAX                   1492
 #define SPECIES_PIKACHU_GIGANTAMAX                      1493
