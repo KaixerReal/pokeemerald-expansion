@@ -374,5 +374,19 @@ const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/
 const u32 gObjectEventPic_HoOh[] = INCBIN_U32("graphics/object_events/pics/pokemon/ho_oh.4bpp");
 const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/ho_oh.gbapal");
 
+// New pals
+// Gym Leaders
+const u16 gObjectEventPaletteRoxanne[]        = INCBIN_U16("graphics/object_events/palettes/roxanne.gbapal"); //*Done
+const u16 gObjectEventPaletteBrawly[]         = INCBIN_U16("graphics/object_events/palettes/brawly.gbapal"); //*Done
+const u16 gObjectEventPaletteWattson[]        = INCBIN_U16("graphics/object_events/palettes/wattson.gbapal"); //*Done
+const u16 gObjectEventPaletteFlannery[]       = INCBIN_U16("graphics/object_events/palettes/flannery.gbapal"); //*Done
+const u16 gObjectEventPaletteNorman[]         = INCBIN_U16("graphics/object_events/palettes/norman.gbapal"); //*Done
+const u16 gObjectEventPaletteWinona[]         = INCBIN_U16("graphics/object_events/palettes/winona.gbapal"); //*Done
+const u16 gObjectEventPaletteTateLiza[]       = INCBIN_U16("graphics/object_events/palettes/tateliza.gbapal"); //*Done
+const u16 gObjectEventPaletteJuan[]           = INCBIN_U16("graphics/object_events/palettes/juan.gbapal"); //*Done
+const u16 gObjectEventPaletteWallace[]        = INCBIN_U16("graphics/object_events/palettes/wallace.gbapal"); //*Done
+//Champion
+//const u16 gObjectEventPaletteSteven[]         = INCBIN_U16("graphics/object_events/palettes/winona.gbapal"); //TODO
+
 const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");
 const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effects/palettes/cave_dust.gbapal");

@@ -437,6 +437,20 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
+//New Pals
+//Gym Leaders
+#define OBJ_EVENT_PAL_TAG_ROXANNE                 (OBJ_EVENT_PAL_TAG_RS_MAY + 1) //*Done
+#define OBJ_EVENT_PAL_TAG_BRAWLY                  (OBJ_EVENT_PAL_TAG_RS_MAY + 2) //*Done
+#define OBJ_EVENT_PAL_TAG_WATTSON                 (OBJ_EVENT_PAL_TAG_RS_MAY + 3) //*Done
+#define OBJ_EVENT_PAL_TAG_FLANNERY                (OBJ_EVENT_PAL_TAG_RS_MAY + 4) //*Done
+#define OBJ_EVENT_PAL_TAG_NORMAN                  (OBJ_EVENT_PAL_TAG_RS_MAY + 5) //*Done
+#define OBJ_EVENT_PAL_TAG_WINONA                  (OBJ_EVENT_PAL_TAG_RS_MAY + 6) //*Done
+#define OBJ_EVENT_PAL_TAG_TATELIZA                (OBJ_EVENT_PAL_TAG_RS_MAY + 7) //*Done
+#define OBJ_EVENT_PAL_TAG_JUAN                    (OBJ_EVENT_PAL_TAG_RS_MAY + 8) //*Done
+#define OBJ_EVENT_PAL_TAG_WALLACE                 (OBJ_EVENT_PAL_TAG_RS_MAY + 9) //*Done
+//Champion
+//#define OBJ_EVENT_PAL_TAG_JUAN                  (OBJ_EVENT_PAL_TAG_RS_MAY + 10) //TODO
+
 #include "data/field_effects/field_effect_object_template_pointers.h"
 #include "data/object_events/object_event_pic_tables.h"
 #include "data/object_events/object_event_anims.h"
@@ -481,6 +495,19 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
+    //New Pallete's
+    //Gym Leaders
+    {gObjectEventPaletteRoxanne,            OBJ_EVENT_PAL_TAG_ROXANNE}, //*Done
+    {gObjectEventPaletteBrawly,             OBJ_EVENT_PAL_TAG_BRAWLY}, //*Done
+    {gObjectEventPaletteWattson,            OBJ_EVENT_PAL_TAG_WATTSON}, //*Done
+    {gObjectEventPaletteFlannery,           OBJ_EVENT_PAL_TAG_FLANNERY}, ///*Done
+    {gObjectEventPaletteNorman,             OBJ_EVENT_PAL_TAG_NORMAN}, ///*Done
+    {gObjectEventPaletteWinona,             OBJ_EVENT_PAL_TAG_WINONA}, //*Done 
+    {gObjectEventPaletteTateLiza,           OBJ_EVENT_PAL_TAG_TATELIZA}, //*Done
+    {gObjectEventPaletteJuan,               OBJ_EVENT_PAL_TAG_JUAN}, //*Done
+    {gObjectEventPaletteWallace,            OBJ_EVENT_PAL_TAG_WALLACE}, //*Done
+    //Champion
+    //{gObjectEventPaletteSteven,             OBJ_EVENT_PAL_TAG_NPC_1}, //TODO
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else

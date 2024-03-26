@@ -21,6 +21,7 @@ enum {
     PALSLOT_NPC_4_REFLECTION,
     PALSLOT_NPC_SPECIAL,
     PALSLOT_NPC_SPECIAL_REFLECTION,
+    PALSLOT_DYNAMIC,
     OBJ_PALSLOT_COUNT
     // the remaining sprite palette slots (12-15) are used by field effects, the interface, etc.
 };
