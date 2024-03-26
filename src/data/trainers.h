@@ -3974,16 +3974,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Cyro),
     },
 
-    [TRAINER_CALVIN_4] =
+    [TRAINER_DUSKIE] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("CALVIN"),
-        .items = {},
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerName = _("Duskie"),
+        .items = {ITEM_MEGA_RING},
         .doubleBattle = FALSE,
-        .aiFlags = AI_STANDARD_FLAGS,
-        .party = TRAINER_PARTY(sParty_Calvin4),
+        .aiFlags = AI_BOSS_FLAGS,
+        .party = TRAINER_PARTY(sParty_Duskie),
     },
 
     [TRAINER_CALVIN_5] =

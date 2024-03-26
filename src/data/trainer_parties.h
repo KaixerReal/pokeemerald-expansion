@@ -1239,7 +1239,7 @@ static const struct TrainerMon sParty_Cyro[] = {
 },
 };
 //Converted By ChatGpt, lol.
-static const struct TrainerMon sParty_Calvin4[] = {
+static const struct TrainerMon sParty_Duskie[] = {
 {
     .species = SPECIES_CROBAT,
     .lvl = 50,

@@ -2599,4 +2599,15 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_RAGING_BOXER] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Raging Boxer"),
+    #else
+        .name = _("Raging Boxer"),
+    #endif
+        .description = COMPOUND_STRING("Punching Moves hit twice."),
+        .aiRating = 10,
+    },
 };
