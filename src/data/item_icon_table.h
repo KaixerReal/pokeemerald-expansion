@@ -880,6 +880,21 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_BLASTOISINITE_Y] = {gItemIcon_Blastoisinite, gItemIconPalette_Blastoisinite},
     [ITEM_KINGLERITE] = {gItemIcon_Latiosite, gItemIconPalette_Latiosite},
     [ITEM_GRIMMSNARLITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_CORVINITE] = {gItemIcon_Steelixite, gItemIconPalette_Steelixite},
+    [ITEM_SNORLAXITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_BUTTERFRITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_DREDNAWITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_ALCREMITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_GENGARITE_Y] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_TOXTRICITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_COALOSSITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_SANDACONDITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_CENTICITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_HATTERENITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_COPPERAHJITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_APPLITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_GARBORDITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+    [ITEM_LAPRASITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
     
 
     // Return to field arrow

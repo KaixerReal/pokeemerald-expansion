@@ -4932,7 +4932,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     },
 
 #if P_GIGANTAMAX_FORMS
-    [SPECIES_GARBODOR_GIGANTAMAX] =
+    [SPECIES_GARBODOR_MEGA] =
     {
         .baseHP        = 80,
         .baseAttack    = 95,

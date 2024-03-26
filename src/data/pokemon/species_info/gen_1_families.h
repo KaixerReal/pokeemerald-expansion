@@ -1093,7 +1093,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_GIGANTAMAX_FORMS
-    [SPECIES_BUTTERFREE_GIGANTAMAX] =
+    [SPECIES_BUTTERFREE_MEGA] =
     {
         .baseHP        = 60,
         .baseAttack    = 45,
@@ -9348,7 +9348,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_MEGA_EVOLUTIONS
 
 #if P_GIGANTAMAX_FORMS
-    [SPECIES_GENGAR_GIGANTAMAX] =
+    [SPECIES_GENGAR_MEGA] =
     {
         .baseHP        = 60,
         .baseAttack    = 65,
@@ -13454,7 +13454,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_GIGANTAMAX_FORMS
-    [SPECIES_LAPRAS_GIGANTAMAX] =
+    [SPECIES_LAPRAS_MEGA] =
     {
         .baseHP        = 130,
         .baseAttack    = 85,
@@ -14806,7 +14806,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_GIGANTAMAX_FORMS
-    [SPECIES_SNORLAX_GIGANTAMAX] =
+    [SPECIES_SNORLAX_MEGA] =
     {
         .baseHP        = 160,
         .baseAttack    = 110,
