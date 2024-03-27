@@ -59,6 +59,7 @@
 #include "starter_choose.h"
 #include "pokemon_summary_screen.h"
 #include "day_night.h"
+#include "play_time.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -1468,29 +1469,25 @@ bool8 ScrCmd_bufferregionname(struct ScriptContext *ctx)
     return FALSE;
 }
 
+//Credits go to @RavePossum on discord.
 bool8 ScrCmd_settimeofday(struct ScriptContext *ctx)
 {
     u8 timeOfDay = VarGet(ScriptReadHalfword(ctx));
     u8 hour;
-    DebugPrintfLevel(MGBA_LOG_WARN,"time of day: %u", timeOfDay);
     switch(timeOfDay)
     {
-        case TIME_MORNING:
-            hour = MORNING_HOUR_BEGIN;
-            break;
         case TIME_DAY:
-            hour = DAY_HOUR_BEGIN;
+            hour = 12; //DAY_HOUR_BEGIN
             break;
         case TIME_EVENING:
-            hour = EVENING_HOUR_BEGIN;
+            hour = 18; //EVENING_HOUR_BEGIN
             break;
         case TIME_NIGHT:
-            hour = NIGHT_HOUR_BEGIN;
+            hour = 20; //NIGHT_HOUR_BEGIN
             break;
         default: 
             hour = 0;
     }
-    DebugPrintfLevel(MGBA_LOG_WARN,"hour: %u", hour);
     RtcAdvanceTimeTo(hour, 0, 0);
     return FALSE;
 }
