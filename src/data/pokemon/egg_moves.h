@@ -1904,7 +1904,7 @@ const u16 gEggMoves[] = {
         MOVE_NATURE_POWER,
         MOVE_AQUA_RING,
         MOVE_CURSE,
-        MOVE_BIDE,
+        MOVE_SALT_CURE,
         MOVE_WATER_PULSE,
         MOVE_HEAD_SMASH,
         MOVE_CAMOUFLAGE,

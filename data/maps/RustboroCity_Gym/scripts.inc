@@ -248,7 +248,7 @@ RustboroCity_Gym_Text_RoxanneIntro::
 	.string "battle, and with which POKéMON?$"
 
 RustboroCity_Gym_Text_RoxanneDefeat::
-	.string "{COLOR BLUE}So…\n"
+	.string "So…\n"
 	.string "I lost…\p"
 	.string "It seems that I still have much more\n"
 	.string "to learn…\p"
@@ -257,7 +257,7 @@ RustboroCity_Gym_Text_RoxanneDefeat::
 	.string "that TRAINERS are to be given this\l"
 	.string "if they defeat a GYM LEADER.\p"
 	.string "Please accept the official POKéMON\n"
-	.string "{COLOR GREEN}{PLAYER}{COLOR BLUE} received the STONE BADGE\n"
+	.string "{PLAYER} received the STONE BADGE\n"
 	.string "from ROXANNE.$"
 
 RustboroCity_Gym_Text_StoneBadgeInfoTakeThis::

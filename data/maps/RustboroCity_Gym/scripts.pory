@@ -249,7 +249,7 @@ text RustboroCity_Gym_Text_RoxanneIntro{
 }
 
 text RustboroCity_Gym_Text_RoxanneDefeat{
-	"{COLOR BLUE}So…\n"
+	"So…\n"
 	"I lost…\p"
 	"It seems that I still have much more\n"
 	"to learn…\p"
@@ -258,7 +258,7 @@ text RustboroCity_Gym_Text_RoxanneDefeat{
 	"that TRAINERS are to be given this\l"
 	"if they defeat a GYM LEADER.\p"
 	"Please accept the official POKéMON\n"
-    "{COLOR GREEN}{PLAYER}{COLOR BLUE} received the STONE BADGE\n"
+    "{PLAYER} received the STONE BADGE\n"
 	"from ROXANNE.$"
 }
 
