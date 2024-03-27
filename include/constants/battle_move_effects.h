@@ -343,7 +343,7 @@ enum {
     EFFECT_FILLET_AWAY,
     EFFECT_IVY_CUDGEL,
     EFFECT_FICKLE_BEAM,
-    EFFECT_BLIZZARD,
+    EFFECT_SNOW_ALWAYS_HIT,
     EFFECT_RAIN_ALWAYS_HIT, // Unlike EFFECT_THUNDER, it doesn't get its accuracy reduced under sun.
     EFFECT_SHED_TAIL,
     EFFECT_UPPER_HAND,

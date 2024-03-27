@@ -1023,8 +1023,10 @@
 #define ITEM_GARBORDITE      (ITEM_POKESHI_DOLL + 19)
 #define ITEM_LAPRASITE       (ITEM_POKESHI_DOLL + 20)
 #define ITEM_ORBEETLITE      (ITEM_POKESHI_DOLL + 21)
+// TIME CHANGER
+#define ITEM_TIME_CHANGER    (ITEM_POKESHI_DOLL + 22)
 
-#define ITEMS_COUNT (ITEM_ORBEETLITE + 1)
+#define ITEMS_COUNT (ITEM_TIME_CHANGER + 1)
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

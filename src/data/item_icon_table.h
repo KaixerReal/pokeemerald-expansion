@@ -896,6 +896,9 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_GARBORDITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
     [ITEM_LAPRASITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
     [ITEM_ORBEETLITE] = {gItemIcon_Houndoominite, gItemIconPalette_Houndoominite},
+
+    //Time Changer
+    [ITEM_TIME_CHANGER] = {gItemIcon_PokemonBoxLink, gItemIconPalette_PokemonBoxLink},
     
 
     // Return to field arrow

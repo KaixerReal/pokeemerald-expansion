@@ -49,6 +49,10 @@ void FieldUseFunc_VsSeeker(u8 taskId);
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId);
 void DisplayDadsAdviceCannotUseItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField);
 
+//New Items
+void ItemUseOutOfBattle_TimeChanger(u8 taskId);
+void Task_AccessTimeChanger(u8 taskId);
+
 enum {
     BALL_THROW_UNABLE_TWO_MONS,
     BALL_THROW_UNABLE_NO_ROOM,

@@ -54,9 +54,8 @@
 #include "list_menu.h"
 #include "malloc.h"
 #include "constants/event_objects.h"
-//#include "constants/rtc.h"
+#include "constants/rtc.h"
 #include "constants/items.h"
-//#include "pokevial.h"
 #include "starter_choose.h"
 #include "pokemon_summary_screen.h"
 #include "day_night.h"
@@ -1469,11 +1468,11 @@ bool8 ScrCmd_bufferregionname(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_settimeofday(struct ScriptContext *ctx) //Being Worked on.
+bool8 ScrCmd_settimeofday(struct ScriptContext *ctx)
 {
     u8 timeOfDay = VarGet(ScriptReadHalfword(ctx));
     u8 hour;
-
+    DebugPrintfLevel(MGBA_LOG_WARN,"time of day: %u", timeOfDay);
     switch(timeOfDay)
     {
         case TIME_MORNING:
@@ -1491,8 +1490,8 @@ bool8 ScrCmd_settimeofday(struct ScriptContext *ctx) //Being Worked on.
         default: 
             hour = 0;
     }
-
-    //RtcAdvanceTimeTo(hour, 0, 0);
+    DebugPrintfLevel(MGBA_LOG_WARN,"hour: %u", hour);
+    RtcAdvanceTimeTo(hour, 0, 0);
     return FALSE;
 }
 

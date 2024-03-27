@@ -1267,10 +1267,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_THIEVUL] =
     {
         .baseHP        = 70,
-        .baseAttack    = 58,
+        .baseAttack    = 68,
         .baseDefense   = 58,
-        .baseSpeed     = 90,
-        .baseSpAttack  = 87,
+        .baseSpeed     = 105,
+        .baseSpAttack  = 107,
         .baseSpDefense = 92,
         .types = MON_TYPES(TYPE_DARK),
         .catchRate = 127,

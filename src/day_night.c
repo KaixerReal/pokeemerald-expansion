@@ -12,6 +12,7 @@
 #include "strings.h"
 #include "string_util.h"
 #include "fieldmap.h"
+#include "constants/rtc.h"
 
 #define TINT_MORNING Q_8_8(0.7), Q_8_8(0.7), Q_8_8(0.9)
 #define TINT_DAY Q_8_8(1.0), Q_8_8(1.0), Q_8_8(1.0)

@@ -22,6 +22,7 @@ static bool8 CheckPyramidBagHasItem(u16 itemId, u16 count);
 static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
 static const u8 *ItemId_GetPluralName(u16);
 static bool32 DoesItemHavePluralName(u16);
+static u16 GetBagItemQuantity(u16 *quantity);
 
 EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
 

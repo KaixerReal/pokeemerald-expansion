@@ -695,7 +695,6 @@ text RivalsHouse_1F_Text_OhIForgot {
 }
 
 script RivalsHouse_1F_EventScript_RegionChoice {
-	setflag(FLAG_SYS_DEXNAV_GET)
     msgbox(RivalsHouse_1F_Text_WhichRegion, MSGBOX_DEFAULT)
     dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE,
                   "Kanto","Johto","Hoenn","Sinnoh","Unova","Kalos","Alola","Galar","Paldea")

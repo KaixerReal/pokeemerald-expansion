@@ -4470,6 +4470,7 @@ static void CB2_OpenTMCaseOnField(void)
 {
     InitTMCase(0, CB2_BagMenuFromStartMenu, 0);
 }
+
 void CB2_ShowPartyMenuForItemUseTMCase(void)
 {
     MainCallback callback = CB2_OpenTMCaseOnField;
@@ -5628,7 +5629,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     {
         sFinalLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
         gPartyMenuUseExitCallback = TRUE;
-        UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
+        //UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
         RemoveBagItem(gSpecialVar_ItemId, 1);
         GetMonNickname(mon, gStringVar1);
         if (sFinalLevel > sInitialLevel)

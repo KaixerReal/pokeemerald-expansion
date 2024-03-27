@@ -1522,9 +1522,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_UNFEZANT] =
     {
         .baseHP        = 80,
-        .baseAttack    = P_UPDATED_STATS >= GEN_6 ? 115 : 105,
+        .baseAttack    = 121,
         .baseDefense   = 80,
-        .baseSpeed     = 93,
+        .baseSpeed     = 103,
         .baseSpAttack  = 65,
         .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_FLYING),

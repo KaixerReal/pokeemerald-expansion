@@ -25,6 +25,7 @@
 #include "constants/weather.h"
 #include "day_night.h"
 #include "rtc.h"
+#include "constants/rtc.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 

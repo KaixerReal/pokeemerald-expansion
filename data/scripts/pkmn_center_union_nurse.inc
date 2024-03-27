@@ -191,6 +191,27 @@ EventScript_PkmnCenterUnionNurse_ChangeNature_14:
 	goto EventScript_PkmnCenterUnionNurse_ChangeNature_13
 
 
+EventScript_AccessTimeChanger::
+	lock
+	dynmultipush EventScript_AccessTimeChanger_Text_0, TIME_MORNING
+	dynmultipush EventScript_AccessTimeChanger_Text_1, TIME_DAY
+	dynmultipush EventScript_AccessTimeChanger_Text_2, TIME_EVENING
+	dynmultipush EventScript_AccessTimeChanger_Text_3, TIME_NIGHT
+	dynmultistack 0, 0, FALSE, 4, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE
+	msgbox EventScript_AccessTimeChanger_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_AccessTimeChanger_2
+	settimeofday VAR_RESULT
+EventScript_AccessTimeChanger_1:
+	closemessage
+	release
+	end
+
+EventScript_AccessTimeChanger_2:
+	goto EventScript_AccessTimeChanger
+	goto EventScript_AccessTimeChanger_1
+
+
 Common_EventScript_PkmnCenterUnionNurse_Text_0:
 	.string "Hi, I'm the Pokéhelper!$"
 
@@ -327,6 +348,21 @@ EventScript_PkmnCenterUnionNurse_ChangeNature_Text_30:
 	.string "{STR_VAR_1}'s training is complete.\p"
 	.string "Come back if you need to train another\n"
 	.string "Pokémon.$"
+
+EventScript_AccessTimeChanger_Text_0:
+	.string "Morning$"
+
+EventScript_AccessTimeChanger_Text_1:
+	.string "Day$"
+
+EventScript_AccessTimeChanger_Text_2:
+	.string "Evening$"
+
+EventScript_AccessTimeChanger_Text_3:
+	.string "Night$"
+
+EventScript_AccessTimeChanger_Text_4:
+	.string "change time?$"
 
 PkmnCenterUnionNurse_AnythingElse::
 	.string "Is there anything else I can help you\n"

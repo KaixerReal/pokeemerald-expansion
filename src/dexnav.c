@@ -58,7 +58,7 @@
 #include "constants/songs.h"
 #include "constants/abilities.h"
 #include "constants/rgb.h"
-//#include "constants/rtc.h"
+#include "constants/rtc.h"
 #include "constants/region_map_sections.h"
 #include "gba/m4a_internal.h"
 #include "constants/day_night.h"

@@ -15,6 +15,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/layouts.h"
 #include "constants/region_map_sections.h"
+#include "constants/rtc.h"
 #include "constants/weather.h"
 
 // enums

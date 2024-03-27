@@ -924,8 +924,29 @@ void ItemUseOutOfBattle_TmCase(u8 taskId)
     {
         gFieldCallback = FieldCB_ReturnToFieldNoScript; //FieldCB_ReturnToFieldNoScript
         FadeScreen(FADE_TO_BLACK, 0);
-        gTasks[taskId].func = Task_InitTMCaseFromField;
     }
+}
+
+//Time Changer
+void ItemUseOutOfBattle_TimeChanger(u8 taskId)
+{
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else
+    {
+       sItemUseOnFieldCB = Task_AccessTimeChanger;
+       SetUpItemUseOnFieldCallback(taskId);
+    }
+}
+
+extern const u8 EventScript_AccessTimeChanger[];
+
+void Task_AccessTimeChanger(u8 taskId)
+{
+    ScriptContext_SetupScript(EventScript_AccessTimeChanger);
+    DestroyTask(taskId);
 }
 
 static void RemoveUsedItem(void)

@@ -7,6 +7,7 @@
 #include "constants/rgb.h"
 #include "day_night.h"
 #include "constants/day_night.h"
+#include "constants/rtc.h"
 
 enum
 {

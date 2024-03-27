@@ -703,8 +703,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 
     [SPECIES_SPIDOPS] =
     {
-        .baseHP        = 60,
-        .baseAttack    = 79,
+        .baseHP        = 70,
+        .baseAttack    = 99,
         .baseDefense   = 92,
         .baseSpeed     = 35,
         .baseSpAttack  = 52,
@@ -718,7 +718,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_INSOMNIA, ABILITY_NONE, ABILITY_STAKEOUT },
+        .abilities = { ABILITY_SHED_SKIN, ABILITY_NONE, ABILITY_STAKEOUT },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Spidops"),
         .cryId = CRY_SPIDOPS,

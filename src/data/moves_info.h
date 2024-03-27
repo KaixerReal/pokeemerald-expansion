@@ -1525,7 +1525,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         #else
             "storm that may freeze it."),
         #endif
-        .effect = B_BLIZZARD_HAIL >= GEN_4 ? EFFECT_BLIZZARD : EFFECT_HIT,
+        .effect = B_BLIZZARD_HAIL >= GEN_4 ? EFFECT_SNOW_ALWAYS_HIT : EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 110 : 120,
         .type = TYPE_ICE,
         .accuracy = 70,
@@ -18325,10 +18325,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Hits with brutal, cold winds.\n"
             "May lower the foe's Speed."),
-        .effect = EFFECT_RAIN_ALWAYS_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_9 ? 100 : 95,
+        .effect = EFFECT_SNOW_ALWAYS_HIT,
+        .power = B_UPDATED_MOVE_DATA >= GEN_9 ? 110 : 95,
         .type = TYPE_FLYING,
-        .accuracy = 80,
+        .accuracy = 85,
         .pp = B_UPDATED_MOVE_DATA >= GEN_9 ? 10 : 5,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,

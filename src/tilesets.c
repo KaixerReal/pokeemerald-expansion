@@ -3,6 +3,7 @@
 #include "tileset_anims.h"
 #include "day_night.h"
 #include "constants/day_night.h"
+#include "constants/rtc.h"
 
 #include "data/tilesets/graphics.h"
 #include "data/tilesets/metatiles.h"

@@ -175,3 +175,28 @@ script EventScript_PkmnCenterUnionNurse_ChangeNature {
 text PkmnCenterUnionNurse_AnythingElse {
     format("Is there anything else I can help you with today?")
 }
+
+script EventScript_AccessTimeChanger {
+    //Locks Player so The Player Can't move.
+    lock
+    //Sets up a Multichoice.
+    dynmultipush("Morning", TIME_MORNING)
+    dynmultipush("Day", TIME_DAY)
+    dynmultipush("Evening", TIME_EVENING)
+    dynmultipush("Night", TIME_NIGHT)
+    dynmultistack(0, 0, FALSE, 4, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE)
+    //Confirm Time.
+    msgbox(("change time?"), MSGBOX_YESNO)
+    //If Player presses NO on the multichoice (MSGBOX_YESNO) goto EventScript_AccessTimeChanger / Being in a loop.
+    if(var(VAR_RESULT) == NO) {goto(EventScript_AccessTimeChanger)}
+    else{
+    //set the time.
+    settimeofday(VAR_RESULT)
+    }
+    //close the msgbox
+    closemessage
+    //release player.
+    release
+    //end the script.
+    end
+}
