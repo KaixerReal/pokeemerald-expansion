@@ -1558,6 +1558,8 @@ static bool32 AccuracyCalcHelper(u16 move)
 {
     if ((gStatuses3[gBattlerTarget] & STATUS3_ALWAYS_HITS && gDisableStructs[gBattlerTarget].battlerWithSureHit == gBattlerAttacker)
      || (B_TOXIC_NEVER_MISS >= GEN_6 && gMovesInfo[move].effect == EFFECT_TOXIC && IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_POISON))
+     || gMovesInfo[move].effect == EFFECT_PARALYZE && IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ELECTRIC)
+     || gMovesInfo[move].effect == EFFECT_WILL_O_WISP && IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_FIRE)
      || gStatuses4[gBattlerTarget] & STATUS4_GLAIVE_RUSH)
     {
         JumpIfMoveFailed(7, move);
@@ -1607,13 +1609,14 @@ static bool32 AccuracyCalcHelper(u16 move)
         if ((gMovesInfo[move].effect == EFFECT_THUNDER || gMovesInfo[move].effect == EFFECT_RAIN_ALWAYS_HIT)
             && IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_RAIN))
         {
-            // thunder/hurricane/genie moves ignore acc checks in rain unless target is holding utility umbrella
+            // thunder/hurricane/genie, moves ignore acc checks in rain unless target is holding utility umbrella.
             JumpIfMoveFailed(7, move);
             return TRUE;
         }
-        else if ((gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && gMovesInfo[move].effect == EFFECT_SNOW_ALWAYS_HIT)
+        else if (gMovesInfo[move].effect == EFFECT_SNOW_ALWAYS_HIT //Remade how the game check if snow is active.
+            && IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SNOW))
         {
-            // Blizzard ignores acc checks in Hail in Gen4+
+            // Blizzard/Bleakwind Storm, ignores acc checks in Hail in Gen4+ or Snow in Gen 9 unless target is holding utility umbrella.
             JumpIfMoveFailed(7, move);
             return TRUE;
         }
