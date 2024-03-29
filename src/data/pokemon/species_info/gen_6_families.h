@@ -2209,7 +2209,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_AEGISLASH_SHIELD}),
     },
 
-#define AEGISLASH_MAIN_STAT (P_UPDATED_STATS >= GEN_8 ? 140 : 150)
+#define AEGISLASH_MAIN_STAT (P_UPDATED_STATS >= GEN_8 ? 150 : 150) //Was 140.
 
     [SPECIES_AEGISLASH_SHIELD] =
     {
