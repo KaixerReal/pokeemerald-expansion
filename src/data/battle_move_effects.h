@@ -1589,7 +1589,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_CHANGE_TYPE_ON_ITEM] =
     {
-        .battleScript = BattleScript_EffectHit,
+        .battleScript = BattleScript_EffectPhotonGeyser,
         .battleTvScore = 0, // TODO: Assign points
     },
 
