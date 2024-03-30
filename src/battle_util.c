@@ -9190,36 +9190,36 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         if (moveType == TYPE_BUG)
         {
             if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.5));
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             else
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.2));
+                modifier =uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
         }
         break;
     case ABILITY_TORRENT:
         if (moveType == TYPE_WATER)
         {
             if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.5));
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             else
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.2));
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
         }
         break;
     case ABILITY_BLAZE:
         if (moveType == TYPE_FIRE)
         {
             if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.5));
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             else
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.2));
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
         }
         break;
     case ABILITY_OVERGROW:
         if (moveType == TYPE_GRASS)
         {
             if (gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 3))
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.5));
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             else
-                uq4_12_multiply_half_down(&modifier, UQ_4_12(1.2));
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
         }
         break;
     case ABILITY_PLUS:
