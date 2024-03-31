@@ -102,6 +102,7 @@ static void Task_SetControllerToWaitForString(u8);
 static void Task_GiveExpWithExpBar(u8);
 static void Task_UpdateLvlInHealthbox(u8);
 static void PrintLinkStandbyMsg(void);
+static void MoveSelectionDisplaySplitIcon(u32 battler);
 
 static void ReloadMoveNames(u32 battler);
 
@@ -1739,78 +1740,7 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
 static const u8 gText_MoveInterfaceSuperEffective[] = _(" {UP_ARROW}");
 static const u8 gText_MoveInterfaceNotVeryEffective[] = _(" {DOWN_ARROW}");
 static const u8 gText_MoveInterfaceImmune[] = _(" X");
-static const u8 gText_MoveInterfaceSTAB[] = _("STAB");
-
-/*// todo: account for ivy cudgel here
-u8 TypeEffectiveness(u8 targetId, u32 battler)
-{
-    struct Pokemon *mon = mon;
-    u16 move;
-    u32 moveType;
-    uq4_12_t modifier;
-    move = gBattleMons[battler].moves[gMoveSelectionCursor[battler]];
-    moveType = GetTypeBeforeUsingMove(move, battler);
-    modifier = CalcTypeEffectivenessMultiplier(move, moveType, battler, targetId, GetBattlerAbility(targetId), TRUE);
-    u32 moldBreaker = IsMoldBreakerTypeAbility(battler);
-
-    switch(moveType){
-    case TYPE_WATER:
-        {
-            // Target Ability
-            if (((gBattleMons[targetId].ability == ABILITY_WATER_ABSORB) || (gBattleMons[targetId].ability == ABILITY_STORM_DRAIN) || (gBattleMons[targetId].ability == ABILITY_STEAM_ENGINE))
-                && (!moldBreaker))
-                return COLOR_IMMUNE;
-
-            // Weather (primal)
-            if ((gBattleWeather & B_WEATHER_SUN_PRIMAL) && WEATHER_HAS_EFFECT)
-                return COLOR_IMMUNE;
-        }
-        break;
-        case TYPE_GRASS:
-        {
-            // Target Ability
-            if (((gBattleMons[targetId].ability == ABILITY_SAP_SIPPER))
-                && (!moldBreaker))
-                return COLOR_IMMUNE;
-        }
-        break;
-        case TYPE_ELECTRIC:
-        {
-            // Target Ability
-            if (((gBattleMons[targetId].ability == ABILITY_VOLT_ABSORB) || (gBattleMons[targetId].ability == ABILITY_LIGHTNING_ROD) || (gBattleMons[targetId].ability == ABILITY_MOTOR_DRIVE))
-                && (!moldBreaker))
-                return COLOR_IMMUNE;
-        }
-        break;
-        case TYPE_GROUND:
-        {
-            // Target Ability
-            if ((((gBattleMons[targetId].ability == ABILITY_LEVITATE) && !(IsBattlerGrounded)) || (gBattleMons[targetId].ability == ABILITY_EARTH_EATER))
-                && (!moldBreaker))
-                return COLOR_IMMUNE;
-        }
-        break;
-        case TYPE_GHOST:
-        {
-            // Target Ability
-            if ((gBattleMons[targetId].ability == ABILITY_PURIFYING_SALT)
-                && (!moldBreaker))
-        }
-        break;
-    }
-
-    if (modifier == UQ_4_12(0.0)) {
-			return COLOR_IMMUNE; // 26 - no effect
-    }
-    else if (modifier <= UQ_4_12(0.5)) {
-            return COLOR_NOT_VERY_EFFECTIVE; // 25 - not very effective
-    }
-    else if (modifier >= UQ_4_12(2.0)) {
-            return COLOR_SUPER_EFFECTIVE; // 24 - super effective
-    }
-    else
-        return COLOR_EFFECTIVE; // 10 - normal effectiveness
-}*/
+static const u8 gText_MoveInterfaceSTAB[] = _("{FIXED_CASE}STAB{UNFIX_CASE}");
 
 u8 TypeEffectiveness(u8 targetId, u32 battler)
 {
@@ -1845,6 +1775,15 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
             // Weather (primal)
             if ((gBattleWeather & B_WEATHER_RAIN_PRIMAL) && WEATHER_HAS_EFFECT)
                 return COLOR_IMMUNE;
+        }
+        break;
+        case TYPE_ICE:
+        {
+
+            if ((defAbility == ABILITY_THICK_FAT)
+                && (!(moldBreaker) && attackingMove))
+                return COLOR_NOT_VERY_EFFECTIVE;
+
         }
         break;
         case TYPE_WATER:
@@ -2055,6 +1994,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     }
 
     BattlePutTextOnWindow(gDisplayedStringBattle, typeColor);
+    MoveSelectionDisplaySplitIcon(battler);
 
     if (gMovesInfo[battler].type == TYPE_ROCK && gBattleMons[battler].ability == ABILITY_ROCKY_PAYLOAD)
     {
@@ -2302,7 +2242,11 @@ static void PlayerHandleChooseAction(u32 battler)
 
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
-    BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+    if (FlagGet(B_FLAG_NO_BAG_USE)){
+        BattlePutTextOnWindow(gText_BattleMenuNoBag, B_WIN_ACTION_MENU);
+    }else{
+        BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+    }
 
     for (i = 0; i < 4; i++)
         ActionSelectionDestroyCursorAt(i);
@@ -2626,4 +2570,20 @@ static void PlayerHandleBattleDebug(u32 battler)
     BeginNormalPaletteFade(-1, 0, 0, 0x10, 0);
     SetMainCallback2(CB2_BattleDebugMenu);
     gBattlerControllerFuncs[battler] = Controller_WaitForDebug;
+}
+
+static void MoveSelectionDisplaySplitIcon(u32 battler)
+{
+static const u16 sCategoryIcons_Pal[] = INCBIN_U16("graphics/interface/category_icons_battle.gbapal");
+static const u8 sCategoryIcons_Gfx[] = INCBIN_U8("graphics/interface/category_icons_battle.4bpp.lz");
+
+	struct ChooseMoveStruct *moveInfo;
+	int icon;
+
+	moveInfo = (struct ChooseMoveStruct*)(&gBattleResources->bufferA[battler][4]);
+	icon = GetBattleMoveCategory(moveInfo->moves[gMoveSelectionCursor[battler]]);
+	LoadPalette(sCategoryIcons_Pal, 10 * 0x10, 0x20);
+	BlitBitmapToWindow(B_WIN_DUMMY, sCategoryIcons_Gfx + 0x80 * icon, 0, 0, 16, 16);
+	PutWindowTilemap(B_WIN_DUMMY);
+	CopyWindowToVram(B_WIN_DUMMY, 3);
 }

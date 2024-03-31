@@ -221,7 +221,12 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
 	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	goto RustboroCity_Gym_EventScript_GiveRockTomb
+	giveitem ITEM_TM_ROCK_TOMB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TM_ROCK_TOMB
+	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
+	msgbox RustboroCity_Gym_EventScript_RoxanneDefeated_Text_0, MSGBOX_AUTOCLOSE
+	release
 	end
 
 
@@ -230,12 +235,12 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_ROCK_TOMB
 	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
-	msgbox RustboroCity_Gym_EventScript_GiveRockTomb_Text_0, MSGBOX_AUTOCLOSE
+	msgbox RustboroCity_Gym_EventScript_RoxanneDefeated_Text_0, MSGBOX_AUTOCLOSE
 	release
 	end
 
 
-RustboroCity_Gym_EventScript_GiveRockTomb_Text_0:
+RustboroCity_Gym_EventScript_RoxanneDefeated_Text_0:
 	.string "Level Cap went up to level 25!$"
 
 RustboroCity_Gym_Text_RoxanneIntro::
