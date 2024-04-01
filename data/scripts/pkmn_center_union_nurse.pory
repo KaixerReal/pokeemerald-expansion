@@ -1,7 +1,7 @@
 script Common_EventScript_PkmnCenterUnionNurse {
 	lock
 	faceplayer
-	message(format("Hi, I'm the Pokéhelper!"))
+	message(format("Hi, I'm the Pokéhelper! and How may I help you today?"))
 	waitmessage
     call(EventScript_PkmnCenterUnionNurse_Multichoice)
     release
@@ -9,17 +9,36 @@ script Common_EventScript_PkmnCenterUnionNurse {
 }
 
 script EventScript_PkmnCenterUnionNurse_Multichoice {
-    message(format("How may I help you today?"))
-	waitmessage
-    dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Relearn move","Change nickname","Change Nature","Cancel")
+    if(!defeated(TRAINER_BRAWLY_1)){
+    dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Change nickname","Relearn move {FIXED_CASE}{COLOR RED}LOCKED","Change Nature","Cancel")
     switch (var(VAR_RESULT)) {
         case 0:
-            call(EventScript_PkmnCenterUnionNurse_MoveRelearn)
+            call(EventScript_PkmnCenterUnionNurse_ChangeNickname)
             message(PkmnCenterUnionNurse_AnythingElse)
             waitmessage
             call(EventScript_PkmnCenterUnionNurse_Multichoice)
         case 1:
+            msgbox(format("You'll have to defeat Brawly first before using this Feature!"),MSGBOX_DEFAULT) 
+            goto(Common_EventScript_PkmnCenterUnionNurse)
+        case 2:
+            call(EventScript_PkmnCenterUnionNurse_ChangeNature)
+            message(PkmnCenterUnionNurse_AnythingElse)
+            waitmessage
+            call(EventScript_PkmnCenterUnionNurse_Multichoice)
+        default:
+            return    
+        }
+    }
+    else {
+    dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Change nickname","Relearn move","Change Nature","Cancel")
+    switch (var(VAR_RESULT)) {
+        case 0:
             call(EventScript_PkmnCenterUnionNurse_ChangeNickname)
+            message(PkmnCenterUnionNurse_AnythingElse)
+            waitmessage
+            call(EventScript_PkmnCenterUnionNurse_Multichoice)
+        case 1:
+            call(EventScript_PkmnCenterUnionNurse_MoveRelearn)
             message(PkmnCenterUnionNurse_AnythingElse)
             waitmessage
             call(EventScript_PkmnCenterUnionNurse_Multichoice)
@@ -30,10 +49,18 @@ script EventScript_PkmnCenterUnionNurse_Multichoice {
             call(EventScript_PkmnCenterUnionNurse_Multichoice)
         default:
             return
+        }
     }
 }
 
 script EventScript_PkmnCenterUnionNurse_MoveRelearn {
+
+    if(defeated(TRAINER_BRAWLY_1)){
+    checkitem(ITEM_HEART_SCALE, 1)
+    if(var(VAR_RESULT) == FALSE) {msgbox(format("sorry but to use this Feature you'll need to show me a heartscale."),MSGBOX_DEFAULT)
+    goto(Common_EventScript_PkmnCenterUnionNurse)}
+    }
+
     special(ChooseMonForMoveRelearner)
 	waitstate
 
@@ -98,9 +125,10 @@ script EventScript_PkmnCenterUnionNurse_ChangeNickname {
 script EventScript_PkmnCenterUnionNurse_ChangeNature {
     lock
     faceplayer
-    //msgbox(format("Hello, child. I am known as the Nature Master.\pI can train with one of your Pokémon to grant them an entirely new Nature.\pWould you like one of your Pokémon to change their Nature?"),MSGBOX_YESNO)
     
-    if(var(VAR_RESULT) == NO) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
+    checkitem(ITEM_HEART_SCALE)
+    if(var(VAR_RESULT) == FALSE) {msgbox(format("sorry but to use this Feature you'll need to show me a heartscale."),MSGBOX_DEFAULT)
+    goto(Common_EventScript_PkmnCenterUnionNurse)}
 
     msgbox(format("Which Pokémon should I train?"))
     special(ChoosePartyMon)
@@ -168,6 +196,7 @@ script EventScript_PkmnCenterUnionNurse_ChangeNature {
     fadescreen(FADE_FROM_BLACK)
 
     msgbox(format("{STR_VAR_1}'s training is complete.\pCome back if you need to train another Pokémon."))
+    removeitem(ITEM_HEART_SCALE, 1)
     release
     end
 }
@@ -178,17 +207,14 @@ text PkmnCenterUnionNurse_AnythingElse {
 
 //Credits go to @RavePossum on discord for helping me fix this.
 script EventScript_AccessTimeChanger {
-    //Locks Player so The Player Can't move.
     lock
-    //Sets up a Multichoice.
+
     dynmultipush("Day", TIME_DAY)
     dynmultipush("Night", TIME_EVENING) //For Some Reason TIME_EVENING turns into night
     dynmultipush("Dusk", TIME_NIGHT) //For Some Reason TIME_NIGHT turns into Dusk
     dynmultistack(0, 0, FALSE, 4, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE)
-    //set the time.
+
     settimeofday(VAR_RESULT)
-    //release player.
     release
-    //end the script.
     end
 }

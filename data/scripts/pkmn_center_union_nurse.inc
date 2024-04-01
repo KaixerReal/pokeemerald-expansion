@@ -9,30 +9,57 @@ Common_EventScript_PkmnCenterUnionNurse::
 
 
 EventScript_PkmnCenterUnionNurse_Multichoice::
-	message EventScript_PkmnCenterUnionNurse_Multichoice_Text_0
-	waitmessage
-	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, EventScript_PkmnCenterUnionNurse_Multichoice_Text_1, EventScript_PkmnCenterUnionNurse_Multichoice_Text_2, EventScript_PkmnCenterUnionNurse_Multichoice_Text_3, EventScript_PkmnCenterUnionNurse_Multichoice_Text_4
+	checktrainerflag TRAINER_BRAWLY_1
+	goto_if 0, EventScript_PkmnCenterUnionNurse_Multichoice_1
+	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, EventScript_PkmnCenterUnionNurse_Multichoice_Text_0, EventScript_PkmnCenterUnionNurse_Multichoice_Text_5, EventScript_PkmnCenterUnionNurse_Multichoice_Text_2, EventScript_PkmnCenterUnionNurse_Multichoice_Text_3
 	switch VAR_RESULT
-	case 0, EventScript_PkmnCenterUnionNurse_Multichoice_2
-	case 1, EventScript_PkmnCenterUnionNurse_Multichoice_3
-	case 2, EventScript_PkmnCenterUnionNurse_Multichoice_4
+	case 0, EventScript_PkmnCenterUnionNurse_Multichoice_10
+	case 1, EventScript_PkmnCenterUnionNurse_Multichoice_11
+	case 2, EventScript_PkmnCenterUnionNurse_Multichoice_12
 	return
 
-EventScript_PkmnCenterUnionNurse_Multichoice_2:
-	call EventScript_PkmnCenterUnionNurse_MoveRelearn
-	message PkmnCenterUnionNurse_AnythingElse
-	waitmessage
-	call EventScript_PkmnCenterUnionNurse_Multichoice
+EventScript_PkmnCenterUnionNurse_Multichoice_1:
+	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, EventScript_PkmnCenterUnionNurse_Multichoice_Text_0, EventScript_PkmnCenterUnionNurse_Multichoice_Text_1, EventScript_PkmnCenterUnionNurse_Multichoice_Text_2, EventScript_PkmnCenterUnionNurse_Multichoice_Text_3
+	switch VAR_RESULT
+	case 0, EventScript_PkmnCenterUnionNurse_Multichoice_5
+	case 1, EventScript_PkmnCenterUnionNurse_Multichoice_6
+	case 2, EventScript_PkmnCenterUnionNurse_Multichoice_7
 	return
 
-EventScript_PkmnCenterUnionNurse_Multichoice_3:
+EventScript_PkmnCenterUnionNurse_Multichoice_5:
 	call EventScript_PkmnCenterUnionNurse_ChangeNickname
 	message PkmnCenterUnionNurse_AnythingElse
 	waitmessage
 	call EventScript_PkmnCenterUnionNurse_Multichoice
 	return
 
-EventScript_PkmnCenterUnionNurse_Multichoice_4:
+EventScript_PkmnCenterUnionNurse_Multichoice_6:
+	msgbox EventScript_PkmnCenterUnionNurse_Multichoice_Text_4, MSGBOX_DEFAULT
+	goto Common_EventScript_PkmnCenterUnionNurse
+	return
+
+EventScript_PkmnCenterUnionNurse_Multichoice_7:
+	call EventScript_PkmnCenterUnionNurse_ChangeNature
+	message PkmnCenterUnionNurse_AnythingElse
+	waitmessage
+	call EventScript_PkmnCenterUnionNurse_Multichoice
+	return
+
+EventScript_PkmnCenterUnionNurse_Multichoice_10:
+	call EventScript_PkmnCenterUnionNurse_ChangeNickname
+	message PkmnCenterUnionNurse_AnythingElse
+	waitmessage
+	call EventScript_PkmnCenterUnionNurse_Multichoice
+	return
+
+EventScript_PkmnCenterUnionNurse_Multichoice_11:
+	call EventScript_PkmnCenterUnionNurse_MoveRelearn
+	message PkmnCenterUnionNurse_AnythingElse
+	waitmessage
+	call EventScript_PkmnCenterUnionNurse_Multichoice
+	return
+
+EventScript_PkmnCenterUnionNurse_Multichoice_12:
 	call EventScript_PkmnCenterUnionNurse_ChangeNature
 	message PkmnCenterUnionNurse_AnythingElse
 	waitmessage
@@ -41,36 +68,50 @@ EventScript_PkmnCenterUnionNurse_Multichoice_4:
 
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn::
+	checktrainerflag TRAINER_BRAWLY_1
+	goto_if 1, EventScript_PkmnCenterUnionNurse_MoveRelearn_2
+EventScript_PkmnCenterUnionNurse_MoveRelearn_1:
 	special ChooseMonForMoveRelearner
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_2
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_5
 	special IsSelectedMonEgg
 	compare VAR_RESULT, TRUE
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_4
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_9
 	compare VAR_0x8005, 0
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_5
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_10
 	special TeachMoveRelearnerMove
 	waitstate
 	compare VAR_0x8004, 0
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_9
-	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_2
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_14
+	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_3
 	return
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn_2:
-	return
-
-EventScript_PkmnCenterUnionNurse_MoveRelearn_4:
-	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_0
-	call EventScript_PkmnCenterUnionNurse_MoveRelearn
-	return
+	checkitem ITEM_HEART_SCALE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_7
+	goto EventScript_PkmnCenterUnionNurse_MoveRelearn_1
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn_5:
+	return
+
+EventScript_PkmnCenterUnionNurse_MoveRelearn_7:
+	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_0, MSGBOX_DEFAULT
+	goto Common_EventScript_PkmnCenterUnionNurse
+	goto EventScript_PkmnCenterUnionNurse_MoveRelearn_1
+
+EventScript_PkmnCenterUnionNurse_MoveRelearn_9:
 	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_1
 	call EventScript_PkmnCenterUnionNurse_MoveRelearn
 	return
 
-EventScript_PkmnCenterUnionNurse_MoveRelearn_9:
+EventScript_PkmnCenterUnionNurse_MoveRelearn_10:
+	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_2
+	call EventScript_PkmnCenterUnionNurse_MoveRelearn
+	return
+
+EventScript_PkmnCenterUnionNurse_MoveRelearn_14:
 	call EventScript_PkmnCenterUnionNurse_MoveRelearn
 	return
 
@@ -108,7 +149,8 @@ EventScript_PkmnCenterUnionNurse_ChangeNickname_8:
 EventScript_PkmnCenterUnionNurse_ChangeNature::
 	lock
 	faceplayer
-	compare VAR_RESULT, NO
+	checkitem ITEM_HEART_SCALE
+	compare VAR_RESULT, FALSE
 	goto_if_eq EventScript_PkmnCenterUnionNurse_ChangeNature_2
 EventScript_PkmnCenterUnionNurse_ChangeNature_1:
 	msgbox EventScript_PkmnCenterUnionNurse_ChangeNature_Text_0
@@ -147,7 +189,7 @@ EventScript_PkmnCenterUnionNurse_ChangeNature_4:
 	dynmultipush EventScript_PkmnCenterUnionNurse_ChangeNature_Text_25, NATURE_SASSY
 	dynmultipush EventScript_PkmnCenterUnionNurse_ChangeNature_Text_26, NATURE_CAREFUL
 	dynmultipush EventScript_PkmnCenterUnionNurse_ChangeNature_Text_27, NATURE_QUIRKY
-	dynmultipush EventScript_PkmnCenterUnionNurse_Multichoice_Text_4, MULTI_B_PRESSED
+	dynmultipush EventScript_PkmnCenterUnionNurse_Multichoice_Text_3, MULTI_B_PRESSED
 	dynmultistack 0, 0, TRUE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	compare VAR_RESULT, MULTI_B_PRESSED
 	goto_if_eq EventScript_PkmnCenterUnionNurse_ChangeNature_11
@@ -166,11 +208,13 @@ EventScript_PkmnCenterUnionNurse_ChangeNature_13:
 	closemessage
 	fadescreen FADE_FROM_BLACK
 	msgbox EventScript_PkmnCenterUnionNurse_ChangeNature_Text_30
+	removeitem ITEM_HEART_SCALE, 1
 	release
 	end
 
 EventScript_PkmnCenterUnionNurse_ChangeNature_2:
-	goto EventScript_PkmnCenterUnionNurse_Multichoice
+	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_0, MSGBOX_DEFAULT
+	goto Common_EventScript_PkmnCenterUnionNurse
 	goto EventScript_PkmnCenterUnionNurse_ChangeNature_1
 
 EventScript_PkmnCenterUnionNurse_ChangeNature_5:
@@ -203,32 +247,41 @@ EventScript_AccessTimeChanger::
 
 
 Common_EventScript_PkmnCenterUnionNurse_Text_0:
-	.string "Hi, I'm the Pokéhelper!$"
+	.string "Hi, I'm the Pokéhelper! and How may I\n"
+	.string "help you today?$"
 
 EventScript_PkmnCenterUnionNurse_Multichoice_Text_0:
-	.string "How may I help you today?$"
-
-EventScript_PkmnCenterUnionNurse_Multichoice_Text_1:
-	.string "Relearn move$"
-
-EventScript_PkmnCenterUnionNurse_Multichoice_Text_2:
 	.string "Change nickname$"
 
-EventScript_PkmnCenterUnionNurse_Multichoice_Text_3:
+EventScript_PkmnCenterUnionNurse_Multichoice_Text_1:
+	.string "Relearn move {FIXED_CASE}{COLOR RED}LOCKED$"
+
+EventScript_PkmnCenterUnionNurse_Multichoice_Text_2:
 	.string "Change Nature$"
 
-EventScript_PkmnCenterUnionNurse_Multichoice_Text_4:
+EventScript_PkmnCenterUnionNurse_Multichoice_Text_3:
 	.string "Cancel$"
 
+EventScript_PkmnCenterUnionNurse_Multichoice_Text_4:
+	.string "You'll have to defeat Brawly first\n"
+	.string "before using this Feature!$"
+
+EventScript_PkmnCenterUnionNurse_Multichoice_Text_5:
+	.string "Relearn move$"
+
 EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_0:
+	.string "sorry but to use this Feature you'll\n"
+	.string "need to show me a heartscale.$"
+
+EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_1:
 	.string "There are no moves available to teach\n"
 	.string "to an Egg.$"
 
-EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_1:
+EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_2:
 	.string "Unfortunately, there are no moves\n"
 	.string "available for that Pokémon.$"
 
-EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_2:
+EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_3:
 	.string "Thank you for using the Move Relearner!$"
 
 EventScript_PkmnCenterUnionNurse_ChangeNickname_Text_0:
