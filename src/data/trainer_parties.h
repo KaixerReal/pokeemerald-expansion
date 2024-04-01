@@ -527,34 +527,63 @@ static const struct TrainerMon sParty_GinaAndMia1[] = {
 };
 //Rustboro Gym
 static const struct TrainerMon sParty_Josh[] = {
-    {
-        .species = SPECIES_GEODUDE_ALOLAN,
-        .lvl = 9,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
-        .isShiny = FALSE,
-        .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-    },
-    {
-        .species = SPECIES_KABUTO,
-        .lvl = 9,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
-        .isShiny = FALSE,
-        .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-    },
+{
+    .species = SPECIES_ARCHEN,
+    .lvl = 13,
+    .ability = ABILITY_DEFEATIST,
+    .moves = {MOVE_ROCK_TOMB, MOVE_PLUCK, MOVE_ROCK_SMASH, MOVE_U_TURN},
+    .nature = NATURE_JOLLY,
+    .gender = TRAINER_MON_MALE,
+    .friendship = 0,
+    .heldItem = ITEM_BERRY_JUICE,
+    .isShiny = FALSE,
+    .ball = ITEM_POKE_BALL,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+},
+{
+    .species = SPECIES_NOSEPASS,
+    .lvl = 13,
+    .ability = ABILITY_MAGNET_PULL,
+    .moves = {MOVE_ANCIENT_POWER, MOVE_MUD_SHOT, MOVE_HIDDEN_POWER, MOVE_VOLT_SWITCH},
+    .nature = NATURE_MODEST,
+    .gender = TRAINER_MON_MALE,
+    .friendship = 0,
+    .heldItem = ITEM_LEFTOVERS,
+    .isShiny = FALSE,
+    .ball = ITEM_POKE_BALL,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+},
+{
+    .species = SPECIES_KABUTO,
+    .lvl = 13,
+    .ability = ABILITY_BATTLE_ARMOR,
+    .moves = {MOVE_AQUA_JET, MOVE_ROCK_TOMB, MOVE_HIDDEN_POWER, MOVE_FLIP_TURN},
+    .nature = NATURE_JOLLY,
+    .gender = TRAINER_MON_MALE,
+    .friendship = 0,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .isShiny = FALSE,
+    .ball = ITEM_POKE_BALL,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+},
+{
+    .species = SPECIES_GEODUDE_ALOLAN,
+    .lvl = 13,
+    .ability = ABILITY_STURDY,
+    .moves = {MOVE_ROCK_TOMB, MOVE_SELF_DESTRUCT, MOVE_BULLDOZE, MOVE_VOLT_SWITCH},
+    .nature = NATURE_JOLLY,
+    .gender = TRAINER_MON_MALE,
+    .friendship = 0,
+    .heldItem = ITEM_CUSTAP_BERRY,
+    .isShiny = FALSE,
+    .ball = ITEM_POKE_BALL,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+},
+
 };
 
 static const struct TrainerMon sParty_Tommy[] = {
