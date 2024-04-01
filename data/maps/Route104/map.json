@@ -601,8 +601,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 14,
-      "y": 55,
+      "x": 23,
+      "y": 75,
       "elevation": 3,
       "item": "ITEM_POTION",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POTION"
@@ -617,8 +617,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 16,
-      "y": 64,
+      "x": 14,
+      "y": 55,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_HEART_SCALE"
