@@ -44,6 +44,7 @@
 #include "constants/abilities.h"
 #include "level_caps.h"
 #include "constants/battle_move_effects.h"
+#include "event_data.h"
 
 #define COLOR_SUPER_EFFECTIVE 24
 #define COLOR_NOT_VERY_EFFECTIVE 25
