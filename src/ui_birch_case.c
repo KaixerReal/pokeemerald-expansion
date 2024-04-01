@@ -142,7 +142,7 @@ static const struct MonChoiceData sStarterChoices[9] =
     [BALL_MIDDLE_THIRD]     = {SPECIES_CYNDAQUIL, 5},
 
     [BALL_MIDDLE_SECOND]    = {SPECIES_OSHAWOTT, 5},
-    [BALL_BOTTOM_FIRST]     = {SPECIES_CHESPIN, 5},
+    [BALL_BOTTOM_FIRST]     = {SPECIES_GROOKEY, 5},
     [BALL_BOTTOM_SECOND]    = {SPECIES_CHIMCHAR, 5},
 };
 
@@ -461,16 +461,18 @@ static void ChangePositionUpdateSpriteAnims(u16 oldPosition, u8 taskId) // turn 
 
 static void BirchCase_GiveMon() // Function that calls the GiveMon function pulled from Expansion by Lunos and Ghoulslash
 {
-    u8 *evs = (u8 *) sStarterChoices[sBirchCaseDataPtr->handPosition].evs;
-    u8 *ivs = (u8 *) sStarterChoices[sBirchCaseDataPtr->handPosition].ivs;
-    u16 *moves = (u16 *) sStarterChoices[sBirchCaseDataPtr->handPosition].moves;
+    //u8 *evs = (u8 *) sStarterChoices[sBirchCaseDataPtr->handPosition].evs;
+    //u8 *ivs = (u8 *) sStarterChoices[sBirchCaseDataPtr->handPosition].ivs;
+    //u16 *moves = (u16 *) sStarterChoices[sBirchCaseDataPtr->handPosition].moves;
     FlagSet(FLAG_SYS_POKEMON_GET);
-    gSpecialVar_Result = BirchCase_GiveMonParameterized(sStarterChoices[sBirchCaseDataPtr->handPosition].species, sStarterChoices[sBirchCaseDataPtr->handPosition].level, \
-                sStarterChoices[sBirchCaseDataPtr->handPosition].item, sStarterChoices[sBirchCaseDataPtr->handPosition].ball, \
-                sStarterChoices[sBirchCaseDataPtr->handPosition].nature, sStarterChoices[sBirchCaseDataPtr->handPosition].abilityNum, \
-                sStarterChoices[sBirchCaseDataPtr->handPosition].gender, evs, ivs, moves, \
-                sStarterChoices[sBirchCaseDataPtr->handPosition].ggMaxFactor, sStarterChoices[sBirchCaseDataPtr->handPosition].teraType,\
-                sStarterChoices[sBirchCaseDataPtr->handPosition].isShinyExpansion);
+    CreateMon(&gPlayerParty[0], //Where the mon will be placed.
+    sStarterChoices[sBirchCaseDataPtr->handPosition].species, //Species.
+    sStarterChoices[sBirchCaseDataPtr->handPosition].level, //Level.
+    USE_RANDOM_IVS, //Fixed Ivs.
+    0, //HasFixedPersonality.
+    0, //FixedPersonality.
+    OT_ID_PLAYER_ID, //otIdType.
+    0); //fixedOtId.
 }
 
 //==========FUNCTIONS==========//
@@ -724,9 +726,9 @@ static void BirchCase_InitWindows(void)
 //
 //  Text Printing Function
 //
-static const u8 sText_ChooseMon[] = _("Release a Pokémon!");
-static const u8 sText_AreYouSure[] = _("Are you sure?    {A_BUTTON} Yes  {B_BUTTON} No");
-static const u8 sText_RecievedMon[] = _("Give your Pokémon a Nickname?   {A_BUTTON} Yes  {B_BUTTON} No");
+static const u8 sText_ChooseMon[] = _("Please, Release a Pokémon.. FAST! ");
+static const u8 sText_AreYouSure[] = _("Are you sure?   {A_BUTTON} Yes  {B_BUTTON} No");
+static const u8 sText_ThankYou[] = _("Thank you!");
 static void PrintTextToBottomBar(u8 textId)
 {
     u8 speciesNameArray[16];
@@ -750,7 +752,7 @@ static void PrintTextToBottomBar(u8 textId)
             mainBarAlternatingText = sText_AreYouSure;
             break;
         case 2:
-            mainBarAlternatingText = sText_RecievedMon;
+            mainBarAlternatingText = sText_ThankYou;
             break;
         default:
             mainBarAlternatingText = sText_ChooseMon;
@@ -826,7 +828,6 @@ static void Task_WaitForFadeAndOpenNamingScreen(u8 taskId)
         BirchCaseFreeResources();
         DestroyTask(taskId);
         VarSet(VAR_0x8004, gPlayerPartyCount - 1);
-        ChangePokemonNickname();
     }
 }
 
