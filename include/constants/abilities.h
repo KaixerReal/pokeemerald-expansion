@@ -344,4 +344,6 @@
 
 #define ABILITIES_COUNT ABILITIES_COUNT_CUSTOM
 
+#define ABILITY_RANDOM_BIRCH_CASE (ABILITY_NONE + 0) //Since i dont want ABILITY_RANDOM_BIRCH_CASE to be a ability people can pick, i made it leech off ABILITY_NONE.
+
 #endif  // GUARD_CONSTANTS_ABILITIES_H

@@ -3192,9 +3192,19 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum)
         {
             gLastUsedAbility = gSpeciesInfo[species].abilities[i];
         }
+
+        for (i = NUM_NORMAL_ABILITY_SLOTS; i < NUM_ABILITY_SLOTS && gLastUsedAbility == ABILITY_RANDOM_BIRCH_CASE; i++)
+        {
+            gLastUsedAbility = gSpeciesInfo[species].abilities[i];
+        }
     }
 
     for (i = 0; i < NUM_ABILITY_SLOTS && gLastUsedAbility == ABILITY_NONE; i++) // look for any non-empty ability
+    {
+        gLastUsedAbility = gSpeciesInfo[species].abilities[i];
+    }
+
+    for (i = 0; i < NUM_ABILITY_SLOTS && gLastUsedAbility == ABILITY_RANDOM_BIRCH_CASE; i++) // look for any non-empty ability
     {
         gLastUsedAbility = gSpeciesInfo[species].abilities[i];
     }

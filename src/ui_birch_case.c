@@ -42,6 +42,7 @@
 #include "constants/moves.h"
 #include "naming_screen.h"
 #include "tv.h"
+#include "constants/abilities.h"
 
  /*
     9 Starter Selection Birch Case
@@ -132,17 +133,17 @@ struct MonChoiceData{ // This is the format used to define a mon, everything lef
 //
 static const struct MonChoiceData sStarterChoices[9] = 
 {
-    [BALL_TOP_FIRST]        = {SPECIES_MUDKIP, 5, ITEM_POTION, BALL_NET, NATURE_JOLLY, 1, MON_MALE, {255, 255, 0, 0, 0, 0}, {31, 31, 31, 31, 31, 31}, {MOVE_FIRE_BLAST, MOVE_SHEER_COLD, MOVE_WATER_GUN, MOVE_THUNDER}, 0, 0, 0},
-    [BALL_TOP_SECOND]       = {SPECIES_TREECKO, 5},
-    [BALL_MIDDLE_FIRST]     = {SPECIES_TORCHIC, 5},
-
-    [BALL_TOP_THIRD]        = {SPECIES_CHIKORITA, 5},
-    [BALL_TOP_FOURTH]       = {SPECIES_NONE, 5},
+    [BALL_TOP_FIRST]        = {SPECIES_POPPLIO, 5},
+    [BALL_TOP_SECOND]       = {SPECIES_ROWLET, 5},
+    [BALL_MIDDLE_FIRST]     = {SPECIES_TEPIG, 5},
+    
+    [BALL_TOP_THIRD]        = {SPECIES_TOTODILE, 5},
+    [BALL_TOP_FOURTH]       = {SPECIES_TURTWIG, 5},
     [BALL_MIDDLE_THIRD]     = {SPECIES_CYNDAQUIL, 5},
 
-    [BALL_MIDDLE_SECOND]    = {SPECIES_BULBASAUR, 5},
-    [BALL_BOTTOM_FIRST]     = {SPECIES_CHARMANDER, 5},
-    [BALL_BOTTOM_SECOND]    = {SPECIES_NONE, 5},
+    [BALL_MIDDLE_SECOND]    = {SPECIES_OSHAWOTT, 5},
+    [BALL_BOTTOM_FIRST]     = {SPECIES_CHESPIN, 5},
+    [BALL_BOTTOM_SECOND]    = {SPECIES_CHIMCHAR, 5},
 };
 
 //==========EWRAM==========//
