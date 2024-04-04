@@ -2610,4 +2610,26 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Punching Moves hit twice."),
         .aiRating = 10,
     },
+
+    [ABILITY_HELLISH_SOUL] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Hellish Soul"),
+    #else
+        .name = _("Hellish Soul"),
+    #endif
+        .description = COMPOUND_STRING("Fire Moves go first."),
+        .aiRating = 10,
+    },
+
+    [ABILITY_GROUND_SHOCK] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Ground Shock"),
+    #else
+        .name = _("Ground Shock"),
+    #endif
+        .description = COMPOUND_STRING("Electric can hit Ground."),
+        .aiRating = 10,
+    },
 };

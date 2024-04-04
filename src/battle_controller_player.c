@@ -1813,6 +1813,7 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
             if (((defAbility == ABILITY_VOLT_ABSORB) || (defAbility == ABILITY_LIGHTNING_ROD) || (defAbility == ABILITY_MOTOR_DRIVE))
                 && (!moldBreaker))
                 return COLOR_IMMUNE;
+
         }
         break;
         case TYPE_GROUND:
@@ -1821,6 +1822,10 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
             if (((defAbility == ABILITY_LEVITATE) || (defAbility == ABILITY_EARTH_EATER))
                 && (!moldBreaker))
                 return COLOR_IMMUNE;
+
+            // Attacker Ability
+            if(atkAbility == ABILITY_GROUND_SHOCK)
+                return COLOR_EFFECTIVE;
         }
         break;
         case TYPE_GHOST:
@@ -1829,6 +1834,10 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
             if ((defAbility == ABILITY_PURIFYING_SALT)
                 && (!moldBreaker))
                 return COLOR_NOT_VERY_EFFECTIVE;
+
+            // Attacker Ability
+            if(atkAbility == ABILITY_SCRAPPY || atkAbility == ABILITY_MINDS_EYE)
+                return COLOR_EFFECTIVE;
         }
         break;
     }

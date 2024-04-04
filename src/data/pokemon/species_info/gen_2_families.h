@@ -5394,15 +5394,15 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Houndour)
         .levelUpLearnset = sHoundourLevelUpLearnset,
         .teachableLearnset = sHoundourTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_HOUNDOOM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 23, SPECIES_HOUNDOOM}),
     },
 
     [SPECIES_HOUNDOOM] =
     {
         .baseHP        = 75,
-        .baseAttack    = 90,
+        .baseAttack    = 100,
         .baseDefense   = 50,
-        .baseSpeed     = 95,
+        .baseSpeed     = 90,
         .baseSpAttack  = 110,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_DARK, TYPE_FIRE),
@@ -5414,7 +5414,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = 35,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_UNNERVE, ABILITY_FLASH_FIRE, ABILITY_INTIMIDATE },
+        .abilities = { ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE, ABILITY_HELLISH_SOUL },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Houndoom"),
         .cryId = CRY_HOUNDOOM,
@@ -5459,9 +5459,9 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     [SPECIES_HOUNDOOM_MEGA] =
     {
         .baseHP        = 75,
-        .baseAttack    = 90,
+        .baseAttack    = 110,
         .baseDefense   = 90,
-        .baseSpeed     = 115,
+        .baseSpeed     = 105,
         .baseSpAttack  = 140,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_DARK, TYPE_FIRE),
@@ -5473,7 +5473,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = 35,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_SOLAR_POWER, ABILITY_SOLAR_POWER, ABILITY_DARK_AURA },
+        .abilities = { ABILITY_SOLAR_POWER, ABILITY_HELLISH_SOUL, ABILITY_DARK_AURA },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Houndoom"),
         .cryId = CRY_HOUNDOOM_MEGA,
