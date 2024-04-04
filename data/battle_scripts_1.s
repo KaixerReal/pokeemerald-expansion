@@ -7580,6 +7580,16 @@ BattleScript_SpeedBoostActivates::
 BattleScript_SpeedBoostActivatesEnd:
 	end3
 
+BattleScript_SelfSufficientActivates::
+	copybyte gBattlerAbility, gBattlerAttacker
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNSABILITYRESTOREDHPALITTLE
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE | HITMARKER_IGNORE_DISGUISE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	end3
+
 @ Can't compare directly to a value, have to compare to value at pointer
 sZero:
 .byte 0

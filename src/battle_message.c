@@ -845,9 +845,11 @@ static const u8 sText_ShedItsTail[] = _("{B_ATK_NAME_WITH_PREFIX} shed its tail\
 static const u8 sText_SupersweetAromaWafts[] = _("A supersweet aroma is wafting from\nthe syrup covering {B_ATK_NAME_WITH_PREFIX}!");
 static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_AtkTrappedDefInAHarshWhirlpool[] = _("{B_ATK_NAME_WITH_PREFIX} trapped the\n{B_DEF_NAME_WITH_PREFIX} in a harsh whirlpool!");
+static const u8 sText_AbilityRestoredHPALittle[] = _("{B_ATK_NAME_WITH_PREFIX}'s ability\nrestored its HP a little");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_PKMNSABILITYRESTOREDHPALITTLE - BATTLESTRINGS_TABLE_START] = sText_AbilityRestoredHPALittle,
     [STRINGID_PKMNTRAPPEDINAHARSHWHIRLPOOL - BATTLESTRINGS_TABLE_START] = sText_AtkTrappedDefInAHarshWhirlpool,
     [STRINGID_TIDYINGUPCOMPLETE - BATTLESTRINGS_TABLE_START] = sText_TidyingUpComplete,
     [STRINGID_SUPERSWEETAROMAWAFTS - BATTLESTRINGS_TABLE_START] = sText_SupersweetAromaWafts,

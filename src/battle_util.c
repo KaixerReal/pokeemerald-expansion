@@ -4938,6 +4938,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
+            case ABILITY_SELF_SUFFICIENT:
+                if(!BATTLER_MAX_HP(battler) && 
+                   !(gStatuses3[battler] & STATUS3_HEAL_BLOCK) && 
+                   gDisableStructs[battler].isFirstTurn != 2){
+				    gBattleMoveDamage = gBattleMons[battler].maxHP / 16;
+					if (gBattleMoveDamage == 0)
+						gBattleMoveDamage = 1;
+					gBattleMoveDamage *= -1;
+					BattleScriptPushCursorAndCallback(BattleScript_SelfSufficientActivates);
+					effect++;
+                   }
+                break;
             }
         }
         break;
