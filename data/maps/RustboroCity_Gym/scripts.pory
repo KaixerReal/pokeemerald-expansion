@@ -228,7 +228,7 @@ script RustboroCity_Gym_EventScript_GiveRockTomb{
 
 
 script RustboroCity_Gym_EventScript_Josh{
-	trainerbattle_single (TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat)
+	trainerbattle_single (TRAINER_JOSH_BOSS, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat)
 	msgbox (RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }

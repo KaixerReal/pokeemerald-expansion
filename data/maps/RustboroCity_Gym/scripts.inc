@@ -7,11 +7,6 @@ RustboroCity_Gym_EventScript_RoxanneRematch::
 	msgbox RustboroCity_Gym_Text_RoxannePostRematch, MSGBOX_AUTOCLOSE
 	end
 
-RustboroCity_Gym_EventScript_Josh::
-	trainerbattle_single TRAINER_JOSH, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
-	msgbox RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 RustboroCity_Gym_EventScript_Tommy::
 	trainerbattle_single TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
 	msgbox RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE
@@ -105,17 +100,6 @@ RustboroCity_Gym_Text_GymGuidePostVictory:
 	.string "You've climbed the first step on\n"
 	.string "the stairs to the CHAMPIONSHIP!\p"
 	.string "That's got to feel awesome!$"
-
-RustboroCity_Gym_Text_JoshIntro:
-	.string "Don't take us GYM TRAINERS lightly!\n"
-	.string "I'll show you why we're better!$"
-
-RustboroCity_Gym_Text_JoshDefeat:
-	.string "You were too good for me…$"
-
-RustboroCity_Gym_Text_JoshPostBattle:
-	.string "You haven't seen anything of the ROCK\n"
-	.string "type's terrifying power!$"
 
 RustboroCity_Gym_Text_TommyIntro:
 	.string "If you can't beat me, you won't stand\n"
@@ -240,6 +224,12 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 	end
 
 
+RustboroCity_Gym_EventScript_Josh::
+	trainerbattle_single TRAINER_JOSH_BOSS, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
+	msgbox RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
 RustboroCity_Gym_EventScript_RoxanneDefeated_Text_0:
 	.string "Level Cap went up to level 25!$"
 
@@ -285,3 +275,16 @@ RustboroCity_Gym_Text_RoxannePostBattle::
 	.string "challenge other GYM LEADERS.\p"
 	.string "By battling many TRAINERS, you should\n"
 	.string "learn many things.$"
+
+RustboroCity_Gym_Text_JoshIntro::
+	.string "{COLOR BLUE}Don't take us GYM TRAINERS lightly!\n"
+	.string "Especially me! im the first boss trainer you'll fight\n"
+	.string "I'll show you why we're better!$"
+
+RustboroCity_Gym_Text_JoshDefeat::
+	.string "You were too good for me…$"
+
+RustboroCity_Gym_Text_JoshPostBattle::
+	.string "{COLOR BLUE}You haven't seen anything\n"
+	.string "of the ROCK Thats Roxanne!\n"
+	.string "type's terrifying power!$"

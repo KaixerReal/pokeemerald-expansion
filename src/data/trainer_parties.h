@@ -526,7 +526,7 @@ static const struct TrainerMon sParty_GinaAndMia1[] = {
     },
 };
 //Rustboro Gym
-static const struct TrainerMon sParty_Josh[] = {
+static const struct TrainerMon sParty_Josh_Boss[] = {
 {
     .species = SPECIES_ARCHEN,
     .lvl = 13,

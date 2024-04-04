@@ -11,7 +11,7 @@ Common_EventScript_SetGymTrainers::
 	end
 
 RustboroCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_JOSH
+	settrainerflag TRAINER_JOSH_BOSS
 	settrainerflag TRAINER_TOMMY
 	settrainerflag TRAINER_MARC
 	return
