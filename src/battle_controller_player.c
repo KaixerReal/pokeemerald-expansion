@@ -1824,8 +1824,8 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
                 return COLOR_IMMUNE;
 
             // Attacker Ability
-            if(atkAbility == ABILITY_GROUND_SHOCK)
-                return COLOR_EFFECTIVE;
+            //if(atkAbility == ABILITY_GROUND_SHOCK)
+                //return COLOR_EFFECTIVE; Already Done in CalcTypeEffectivenessMultiplier
         }
         break;
         case TYPE_GHOST:
@@ -1836,8 +1836,8 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
                 return COLOR_NOT_VERY_EFFECTIVE;
 
             // Attacker Ability
-            if(atkAbility == ABILITY_SCRAPPY || atkAbility == ABILITY_MINDS_EYE)
-                return COLOR_EFFECTIVE;
+            /*if(atkAbility == ABILITY_SCRAPPY || atkAbility == ABILITY_MINDS_EYE)
+                return COLOR_EFFECTIVE;*/ //Already done in CalcTypeEffectivenessMultiplier
         }
         break;
     }
@@ -2252,7 +2252,7 @@ static void PlayerHandleChooseAction(u32 battler)
 
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
-    if (FlagGet(B_FLAG_NO_BAG_USE)){
+    if (FlagGet(B_FLAG_NO_BAG_USE) && gBattleTypeFlags & BATTLE_TYPE_TRAINER){
         BattlePutTextOnWindow(gText_BattleMenuNoBag, B_WIN_ACTION_MENU);
     }else{
         BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
@@ -2584,9 +2584,8 @@ static void PlayerHandleBattleDebug(u32 battler)
 
 static void MoveSelectionDisplaySplitIcon(u32 battler)
 {
-static const u16 sCategoryIcons_Pal[] = INCBIN_U16("graphics/interface/category_icons_battle.gbapal");
-static const u8 sCategoryIcons_Gfx[] = INCBIN_U8("graphics/interface/category_icons_battle.4bpp.lz");
-
+    static const u16 sCategoryIcons_Pal[] = INCBIN_U16("graphics/interface/category_icons_battle.gbapal");
+    static const u8 sCategoryIcons_Gfx[] = INCBIN_U8("graphics/interface/category_icons_battle.4bpp");
 	struct ChooseMoveStruct *moveInfo;
 	int icon;
 

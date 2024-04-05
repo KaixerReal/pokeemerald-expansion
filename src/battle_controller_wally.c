@@ -193,7 +193,6 @@ static void WallyHandleActions(u32 battler)
         {
             PlaySE(SE_SELECT);
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_USE_ITEM, 0);
-            FlagSet(FLAG_DISABLE_BAG);
             WallyBufferExecCompleted(battler);
         }
         break;
