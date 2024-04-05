@@ -2252,7 +2252,7 @@ static void PlayerHandleChooseAction(u32 battler)
 
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
-    if (FlagGet(B_FLAG_NO_BAG_USE) && gBattleTypeFlags & BATTLE_TYPE_TRAINER){
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER){
         BattlePutTextOnWindow(gText_BattleMenuNoBag, B_WIN_ACTION_MENU);
     }else{
         BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
