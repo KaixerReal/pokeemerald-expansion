@@ -2643,4 +2643,15 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .description = COMPOUND_STRING("Recovers health each turn."),
         .aiRating = 10,
     },
+
+    [ABILITY_RAMPAGE] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Rampage"),
+    #else
+        .name = _("Rampage"),
+    #endif
+        .description = COMPOUND_STRING("No recharge after a KO."),
+        .aiRating = 10,
+    },
 };
