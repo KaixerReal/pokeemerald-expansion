@@ -130,7 +130,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SMOLIV"
+                "species": "SPECIES_BOUNSWEET"
               },
               {
                 "min_level": 5,
@@ -179,27 +179,27 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PATRAT"
+                "species": "SPECIES_SEEDOT"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PIKIPEK"
+                "species": "SPECIES_SPEAROW"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PIKIPEK"
+                "species": "SPECIES_ROOKIDEE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SENTRET"
+                "species": "SPECIES_SCRAGGY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SENTRET"
+                "species": "SPECIES_CAPSAKID"
               },
               {
                 "min_level": 5,
