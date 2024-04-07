@@ -22,6 +22,7 @@
 #include "dma3.h"
 #include "event_data.h"
 #include "evolution_scene.h"
+#include "pokemon_iv_spreads.h"
 #include "graphics.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
@@ -2237,8 +2238,9 @@ static u8 ConvertAbilityNumToAbility(u8 abilityNum, u16 species)
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
-    s32 i;
+    s32 i, j;
     u8 monsCount;
+    u8 ivs[NUM_STATS];
     if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
@@ -2346,6 +2348,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             {
                 u32 data = partyData[i].gigantamaxFactor;
                 SetMonData(&party[i], MON_DATA_GIGANTAMAX_FACTOR, &data);
+            }
+            if (partyData[i].hiddenPower > 0)
+            {
+                for (j = 0; j < NUM_STATS; j++)
+                    ivs[j] = IV_HP_SPREADS[partyData[i].hiddenPower][j];
             }
             CalculateMonStats(&party[i]);
 

@@ -1020,7 +1020,6 @@
 #define LAST_MAX_MOVE         MOVE_G_MAX_RAPID_FLOW
 
 #define MOVES_COUNT_DYNAMAX       (LAST_MAX_MOVE + 1)
-
 #define MOVES_COUNT_ALL         MOVES_COUNT_DYNAMAX
 
 // Used for checks for moves affected by Disable, Mimic, etc.

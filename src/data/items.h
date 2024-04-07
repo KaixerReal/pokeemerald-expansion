@@ -4297,7 +4297,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Fire Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Fire\n"
             "type data. It swaps\n"
@@ -4315,7 +4315,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Water Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Water\n"
             "type data. It swaps\n"
@@ -4333,7 +4333,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("ElectrcMemories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Electric\n"
             "type data. It swaps\n"
@@ -4351,7 +4351,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Grass Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Grass\n"
             "type data. It swaps\n"
@@ -4369,7 +4369,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Ice Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Ice\n"
             "type data. It swaps\n"
@@ -4387,7 +4387,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("FightngMemories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Fighting\n"
             "type data. It swaps\n"
@@ -4405,7 +4405,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Poison Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Poison\n"
             "type data. It swaps\n"
@@ -4423,7 +4423,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Ground Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Ground\n"
             "type data. It swaps\n"
@@ -4441,7 +4441,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Flying Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Flying\n"
             "type data. It swaps\n"
@@ -4459,7 +4459,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("PsychicMemories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Psychic\n"
             "type data. It swaps\n"
@@ -4477,7 +4477,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Bug Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Bug\n"
             "type data. It swaps\n"
@@ -4495,7 +4495,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Rock Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Rock\n"
             "type data. It swaps\n"
@@ -4513,7 +4513,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Ghost Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Ghost\n"
             "type data. It swaps\n"
@@ -4531,7 +4531,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Dragon Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Dragon\n"
             "type data. It swaps\n"
@@ -4549,7 +4549,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Dark Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Dark\n"
             "type data. It swaps\n"
@@ -4567,7 +4567,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Steel Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Steel\n"
             "type data. It swaps\n"
@@ -4585,7 +4585,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Fairy Memories"),
         .price = 1000,
         .holdEffect = HOLD_EFFECT_MEMORY,
-        .holdEffectParam = 0,
+         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A disc with Fairy\n"
             "type data. It swaps\n"
@@ -12945,6 +12945,21 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TimeChanger,
+        .flingPower = 80,
+    },
+
+    [ITEM_ABILITY_CHANGER] =
+    {
+        .name = _("AbilityChangr"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .description = COMPOUND_STRING(
+            "Changes the ability\n"
+            "of a pokemon, both\n"
+            "Normal and Rare Ones."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_AbilityChanger,
         .flingPower = 80,
     },
 

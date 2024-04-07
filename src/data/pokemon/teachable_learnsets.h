@@ -14775,7 +14775,7 @@ static const u16 sElectrikeTeachableLearnset[] = {
 
 static const u16 sManectricTeachableLearnset[] = {
     MOVE_ATTRACT,
-    MOVE_NONE,
+    MOVE_CALM_MIND,
     MOVE_FACADE,
     MOVE_FLAMETHROWER,
     MOVE_FLASH,

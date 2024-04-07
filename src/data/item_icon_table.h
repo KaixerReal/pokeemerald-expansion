@@ -899,6 +899,8 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
 
     //Time Changer
     [ITEM_TIME_CHANGER] = {gItemIcon_PokemonBoxLink, gItemIconPalette_PokemonBoxLink},
+    //Ability Changer
+    [ITEM_ABILITY_CHANGER] = {gItemIcon_AbilityCapsule, gItemIconPalette_AbilityCapsule},
     
 
     // Return to field arrow

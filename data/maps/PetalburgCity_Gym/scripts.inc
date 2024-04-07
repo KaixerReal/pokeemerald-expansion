@@ -110,11 +110,8 @@ PetalburgCity_Gym_EventScript_Norman::
 	switch VAR_PETALBURG_GYM_STATE
 	case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
 	case 3, PetalburgCity_Gym_EventScript_NormanOneBadge
-	case 4, PetalburgCity_Gym_EventScript_NormanTwoBadges
-	case 5, PetalburgCity_Gym_EventScript_NormanThreeBadges
-	case 6, PetalburgCity_Gym_EventScript_NormanBattle
-	case 7, PetalburgCity_Gym_EventScript_NormanPostBattle
-	case 8, PetalburgCity_Gym_EventScript_NormanRematch
+	case 4, PetalburgCity_Gym_EventScript_NormanBattle
+	case 5, PetalburgCity_Gym_EventScript_NormanPostBattle
 	msgbox PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon, MSGBOX_DEFAULT
 	closemessage
 	switch VAR_FACING
@@ -1593,3 +1590,12 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 	.string "capable of battle?\p"
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
+
+PetalburgCity_Gym_EventScript_NormanGiveMegaRing::
+	lock
+	msgbox PetalburgCity_Gym_EventScript_NormanGiveMegaRing_Text_0
+	return
+
+
+PetalburgCity_Gym_EventScript_NormanGiveMegaRing_Text_0:
+	.string "I see you've gotten ur 5th gym badge$"

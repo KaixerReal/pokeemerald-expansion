@@ -19,40 +19,6 @@ DewfordTown_OnTransition:
 	setflag FLAG_VISITED_DEWFORD_TOWN
 	end
 
-DewfordTown_EventScript_Briney::
-	lock
-	faceplayer
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
-	message DewfordTown_Text_WhereAreWeBound
-	waitmessage
-	multichoicedefault 21, 6, MULTI_BRINEY_ON_DEWFORD, 2, FALSE
-	switch VAR_RESULT
-	case 0, DewfordTown_EventScript_ChoosePetalburg
-	case 1, DewfordTown_EventScript_ChooseSlateport
-	case 2, DewfordTown_EventScript_CancelSailSelect
-	case MULTI_B_PRESSED, DewfordTown_EventScript_CancelSailSelect
-	end
-
-DewfordTown_EventScript_ChoosePetalburg::
-	msgbox DewfordTown_Text_PetalburgWereSettingSail, MSGBOX_DEFAULT
-	closemessage
-	goto DewfordTown_EventScript_SailToPetalburg
-	release
-	end
-
-DewfordTown_EventScript_ChooseSlateport::
-	msgbox DewfordTown_Text_SlateportWereSettingSail, MSGBOX_DEFAULT
-	closemessage
-	goto DewfordTown_EventScript_SailToSlateport
-	release
-	end
-
-DewfordTown_EventScript_CancelSailSelect::
-	msgbox DewfordTown_Text_JustTellMeWhenYouNeedToSetSail, MSGBOX_DEFAULT
-	closemessage
-	release
-	end
-
 DewfordTown_EventScript_ReturnToPetalburgPrompt::
 	msgbox DewfordTown_Text_SetSailBackToPetalburg, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_SailBackToPetalburg
@@ -691,17 +657,17 @@ DewfordTown_Text_WhereAreWeBound:
 	.string "Now, my friend, where are we bound?$"
 
 DewfordTown_Text_PetalburgWereSettingSail:
-	.string "MR. BRINEY: PETALBURG, is it?\p"
+	.string "{COLOR GREEN}MR. BRINEY{COLOR BLUE}: {COLOR GREEN}Route 104{COLOR BLUE}, is it?\p"
 	.string "Anchors aweigh!\n"
 	.string "PEEKO, we're setting sail, my darling!$"
 
 DewfordTown_Text_SlateportWereSettingSail:
-	.string "MR. BRINEY: SLATEPORT, is it?\p"
+	.string "{COLOR GREEN}MR. BRINEY{COLOR BLUE}: {COLOR GREEN}SLATEPORT{COLOR BLUE}, is it?\p"
 	.string "Anchors aweigh!\n"
 	.string "PEEKO, we're setting sail, my darling!$"
 
 DewfordTown_Text_JustTellMeWhenYouNeedToSetSail:
-	.string "MR. BRINEY: You just tell me whenever\n"
+	.string "{COLOR GREEN}MR. BRINEY{COLOR BLUE}: You just tell me whenever\n"
 	.string "you need to set sail again!$"
 
 DewfordTown_Text_GettingItchToFish:
@@ -802,3 +768,132 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+DewfordTown_EventScript_ChoosePetalburg::
+	msgbox DewfordTown_Text_PetalburgWereSettingSail, MSGBOX_DEFAULT
+	closemessage
+	goto DewfordTown_EventScript_SailToPetalburg
+	release
+	end
+
+
+DewfordTown_EventScript_ChooseSlateport::
+	msgbox DewfordTown_Text_SlateportWereSettingSail, MSGBOX_DEFAULT
+	closemessage
+	goto DewfordTown_EventScript_SailToSlateport
+	release
+	end
+
+
+DewfordTown_EventScript_CancelSailSelect::
+	msgbox DewfordTown_Text_JustTellMeWhenYouNeedToSetSail, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+
+DewfordTown_EventScript_CloseIfNo::
+	msgbox DewfordTown_EventScript_CloseIfNo_Text_0, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+
+DewfordTown_EventScript_Briney::
+	lock
+	faceplayer
+	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
+	waitmessage
+	checktrainerflag TRAINER_BRAWLY_1
+	goto_if 0, DewfordTown_EventScript_Briney_2
+	checktrainerflag TRAINER_NORMAN_1
+	goto_if 0, DewfordTown_EventScript_Briney_3
+	message DewfordTown_Text_WhereAreWeBound
+	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, DewfordTown_EventScript_Briney_Text_4, DewfordTown_EventScript_Briney_Text_5, DewfordTown_EventScript_Briney_Text_6
+	switch VAR_RESULT
+	case 0, DewfordTown_EventScript_Briney_13
+	case 1, DewfordTown_EventScript_Briney_14
+	case 2, DewfordTown_EventScript_Briney_15
+	case MULTI_B_PRESSED, DewfordTown_EventScript_Briney_16
+	return
+
+DewfordTown_EventScript_Briney_1:
+	end
+
+DewfordTown_EventScript_Briney_2:
+	msgbox DewfordTown_EventScript_Briney_Text_0, MSGBOX_DEFAULT
+	closemessage
+	call DewfordTown_EventScript_CloseIfNo
+	goto DewfordTown_EventScript_Briney_1
+
+DewfordTown_EventScript_Briney_3:
+	msgbox DewfordTown_EventScript_Briney_Text_1, MSGBOX_DEFAULT
+	closemessage
+	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, DewfordTown_EventScript_Briney_Text_2, DewfordTown_EventScript_Briney_Text_3
+	switch VAR_RESULT
+	case 0, DewfordTown_EventScript_Briney_8
+	case 1, DewfordTown_EventScript_Briney_9
+	case MULTI_B_PRESSED, DewfordTown_EventScript_Briney_10
+	return
+
+DewfordTown_EventScript_Briney_8:
+	call DewfordTown_EventScript_ChoosePetalburg
+	goto DewfordTown_EventScript_Briney_1
+
+DewfordTown_EventScript_Briney_9:
+	call DewfordTown_EventScript_CloseIfNo
+	goto DewfordTown_EventScript_Briney_1
+
+DewfordTown_EventScript_Briney_10:
+	call DewfordTown_EventScript_CloseIfNo
+	goto DewfordTown_EventScript_Briney_1
+
+DewfordTown_EventScript_Briney_13:
+	call DewfordTown_EventScript_ChoosePetalburg
+	goto DewfordTown_EventScript_Briney_1
+
+DewfordTown_EventScript_Briney_14:
+	call DewfordTown_EventScript_ChooseSlateport
+	goto DewfordTown_EventScript_Briney_1
+
+DewfordTown_EventScript_Briney_15:
+	call DewfordTown_EventScript_CancelSailSelect
+	goto DewfordTown_EventScript_Briney_1
+
+DewfordTown_EventScript_Briney_16:
+	call DewfordTown_EventScript_CancelSailSelect
+	goto DewfordTown_EventScript_Briney_1
+
+
+DewfordTown_EventScript_CloseIfNo_Text_0:
+	.string "{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ah okay, come back when you\n"
+	.string "want to sail to Route 104$"
+
+DewfordTown_EventScript_Briney_Text_0:
+	.string "{COLOR GREEN}MR BRINEY{COLOR BLUE}: Sorry {COLOR GREEN}{PLAYER}{COLOR BLUE}... But you'll\n"
+	.string "have to Beat Brawly first.$"
+
+DewfordTown_EventScript_Briney_Text_1:
+	.string "{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\n"
+	.string "I see you got the letter from steven?\p"
+	.string "I recommend going back to Rustboro\n"
+	.string "City, to claim the reward from the\l"
+	.string "mayor!\l"
+	.string "I heard the reward is a pretty nice one!\p"
+	.string "Well {COLOR GREEN}{PLAYER}{COLOR BLUE} do you want to go back\n"
+	.string "to Route 104?$"
+
+DewfordTown_EventScript_Briney_Text_2:
+	.string "Yes$"
+
+DewfordTown_EventScript_Briney_Text_3:
+	.string "No$"
+
+DewfordTown_EventScript_Briney_Text_4:
+	.string "Petalburg$"
+
+DewfordTown_EventScript_Briney_Text_5:
+	.string "Slateport$"
+
+DewfordTown_EventScript_Briney_Text_6:
+	.string "Cancel$"

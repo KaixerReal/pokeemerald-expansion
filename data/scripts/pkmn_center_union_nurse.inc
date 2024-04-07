@@ -240,9 +240,97 @@ EventScript_AccessTimeChanger::
 	dynmultipush EventScript_AccessTimeChanger_Text_0, TIME_DAY
 	dynmultipush EventScript_AccessTimeChanger_Text_1, TIME_EVENING
 	dynmultipush EventScript_AccessTimeChanger_Text_2, TIME_NIGHT
-	dynmultistack 0, 0, FALSE, 4, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE
+	dynmultistack 0, 0, FALSE, 3, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE
 	settimeofday VAR_RESULT
 	release
+	end
+
+
+EventScript_AccessAbilityChanger::
+	lock
+	faceplayer
+	msgbox EventScript_AccessAbilityChanger_Text_0
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq EventScript_AccessAbilityChanger_2
+EventScript_AccessAbilityChanger_1:
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq EventScript_AccessAbilityChanger_5
+EventScript_AccessAbilityChanger_4:
+	special BufferMonNickname
+	special BufferMonAbilities
+	msgbox EventScript_AccessAbilityChanger_Text_2
+	compare VAR_0x8006, ABILITY_NONE
+	goto_if_ne EventScript_AccessAbilityChanger_8
+EventScript_AccessAbilityChanger_7:
+	compare VAR_0x8007, ABILITY_NONE
+	goto_if_ne EventScript_AccessAbilityChanger_11
+EventScript_AccessAbilityChanger_10:
+	compare VAR_0x8008, ABILITY_NONE
+	goto_if_ne EventScript_AccessAbilityChanger_14
+EventScript_AccessAbilityChanger_13:
+	dynmultistack 0, 0, TRUE, 3, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE
+	compare VAR_RESULT, ABILITY_NONE
+	goto_if_eq EventScript_AccessAbilityChanger_17
+	switch VAR_RESULT
+	case VAR_0x8006, EventScript_AccessAbilityChanger_21
+	case VAR_0x8007, EventScript_AccessAbilityChanger_22
+	case VAR_0x8008, EventScript_AccessAbilityChanger_23
+EventScript_AccessAbilityChanger_19:
+	bufferabilityname STR_VAR_2, VAR_RESULT
+	msgbox EventScript_AccessAbilityChanger_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_AccessAbilityChanger_25
+	special ChangeMonAbility
+	msgbox EventScript_AccessAbilityChanger_Text_5
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	closemessage
+	release
+	end
+
+EventScript_AccessAbilityChanger_2:
+	goto EventScript_AccessAbilityChanger
+	goto EventScript_AccessAbilityChanger_1
+
+EventScript_AccessAbilityChanger_5:
+	msgbox EventScript_AccessAbilityChanger_Text_1
+	goto EventScript_AccessAbilityChanger
+	goto EventScript_AccessAbilityChanger_4
+
+EventScript_AccessAbilityChanger_8:
+	bufferabilityname STR_VAR_2, VAR_0x8006
+	dynmultipush EventScript_AccessAbilityChanger_Text_3, VAR_0x8006
+	goto EventScript_AccessAbilityChanger_7
+
+EventScript_AccessAbilityChanger_11:
+	bufferabilityname STR_VAR_2, VAR_0x8007
+	dynmultipush EventScript_AccessAbilityChanger_Text_3, VAR_0x8007
+	goto EventScript_AccessAbilityChanger_10
+
+EventScript_AccessAbilityChanger_14:
+	bufferabilityname STR_VAR_2, VAR_0x8008
+	dynmultipush EventScript_AccessAbilityChanger_Text_3, VAR_0x8008
+	goto EventScript_AccessAbilityChanger_13
+
+EventScript_AccessAbilityChanger_17:
+	end
+
+EventScript_AccessAbilityChanger_21:
+	setvar VAR_0x8009, 0
+	goto EventScript_AccessAbilityChanger_19
+
+EventScript_AccessAbilityChanger_22:
+	setvar VAR_0x8009, 1
+	goto EventScript_AccessAbilityChanger_19
+
+EventScript_AccessAbilityChanger_23:
+	setvar VAR_0x8009, 2
+	goto EventScript_AccessAbilityChanger_19
+
+EventScript_AccessAbilityChanger_25:
 	end
 
 
@@ -400,6 +488,27 @@ EventScript_AccessTimeChanger_Text_1:
 
 EventScript_AccessTimeChanger_Text_2:
 	.string "Dusk$"
+
+EventScript_AccessAbilityChanger_Text_0:
+	.string "Wich Pokemon Would like to have its\n"
+	.string "ability changed?$"
+
+EventScript_AccessAbilityChanger_Text_1:
+	.string "An egg doesn't have abilities.$"
+
+EventScript_AccessAbilityChanger_Text_2:
+	.string "Which Ability should {STR_VAR_1}\n"
+	.string "learn?$"
+
+EventScript_AccessAbilityChanger_Text_3:
+	.string "{STR_VAR_2}$"
+
+EventScript_AccessAbilityChanger_Text_4:
+	.string "So {STR_VAR_1} should learn the\n"
+	.string "{STR_VAR_2} Ability?$"
+
+EventScript_AccessAbilityChanger_Text_5:
+	.string "{STR_VAR_1}'s Ability is changed!$"
 
 PkmnCenterUnionNurse_AnythingElse::
 	.string "Is there anything else I can help you\n"

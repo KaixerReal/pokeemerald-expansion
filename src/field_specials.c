@@ -66,6 +66,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/weather.h"
 #include "constants/metatile_labels.h"
+#include "constants/abilities.h"
 #include "palette.h"
 #include "battle_util.h"
 
@@ -4316,4 +4317,26 @@ void ChangeMonNature(void)
 
     UpdateMonPersonality(&mon->box, newPersonality);
     CalculateMonStats(mon);
+}
+
+void BufferMonAbilities(void) {
+    u16 species = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, 0);
+    u16 currentAbilityNum = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ABILITY_NUM, 0);
+
+    gSpecialVar_0x8006 = currentAbilityNum == 0 ? ABILITY_NONE : gSpeciesInfo[species].abilities[0];
+    gSpecialVar_0x8007 = currentAbilityNum == 1 ? ABILITY_NONE : gSpeciesInfo[species].abilities[1];
+    gSpecialVar_0x8008 = currentAbilityNum == 2 ? ABILITY_NONE : gSpeciesInfo[species].abilities[2];
+
+    if (gSpecialVar_0x8006 == ABILITY_NONE && gSpecialVar_0x8007 == ABILITY_NONE && gSpecialVar_0x8008 == ABILITY_NONE) {
+        gSpecialVar_Result = FALSE;
+    } else {
+        gSpecialVar_Result = TRUE;
+    }
+}
+
+void ChangeMonAbility(void) 
+{
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    u16 abilityNum = gSpecialVar_0x8009;
+    SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
 }

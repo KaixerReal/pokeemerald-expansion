@@ -3509,12 +3509,12 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
 
 #define SILVALLY_SPECIES_INFO(type, _palette)                               \
     {                                                                       \
-        .baseHP        = 95,                                                \
-        .baseAttack    = 95,                                                \
-        .baseDefense   = 95,                                                \
-        .baseSpeed     = 95,                                                \
-        .baseSpAttack  = 95,                                                \
-        .baseSpDefense = 95,                                                \
+        .baseHP        = 105,                                               \
+        .baseAttack    = 105,                                               \
+        .baseDefense   = 105,                                               \
+        .baseSpeed     = 105,                                               \
+        .baseSpAttack  = 105,                                               \
+        .baseSpDefense = 105,                                               \
         .types = MON_TYPES(type),                                           \
         .catchRate = 3,                                                     \
         .expYield = 257,                                                    \

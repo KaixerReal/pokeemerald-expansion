@@ -1,5 +1,5 @@
-//New Mega Test Trainer.
 
+//New Mega Test Trainer.
 static const struct TrainerMon sParty_MegaTester[] = {
     {
         .species = SPECIES_GRIMMSNARL,
@@ -12,10 +12,10 @@ static const struct TrainerMon sParty_MegaTester[] = {
         .heldItem = ITEM_GRIMMSNARLITE,
         .isShiny = TRUE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
-};
+};  
 
 static const struct TrainerMon sParty_Jose[] = {
     {
@@ -29,7 +29,7 @@ static const struct TrainerMon sParty_Jose[] = {
         .heldItem = ITEM_VENUSAURITE_Y,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -48,7 +48,7 @@ static const struct TrainerMon sParty_BrendanRoute103Mudkip[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -65,7 +65,7 @@ static const struct TrainerMon sParty_MayRoute103Mudkip[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -82,7 +82,7 @@ static const struct TrainerMon sParty_BrendanRoute103Treecko[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -99,7 +99,7 @@ static const struct TrainerMon sParty_MayRoute103Treecko[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -116,7 +116,7 @@ static const struct TrainerMon sParty_BrendanRoute103Torchic[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -133,7 +133,7 @@ static const struct TrainerMon sParty_MayRoute103Torchic[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -152,7 +152,7 @@ static const struct TrainerMon sParty_Calvin[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.,
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -169,7 +169,7 @@ static const struct TrainerMon sParty_Rick[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -183,7 +183,7 @@ static const struct TrainerMon sParty_Rick[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -200,7 +200,7 @@ static const struct TrainerMon sParty_Allen[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -214,7 +214,7 @@ static const struct TrainerMon sParty_Allen[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -231,7 +231,7 @@ static const struct TrainerMon sParty_Tiana[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -245,7 +245,7 @@ static const struct TrainerMon sParty_Tiana[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -262,7 +262,7 @@ static const struct TrainerMon sParty_Billy[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -276,7 +276,7 @@ static const struct TrainerMon sParty_Billy[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -293,7 +293,7 @@ static const struct TrainerMon sParty_Darian[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = TRUE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -307,7 +307,7 @@ static const struct TrainerMon sParty_Darian[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = TRUE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -324,7 +324,7 @@ static const struct TrainerMon sParty_Cindy[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -338,7 +338,7 @@ static const struct TrainerMon sParty_Cindy[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -355,7 +355,7 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -369,7 +369,7 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -383,7 +383,7 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -397,7 +397,7 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -414,7 +414,7 @@ static const struct TrainerMon sParty_James[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -428,7 +428,7 @@ static const struct TrainerMon sParty_James[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -445,7 +445,7 @@ static const struct TrainerMon sParty_Winston1[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -459,7 +459,7 @@ static const struct TrainerMon sParty_Winston1[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -476,7 +476,7 @@ static const struct TrainerMon sParty_Haley1[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -490,7 +490,7 @@ static const struct TrainerMon sParty_Haley1[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -507,7 +507,7 @@ static const struct TrainerMon sParty_GinaAndMia1[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -521,7 +521,7 @@ static const struct TrainerMon sParty_GinaAndMia1[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -538,7 +538,7 @@ static const struct TrainerMon sParty_Josh_Boss[] = {
     .heldItem = ITEM_BERRY_JUICE,
     .isShiny = FALSE,
     .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
 {
@@ -552,7 +552,7 @@ static const struct TrainerMon sParty_Josh_Boss[] = {
     .heldItem = ITEM_LEFTOVERS,
     .isShiny = FALSE,
     .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
 {
@@ -566,7 +566,7 @@ static const struct TrainerMon sParty_Josh_Boss[] = {
     .heldItem = ITEM_MYSTIC_WATER,
     .isShiny = FALSE,
     .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .iv = TRAINER_PARTY_IVS(30, 31, 31, 30, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
 {
@@ -580,7 +580,7 @@ static const struct TrainerMon sParty_Josh_Boss[] = {
     .heldItem = ITEM_CUSTAP_BERRY,
     .isShiny = FALSE,
     .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
 
@@ -598,7 +598,7 @@ static const struct TrainerMon sParty_Tommy[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -612,7 +612,7 @@ static const struct TrainerMon sParty_Tommy[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -629,7 +629,7 @@ static const struct TrainerMon sParty_Marc[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
     {
@@ -643,7 +643,7 @@ static const struct TrainerMon sParty_Marc[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
         //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
     },
 };
@@ -887,91 +887,72 @@ static const struct TrainerMon sParty_Brawly[] = {
 };
 
 static const struct TrainerMon sParty_Wattson[] = {
-{
-    .species = SPECIES_DEDENNE,
-    .lvl = 34,
-    .ability = ABILITY_ELECTRIC_SURGE,
-    .moves = {MOVE_DAZZLING_GLEAM, MOVE_RISING_VOLTAGE, MOVE_GRASS_KNOT, MOVE_VOLT_SWITCH},
-    .nature = NATURE_TIMID,
-    .gender = TRAINER_MON_MALE,
-    .friendship = 0,
-    .heldItem = ITEM_TERRAIN_EXTENDER,
-    .isShiny = FALSE,
-    .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-    .ev = TRAINER_PARTY_EVS(0, 0, 4, 172, 4, 144), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-},
-{
-    .species = SPECIES_TOXTRICITY,
-    .lvl = 34,
-    .ability = ABILITY_PUNK_ROCK,
-    .moves = {MOVE_SHIFT_GEAR, MOVE_OVERDRIVE, MOVE_HYPER_VOICE, MOVE_SLUDGE_BOMB},
-    .nature = NATURE_TIMID,
-    .gender = TRAINER_MON_MALE,
-    .friendship = 0,
-    .heldItem = ITEM_AIR_BALLOON,
-    .isShiny = FALSE,
-    .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-    .ev = TRAINER_PARTY_EVS(0, 0, 4, 172, 4, 172), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-},
-{
-    .species = SPECIES_SCEPTILE,
-    .lvl = 34,
-    .ability = ABILITY_UNBURDEN,
-    .moves = {MOVE_ENERGY_BALL, MOVE_HIDDEN_POWER, MOVE_TACHYON_CUTTER, MOVE_DRAGON_PULSE},
-    .nature = NATURE_MODEST,
-    .gender = TRAINER_MON_MALE,
-    .friendship = 0,
-    .heldItem = ITEM_ELECTRIC_SEED,
-    .isShiny = FALSE,
-    .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-    .ev = TRAINER_PARTY_EVS(0, 0, 4, 172, 0, 160), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-},
-{
-    .species = SPECIES_RAICHU_ALOLAN,
-    .lvl = 34,
-    .ability = ABILITY_SURGE_SURFER,
-    .moves = {MOVE_NASTY_PLOT, MOVE_SURF, MOVE_PSYSHOCK, MOVE_RISING_VOLTAGE},
-    .nature = NATURE_TIMID,
-    .gender = TRAINER_MON_MALE,
-    .friendship = 0,
-    .heldItem = ITEM_FOCUS_SASH,
-    .isShiny = FALSE,
-    .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-    .ev = TRAINER_PARTY_EVS(0, 0, 4, 192, 0, 112), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-},
-{
-    .species = SPECIES_ELECTRODE_HISUIAN,
-    .lvl = 34,
-    .ability = ABILITY_RECKLESS,
-    .moves = {MOVE_GIGA_DRAIN, MOVE_VOLT_SWITCH, MOVE_HIDDEN_POWER, MOVE_EXPLOSION},
-    .nature = NATURE_TIMID,
-    .gender = TRAINER_MON_MALE,
-    .friendship = 0,
-    .heldItem = ITEM_EXPERT_BELT,
-    .isShiny = FALSE,
-    .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-    .ev = TRAINER_PARTY_EVS(0, 0, 4, 172, 0, 176), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-},
-{
-    .species = SPECIES_GOLEM_ALOLAN,
-    .lvl = 34,
-    .ability = ABILITY_STURDY,
-    .moves = {MOVE_HIGH_HORSEPOWER, MOVE_STONE_EDGE, MOVE_THUNDER_PUNCH, MOVE_EXPLOSION},
-    .nature = NATURE_ADAMANT,
-    .gender = TRAINER_MON_MALE,
-    .friendship = 0,
-    .heldItem = ITEM_CUSTAP_BERRY,
-    .isShiny = FALSE,
-    .ball = ITEM_POKE_BALL,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-    .ev = TRAINER_PARTY_EVS(164, 172, 4, 0, 0, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
-},
-
+    {
+        .species = SPECIES_DEDENNE,
+        .heldItem = ITEM_TERRAIN_EXTENDER,
+        .gender = TRAINER_MON_MALE,
+        .ability = ABILITY_ELECTRIC_SURGE,
+        .lvl = 40,
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 4, 252),
+        .nature = NATURE_TIMID,
+        .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+        .moves = {MOVE_DAZZLING_GLEAM, MOVE_PARABOLIC_CHARGE, MOVE_GRASS_KNOT, MOVE_VOLT_SWITCH}
+    },
+    {
+        .species = SPECIES_TOXTRICITY,
+        .heldItem = ITEM_AIR_BALLOON,
+        .gender = TRAINER_MON_MALE,
+        .ability = ABILITY_PUNK_ROCK,
+        .lvl = 40,
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 4, 252),
+        .nature = NATURE_TIMID,
+        .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+        .moves = {MOVE_SHIFT_GEAR, MOVE_OVERDRIVE, MOVE_BOOMBURST, MOVE_SLUDGE_BOMB}
+    },
+    {
+        .species = SPECIES_ROTOM_HEAT,
+        .heldItem = ITEM_WHITE_HERB,
+        .ability = ABILITY_LEVITATE,
+        .lvl = 40,
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 4, 252),
+        .nature = NATURE_TIMID,
+        .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+        .moves = {MOVE_OVERHEAT, MOVE_VOLT_SWITCH, MOVE_PAIN_SPLIT, MOVE_SHADOW_BALL}
+    },
+    {
+        .species = SPECIES_RAICHU_ALOLAN,
+        .heldItem = ITEM_FOCUS_SASH,
+        .gender = TRAINER_MON_MALE,
+        .ability = ABILITY_SURGE_SURFER,
+        .lvl = 40,
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 4, 252),
+        .nature = NATURE_TIMID,
+        .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+        .moves = {MOVE_SURF, MOVE_RISING_VOLTAGE, MOVE_PSYSHOCK, MOVE_NASTY_PLOT}
+    },
+    {
+        .species = SPECIES_MANECTRIC,
+        .heldItem = ITEM_MANECTITE,
+        .gender = TRAINER_MON_MALE,
+        .ability = ABILITY_INTIMIDATE,
+        .lvl = 40,
+        .isShiny = TRUE,
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 4, 252),
+        .nature = NATURE_TIMID,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 30),
+        .moves = {MOVE_FLAMETHROWER, MOVE_HIDDEN_POWER, MOVE_RISING_VOLTAGE, MOVE_CALM_MIND}
+    },
+    {
+        .species = SPECIES_SCEPTILE,
+        .heldItem = ITEM_ELECTRIC_SEED,
+        .gender = TRAINER_MON_MALE,
+        .ability = ABILITY_UNBURDEN,
+        .lvl = 40,
+        .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 4, 252),
+        .nature = NATURE_MODEST,
+        .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 30),
+        .moves = {MOVE_ENERGY_BALL, MOVE_TACHYON_CUTTER, MOVE_HIDDEN_POWER, MOVE_CALM_MIND}
+    }
 };
 
 static const struct TrainerMon sParty_Flannery1[] = {
@@ -1004,7 +985,7 @@ static const struct TrainerMon sParty_Flannery1[] = {
     .ev = TRAINER_PARTY_EVS(244, 12, 4, 0, 248, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
 {
-    .species = SPECIES_SILVALLY_FIRE,
+    .species = SPECIES_SILVALLY,
     .lvl = 44,
     .ability = ABILITY_RKS_SYSTEM,
     .moves = {MOVE_FAKE_OUT, MOVE_PARTING_SHOT, MOVE_MULTI_ATTACK, MOVE_TAILWIND},
@@ -1390,7 +1371,6 @@ static const struct TrainerMon sParty_Duskie[] = {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
     .ev = TRAINER_PARTY_EVS(0, 252, 4, 0, 0, 252), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
-
 {
     .species = SPECIES_HAWLUCHA,
     .lvl = 50,
@@ -1405,7 +1385,6 @@ static const struct TrainerMon sParty_Duskie[] = {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
     .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 4, 252), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
-
 {
     .species = SPECIES_TORNADUS_THERIAN,
     .lvl = 50,
@@ -1420,7 +1399,6 @@ static const struct TrainerMon sParty_Duskie[] = {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31), // HP, ATK, DEF, SPATK, SPDEF, SPEED
     .ev = TRAINER_PARTY_EVS(0, 4, 0, 252, 252, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
-
 {
     .species = SPECIES_TALONFLAME,
     .lvl = 50,
@@ -1450,9 +1428,9 @@ static const struct TrainerMon sParty_Duskie[] = {
     .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 4, 0), // HP, ATK, DEF, SPATK, SPDEF, SPEED
 },
 {
-    .species = SPECIES_AERODACTYL_MEGA,
+    .species = SPECIES_AERODACTYL,
     .lvl = 50,
-    .ability = ABILITY_TOUGH_CLAWS,
+    .ability = ABILITY_UNNERVE,
     .moves = {MOVE_STONE_EDGE, MOVE_DUAL_WINGBEAT, MOVE_HEAD_SMASH, MOVE_HONE_CLAWS},
     .nature = NATURE_JOLLY,
     .gender = TRAINER_MON_MALE,

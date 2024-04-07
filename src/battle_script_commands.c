@@ -1609,14 +1609,21 @@ static bool32 AccuracyCalcHelper(u16 move)
         if ((gMovesInfo[move].effect == EFFECT_THUNDER || gMovesInfo[move].effect == EFFECT_RAIN_ALWAYS_HIT)
             && IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_RAIN))
         {
-            // thunder/hurricane/genie, moves ignore acc checks in rain unless target is holding utility umbrella.
+            // thunder/hurricane/genie, moves ignore acc checks in rain, unless target is holding utility umbrella.
             JumpIfMoveFailed(7, move);
             return TRUE;
         }
         else if (gMovesInfo[move].effect == EFFECT_SNOW_ALWAYS_HIT //Remade how the game check if snow is active.
             && IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SNOW))
         {
-            // Blizzard/Bleakwind Storm, ignores acc checks in Hail in Gen4+ or Snow in Gen 9 unless target is holding utility umbrella.
+            // Blizzard/Bleakwind Storm, ignores acc checks in Hail in Gen4+ or Snow in Gen 9, unless target is holding utility umbrella.
+            JumpIfMoveFailed(7, move);
+            return TRUE;
+        }
+        else if (gMovesInfo[move].effect == EFFECT_SAND_ALWAYS_HIT //Remade how the game check if snow is active.
+            && IsBattlerWeatherAffected(gBattlerTarget, B_WEATHER_SANDSTORM))
+        {
+            // SandSear Storm, ignores acc checks in Sandstorm, unless target is holding utility umbrella.
             JumpIfMoveFailed(7, move);
             return TRUE;
         }

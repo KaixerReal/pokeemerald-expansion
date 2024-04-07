@@ -954,6 +954,33 @@ void Task_AccessTimeChanger(u8 taskId)
     DestroyTask(taskId);
 }
 
+//Ability Changer
+extern const u8 EventScript_AccessAbilityChanger[];
+
+void ItemUseOutOfBattle_AbilityChanger(u8 taskId)
+{
+    if (MenuHelpers_IsLinkActive() == TRUE) // link func
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        sItemUseOnFieldCB = Task_AccessAbilityChanger;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript; //FieldCB_ReturnToFieldNoScript
+        FadeScreen(FADE_TO_BLACK, 0);
+    }
+}
+
+void Task_AccessAbilityChanger(u8 taskId)
+{
+    ScriptContext_SetupScript(EventScript_AccessAbilityChanger);
+    DestroyTask(taskId);
+}
+
 static void RemoveUsedItem(void)
 {
     RemoveBagItem(gSpecialVar_ItemId, 1);

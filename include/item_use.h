@@ -52,6 +52,8 @@ void DisplayDadsAdviceCannotUseItemMessage(u8 taskId, bool8 isUsingRegisteredKey
 //New Items
 void ItemUseOutOfBattle_TimeChanger(u8 taskId);
 void Task_AccessTimeChanger(u8 taskId);
+void ItemUseOutOfBattle_AbilityChanger(u8 taskId);
+void Task_AccessAbilityChanger(u8 taskId);
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

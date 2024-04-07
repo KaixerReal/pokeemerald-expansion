@@ -59,6 +59,7 @@ enum AbilityNumbers
 #define GET_MON_COORDS_HEIGHT(size)((size & 0xF) * 8)
 #define TRAINER_PARTY_IVS(hp, atk, def, spatk, spdef, speed) (hp | (atk << 5) | (def << 10) | (spatk << 15) | (spdef << 20) | (speed << 25))
 #define TRAINER_PARTY_EVS(hp, atk, def, spatk, spdef, speed) ((const u8[6]){hp,atk,def,spatk,spdef,speed})
+
 struct TrainerMon
 {
     const u8 *nickname;
@@ -72,6 +73,7 @@ struct TrainerMon
     u8 ball;
     u8 friendship;
     u8 nature : 5;
+    u8 hiddenPower : 5;
     bool8 gender : 2;
     bool8 isShiny : 1;
     u8 dynamaxLevel : 4;

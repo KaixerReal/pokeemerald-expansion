@@ -1,3 +1,4 @@
+//Credits go to @RavePossum on discord for helping me fix this.
 script Common_EventScript_PkmnCenterUnionNurse {
 	lock
 	faceplayer
@@ -7,7 +8,7 @@ script Common_EventScript_PkmnCenterUnionNurse {
     release
 	end
 }
-
+//Credits go to @RavePossum on discord for helping me fix this.
 script EventScript_PkmnCenterUnionNurse_Multichoice {
     if(!defeated(TRAINER_BRAWLY_1)){
     dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Change nickname","Relearn move {FIXED_CASE}{COLOR RED}LOCKED","Change Nature","Cancel")
@@ -52,7 +53,7 @@ script EventScript_PkmnCenterUnionNurse_Multichoice {
         }
     }
 }
-
+//Credits go to @RavePossum on discord for helping me fix this.
 script EventScript_PkmnCenterUnionNurse_MoveRelearn {
 
     if(defeated(TRAINER_BRAWLY_1)){
@@ -93,7 +94,7 @@ script EventScript_PkmnCenterUnionNurse_MoveRelearn {
         }
     }
 }
-
+//Credits go to @RavePossum on discord for helping me fix this.
 script EventScript_PkmnCenterUnionNurse_ChangeNickname {
     special(ChoosePartyMon)
 	waitstate
@@ -121,7 +122,7 @@ script EventScript_PkmnCenterUnionNurse_ChangeNickname {
         return
     }
 }
-
+//Credits go to @RavePossum on discord for helping me fix this.
 script EventScript_PkmnCenterUnionNurse_ChangeNature {
     lock
     faceplayer
@@ -212,9 +213,79 @@ script EventScript_AccessTimeChanger {
     dynmultipush("Day", TIME_DAY)
     dynmultipush("Night", TIME_EVENING) //For Some Reason TIME_EVENING turns into night
     dynmultipush("Dusk", TIME_NIGHT) //For Some Reason TIME_NIGHT turns into Dusk
-    dynmultistack(0, 0, FALSE, 4, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE)
+    dynmultistack(0, 0, FALSE, 3, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE)
 
     settimeofday(VAR_RESULT)
+    release
+    end
+}
+
+//For Ability Changer
+//Credits go to @RavePossum on discord for helping me fix this.
+script EventScript_AccessAbilityChanger {
+    lock
+    faceplayer
+
+    msgbox(format("Wich Pokemon Would like to have its ability changed?"))
+    special(ChoosePartyMon)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) { goto(EventScript_AccessAbilityChanger) }
+
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+
+    if(var(VAR_RESULT) == SPECIES_EGG) {
+        msgbox(format("An egg doesn't have abilities."))
+        goto(EventScript_AccessAbilityChanger)
+    }
+
+    special(BufferMonNickname)
+    special(BufferMonAbilities)  
+
+    msgbox(format("Which Ability should {STR_VAR_1} learn?"))
+    if(var(VAR_0x8006) != ABILITY_NONE) {
+        bufferabilityname(STR_VAR_2, VAR_0x8006)
+        dynmultipush("{STR_VAR_2}", VAR_0x8006)
+    }
+
+    if(var(VAR_0x8007) != ABILITY_NONE) {
+        bufferabilityname(STR_VAR_2, VAR_0x8007)
+        dynmultipush("{STR_VAR_2}", VAR_0x8007)
+    }
+
+    if(var(VAR_0x8008) != ABILITY_NONE) {
+        bufferabilityname(STR_VAR_2, VAR_0x8008)
+        dynmultipush("{STR_VAR_2}", VAR_0x8008)
+    }
+
+    //dynmultipush("Cancel", ABILITY_NONE) //Not Needed for now.
+
+    // setting initial selected to a non-existant ID will always have it point to the first option
+	dynmultistack(0, 0, TRUE, 3, FALSE, 0xFF, DYN_MULTICHOICE_CB_NONE)
+
+    if (var(VAR_RESULT) == ABILITY_NONE) { end }
+
+    switch (var(VAR_RESULT)) {
+        case VAR_0x8006:
+            setvar(VAR_0x8009, 0)
+        case VAR_0x8007:
+            setvar(VAR_0x8009, 1)
+        case VAR_0x8008:
+            setvar(VAR_0x8009, 2)
+    }
+
+    bufferabilityname(STR_VAR_2, VAR_RESULT)
+    msgbox(format("So {STR_VAR_1} should learn the {STR_VAR_2} Ability?"),MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == NO) { end }
+
+    special(ChangeMonAbility)
+    msgbox(format("{STR_VAR_1}'s Ability is changed!"))
+    playfanfare(MUS_OBTAIN_ITEM)
+	waitfanfare
+    closemessage
+
+    //msgbox(format("{STR_VAR_1}'s training is complete.\pCome back if you need to train another Pokémon."))
     release
     end
 }
