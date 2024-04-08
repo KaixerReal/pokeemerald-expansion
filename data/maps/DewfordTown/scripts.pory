@@ -803,9 +803,8 @@ script DewfordTown_EventScript_CloseIfNo{
 script DewfordTown_EventScript_Briney{
 	lock
 	faceplayer
-	goto_if_unset (FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt)
 	waitmessage
-	if(!defeated(TRAINER_BRAWLY_1)){
+	if(!flag(FLAG_DELIVERED_STEVEN_LETTER)){
 	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Sorry {COLOR GREEN}{PLAYER}{COLOR BLUE}... But you'll have to Beat Brawly first."), MSGBOX_DEFAULT)
 	closemessage
     call(DewfordTown_EventScript_CloseIfNo)

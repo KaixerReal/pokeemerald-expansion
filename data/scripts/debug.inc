@@ -137,8 +137,10 @@ Debug_EventScript_Text_OffensiveIVs:
 Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
-Debug_EventScript_Script_1::
-	end
+Debug_EventScript_Script_1:: @ both have Mega Evolution
+    cleartrainerflag TRAINER_JOHN_AND_JAY_4
+    trainerbattle_double TRAINER_JOHN_AND_JAY_4, MeteorFalls_1F_2R_Text_JayIntro, MeteorFalls_1F_2R_Text_JayDefeat, MeteorFalls_1F_2R_Text_JayNotEnoughMons
+    end
 
 Debug_EventScript_Script_2::
 	end

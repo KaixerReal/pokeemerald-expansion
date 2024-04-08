@@ -1038,7 +1038,7 @@ static bool8 StartMenuFull_DoGfxSetup(void) // base UI loader from Ghouls UI She
         Free(*ptr__);                  \
 })
 
-static void StartMenuFull_FreeResources(void) // Clear Everything if Leaving
+void StartMenuFull_FreeResources(void) // Clear Everything if Leaving
 {
     try_free(sStartMenuDataPtr);
     try_free(sBg1TilemapBuffer);

@@ -133,56 +133,6 @@ DewfordTown_Gym_EventScript_CheckLilith::
 DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
-DewfordTown_Gym_EventScript_Brawly::
-	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
-	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
-	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-DewfordTown_Gym_EventScript_BrawlyDefeated::
-	call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness
-	message DewfordTown_Gym_Text_ReceivedKnuckleBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_DEWFORD_GYM
-	setflag FLAG_BADGE02_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	setvar VAR_0x8008, 2
-	call Common_EventScript_SetGymTrainers
-	call DewfordTown_Gym_EventScript_GiveBulkUp
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
-	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
-	setflag FLAG_ENABLE_ROXANNE_FIRST_CALL
-	release
-	end
-
-DewfordTown_Gym_EventScript_GiveBulkUp::
-	giveitem ITEM_TM_BULK_UP
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_BagIsFull
-	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_BULK_UP
-	return
-
-DewfordTown_Gym_EventScript_GiveBulkUp2:
-	giveitem ITEM_TM_BULK_UP
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_BULK_UP
-	release
-	end
-
 DewfordTown_Gym_EventScript_BrawlyRematch::
 	trainerbattle_rematch_double TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
 	msgbox DewfordTown_Gym_Text_BrawlyPostRematch, MSGBOX_AUTOCLOSE
@@ -380,41 +330,6 @@ DewfordTown_Gym_Text_CristianPostBattle:
 	.string "You win!\n"
 	.string "Go after that BADGE!$"
 
-DewfordTown_Gym_Text_BrawlyIntro:
-	.string "I'm BRAWLY!\n"
-	.string "DEWFORD's GYM LEADER!\p"
-	.string "I've been churned in the rough waves\n"
-	.string "of these parts, and I've grown tough\l"
-	.string "in the pitch-black cave!\p"
-	.string "So you wanted to challenge me?\n"
-	.string "Let me see what you're made of!$"
-
-DewfordTown_Gym_Text_BrawlyDefeat:
-	.string "Whoah, wow! You made a much bigger\n"
-	.string "splash than I expected!\p"
-	.string "You swamped me!\p"
-	.string "Okay, you've got me.\n"
-	.string "Take this GYM BADGE!$"
-
-DewfordTown_Gym_Text_ReceivedKnuckleBadge:
-	.string "{PLAYER} received the KNUCKLE BADGE\n"
-	.string "from BRAWLY.$"
-
-DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis:
-	.string "The KNUCKLE BADGE makes all POKéMON\n"
-	.string "up to Level 30, even those you get in\l"
-	.string "trades, obey without question.\p"
-	.string "And, you'll be able to use the HM move\n"
-	.string "FLASH outside of battle.\p"
-	.string "If you'd like, use this TECHNICAL\n"
-	.string "MACHINE, too.$"
-
-DewfordTown_Gym_Text_ExplainBulkUp:
-	.string "That TM08 contains BULK UP.\p"
-	.string "It's a move that raises both ATTACK\n"
-	.string "and DEFENSE stats.\p"
-	.string "… … … … … …$"
-
 DewfordTown_Gym_Text_RegisteredBrawly:
 	.string "Registered GYM LEADER BRAWLY\n"
 	.string "in the POKéNAV.$"
@@ -459,3 +374,86 @@ DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons:
 	.string "I'm sorry, but I'd like you to come back\n"
 	.string "with at least two POKéMON.$"
 `
+
+//Scripts.
+script DewfordTown_Gym_EventScript_Brawly{
+	trainerbattle_single (TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC)
+	specialvar (VAR_RESULT, ShouldTryRematchBattle)
+	goto_if_eq (VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch)
+	goto_if_unset (FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp)
+	msgbox (DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script DewfordTown_Gym_EventScript_BrawlyDefeated{
+	call (DewfordTown_Gym_EventScript_AnimateFlashFullBrightness)
+	call (Common_EventScript_PlayGymBadgeFanfare)
+	msgbox (DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis, MSGBOX_DEFAULT)
+	setflag (FLAG_DEFEATED_DEWFORD_GYM)
+	setflag (FLAG_BADGE02_GET)
+	addvar (VAR_PETALBURG_GYM_STATE, 1)
+	call_if_eq (VAR_PETALBURG_GYM_STATE, 2, Common_EventScript_ReadyPetalburgGymForBattle)
+	setvar (VAR_0x8008, 2)
+	call (Common_EventScript_SetGymTrainers)
+	closemessage
+	goto (DewfordTown_Gym_EventScript_GiveBulkUp)
+	//delay (30)
+	//playfanfare (MUS_REGISTER_MATCH_CALL)
+	//msgbox (DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT)
+	//waitfanfare
+	//closemessage
+	//delay (30)
+	//setflag (FLAG_ENABLE_BRAWLY_MATCH_CALL)
+	//setvar (VAR_ROXANNE_CALL_STEP_COUNTER, 0)
+	//setflag (FLAG_ENABLE_ROXANNE_FIRST_CALL)
+	//release
+	//end
+}
+
+script DewfordTown_Gym_EventScript_GiveBulkUp{
+	giveitem (ITEM_TM_BULK_UP)
+	goto_if_eq (VAR_RESULT, 0, Common_EventScript_BagIsFull)
+	msgbox (DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT)
+	setflag (FLAG_RECEIVED_TM_BULK_UP)
+	release
+	end
+}
+
+//Text.
+text DewfordTown_Gym_Text_BrawlyIntro{
+	"I'm BRAWLY!\n"
+	"DEWFORD's GYM LEADER!\p"
+	"I've been churned in the rough waves\n"
+	"of these parts, and I've grown tough\l"
+	"in the pitch-black cave!\p"
+	"So you wanted to challenge me?\n"
+	"Let me see what you're made of!$"
+}
+
+text DewfordTown_Gym_Text_BrawlyDefeat{
+	"Whoah, wow! You made a much bigger\n"
+	"splash than I expected!\p"
+	"You swamped me!\p"
+	"Okay, you've got me.\n"
+	"Take this GYM BADGE!$"
+	"{PLAYER} received the KNUCKLE BADGE\n"
+	"from BRAWLY.$"
+}
+
+text DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis{
+	"The KNUCKLE BADGE makes all POKéMON\n"
+	"up to Level 30, even those you get in\l"
+	"trades, obey without question.\p"
+	"And, you'll be able to use the HM move\n"
+	"FLASH outside of battle.\p"
+	"If you'd like, use this TECHNICAL\n"
+	"MACHINE, too.$"
+}
+
+text DewfordTown_Gym_Text_ExplainBulkUp{
+	"That TM08 contains BULK UP.\p"
+	"It's a move that raises both ATTACK\n"
+	"and DEFENSE stats.\p"
+	"… … … … … …$"
+}

@@ -10193,6 +10193,7 @@ bool32 CanMegaEvolve(u32 battler)
     u32 itemId, holdEffect;
     struct Pokemon *mon;
     u32 battlerPosition = GetBattlerPosition(battler);
+    u8 enemyPosition = GetBattlerPosition(BATTLE_OPPOSITE(battler));
     u8 partnerPosition = GetBattlerPosition(BATTLE_PARTNER(battler));
     struct MegaEvolutionData *mega = &(((struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]))->mega);
 
@@ -10209,10 +10210,14 @@ bool32 CanMegaEvolve(u32 battler)
     if (gBattleStruct->zmove.toBeUsed[battler])
         return FALSE;
 
+    //Thanks PCG for helping me with this code!
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
      && IsPartnerMonFromSameTrainer(battler)
      && (mega->alreadyEvolved[partnerPosition] || (mega->toEvolve & gBitTable[BATTLE_PARTNER(battler)])))
-        return FALSE;
+    {
+        if (GetBattlerSide(battler) == B_SIDE_OPPONENT)
+            return TRUE;
+    }
 
     // Check if mon is currently held by Sky Drop
     if (gStatuses3[battler] & STATUS3_SKY_DROPPED)
