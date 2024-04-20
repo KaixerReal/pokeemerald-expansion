@@ -802,10 +802,8 @@ DewfordTown_EventScript_CloseIfNo::
 DewfordTown_EventScript_Briney::
 	lock
 	faceplayer
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
 	waitmessage
-	checktrainerflag TRAINER_BRAWLY_1
-	goto_if 0, DewfordTown_EventScript_Briney_2
+	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_Briney_2
 	checktrainerflag TRAINER_NORMAN_1
 	goto_if 0, DewfordTown_EventScript_Briney_3
 	message DewfordTown_Text_WhereAreWeBound

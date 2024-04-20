@@ -3142,6 +3142,7 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_PURPLE,
+        .startingStatus = STARTING_STATUS_DARKAURA_OPPONENT,
         .aiFlags = AI_STANDARD_FLAGS,
         .party = TRAINER_PARTY(sParty_Sidney),
     },

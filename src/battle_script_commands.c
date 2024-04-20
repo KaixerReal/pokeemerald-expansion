@@ -358,7 +358,7 @@ static void TryUpdateRoundTurnOrder(void);
 static bool32 ChangeOrderTargetAfterAttacker(void);
 void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBattler);
 static void RemoveAllTerrains(void);
-static bool8 CanAbilityPreventStatLoss(u16 abilityDef, bool8 isIntimidate);
+static bool8 CanAbilityPreventStatLoss(u16 abilityDef, u32 battler, bool8 isIntimidate);
 static bool8 CanBurnHitThaw(u16 move);
 static u32 GetNextTarget(u32 moveTarget, bool32 excludeCurrent);
 static void TryUpdateEvolutionTracker(u32 evolutionMethod, u32 upAmount);
@@ -11530,7 +11530,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
             return STAT_CHANGE_DIDNT_WORK;
         }
         else if ((battlerHoldEffect == HOLD_EFFECT_CLEAR_AMULET
-              || CanAbilityPreventStatLoss(battlerAbility, GetBattlerAbility(gBattlerAttacker) == ABILITY_INTIMIDATE))
+              || CanAbilityPreventStatLoss(battlerAbility, battler, GetBattlerAbility(gBattlerAttacker) == ABILITY_INTIMIDATE))
               && (!affectsUser || mirrorArmored) && !certain && gCurrentMove != MOVE_CURSE)
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)
@@ -15776,22 +15776,60 @@ static bool8 IsFinalStrikeEffect(u16 move)
     return FALSE;
 }
 
-static bool8 CanAbilityPreventStatLoss(u16 abilityDef, bool8 byIntimidate)
+static bool8 CanAbilityPreventStatLoss(u16 abilityDef, u32 battler, bool8 byIntimidate)
 {
+    u32 move = gBattleMons[battler].moves[gMoveSelectionCursor[battler]];
+
+    if (GetBattlerHoldEffect(battler, TRUE) != HOLD_EFFECT_CLEAR_AMULET)
+        return TRUE;
+
     switch (abilityDef)
     {
-    case ABILITY_CLEAR_BODY:
-    case ABILITY_FULL_METAL_BODY:
-    case ABILITY_WHITE_SMOKE:
-        return TRUE;
-    case ABILITY_INNER_FOCUS:
-    case ABILITY_SCRAPPY:
-    case ABILITY_OWN_TEMPO:
-    case ABILITY_OBLIVIOUS:
-        if (byIntimidate && (B_UPDATED_INTIMIDATE >= GEN_8))
+        case ABILITY_CLEAR_BODY:
+        case ABILITY_WHITE_SMOKE:
             return TRUE;
         break;
+        case ABILITY_BIG_PECKS:
+        {
+            if ((gMovesInfo[move].effect == EFFECT_DEFENSE_DOWN) || (gMovesInfo[move].effect == EFFECT_DEFENSE_DOWN_2))
+                return TRUE;
+        }
+        break;
+        case ABILITY_HYPER_CUTTER:
+        {
+            if ((gMovesInfo[move].effect == EFFECT_ATTACK_DOWN) || (gMovesInfo[move].effect == EFFECT_ATTACK_DOWN_2))
+                return TRUE;
+        }
+        break;
+        case ABILITY_KEEN_EYE:
+        case ABILITY_ILLUMINATE:
+        case ABILITY_MINDS_EYE:
+        {
+            if ((gMovesInfo[move].effect == EFFECT_ACCURACY_DOWN) || (gMovesInfo[move].effect == EFFECT_DEFENSE_DOWN_2))
+                return TRUE;
+        }
+        break;
+        case ABILITY_INNER_FOCUS:
+        case ABILITY_SCRAPPY:
+        case ABILITY_OWN_TEMPO:
+        case ABILITY_OBLIVIOUS:
+            if (byIntimidate && (B_UPDATED_INTIMIDATE >= GEN_8))
+                return TRUE;
+            break;
     }
+    return FALSE;
+}
+
+bool8 CanAbilityBeOverwriten(u32 battler, u16 abilityDef) 
+{
+    abilityDef = gSpeciesInfo[battler].abilities[0];
+
+    switch (abilityDef)
+    {
+        case ABILITY_OVERGROW:
+            return TRUE;
+    }
+
     return FALSE;
 }
 

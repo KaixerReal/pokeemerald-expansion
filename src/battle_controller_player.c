@@ -45,6 +45,7 @@
 #include "level_caps.h"
 #include "constants/battle_move_effects.h"
 #include "event_data.h"
+#include "battle_util.h"
 
 #define COLOR_SUPER_EFFECTIVE 24
 #define COLOR_NOT_VERY_EFFECTIVE 25
@@ -1745,6 +1746,8 @@ static const u8 gText_MoveInterfaceSTAB[] = _("{FIXED_CASE}STAB{UNFIX_CASE}");
 
 u8 TypeEffectiveness(u8 targetId, u32 battler)
 {
+    u16 illusionSpecies;
+
     u16 move = gBattleMons[battler].moves[gMoveSelectionCursor[battler]];
     u32 battlerAtk = battler;
     u32 moveType = GetTypeBeforeUsingMove(move, battlerAtk);
@@ -1754,6 +1757,9 @@ u8 TypeEffectiveness(u8 targetId, u32 battler)
     u32 attackingMove = !(gMovesInfo[move].category == DAMAGE_CATEGORY_STATUS); // or gMovesInfo[move].power > 0;
     u32 moldBreaker = IsMoldBreakerTypeAbility(atkAbility);
     u32 modifier = CalcTypeEffectivenessMultiplier(move, moveType, battler, targetId, defAbility, TRUE);
+
+    if (defAbility == ABILITY_ILLUSION && (illusionSpecies = GetIllusionMonSpecies(targetId)))
+        TryNoticeIllusionInTypeEffectiveness(move, moveType, battlerAtk, targetId, modifier, illusionSpecies);
 
     // Moves against specific Abilities and Weather
     switch (moveType)

@@ -246,6 +246,7 @@
 #define SIDE_STATUS_RAINBOW                 (1 << 24)
 #define SIDE_STATUS_SEA_OF_FIRE             (1 << 25)
 #define SIDE_STATUS_SWAMP                   (1 << 26)
+#define SIDE_STATUS_DARK_AURA               (1 << 27)
 
 #define SIDE_STATUS_HAZARDS_ANY    (SIDE_STATUS_SPIKES | SIDE_STATUS_STICKY_WEB | SIDE_STATUS_TOXIC_SPIKES | SIDE_STATUS_STEALTH_ROCK | SIDE_STATUS_STEELSURGE)
 #define SIDE_STATUS_SCREEN_ANY     (SIDE_STATUS_REFLECT | SIDE_STATUS_LIGHTSCREEN | SIDE_STATUS_AURORA_VEIL)
@@ -264,7 +265,8 @@
 #define STATUS_FIELD_PSYCHIC_TERRAIN                (1 << 9)
 #define STATUS_FIELD_ION_DELUGE                     (1 << 10)
 #define STATUS_FIELD_FAIRY_LOCK                     (1 << 11)
-#define STATUS_FIELD_TERRAIN_PERMANENT              (1 << 12)   // Overworld thunderstorm generates electric terrain
+#define STATUS_FIELD_DARK_AURA                      (1 << 12)
+#define STATUS_FIELD_TERRAIN_PERMANENT              (1 << 13)   // Overworld thunderstorm generates electric terrain
 
 #define STATUS_FIELD_TERRAIN_ANY        (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_PSYCHIC_TERRAIN)
 
@@ -533,5 +535,6 @@
 #define STARTING_STATUS_WONDER_ROOM         7
 #define STARTING_STATUS_TAILWIND_PLAYER     8
 #define STARTING_STATUS_TAILWIND_OPPONENT   9
+#define STARTING_STATUS_DARKAURA_OPPONENT   10
 
 #endif // GUARD_CONSTANTS_BATTLE_H

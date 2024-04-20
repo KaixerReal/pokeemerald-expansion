@@ -110,8 +110,9 @@ PetalburgCity_Gym_EventScript_Norman::
 	switch VAR_PETALBURG_GYM_STATE
 	case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
 	case 3, PetalburgCity_Gym_EventScript_NormanOneBadge
-	case 4, PetalburgCity_Gym_EventScript_NormanBattle
-	case 5, PetalburgCity_Gym_EventScript_NormanPostBattle
+	case 4, PetalburgCity_Gym_EventScript_NormanVisitDevonCorp
+    case 5, PetalburgCity_Gym_EventScript_NormanBattle
+	case 6, PetalburgCity_Gym_EventScript_NormanPostBattle
 	msgbox PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon, MSGBOX_DEFAULT
 	closemessage
 	switch VAR_FACING
@@ -734,7 +735,7 @@ PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough::
 
 PetalburgCity_Gym_EventScript_SpeedRoomDoor::
 	lockall
-	goto_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_lt VAR_PETALBURG_GYM_STATE, 4, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 7
 	setvar VAR_0x8009, 85
 	msgbox PetalburgCity_Gym_Text_EnterSpeedRoom, MSGBOX_YESNO
@@ -762,7 +763,7 @@ PetalburgCity_Gym_EventScript_DoorLocked::
 @ VAR_0x8008 and VAR_0x8009 below are the x and y coordinates of the warp
 PetalburgCity_Gym_EventScript_AccuracyRoomDoor::
 	lockall
-	goto_if_lt VAR_PETALBURG_GYM_STATE, 6, PetalburgCity_Gym_EventScript_DoorLocked
+	goto_if_lt VAR_PETALBURG_GYM_STATE, 4, PetalburgCity_Gym_EventScript_DoorLocked
 	setvar VAR_0x8008, 1
 	setvar VAR_0x8009, 98
 	msgbox PetalburgCity_Gym_Text_EnterAccuracyRoom, MSGBOX_YESNO
@@ -1256,7 +1257,7 @@ PetalburgCity_Gym_Text_YouHaveGottenStronger:
 
 PetalburgCity_Gym_Text_NormanIntro:
 	.string "DAD: Hm…\n"
-	.string "So, you did get four GYM BADGES.\p"
+	.string "So, you did get two GYM BADGES.\p"
 	.string "Fine, as I promised, we will have\n"
 	.string "a POKéMON battle.\p"
 	.string "{PLAYER}…\p"
@@ -1593,9 +1594,24 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 
 PetalburgCity_Gym_EventScript_NormanGiveMegaRing::
 	lock
-	msgbox PetalburgCity_Gym_EventScript_NormanGiveMegaRing_Text_0
+	msgbox PetalburgCity_Gym_EventScript_NormanGiveMegaRing_Text_0, MSGBOX_DEFAULT
 	return
+
+
+PetalburgCity_Gym_EventScript_NormanVisitDevonCorp::
+	lock
+	msgbox PetalburgCity_Gym_EventScript_NormanVisitDevonCorp_Text_0, MSGBOX_DEFAULT
+	releaseall
+	end
 
 
 PetalburgCity_Gym_EventScript_NormanGiveMegaRing_Text_0:
 	.string "I see you've gotten ur 5th gym badge$"
+
+PetalburgCity_Gym_EventScript_NormanVisitDevonCorp_Text_0:
+	.string "Norman: Ah... i see you have defeated\n"
+	.string "Brawly, the fighting gym leader. Oh...\l"
+	.string "whats that, you want to fight me now?\l"
+	.string "okay let me tell you want if you get\l"
+	.string "that gift from Devon Corp's Mayor i'll\l"
+	.string "consider it!$"

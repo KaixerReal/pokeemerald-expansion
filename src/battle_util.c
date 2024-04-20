@@ -4122,6 +4122,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 1;
                 }
                 break;
+            case STARTING_STATUS_DARKAURA_OPPONENT:
+                if (!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_DARK_AURA))
+                {
+                    gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_DARKAURA_OPPONENT;
+                    gSideStatuses[B_SIDE_OPPONENT] |= SIDE_STATUS_DARK_AURA;
+                    gBattleScripting.animArg1 = B_ANIM_DOOM_DESIRE_HIT;
+                    effect = 1;
+                }
+                break;
             }
 
             if (effect == 1)
@@ -8995,6 +9005,16 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.33));
     }
 
+    if (gSideStatuses[GetBattlerSide(battlerAtk)] & SIDE_STATUS_DARK_AURA) // Dark type moves are boosted, used by Sidney.
+    {
+        if (IsAbilityOnField(ABILITY_AURA_BREAK)){
+           modifier = uq4_12_multiply(modifier, UQ_4_12(0.75));
+        }
+        else if(moveType == TYPE_DARK){
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.33));
+        }
+    }
+
     // attacker partner's abilities
     if (IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
     {
@@ -9939,7 +9959,7 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     *modifier = uq4_12_multiply(*modifier, mod);
 }
 
-static inline void TryNoticeIllusionInTypeEffectiveness(u32 move, u32 moveType, u32 battlerAtk, u32 battlerDef, uq4_12_t resultingModifier, u32 illusionSpecies)
+void TryNoticeIllusionInTypeEffectiveness(u32 move, u32 moveType, u32 battlerAtk, u32 battlerDef, uq4_12_t resultingModifier, u32 illusionSpecies)
 {
     // Check if the type effectiveness would've been different if the pokemon really had the types as the disguise.
     uq4_12_t presumedModifier = UQ_4_12(1.0);

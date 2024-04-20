@@ -279,16 +279,6 @@ Route103_EventScript_Rhett::
 	msgbox Route103_Text_RhettPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route103_EventScript_Pete::
-	trainerbattle_single TRAINER_PETE, Route103_Text_PeteIntro, Route103_Text_PeteDefeated
-	msgbox Route103_Text_PetePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route103_EventScript_Isabelle::
-	trainerbattle_single TRAINER_ISABELLE, Route103_Text_IsabelleIntro, Route103_Text_IsabelleDefeated
-	msgbox Route103_Text_IsabellePostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route103_Text_MayRoute103Pokemon:
 	.string "MAY: Let's see… The POKéMON found\n"
 	.string "on ROUTE 103 include…$"
@@ -353,3 +343,27 @@ Route103_Text_ShortcutToOldale:
 Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
+
+Route103_EventScript_Pete::
+	lock
+	faceplayer
+	msgbox Route103_EventScript_Pete_Text_0, MSGBOX_AUTOCLOSE
+	release
+	end
+
+
+Route103_EventScript_Isabelle::
+	lock
+	faceplayer
+	msgbox Route103_EventScript_Isabelle_Text_0, MSGBOX_AUTOCLOSE
+	release
+	end
+
+
+Route103_EventScript_Pete_Text_0:
+	.string "Hewoo there, me and my sister are\n"
+	.string "playing Russian Roullete, its very fun!$"
+
+Route103_EventScript_Isabelle_Text_0:
+	.string "Hewoo there, me and my brother are\n"
+	.string "playing Russian Roullete, its very fun!$"

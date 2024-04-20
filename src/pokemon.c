@@ -59,6 +59,7 @@
 #include "constants/weather.h"
 #include "day_night.h"
 #include "constants/rtc.h"
+#include "battle_script_commands.h"
 
 #define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_9) ? 160 : 220)
 
@@ -3180,6 +3181,20 @@ u8 GetMonsStateToDoubles_2(void)
 u16 GetAbilityBySpecies(u16 species, u8 abilityNum)
 {
     int i;
+
+    for (i = NUM_NORMAL_ABILITY_SLOTS; i < NUM_ABILITY_SLOTS; i++){
+
+        u32 ability = gSpeciesInfo[GetMonData(&gPlayerParty[0], MON_DATA_HP, NULL)].abilities[i];
+
+    switch(ability)
+        {
+            case ABILITY_OVERGROW:
+            {
+                CanAbilityBeOverwriten(species, abilityNum);
+                return ABILITY_BLAZE;
+            }
+        }
+    }
 
     if (abilityNum < NUM_ABILITY_SLOTS)
         gLastUsedAbility = gSpeciesInfo[species].abilities[abilityNum];

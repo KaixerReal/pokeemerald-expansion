@@ -398,6 +398,7 @@ script DewfordTown_Gym_EventScript_BrawlyDefeated{
 	call (Common_EventScript_SetGymTrainers)
 	closemessage
 	goto (DewfordTown_Gym_EventScript_GiveBulkUp)
+	setflag(FLAG_HIDE_BRO_SIS_R103)
 	//delay (30)
 	//playfanfare (MUS_REGISTER_MATCH_CALL)
 	//msgbox (DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT)

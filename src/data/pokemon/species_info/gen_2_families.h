@@ -5530,7 +5530,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_PICKUP, ABILITY_NONE, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_BATTLE_ARMOR, ABILITY_BATTLE_ARMOR, ABILITY_TECHNICIAN },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Phanpy"),
         .cryId = CRY_PHANPY,
@@ -5563,7 +5563,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Phanpy)
         .levelUpLearnset = sPhanpyLevelUpLearnset,
         .teachableLearnset = sPhanpyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_DONPHAN}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_DONPHAN}),
     },
 
     [SPECIES_DONPHAN] =
@@ -5584,7 +5584,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_BATTLE_ARMOR },
+        .abilities = { ABILITY_STURDY, ABILITY_BATTLE_ARMOR, ABILITY_TECHNICIAN },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Donphan"),
         .cryId = CRY_DONPHAN,
