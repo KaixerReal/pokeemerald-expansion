@@ -4,6 +4,7 @@ static const u16 sVenusaurFormSpeciesIdTable[] = {
 #if P_MEGA_EVOLUTIONS
     SPECIES_VENUSAUR_MEGA,
     SPECIES_VENUSAUR_MEGA_Y,
+#endif
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_BULBASAUR
@@ -28,6 +29,7 @@ static const u16 sBlastoiseFormSpeciesIdTable[] = {
 #if P_MEGA_EVOLUTIONS
     SPECIES_BLASTOISE_MEGA,
     SPECIES_BLASTOISE_MEGA_Y,
+#endif
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_SQUIRTLE
@@ -347,6 +349,7 @@ static const u16 sGengarFormSpeciesIdTable[] = {
 #if P_MEGA_EVOLUTIONS
     SPECIES_GENGAR_MEGA,
     SPECIES_GENGAR_MEGA_Y,
+#endif
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_GASTLY
