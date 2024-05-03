@@ -2366,11 +2366,6 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 u32 data = partyData[i].gigantamaxFactor;
                 SetMonData(&party[i], MON_DATA_GIGANTAMAX_FACTOR, &data);
             }
-            if (partyData[i].hiddenPower > 0)
-            {
-                for (j = 0; j < NUM_STATS; j++)
-                    ivs[j] = IV_HP_SPREADS[partyData[i].hiddenPower][j];
-            }
             CalculateMonStats(&party[i]);
 
             if (B_TRAINER_CLASS_POKE_BALLS >= GEN_7 && ball == -1)
