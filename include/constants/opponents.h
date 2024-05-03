@@ -541,7 +541,7 @@
 #define TRAINER_MAY_ROUTE_103_TORCHIC       535
 #define TRAINER_MAY_ROUTE_110_TORCHIC       536
 #define TRAINER_MAY_ROUTE_119_TORCHIC       537
-#define TRAINER_ISAAC_1                     538
+#define TRAINER_RED_RIVAL                     538
 #define TRAINER_DAVIS                       539
 #define TRAINER_MITCHELL                    540
 #define TRAINER_ISAAC_2                     541
@@ -682,7 +682,7 @@
 #define TRAINER_TISHA                       676
 #define TRAINER_TORI_AND_TIA                677
 #define TRAINER_KIM_AND_IRIS                678
-#define TRAINER_TYRA_AND_IVY                679
+#define TRAINER_MAGMA_ROUTE_114_1           679
 #define TRAINER_MEL_AND_PAUL                680
 #define TRAINER_JOHN_AND_JAY_1              681
 #define TRAINER_JOHN_AND_JAY_2              682

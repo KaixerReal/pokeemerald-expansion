@@ -514,6 +514,51 @@
       "var": "VAR_RUSTBORO_CITY_STATE",
       "var_value": "7",
       "script": "RustboroCity_EventScript_RivalTrigger7"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 12,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 9,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 8,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
     }
   ],
   "bg_events": [

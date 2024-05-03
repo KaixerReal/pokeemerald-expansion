@@ -3182,20 +3182,6 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum)
 {
     int i;
 
-    for (i = NUM_NORMAL_ABILITY_SLOTS; i < NUM_ABILITY_SLOTS; i++){
-
-        u32 ability = gSpeciesInfo[GetMonData(&gPlayerParty[0], MON_DATA_HP, NULL)].abilities[i];
-
-    switch(ability)
-        {
-            case ABILITY_OVERGROW:
-            {
-                CanAbilityBeOverwriten(species, abilityNum);
-                return ABILITY_BLAZE;
-            }
-        }
-    }
-
     if (abilityNum < NUM_ABILITY_SLOTS)
         gLastUsedAbility = gSpeciesInfo[species].abilities[abilityNum];
     else
@@ -3224,15 +3210,28 @@ u16 GetAbilityBySpecies(u16 species, u8 abilityNum)
         gLastUsedAbility = gSpeciesInfo[species].abilities[i];
     }
 
-    return gLastUsedAbility;
+return gLastUsedAbility;
+
 }
 
 u16 GetMonAbility(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
+    u32 ability = gBattleMons[GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL)].ability;
+
     return GetAbilityBySpecies(species, abilityNum);
 }
+
+u16 BanSomeAbilities(u16 ability, u16 species){
+
+        if (ability == ABILITY_OVERGROW){
+                return ABILITY_BLAZE; 
+        }
+    
+    return ability;
+}
+
 
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
 {
@@ -3558,6 +3557,14 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                 dataUnsigned = 0;
 
                 if (param == 0) // Rare Candy
+                {
+                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
+                }
+                else if (param == 10) // Candy Box
+                {
+                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetCurrentLevelCap()];
+                }
+                else if (param == 20) // Infinite Candy
                 {
                     dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) + 1];
                 }

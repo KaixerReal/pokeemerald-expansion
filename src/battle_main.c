@@ -2299,11 +2299,13 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otIdType = OT_ID_PRESET;
                 fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
+            
             if (partyData[i].lvl == PLAYER_MAX){
             CreateMon(&party[i], partyData[i].species, level, 0, TRUE, personalityValue, otIdType, fixedOtId);
             } else {
             CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, otIdType, fixedOtId);
             }
+
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
@@ -3770,7 +3772,13 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
                 gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
                 gBattleMons[battler].type3 = TYPE_MYSTERY;
+                if(GetBattlerSide(battler) == B_SIDE_PLAYER){
+                gBattleMons[battler].ability = BanSomeAbilities(GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum), gBattleMons[battler].species);
+                }else if(!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER))){
+                gBattleMons[battler].ability = BanSomeAbilities(GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum), gBattleMons[battler].species);
+                }else{
                 gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
+                }
                 gBattleStruct->hpOnSwitchout[GetBattlerSide(battler)] = gBattleMons[battler].hp;
                 gBattleMons[battler].status2 = 0;
                 for (i = 0; i < NUM_BATTLE_STATS; i++)

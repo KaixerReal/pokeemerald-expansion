@@ -1719,11 +1719,11 @@ static bool8 (*const sFishingStateFuncs[])(struct Task *) =
     Fishing_CheckForBite,
     Fishing_GotBite,        // FISHING_GOT_BITE
     Fishing_WaitForA,
-    Fishing_CheckMoreDots,
+    //Fishing_CheckMoreDots,
     Fishing_MonOnHook,      // FISHING_ON_HOOK
     Fishing_StartEncounter,
-    Fishing_NotEvenNibble,  // FISHING_NO_BITE
-    Fishing_GotAway,        // FISHING_GOT_AWAY
+    //Fishing_NotEvenNibble,  // FISHING_NO_BITE
+    //Fishing_GotAway,        // FISHING_GOT_AWAY
     Fishing_NoMon,          // FISHING_SHOW_RESULT
     Fishing_PutRodAway,
     Fishing_EndNoMon,
@@ -1755,14 +1755,14 @@ static bool8 Fishing_GetRodOut(struct Task *task)
 {
     struct ObjectEvent *playerObjEvent;
     const s16 minRounds1[] = {
-        [OLD_ROD]   = 1,
+        [FISHING_ROD]   = 1,
         [GOOD_ROD]  = 1,
         [SUPER_ROD] = 1
     };
     const s16 minRounds2[] = {
-        [OLD_ROD]   = 1,
-        [GOOD_ROD]  = 3,
-        [SUPER_ROD] = 6
+        [FISHING_ROD]   = 9,
+        [GOOD_ROD]  = 9,
+        [SUPER_ROD] = 9
     };
 
     task->tRoundsPlayed = 0;
@@ -1867,7 +1867,8 @@ static bool8 Fishing_CheckForBite(struct Task *task)
         if (!bite)
         {
             if (Random() & 1)
-                task->tStep = FISHING_NO_BITE;
+                bite = TRUE;
+                //task->tStep = FISHING_NO_BITE;
             else
                 bite = TRUE;
         }
@@ -1891,9 +1892,9 @@ static bool8 Fishing_GotBite(struct Task *task)
 static bool8 Fishing_WaitForA(struct Task *task)
 {
     const s16 reelTimeouts[3] = {
-        [OLD_ROD]   = 36,
-        [GOOD_ROD]  = 33,
-        [SUPER_ROD] = 30
+        [FISHING_ROD]   = 9999,
+        [GOOD_ROD]  = 9999,
+        [SUPER_ROD] = 9999
     };
 
     AlignFishingAnimationFrames();
@@ -1910,7 +1911,7 @@ static bool8 Fishing_CheckMoreDots(struct Task *task)
 {
     const s16 moreDotsChance[][2] =
     {
-        [OLD_ROD]   = {0, 0},
+        [FISHING_ROD]   = {70, 30},
         [GOOD_ROD]  = {40, 10},
         [SUPER_ROD] = {70, 30}
     };

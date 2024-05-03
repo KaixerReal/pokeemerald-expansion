@@ -361,9 +361,11 @@ Route103_EventScript_Isabelle::
 
 
 Route103_EventScript_Pete_Text_0:
-	.string "Hewoo there, me and my sister are\n"
-	.string "playing Russian Roullete, its very fun!$"
+	.string "Hewoo there! me and my sister are\n"
+	.string "playing Russian Roullete.\n"
+	.string "its very fun!$"
 
 Route103_EventScript_Isabelle_Text_0:
-	.string "Hewoo there, me and my brother are\n"
-	.string "playing Russian Roullete, its very fun!$"
+	.string "Hewoo there! me and my brother are\n"
+	.string "playing Russian Roullete.\n"
+	.string "its very fun!$"

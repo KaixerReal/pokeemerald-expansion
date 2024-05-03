@@ -753,7 +753,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_BICYCLE] = {gItemIcon_Bicycle, gItemIconPalette_Bicycle},
     [ITEM_MACH_BIKE] = {gItemIcon_MachBike, gItemIconPalette_MachBike},
     [ITEM_ACRO_BIKE] = {gItemIcon_AcroBike, gItemIconPalette_AcroBike},
-    [ITEM_OLD_ROD] = {gItemIcon_OldRod, gItemIconPalette_OldRod},
+    [ITEM_FISHING_ROD] = {gItemIcon_SuperRod, gItemIconPalette_SuperRod},
     [ITEM_GOOD_ROD] = {gItemIcon_GoodRod, gItemIconPalette_GoodRod},
     [ITEM_SUPER_ROD] = {gItemIcon_SuperRod, gItemIconPalette_SuperRod},
     [ITEM_DOWSING_MACHINE] = {gItemIcon_DowsingMachine, gItemIconPalette_DowsingMachine},
@@ -901,8 +901,10 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TIME_CHANGER] = {gItemIcon_PokemonBoxLink, gItemIconPalette_PokemonBoxLink},
     //Ability Changer
     [ITEM_ABILITY_CHANGER] = {gItemIcon_AbilityCapsule, gItemIconPalette_AbilityCapsule},
+    //Candy Box & Infinite Candy
+    [ITEM_LVLCAP_CANDY] = {gItemIcon_LvLCapCandy, gItemIconPalette_LvLCapCandy},
+    [ITEM_INFINITE_CANDY] = {gItemIcon_InfiniteCandy, gItemIconPalette_InfiniteCandy},
     
-
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

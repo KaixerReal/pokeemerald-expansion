@@ -1299,3 +1299,16 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
 `
+
+script RustboroCity_EventScript_GoFightRoxanne{
+	lock
+	msgbox(format("I should probably fight Roxanne First."), MSGBOX_DEFAULT)
+	waitmessage
+	applymovement(OBJ_EVENT_ID_PLAYER, WalkLeft)
+	waitmovement (0)
+	end
+}
+
+movement WalkLeft{
+	walk_left
+}

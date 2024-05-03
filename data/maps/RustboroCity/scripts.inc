@@ -1298,3 +1298,19 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+RustboroCity_EventScript_GoFightRoxanne::
+	lock
+	msgbox RustboroCity_EventScript_GoFightRoxanne_Text_0, MSGBOX_DEFAULT
+	waitmessage
+	applymovement OBJ_EVENT_ID_PLAYER, WalkLeft
+	waitmovement 0
+	end
+
+
+WalkLeft:
+	walk_left
+	step_end
+
+RustboroCity_EventScript_GoFightRoxanne_Text_0:
+	.string "I should probably fight Roxanne First.$"

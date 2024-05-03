@@ -10974,9 +10974,9 @@ const struct Item gItemsInfo[] =
         .secondaryId = ACRO_BIKE,
     },
 
-    [ITEM_OLD_ROD] =
+    [ITEM_FISHING_ROD] =
     {
-        .name = _("Old Rod"),
+        .name = _("Fishing Rod"),
         .price = 0,
         .description = COMPOUND_STRING(
             "Use by any body of\n"
@@ -10986,7 +10986,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Rod,
-        .secondaryId = OLD_ROD,
+        .secondaryId = FISHING_ROD,
     },
 
     [ITEM_GOOD_ROD] =
@@ -12961,6 +12961,40 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_AbilityChanger,
         .flingPower = 80,
+    },
+
+    [ITEM_LVLCAP_CANDY] =
+    {
+        .name = _("LvLCap Candy"),
+        .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffectParam = 10,
+        .description = COMPOUND_STRING(
+            "Raises the level\n"
+            "of a Pokémon to\n"
+            "the level cap."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .effect = gItemEffect_RareCandy,
+        .flingPower = 30,
+    },
+
+    [ITEM_INFINITE_CANDY] =
+    {
+        .name = _("Endless Candy"),
+        .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffectParam = 20,
+        .description = COMPOUND_STRING(
+            "Raises the level\n"
+            "of a Pokémon by\n"
+            "one. Infinite uses."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .effect = gItemEffect_RareCandy,
+        .flingPower = 30,
     },
 
 };

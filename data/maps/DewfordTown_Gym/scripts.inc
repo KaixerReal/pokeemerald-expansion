@@ -396,6 +396,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	call Common_EventScript_SetGymTrainers
 	closemessage
 	goto DewfordTown_Gym_EventScript_GiveBulkUp
+	setflag FLAG_HIDE_BRO_SIS_R103
 	return
 
 

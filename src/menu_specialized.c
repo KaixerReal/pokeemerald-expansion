@@ -1547,7 +1547,7 @@ void DrawLevelUpWindowPg1(u16 windowId, u16 *statsBefore, u16 *statsAfter, u8 bg
         StringCopy(text, (statsDiff[i] >= 0) ? gText_Plus : gText_Dash);
         AddTextPrinterParameterized3(windowId,
                                      FONT_NORMAL,
-                                     56,
+                                     47,
                                      15 * i,
                                      color,
                                      TEXT_SKIP_DRAW,
@@ -1557,10 +1557,10 @@ void DrawLevelUpWindowPg1(u16 windowId, u16 *statsBefore, u16 *statsAfter, u8 bg
         else
             x = 12;
 
-        ConvertIntToDecimalStringN(text, abs(statsDiff[i]), STR_CONV_MODE_LEFT_ALIGN, 2);
+        ConvertIntToDecimalStringN(text, abs(statsDiff[i]), STR_CONV_MODE_LEFT_ALIGN, 3);
         AddTextPrinterParameterized3(windowId,
                                      FONT_NORMAL,
-                                     56 + x,
+                                     52 + x,
                                      15 * i,
                                      color,
                                      TEXT_SKIP_DRAW,

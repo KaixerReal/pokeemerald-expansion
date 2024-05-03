@@ -860,7 +860,7 @@
 #define ITEM_BICYCLE 706
 #define ITEM_MACH_BIKE 707
 #define ITEM_ACRO_BIKE 708
-#define ITEM_OLD_ROD 709
+#define ITEM_FISHING_ROD 709
 #define ITEM_GOOD_ROD 710
 #define ITEM_SUPER_ROD 711
 #define ITEM_DOWSING_MACHINE 712
@@ -1027,8 +1027,11 @@
 #define ITEM_TIME_CHANGER    (ITEM_POKESHI_DOLL + 22)
 // ABILITY CHANGER
 #define ITEM_ABILITY_CHANGER (ITEM_POKESHI_DOLL + 23)
+// CANDY BOX & INFINITE CANDY
+#define ITEM_LVLCAP_CANDY       (ITEM_POKESHI_DOLL + 24)
+#define ITEM_INFINITE_CANDY  (ITEM_POKESHI_DOLL + 25)
 
-#define ITEMS_COUNT (ITEM_ABILITY_CHANGER + 1)
+#define ITEMS_COUNT (ITEM_INFINITE_CANDY + 1)
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
@@ -1069,7 +1072,7 @@
 #define MAX_PYRAMID_ITEM_DIGITS ((MAX_PYRAMID_BAG_ITEM_CAPACITY > 99) ? 3 : 2)
 
 // Secondary IDs for rods
-#define OLD_ROD   0
+#define FISHING_ROD   0
 #define GOOD_ROD  1
 #define SUPER_ROD 2
 

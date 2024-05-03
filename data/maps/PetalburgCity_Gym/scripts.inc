@@ -1612,6 +1612,6 @@ PetalburgCity_Gym_EventScript_NormanVisitDevonCorp_Text_0:
 	.string "Norman: Ah... i see you have defeated\n"
 	.string "Brawly, the fighting gym leader. Oh...\l"
 	.string "whats that, you want to fight me now?\l"
-	.string "okay let me tell you want if you get\l"
+	.string "okay let me tell you what! if you get\l"
 	.string "that gift from Devon Corp's Mayor i'll\l"
 	.string "consider it!$"
