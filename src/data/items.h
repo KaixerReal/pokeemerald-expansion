@@ -13005,4 +13005,21 @@ const struct Item gItemsInfo[] =
         .flingPower = 30,
     },
 
+    [ITEM_COMMON_CANDY] =
+    {
+        .name = _("Common Candy"),
+        .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffectParam = 30,
+        .description = COMPOUND_STRING(
+            "Lowers the level\n"
+            "of a Pokémon by\n"
+            "one. Infinite uses."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CommonCandy,
+        .effect = gItemEffect_RareCandy,
+        .flingPower = 30,
+    },
+
 };

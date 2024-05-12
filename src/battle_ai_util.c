@@ -3294,7 +3294,7 @@ bool32 PartyHasMoveCategory(u32 battlerId, u32 category)
             {
                 //TODO - handle photon geyser, light that burns the sky
                 if (gMovesInfo[move].category == category)
-                    return TRUE;
+                    return TRUE;              
             }
         }
     }
@@ -3701,6 +3701,7 @@ bool32 AI_ShouldSetUpHazards(u32 battlerAtk, u32 battlerDef, struct AiLogicData 
     if (aiData->abilities[battlerDef] == ABILITY_MAGIC_BOUNCE
      || CountUsablePartyMons(battlerDef) == 0
      || HasMoveWithAdditionalEffect(battlerDef, MOVE_EFFECT_RAPID_SPIN)
+     || HasMoveEffect(battlerDef, EFFECT_TIDY_UP)
      || HasMoveEffect(battlerDef, EFFECT_DEFOG))
         return FALSE;
 

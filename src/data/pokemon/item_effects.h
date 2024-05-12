@@ -315,8 +315,8 @@ const u8 gItemEffect_ResetMochi[11] = {
     [10] = 0,
 };
 
-const u8 gItemEffect_RareCandy[10] = {
-    [3] = ITEM3_LEVEL_UP,
+const u8 gItemEffect_RareCandy[11] = {
+    [3] = ITEM3_LEVEL_UP | ITEM3_LEVEL_LOWER,
     [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_HEAL_HP_LVL_UP,

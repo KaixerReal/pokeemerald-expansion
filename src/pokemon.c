@@ -3604,6 +3604,17 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
                     }
                 }
+                else if ((itemEffect[i] & ITEM3_LEVEL_LOWER)
+                && GetMonData(mon, MON_DATA_LEVEL, NULL) != MIN_LEVEL)
+                {
+                    u8 param = ItemId_GetHoldEffectParam(item);
+                    dataUnsigned = 0;
+
+                    if (param == 30) // Common Candy
+                    {
+                        dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetMonData(mon, MON_DATA_LEVEL, NULL) - 1];
+                    }
+                }
 
                 if (dataUnsigned != 0) // Failsafe
                 {

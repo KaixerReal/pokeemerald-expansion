@@ -852,6 +852,12 @@ void ItemUseOutOfBattle_RareCandy(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_CommonCandy(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_CommonCandy;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_DynamaxCandy(u8 taskId)
 {
     gItemUseCB = ItemUseCB_DynamaxCandy;
@@ -1413,6 +1419,7 @@ void ItemUseOutOfBattle_EnigmaBerry(u8 taskId)
         gTasks[taskId].tEnigmaBerryType = ITEM_USE_PARTY_MENU;
         ItemUseOutOfBattle_SacredAsh(taskId);
         break;
+    case ITEM_EFFECT_LOWER_LEVEL:
     case ITEM_EFFECT_RAISE_LEVEL:
         gTasks[taskId].tEnigmaBerryType = ITEM_USE_PARTY_MENU;
         ItemUseOutOfBattle_RareCandy(taskId);
