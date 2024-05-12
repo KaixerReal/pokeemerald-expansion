@@ -11,7 +11,7 @@
 //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,30), //HP_ICE
 //.iv = TRAINER_PARTY_IVS(31,31,30,31,31,31), //HP_POISON
 //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP_PSYCHIC
-//.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP_ROCK
+//.iv = TRAINER_PARTY_IVS(31,31,30,31,30,30), //HP_ROCK
 //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP_STEEL
 //.iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP_WATER
 
@@ -29,27 +29,10 @@ static const struct TrainerMon sParty_MegaTester[] = {
         .heldItem = ITEM_GRIMMSNARLITE,
         .isShiny = TRUE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        .ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        .ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };  
-
-static const struct TrainerMon sParty_Jose[] = {
-    {
-        .species = SPECIES_BLASTOISE,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
-        .moves = {MOVE_POUND, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        .heldItem = ITEM_VENUSAURITE_Y,
-        .isShiny = FALSE,
-        .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-    },
-};
 
 //Rival 103
 //Brendan Mudkip
@@ -65,8 +48,8 @@ static const struct TrainerMon sParty_BrendanRoute103Mudkip[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //May Mudkip
@@ -82,8 +65,8 @@ static const struct TrainerMon sParty_MayRoute103Mudkip[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //Brendan Treecko
@@ -99,8 +82,8 @@ static const struct TrainerMon sParty_BrendanRoute103Treecko[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //May Treecko
@@ -116,8 +99,8 @@ static const struct TrainerMon sParty_MayRoute103Treecko[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //Brendan Torchic
@@ -133,8 +116,8 @@ static const struct TrainerMon sParty_BrendanRoute103Torchic[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //May Torchic
@@ -150,8 +133,8 @@ static const struct TrainerMon sParty_MayRoute103Torchic[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
@@ -168,7 +151,7 @@ static const struct TrainerMon sParty_Calvin[] = {
         .heldItem = ITEM_FOCUS_SASH,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_ROOKIDEE,
@@ -180,7 +163,7 @@ static const struct TrainerMon sParty_Calvin[] = {
         .heldItem = ITEM_MIRROR_HERB,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_RATTATA,
@@ -192,7 +175,7 @@ static const struct TrainerMon sParty_Calvin[] = {
         .heldItem = ITEM_FLAME_ORB,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
@@ -207,7 +190,7 @@ static const struct TrainerMon sParty_Rick[] = {
         .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_DEWPIDER,
@@ -219,7 +202,7 @@ static const struct TrainerMon sParty_Rick[] = {
         .heldItem = ITEM_MYSTIC_WATER,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_NYMBLE,
@@ -231,7 +214,7 @@ static const struct TrainerMon sParty_Rick[] = {
         .heldItem = ITEM_FOCUS_SASH,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
@@ -246,7 +229,7 @@ static const struct TrainerMon sParty_Allen[] = {
         .heldItem = ITEM_BLACK_BELT,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_RALTS,
@@ -258,7 +241,7 @@ static const struct TrainerMon sParty_Allen[] = {
         .heldItem = ITEM_WISE_GLASSES,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_BUIZEL,
@@ -270,7 +253,7 @@ static const struct TrainerMon sParty_Allen[] = {
         .heldItem = ITEM_MYSTIC_WATER,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
@@ -285,7 +268,7 @@ static const struct TrainerMon sParty_Tiana[] = {
         .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_SHELLOS,
@@ -297,7 +280,7 @@ static const struct TrainerMon sParty_Tiana[] = {
         .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_PHANPY,
@@ -309,7 +292,7 @@ static const struct TrainerMon sParty_Tiana[] = {
         .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //Route 104, Before Petalburg Woods.
@@ -324,7 +307,7 @@ static const struct TrainerMon sParty_Billy[] = {
         .heldItem = ITEM_BLACK_GLASSES,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_SHINX,
@@ -336,7 +319,7 @@ static const struct TrainerMon sParty_Billy[] = {
         .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_EEVEE,
@@ -348,7 +331,7 @@ static const struct TrainerMon sParty_Billy[] = {
         .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
@@ -363,7 +346,7 @@ static const struct TrainerMon sParty_Darian[] = {
         .heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_GOLDEEN,
@@ -375,7 +358,7 @@ static const struct TrainerMon sParty_Darian[] = {
         .heldItem = ITEM_BERRY_JUICE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_SKRELP,
@@ -387,7 +370,7 @@ static const struct TrainerMon sParty_Darian[] = {
         .heldItem = ITEM_WISE_GLASSES,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
@@ -402,7 +385,7 @@ static const struct TrainerMon sParty_Cindy[] = {
         .heldItem = ITEM_NORMAL_GEM,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_GOTHITA,
@@ -414,7 +397,7 @@ static const struct TrainerMon sParty_Cindy[] = {
         .heldItem = ITEM_FOCUS_BAND,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
         //Only for some Trainers
         .gender = TRAINER_MON_FEMALE,
     },
@@ -428,7 +411,7 @@ static const struct TrainerMon sParty_Cindy[] = {
         //.heldItem = ITEM_WISE_GLASSES,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //Petalburg Woods
@@ -444,8 +427,8 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_WIMPOD,
@@ -458,8 +441,8 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_SCATTERBUG,
@@ -472,8 +455,8 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_SNOM,
@@ -486,16 +469,16 @@ static const struct TrainerMon sParty_Lyle[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
 static const struct TrainerMon sParty_James[] = {
     {
-        .species = SPECIES_VENIPEDE,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
+        .species = SPECIES_SILCOON,
+        .lvl = PLAYER_MAX,
+        //.ability = ABILITY_SHIELD_DUST,
         //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
         //.nature = NATURE_ADAMANT,
         //.gender = TRAINER_MON_FEMALE,
@@ -503,12 +486,12 @@ static const struct TrainerMon sParty_James[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_CASCOON,
-        .lvl = 8,
+        .species = SPECIES_KAKUNA,
+        .lvl = PLAYER_MAX,
         //.ability = ABILITY_ONE,
         //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
         //.nature = NATURE_ADAMANT,
@@ -517,108 +500,178 @@ static const struct TrainerMon sParty_James[] = {
         //.heldItem = ITEM_NONE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_DOTTLER,
+        .lvl = PLAYER_MAX,
+        //.ability = ABILITY_ONE,
+        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
+        //.nature = NATURE_ADAMANT,
+        //.gender = TRAINER_MON_FEMALE,
+        //.friendship = 255,
+        //.heldItem = ITEM_NONE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 //Route 104, After Petalburg Woods.
 static const struct TrainerMon sParty_Winston1[] = {
     {
-        .species = SPECIES_TEDDIURSA,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_FURFROU,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_FUR_COAT,
+        .moves = {MOVE_STOMP, MOVE_BITE, MOVE_COVET, MOVE_ROCK_SMASH},
+        .nature = NATURE_BASHFUL,
+        .friendship = 255,
+        .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-    },
-    {
-        .species = SPECIES_STARLY,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
-        .isShiny = FALSE,
-        .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
 static const struct TrainerMon sParty_Haley1[] = {
     {
-        .species = SPECIES_SHINX,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_VULPIX_ALOLAN,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_SNOW_WARNING,
+        .moves = {MOVE_ICY_WIND, MOVE_DRAINING_KISS, MOVE_ENCORE, MOVE_AURORA_VEIL},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_ESPURR,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_PETILIL,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_CHLOROPHYLL,
+        .moves = {MOVE_MEGA_DRAIN, MOVE_HIDDEN_POWER, MOVE_SLEEP_POWDER, MOVE_QUIVER_DANCE},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_WIDE_LENS,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,30,31,30,30), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_CLEFAIRY,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_MAGIC_GUARD,
+        .moves = {MOVE_DRAINING_KISS, MOVE_MAGICAL_LEAF, MOVE_ICY_WIND, MOVE_SHOCK_WAVE},
+        .nature = NATURE_MODEST,
+        .friendship = 255,
+        .heldItem = ITEM_BERRY_JUICE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,30,31,30,30), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
 static const struct TrainerMon sParty_GinaAndMia1[] = {
+    //Lead 1
     {
-        .species = SPECIES_MINUN,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_PIKACHU,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_LIGHTNING_ROD,
+        .moves = {MOVE_ELECTROWEB, MOVE_HELPING_HAND, MOVE_FOLLOW_ME, MOVE_FAKE_OUT},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_BERRY_JUICE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,30,31,30,30), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
+    //Lead 2
     {
-        .species = SPECIES_PLUSLE,
-        .lvl = 8,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_COTTONEE,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_PRANKSTER,
+        .moves = {MOVE_TAILWIND, MOVE_SLEEP_POWDER, MOVE_MEGA_DRAIN, MOVE_DRAINING_KISS},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    //in the back Trainer 1
+    {
+        .species = SPECIES_BRAMBLIN,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_WIND_RIDER,
+        .moves = {MOVE_RAZOR_LEAF, MOVE_SHADOW_CLAW, MOVE_HIDDEN_POWER, MOVE_ROLLOUT},
+        .nature = NATURE_ADAMANT,
+        .friendship = 255,
+        .heldItem = ITEM_MIRACLE_SEED,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    //in the back Trainer 2
+    {
+        .species = SPECIES_WATTREL,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_WIND_POWER,
+        .moves = {MOVE_AIR_CUTTER, MOVE_ELECTROWEB, MOVE_HIDDEN_POWER, MOVE_ROOST},
+        .nature = NATURE_MODEST,
+        .friendship = 255,
+        .heldItem = ITEM_MAGNET,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,30,30,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
+
+static const struct TrainerMon sParty_Ivan[] = {
+    {
+        .species = SPECIES_WINGULL,
+        .lvl = PLAYER_MAX,
+        //.ability = ABILITY_SNOW_WARNING,
+        //.moves = {MOVE_ICY_WIND, MOVE_DRAINING_KISS, MOVE_ENCORE, MOVE_AURORA_VEIL},
+        //.nature = NATURE_TIMID,
+        //.friendship = 255,
+        //.heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_BUIZEL,
+        .lvl = PLAYER_MAX,
+        //.ability = ABILITY_SNOW_WARNING,
+        //.moves = {MOVE_ICY_WIND, MOVE_DRAINING_KISS, MOVE_ENCORE, MOVE_AURORA_VEIL},
+        //.nature = NATURE_TIMID,
+        //.friendship = 255,
+        //.heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_REMORAID,
+        .lvl = PLAYER_MAX,
+        //.ability = ABILITY_SNOW_WARNING,
+        //.moves = {MOVE_ICY_WIND, MOVE_DRAINING_KISS, MOVE_ENCORE, MOVE_AURORA_VEIL},
+        //.nature = NATURE_TIMID,
+        //.friendship = 255,
+        //.heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
 //Rustboro Gym
 static const struct TrainerMon sParty_Josh_Boss[] = {
     {
         .species = SPECIES_GEODUDE_ALOLAN,
-        .lvl = 15,
+        .lvl = 16,
         .ability = ABILITY_GALVANIZE,
         .moves = {MOVE_ROCK_TOMB, MOVE_BULLDOZE, MOVE_BODY_SLAM, MOVE_STEALTH_ROCK},
         .nature = NATURE_ADAMANT,
@@ -626,101 +679,348 @@ static const struct TrainerMon sParty_Josh_Boss[] = {
         .heldItem = ITEM_FOCUS_BAND,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
         .species = SPECIES_KABUTO,
-        .lvl = 15,
+        .lvl = 16,
         .ability = ABILITY_BATTLE_ARMOR,
-        .moves = {MOVE_PLUCK, MOVE_LIQUIDATION, MOVE_HIDDEN_POWER, MOVE_FLIP_TURN},
+        .moves = {MOVE_AQUA_JET, MOVE_ROCK_TOMB, MOVE_HIDDEN_POWER, MOVE_FLIP_TURN},
         .nature = NATURE_IMPISH,
+        .friendship = 255,
+        .heldItem = ITEM_MYSTIC_WATER,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,30), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_GROWLITHE_HISUIAN,
+        .lvl = 16,
+        .ability = ABILITY_ROCK_HEAD,
+        .moves = {MOVE_FLAME_CHARGE, MOVE_ROCK_TOMB, MOVE_TAKE_DOWN, MOVE_HOWL},
+        .nature = NATURE_MODEST,
+        .friendship = 255,
+        .heldItem = ITEM_AIR_BALLOON,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
+static const struct TrainerMon sParty_Tommy[] = { //Double Battle with Marc
+    {
+        .species = SPECIES_AMAURA,
+        .lvl = 16,
+        .ability = ABILITY_REFRIGERATE,
+        .moves = {MOVE_ECHOED_VOICE, MOVE_ANCIENT_POWER, MOVE_SHOCK_WAVE, MOVE_THUNDER_WAVE},
+        .nature = NATURE_MODEST,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_TYRUNT,
+        .lvl = 16,
+        .ability = ABILITY_STRONG_JAW,
+        .moves = {MOVE_BITE, MOVE_FIRE_FANG, MOVE_ROCK_TOMB, MOVE_DRAGON_DANCE},
+        .nature = NATURE_IMPISH,
+        .friendship = 255,
+        .heldItem = ITEM_MYSTIC_WATER,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
+static const struct TrainerMon sParty_Marc[] = { //Double Battle with Tommy
+    {
+        .species = SPECIES_ARCHEN,
+        .lvl = 16,
+        .ability = ABILITY_DEFEATIST,
+        .moves = {MOVE_WING_ATTACK, MOVE_ROCK_TOMB, MOVE_STOMPING_TANTRUM, MOVE_ROOST},
+        .nature = NATURE_JOLLY,
         .friendship = 255,
         .heldItem = ITEM_BERRY_JUICE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_GROWLITHE_HISUIAN,
-        .lvl = 15,
-        .ability = ABILITY_ADAPTABILITY,
-        .moves = {MOVE_SLUDGE, MOVE_WATER_PULSE, MOVE_SHOCK_WAVE, MOVE_FLIP_TURN},
+        .species = SPECIES_LILEEP,
+        .lvl = 16,
+        .ability = ABILITY_STORM_DRAIN,
+        .moves = {MOVE_ANCIENT_POWER, MOVE_MEGA_DRAIN, MOVE_INFESTATION, MOVE_RECOVER},
         .nature = NATURE_MODEST,
         .friendship = 255,
-        .heldItem = ITEM_WISE_GLASSES,
+        .heldItem = ITEM_LEFTOVERS,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
-static const struct TrainerMon sParty_Tommy[] = {
+//Route 116
+static const struct TrainerMon sParty_Jose[] = { //Double Battle with Joey
     {
-        .species = SPECIES_NACLI,
-        .lvl = 11,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_SPIDOPS,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_SHIELD_DUST,
+        .moves = {MOVE_STICKY_WEB, MOVE_POUNCE, MOVE_UPPER_HAND, MOVE_THROAT_CHOP},
+        .nature = NATURE_IMPISH,
+        .friendship = 255,
+        .heldItem = ITEM_AIR_BALLOON,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_ROCKRUFF,
-        .lvl = 10,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_BEEDRILL,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_SNIPER,
+        .moves = {MOVE_CROSS_POISON, MOVE_POUNCE, MOVE_NIGHT_SLASH, MOVE_SWORDS_DANCE},
+        .nature = NATURE_ADAMANT,
+        .friendship = 255,
+        .heldItem = ITEM_SCOPE_LENS,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
-static const struct TrainerMon sParty_Marc[] = {
+static const struct TrainerMon sParty_Joey[] = { //Double Battle with Jose
     {
-        .species = SPECIES_CRANIDOS,
-        .lvl = 11,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_FURRET,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_ADAPTABILITY,
+        .moves = {MOVE_BULLDOZE, MOVE_HEADBUTT, MOVE_THUNDER_FANG, MOVE_ZEN_HEADBUTT},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_SITRUS_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_ARON,
-        .lvl = 10,
-        //.ability = ABILITY_ONE,
-        //.moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        //.nature = NATURE_ADAMANT,
-        //.gender = TRAINER_MON_FEMALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_KADABRA,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_TRACE,
+        .moves = {MOVE_ENERGY_BALL, MOVE_DAZZLING_GLEAM, MOVE_AURA_SPHERE, MOVE_PSYBEAM},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
+
+static const struct TrainerMon sParty_Janice[] = {
+    {
+        .species = SPECIES_ROSELIA,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_NATURAL_CURE,
+        .moves = {MOVE_TOXIC_SPIKES, MOVE_GIGA_DRAIN, MOVE_SLEEP_POWDER, MOVE_HIDDEN_POWER},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,30,31,30,31,30), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_COMBUSKEN,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_SPEED_BOOST,
+        .moves = {MOVE_BLAZE_KICK, MOVE_BRICK_BREAK, MOVE_THUNDER_PUNCH, MOVE_PROTECT},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_AIR_BALLOON,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_VIVILLON_CONTINENTAL,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_COMPOUND_EYES,
+        .moves = {MOVE_AIR_CUTTER, MOVE_ELECTROWEB, MOVE_SLEEP_POWDER, MOVE_QUIVER_DANCE},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_CHARTI_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
+static const struct TrainerMon sParty_Clark[] = { //Doubles with Johnson (Melina)
+    {
+        .species = SPECIES_DREDNAW,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_SHELL_ARMOR,
+        .moves = {MOVE_ROCK_SLIDE, MOVE_AQUA_CUTTER, MOVE_THUNDER_FANG, MOVE_ROCK_POLISH},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_SUDOWOODO,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_TRAILBLAZE, MOVE_LOW_KICK},
+        .nature = NATURE_ADAMANT,
+        .friendship = 255,
+        .heldItem = ITEM_LEFTOVERS,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
+static const struct TrainerMon sParty_Johnson[] = { //Doubles with Clark
+    {
+        .species = SPECIES_CHATOT,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_FRISK,
+        .moves = {MOVE_HYPER_VOICE, MOVE_AIR_SLASH, MOVE_HEAT_WAVE, MOVE_ROOST},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_OINKOLOGNE_MALE,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_AROMA_VEIL,
+        .moves = {MOVE_HEADBUTT, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_SLACK_OFF},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_LEFTOVERS,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
+static const struct TrainerMon sParty_Devan[] = {
+    {
+        .species = SPECIES_GRAVELER,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_THUNDER_PUNCH, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_STEALTH_ROCK},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_EVIOLITE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_KLAWF,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_ANGER_SHELL,
+        .moves = {MOVE_X_SCISSOR, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_KNOCK_OFF},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_LEFTOVERS,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
+//Route 106
+static const struct TrainerMon sParty_Ned[] = {
+    {
+        .species = SPECIES_QWILFISH,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_TOXIC_DEBRIS,
+        .moves = {MOVE_BARB_BARRAGE, MOVE_LIQUIDATION, MOVE_REVENGE, MOVE_SELF_DESTRUCT},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_LEFTOVERS,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_CORSOLA,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_REGENERATOR,
+        .moves = {MOVE_SURF, MOVE_ANCIENT_POWER, MOVE_ICE_BEAM, MOVE_SELF_DESTRUCT},
+        .nature = NATURE_MILD,
+        .friendship = 255,
+        .heldItem = ITEM_RINDO_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_LUVDISC,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_SWIFT_SWIM,
+        .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_DAZZLING_GLEAM, MOVE_FLIP_TURN},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
+static const struct TrainerMon sParty_Elliot1[] = {
+    {
+        .species = SPECIES_GRIMER_ALOLAN,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_POISON_TOUCH,
+        .moves = {MOVE_KNOCK_OFF, MOVE_POISON_JAB, MOVE_ACID_ARMOR, MOVE_RECOVER},
+        .nature = NATURE_ADAMANT,
+        .friendship = 255,
+        .heldItem = ITEM_EVIOLITE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_FLAAFFY,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_STATIC,
+        .moves = {MOVE_POWER_GEM, MOVE_DISCHARGE, MOVE_COTTON_GUARD, MOVE_THUNDER_WAVE},
+        .nature = NATURE_MODEST,
+        .friendship = 255,
+        .heldItem = ITEM_EVIOLITE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_TOGETIC,
+        .lvl = PLAYER_MAX,
+        .ability = ABILITY_SUPER_LUCK,
+        .moves = {MOVE_AIR_SLASH, MOVE_DAZZLING_GLEAM, MOVE_ROOST, MOVE_THUNDER_WAVE},
+        .nature = NATURE_MODEST,
+        .friendship = 255,
+        .heldItem = ITEM_EVIOLITE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+};
+
 
 //Team Aqua
 static const struct TrainerMon sParty_GruntPetalburgWoods[] = {
     {
         .species = SPECIES_CARVANHA,
-        .lvl = PLAYER_MAX,
+        .lvl = 12,
         .ability = ABILITY_ROUGH_SKIN,
         .moves = {MOVE_FLIP_TURN, MOVE_BITE, MOVE_ICE_FANG, MOVE_AQUA_JET},
         .nature = NATURE_JOLLY,
@@ -728,62 +1028,106 @@ static const struct TrainerMon sParty_GruntPetalburgWoods[] = {
         .heldItem = ITEM_FOCUS_SASH,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_SHUPPET,
-        .lvl = PLAYER_MAX,
-        .ability = ABILITY_ROUGH_SKIN,
-        .moves = {MOVE_FLIP_TURN, MOVE_BITE, MOVE_ICE_FANG, MOVE_AQUA_JET},
-        .nature = NATURE_JOLLY,
+        .species = SPECIES_PHANTUMP,
+        .lvl = 12,
+        .ability = ABILITY_HARVEST,
+        .moves = {MOVE_MEGA_DRAIN, MOVE_HEX, MOVE_BULLDOZE, MOVE_WILL_O_WISP},
+        .nature = NATURE_MILD,
         .friendship = 255,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_ORAN_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_CARVANHA,
-        .lvl = PLAYER_MAX,
-        .ability = ABILITY_ROUGH_SKIN,
-        .moves = {MOVE_FLIP_TURN, MOVE_BITE, MOVE_ICE_FANG, MOVE_AQUA_JET},
-        .nature = NATURE_JOLLY,
+        .species = SPECIES_FRIGIBAX,
+        .lvl = 12,
+        .ability = ABILITY_THERMAL_EXCHANGE,
+        .moves = {MOVE_BREAKING_SWIPE, MOVE_ICY_WIND, MOVE_BULLDOZE, MOVE_SHOCK_WAVE},
+        .nature = NATURE_NAIVE,
         .friendship = 255,
-        .heldItem = ITEM_FOCUS_SASH,
+        .heldItem = ITEM_FOCUS_BAND,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_CROAGUNK,
+        .lvl = 12,
+        .ability = ABILITY_POISON_TOUCH,
+        .moves = {MOVE_FAKE_OUT, MOVE_BULLDOZE, MOVE_LOW_SWEEP, MOVE_POISON_FANG},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_MUSCLE_BAND,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
 static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
     {
-        .species = SPECIES_CORPHISH,
-        .lvl = 11,
-        .ability = ABILITY_ONE, //Hyper Cutter
-        .moves = {MOVE_POUND, MOVE_NONE, MOVE_NONE, MOVE_NONE},
-        .nature = NATURE_BASHFUL,
-        .gender = TRAINER_MON_MALE,
+        .species = SPECIES_MORGREM,
+        .lvl = 24,
+        .ability = ABILITY_PRANKSTER,
+        .moves = {MOVE_SUCKER_PUNCH, MOVE_PLAY_ROUGH, MOVE_REFLECT, MOVE_LIGHT_SCREEN},
+        .nature = NATURE_SASSY,
         .friendship = 255,
-        .heldItem = ITEM_ASSAULT_VEST,
+        .heldItem = ITEM_EVIOLITE,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(15,15,15,15,15,15), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
     {
-        .species = SPECIES_CARVANHA,
-        .lvl = 11,
-        .ability = ABILITY_ONE, //Rough Skin
-        .moves = {MOVE_BITE, MOVE_RAGE, MOVE_AQUA_JET, MOVE_NONE},
-        .nature = NATURE_HARDY,
-        .gender = TRAINER_MON_MALE,
-        //.friendship = 255,
-        //.heldItem = ITEM_NONE,
+        .species = SPECIES_PERSIAN,
+        .lvl = 24,
+        .ability = ABILITY_TECHNICIAN,
+        .moves = {MOVE_FAKE_OUT, MOVE_TAKE_DOWN, MOVE_HIDDEN_POWER, MOVE_AERIAL_ACE},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_FOCUS_SASH,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = TRAINER_PARTY_IVS(15,15,15,15,15,15), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
-        //.ev = TRAINER_PARTY_EVS(0,0,0,0,0,0), //HP,ATK,DEF,SPEED,SPATK,SPDEF.
+        .iv = TRAINER_PARTY_IVS(31,30,31,30,31,30), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_ABSOL,
+        .lvl = 24,
+        .ability = ABILITY_JUSTIFIED,
+        .moves = {MOVE_NIGHT_SLASH, MOVE_SHADOW_CLAW, MOVE_PSYCHO_CUT, MOVE_ROCK_SLIDE},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_BLACK_GLASSES,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_ROTOM,
+        .lvl = 24,
+        .ability = ABILITY_LEVITATE,
+        .moves = {MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, MOVE_SCALD, MOVE_PAIN_SPLIT},
+        .nature = NATURE_TIMID,
+        .friendship = 255,
+        .heldItem = ITEM_WISE_GLASSES,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
+    },
+    {
+        .species = SPECIES_DRAGONAIR,
+        .lvl = 24,
+        .ability = ABILITY_SHED_SKIN,
+        .moves = {MOVE_DRAGON_CLAW, MOVE_AQUA_TAIL, MOVE_REST, MOVE_DRAGON_DANCE},
+        .nature = NATURE_JOLLY,
+        .friendship = 255,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = TRAINER_PARTY_IVS(31,31,31,31,31,31), //HP,ATK,DEF,SPATK,SPDEF,SPEED.
     },
 };
 
@@ -791,7 +1135,7 @@ static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
 static const struct TrainerMon sParty_Roxanne[] = {
 {
     .species = SPECIES_GLIMMET,
-    .lvl = 15,
+    .lvl = 16,
     .ability = ABILITY_TOXIC_DEBRIS,
     .moves = {MOVE_ACID, MOVE_ROCK_TOMB, MOVE_MUD_SHOT, MOVE_STEALTH_ROCK},
     .nature = NATURE_TIMID,
@@ -805,7 +1149,7 @@ static const struct TrainerMon sParty_Roxanne[] = {
 },
 {
     .species = SPECIES_AMAURA,
-    .lvl = 15,
+    .lvl = 16,
     .ability = ABILITY_REFRIGERATE,
     .moves = {MOVE_ECHOED_VOICE, MOVE_ANCIENT_POWER, MOVE_SHOCK_WAVE, MOVE_THUNDER_WAVE},
     .nature = NATURE_MODEST,
@@ -819,7 +1163,7 @@ static const struct TrainerMon sParty_Roxanne[] = {
 },
 {
     .species = SPECIES_GLIGAR,
-    .lvl = 15,
+    .lvl = 16,
     .ability = ABILITY_HYPER_CUTTER,
     .moves = {MOVE_BULLDOZE, MOVE_AERIAL_ACE, MOVE_ROCK_TOMB, MOVE_ROOST},
     .nature = NATURE_IMPISH,
@@ -833,7 +1177,7 @@ static const struct TrainerMon sParty_Roxanne[] = {
 },
 {
     .species = SPECIES_GROWLITHE_HISUIAN,
-    .lvl = 15,
+    .lvl = 16,
     .ability = ABILITY_ROCK_HEAD,
     .moves = {MOVE_FLAME_CHARGE, MOVE_ROCK_TOMB, MOVE_TAKE_DOWN, MOVE_HOWL},
     .nature = NATURE_ADAMANT,
@@ -847,7 +1191,7 @@ static const struct TrainerMon sParty_Roxanne[] = {
 },
 {
     .species = SPECIES_ANORITH,
-    .lvl = 15,
+    .lvl = 16,
     .ability = ABILITY_SWIFT_SWIM,
     .moves = {MOVE_ROCK_TOMB, MOVE_BUG_BITE, MOVE_AQUA_JET, MOVE_RAIN_DANCE},
     .nature = NATURE_ADAMANT,
@@ -861,7 +1205,7 @@ static const struct TrainerMon sParty_Roxanne[] = {
 },
 {
     .species = SPECIES_LILEEP,
-    .lvl = 15,
+    .lvl = 16,
     .ability = ABILITY_STORM_DRAIN,
     .moves = {MOVE_ANCIENT_POWER, MOVE_MEGA_DRAIN, MOVE_MUD_SHOT, MOVE_RECOVER},
     .nature = NATURE_MODEST,
@@ -5248,13 +5592,6 @@ static const struct TrainerMon sParty_Shelby5[] = {
     }
 };
 
-static const struct TrainerMon sParty_Joey[] = {
-    {
-    .lvl = 9,
-    .species = SPECIES_MACHOP,
-    }
-};
-
 static const struct TrainerMon sParty_Ben[] = {
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
@@ -5396,21 +5733,6 @@ static const struct TrainerMon sParty_Andrew[] = {
     }
 };
 
-static const struct TrainerMon sParty_Ivan[] = {
-    {
-    .lvl = 5,
-    .species = SPECIES_MAGIKARP,
-    },
-    {
-    .lvl = 6,
-    .species = SPECIES_MAGIKARP,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_MAGIKARP,
-    }
-};
-
 static const struct TrainerMon sParty_Claude[] = {
     {
     .lvl = 16,
@@ -5423,29 +5745,6 @@ static const struct TrainerMon sParty_Claude[] = {
     {
     .lvl = 18,
     .species = SPECIES_BARBOACH,
-    }
-};
-
-static const struct TrainerMon sParty_Elliot1[] = {
-    {
-    .lvl = 10,
-    .species = SPECIES_MAGIKARP,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_TENTACOOL,
-    },
-    {
-    .lvl = 10,
-    .species = SPECIES_MAGIKARP,
-    }
-};
-
-static const struct TrainerMon sParty_Ned[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 11,
-    .species = SPECIES_TENTACOOL,
     }
 };
 
@@ -8621,13 +8920,6 @@ static const struct TrainerMon sParty_MaxieMtChimney[] = {
     }
 };
 
-static const struct TrainerMon sParty_Janice[] = {
-    {
-    .lvl = 9,
-    .species = SPECIES_MARILL,
-    }
-};
-
 static const struct TrainerMon sParty_Vivi[] = {
     {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -8897,13 +9189,6 @@ static const struct TrainerMon sParty_Alan[] = {
     {
     .lvl = 22,
     .species = SPECIES_GRAVELER,
-    }
-};
-
-static const struct TrainerMon sParty_Clark[] = {
-    {
-    .lvl = 8,
-    .species = SPECIES_GEODUDE,
     }
 };
 
@@ -10433,28 +10718,6 @@ static const struct TrainerMon sParty_Marlene[] = {
     {
     .lvl = 18,
     .species = SPECIES_SPOINK,
-    }
-};
-
-static const struct TrainerMon sParty_Devan[] = {
-    {
-    .lvl = 8,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_GEODUDE,
-    }
-};
-
-static const struct TrainerMon sParty_Johnson[] = {
-    {
-    .lvl = 8,
-    .species = SPECIES_SHROOMISH,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_LOTAD,
     }
 };
 
