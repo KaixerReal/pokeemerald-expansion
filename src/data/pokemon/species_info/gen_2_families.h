@@ -228,7 +228,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .isStarter = TRUE,
         .levelUpLearnset = sCyndaquilLevelUpLearnset,
         .teachableLearnset = sCyndaquilTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 14, SPECIES_QUILAVA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_QUILAVA}),
     },
 
     [SPECIES_QUILAVA] =
@@ -353,7 +353,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseHP        = 73,
         .baseAttack    = 84,
         .baseDefense   = 78,
-        .baseSpeed     = 95,
+        .baseSpeed     = 100,
         .baseSpAttack  = 119,
         .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_FIRE, TYPE_GHOST),

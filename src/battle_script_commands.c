@@ -6482,13 +6482,7 @@ static void Cmd_switchindataupdate(void)
     gBattleMons[battler].type1 = gSpeciesInfo[gBattleMons[battler].species].types[0];
     gBattleMons[battler].type2 = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].type3 = TYPE_MYSTERY;
-    if(GetBattlerSide(battler) == B_SIDE_PLAYER){
-        gBattleMons[battler].ability = BanSomeAbilities(GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum), gBattleMons[battler].species);
-    }else if(!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER))){
-        gBattleMons[battler].ability = BanSomeAbilities(GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum), gBattleMons[battler].species);
-    }else{
-        gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
-    }
+    gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
 
     // check knocked off item
     i = GetBattlerSide(battler);

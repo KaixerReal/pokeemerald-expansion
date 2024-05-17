@@ -129,14 +129,14 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
-/*static const u16 sStarterMon[STARTER_MON_COUNT] =
+static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    SPECIES_TREECKO,
-    SPECIES_TORCHIC,
-    SPECIES_MUDKIP,
-};*/
+    SPECIES_ROWLET,
+    SPECIES_CYNDAQUIL,
+    SPECIES_OSHAWOTT,
+};
 
-static const u16 sStarterMon[REGION_COUNT][STARTER_MON_COUNT] = {
+/*static const u16 sStarterMon[REGION_COUNT][STARTER_MON_COUNT] = {
     [REGION_KANTO] =
     {
         SPECIES_BULBASAUR,
@@ -191,7 +191,7 @@ static const u16 sStarterMon[REGION_COUNT][STARTER_MON_COUNT] = {
         SPECIES_FUECOCO,
         SPECIES_QUAXLY
     },
-};
+};*/
 
 static const struct BgTemplate sBgTemplates[3] =
 {
@@ -428,7 +428,7 @@ u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
-    return sStarterMon[VarGet(VAR_REGION_CHOICE)][chosenStarterId];
+    return sStarterMon[chosenStarterId];
 }
 
 static void VblankCB_StarterChoose(void)

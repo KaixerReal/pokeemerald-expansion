@@ -3243,16 +3243,6 @@ u16 GetMonAbility(struct Pokemon *mon)
     return GetAbilityBySpecies(species, abilityNum);
 }
 
-u16 BanSomeAbilities(u16 ability, u16 species){
-
-        if (ability == ABILITY_OVERGROW){
-                return ABILITY_BLAZE; 
-        }
-    
-    return ability;
-}
-
-
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord)
 {
     s32 i, j;

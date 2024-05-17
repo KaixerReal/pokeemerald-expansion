@@ -119,7 +119,6 @@ static bool8 StartMenuBattlePyramidBagCallback(void);
 static bool8 StartMenuDebugCallback(void);
 static bool8 StartMenuDexNavCallback(void);
 static bool8 StartMenuPCCallback(void);
-static bool8 StartMenuUiMenuCallback(void);
 
 // Menu callbacks
 static bool8 SaveStartCallback(void);
@@ -810,7 +809,7 @@ static bool8 StartMenuBagCallback(void)
         PlayRainStoppingSoundEffect();
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
-        SetMainCallback2(CB2_BagMenuFromStartMenu); // Display bag menu
+        SetMainCallback2(CB2_BagMenuFromStartMenu); // Display bag menu CB2_ReturnToFieldWithOpenMenu
 
         return TRUE;
     }
@@ -969,53 +968,6 @@ static bool8 SaveStartCallback(void)
 
     return FALSE;
 }
-
-static void Task_SaveFromStartMenuFull(u8 taskId);
-
-void SaveStartCallback_FullStartMenu(void)
-{
-    WarpFadeInScreen();
-    InitSave();
-    CreateTask( Task_SaveFromStartMenuFull, 0);
-    return;
-}
-
-static void Task_SaveFromStartMenuFull(u8 taskId)
-{
-    s16 *state = gTasks[taskId].data;
-
-    if (!gPaletteFade.active)
-    {
-        switch (*state)
-        {
-            case 0:
-                ShowSaveInfoWindow();
-                *state = 1;
-                break;
-            case 1:
-                ShowSaveMessage(gText_SavingDontTurnOff, SaveDoSaveCallback);
-                *state = 2;
-                break;
-            case 2:
-                if (SaveCallback())
-                    *state = 3;
-                break;
-            case 3:
-                if (SaveCallback())
-                    *state = 4;
-                break;
-            case 4:
-                DestroyTask(taskId);
-                ClearDialogWindowAndFrameToTransparent(0, TRUE);
-                HideSaveMessageWindow();
-                ScriptUnfreezeObjectEvents();
-                UnlockPlayerFieldControls();
-                SoftResetInBattlePyramid();
-                break;
-        }
-    }
-}
-
 
 static bool8 SaveCallback(void)
 {
