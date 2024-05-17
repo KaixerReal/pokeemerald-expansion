@@ -385,6 +385,7 @@ DewfordTown_Gym_EventScript_Brawly::
 
 
 DewfordTown_Gym_EventScript_BrawlyDefeated::
+	setflag FLAG_HIDE_BRO_SIS_R103
 	call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis, MSGBOX_DEFAULT
@@ -396,7 +397,6 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	call Common_EventScript_SetGymTrainers
 	closemessage
 	goto DewfordTown_Gym_EventScript_GiveBulkUp
-	setflag FLAG_HIDE_BRO_SIS_R103
 	return
 
 

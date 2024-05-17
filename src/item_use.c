@@ -1420,6 +1420,8 @@ void ItemUseOutOfBattle_EnigmaBerry(u8 taskId)
         ItemUseOutOfBattle_SacredAsh(taskId);
         break;
     case ITEM_EFFECT_LOWER_LEVEL:
+        gTasks[taskId].tEnigmaBerryType = ITEM_USE_PARTY_MENU;
+        ItemUseOutOfBattle_CommonCandy(taskId);
     case ITEM_EFFECT_RAISE_LEVEL:
         gTasks[taskId].tEnigmaBerryType = ITEM_USE_PARTY_MENU;
         ItemUseOutOfBattle_RareCandy(taskId);

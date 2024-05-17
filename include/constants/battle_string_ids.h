@@ -710,8 +710,9 @@
 #define STRINGID_PKMNTRAPPEDINAHARSHWHIRLPOOL         708
 #define STRINGID_PKMNSABILITYRESTOREDHPALITTLE		  709
 #define STRINGID_DARKMOVESAREBOOSTED                  710
+#define STRINGID_DELTASTREAMSTARTED                   711
 
-#define BATTLESTRINGS_COUNT                           711
+#define BATTLESTRINGS_COUNT                           712
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -985,7 +986,8 @@
 #define B_MSG_SET_TAILWIND_PLAYER   7
 #define B_MSG_SET_TAILWIND_OPPONENT 8
 #define B_MSG_SET_DARKAURA_OPPONENT 9
-#define B_MSG_STARTING_STATUS_COUNT 10
+#define B_MSG_SET_DELTASTREAM_OPPONENT 10
+#define B_MSG_STARTING_STATUS_COUNT 11
 
 
 // gWrappedStringIds

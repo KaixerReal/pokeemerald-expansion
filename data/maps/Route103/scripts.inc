@@ -347,7 +347,7 @@ Route103_Text_RouteSign:
 Route103_EventScript_Pete::
 	lock
 	faceplayer
-	msgbox Route103_EventScript_Pete_Text_0, MSGBOX_AUTOCLOSE
+	msgbox Route103_EventScript_Pete_Text_0, MSGBOX_DEFAULT
 	release
 	end
 
@@ -355,7 +355,7 @@ Route103_EventScript_Pete::
 Route103_EventScript_Isabelle::
 	lock
 	faceplayer
-	msgbox Route103_EventScript_Isabelle_Text_0, MSGBOX_AUTOCLOSE
+	msgbox Route103_EventScript_Isabelle_Text_0, MSGBOX_DEFAULT
 	release
 	end
 

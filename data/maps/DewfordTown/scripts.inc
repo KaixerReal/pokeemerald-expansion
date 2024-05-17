@@ -804,17 +804,8 @@ DewfordTown_EventScript_Briney::
 	faceplayer
 	waitmessage
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_Briney_2
-	checktrainerflag TRAINER_NORMAN_1
-	goto_if 0, DewfordTown_EventScript_Briney_3
-	message DewfordTown_Text_WhereAreWeBound
-	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, DewfordTown_EventScript_Briney_Text_4, DewfordTown_EventScript_Briney_Text_5, DewfordTown_EventScript_Briney_Text_6
-	switch VAR_RESULT
-	case 0, DewfordTown_EventScript_Briney_13
-	case 1, DewfordTown_EventScript_Briney_14
-	case 2, DewfordTown_EventScript_Briney_15
-	case MULTI_B_PRESSED, DewfordTown_EventScript_Briney_16
-	return
-
+	checktrainerflag TRAINER_BRAWLY_1
+	goto_if 1, DewfordTown_EventScript_Briney_3
 DewfordTown_EventScript_Briney_1:
 	end
 
@@ -829,37 +820,21 @@ DewfordTown_EventScript_Briney_3:
 	closemessage
 	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, DewfordTown_EventScript_Briney_Text_2, DewfordTown_EventScript_Briney_Text_3
 	switch VAR_RESULT
-	case 0, DewfordTown_EventScript_Briney_8
-	case 1, DewfordTown_EventScript_Briney_9
-	case MULTI_B_PRESSED, DewfordTown_EventScript_Briney_10
+	case 0, DewfordTown_EventScript_Briney_7
+	case 1, DewfordTown_EventScript_Briney_8
+	case MULTI_B_PRESSED, DewfordTown_EventScript_Briney_9
 	return
 
+DewfordTown_EventScript_Briney_7:
+	call DewfordTown_EventScript_ChooseSlateport
+	goto DewfordTown_EventScript_Briney_1
+
 DewfordTown_EventScript_Briney_8:
-	call DewfordTown_EventScript_ChoosePetalburg
+	call DewfordTown_EventScript_CloseIfNo
 	goto DewfordTown_EventScript_Briney_1
 
 DewfordTown_EventScript_Briney_9:
 	call DewfordTown_EventScript_CloseIfNo
-	goto DewfordTown_EventScript_Briney_1
-
-DewfordTown_EventScript_Briney_10:
-	call DewfordTown_EventScript_CloseIfNo
-	goto DewfordTown_EventScript_Briney_1
-
-DewfordTown_EventScript_Briney_13:
-	call DewfordTown_EventScript_ChoosePetalburg
-	goto DewfordTown_EventScript_Briney_1
-
-DewfordTown_EventScript_Briney_14:
-	call DewfordTown_EventScript_ChooseSlateport
-	goto DewfordTown_EventScript_Briney_1
-
-DewfordTown_EventScript_Briney_15:
-	call DewfordTown_EventScript_CancelSailSelect
-	goto DewfordTown_EventScript_Briney_1
-
-DewfordTown_EventScript_Briney_16:
-	call DewfordTown_EventScript_CancelSailSelect
 	goto DewfordTown_EventScript_Briney_1
 
 
@@ -874,24 +849,10 @@ DewfordTown_EventScript_Briney_Text_0:
 DewfordTown_EventScript_Briney_Text_1:
 	.string "{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\n"
 	.string "I see you got the letter from steven?\p"
-	.string "I recommend going back to Rustboro\n"
-	.string "City, to claim the reward from the\l"
-	.string "mayor!\l"
-	.string "I heard the reward is a pretty nice one!\p"
-	.string "Well {COLOR GREEN}{PLAYER}{COLOR BLUE} do you want to go back\n"
-	.string "to Route 104?$"
+	.string "$"
 
 DewfordTown_EventScript_Briney_Text_2:
 	.string "Yes$"
 
 DewfordTown_EventScript_Briney_Text_3:
 	.string "No$"
-
-DewfordTown_EventScript_Briney_Text_4:
-	.string "Petalburg$"
-
-DewfordTown_EventScript_Briney_Text_5:
-	.string "Slateport$"
-
-DewfordTown_EventScript_Briney_Text_6:
-	.string "Cancel$"

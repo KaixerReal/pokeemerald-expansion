@@ -4137,10 +4137,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_DARKAURA_OPPONENT;
                     gSideStatuses[B_SIDE_OPPONENT] |= SIDE_STATUS_DARK_AURA;
-                    gBattleScripting.animArg1 = B_ANIM_DOOM_DESIRE_HIT;
                     effect = 1;
                 }
                 break;
+            case STARTING_STATUS_DELTASTREAM_OPPONENT:
+                if (!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_TAILWIND))
+                {
+                    gBattlerAttacker = B_POSITION_OPPONENT_LEFT;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_DELTASTREAM_OPPONENT;
+                    gBattleWeather = B_WEATHER_STRONG_WINDS;
+                    gBattleScripting.animArg1 = B_ANIM_TAILWIND;
+                    effect = 1;
+                }
             }
 
             if (effect == 1)
@@ -9307,7 +9315,7 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
         }
         break;
     case ABILITY_MINUS:
-        if (IS_MOVE_SPECIAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
+        if (IS_MOVE_PHYSICAL(move) && IsBattlerAlive(BATTLE_PARTNER(battlerAtk)))
         {
             u32 partnerAbility = GetBattlerAbility(BATTLE_PARTNER(battlerAtk));
             if (partnerAbility == ABILITY_PLUS
@@ -9371,6 +9379,8 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     case HOLD_EFFECT_THICK_CLUB:
         if ((atkBaseSpeciesId == SPECIES_CUBONE || atkBaseSpeciesId == SPECIES_MAROWAK) && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+            else if ((atkBaseSpeciesId == SPECIES_CUBONE || atkBaseSpeciesId == SPECIES_MAROWAK) && IS_MOVE_SPECIAL(move))
+                modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_DEEP_SEA_TOOTH:
         if (gBattleMons[battlerAtk].species == SPECIES_CLAMPERL && IS_MOVE_SPECIAL(move))

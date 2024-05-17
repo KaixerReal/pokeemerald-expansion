@@ -847,9 +847,11 @@ static const u8 sText_TidyingUpComplete[] = _("Tidying up complete!");
 static const u8 sText_AtkTrappedDefInAHarshWhirlpool[] = _("{B_ATK_NAME_WITH_PREFIX} trapped the\n{B_DEF_NAME_WITH_PREFIX} in a harsh whirlpool!");
 static const u8 sText_AbilityRestoredHPALittle[] = _("{B_ATK_NAME_WITH_PREFIX}'s ability\nrestored its HP a little");
 static const u8 sText_DarkAuraStartedOnOpponentSide[] = _("Sidney's presence created a\nDark Aura around The battlefield!");
+static const u8 sText_DeltaStreamStartedOnOpponentSide[] = _("Winona's presence started a\nStrong Wind around The battlefield!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
+    [STRINGID_DELTASTREAMSTARTED - BATTLESTRINGS_TABLE_START] = sText_DeltaStreamStartedOnOpponentSide,
     [STRINGID_DARKMOVESAREBOOSTED - BATTLESTRINGS_TABLE_START] = sText_DarkAuraStartedOnOpponentSide,
     [STRINGID_PKMNSABILITYRESTOREDHPALITTLE - BATTLESTRINGS_TABLE_START] = sText_AbilityRestoredHPALittle,
     [STRINGID_PKMNTRAPPEDINAHARSHWHIRLPOOL - BATTLESTRINGS_TABLE_START] = sText_AtkTrappedDefInAHarshWhirlpool,
@@ -1589,6 +1591,7 @@ const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] =
     [B_MSG_SET_TAILWIND_PLAYER]     = STRINGID_TAILWINDBLEW,
     [B_MSG_SET_TAILWIND_OPPONENT]   = STRINGID_TAILWINDBLEW,
     [B_MSG_SET_DARKAURA_OPPONENT]   = STRINGID_DARKMOVESAREBOOSTED,
+    [B_MSG_SET_DELTASTREAM_OPPONENT] = STRINGID_DELTASTREAMSTARTED,
 };
 
 const u16 gTerrainStringIds[B_MSG_TERRAIN_COUNT] =

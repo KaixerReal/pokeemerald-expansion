@@ -808,32 +808,17 @@ script DewfordTown_EventScript_Briney{
 	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Sorry {COLOR GREEN}{PLAYER}{COLOR BLUE}... But you'll have to Beat Brawly first."), MSGBOX_DEFAULT)
 	closemessage
     call(DewfordTown_EventScript_CloseIfNo)
-	}elif(!defeated(TRAINER_NORMAN_1)){
-	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\nI see you got the letter from steven?\pI recommend going back to Rustboro City, to claim the reward from the mayor!\lI heard the reward is a pretty nice one!\pWell {COLOR GREEN}{PLAYER}{COLOR BLUE} do you want to go back to Route 104?"), MSGBOX_DEFAULT)
+	}elif(defeated(TRAINER_BRAWLY_1)){
+	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\nI see you got the letter from steven?\p"), MSGBOX_DEFAULT)
 	closemessage
 	dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Yes","No")
     switch (var(VAR_RESULT)) {
         case 0:
-            call(DewfordTown_EventScript_ChoosePetalburg)
+            call(DewfordTown_EventScript_ChooseSlateport)
         case 1:
             call(DewfordTown_EventScript_CloseIfNo)
 	    case MULTI_B_PRESSED: 
 		    call(DewfordTown_EventScript_CloseIfNo)
-        default:
-		    return
-        }
-	}else{
-	message (DewfordTown_Text_WhereAreWeBound)
-    dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Petalburg","Slateport","Cancel")
-    switch (var(VAR_RESULT)) {
-        case 0:
-            call(DewfordTown_EventScript_ChoosePetalburg)
-        case 1:
-            call(DewfordTown_EventScript_ChooseSlateport)
-        case 2:
-            call(DewfordTown_EventScript_CancelSailSelect)
-	    case MULTI_B_PRESSED: 
-		    call(DewfordTown_EventScript_CancelSailSelect)
         default:
 		    return
         }

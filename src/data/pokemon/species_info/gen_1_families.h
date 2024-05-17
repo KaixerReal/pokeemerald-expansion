@@ -10538,8 +10538,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sTyrogueLevelUpLearnset,
         .teachableLearnset = sTyrogueTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL_ATK_LT_DEF, 20, SPECIES_HITMONCHAN},
-                                {EVO_LEVEL_ATK_GT_DEF, 20, SPECIES_HITMONLEE},
-                                {EVO_LEVEL_ATK_EQ_DEF, 20, SPECIES_HITMONTOP}),
+                                    {EVO_ITEM, ITEM_SUN_STONE, SPECIES_HITMONCHAN}, //Altered Method
+                                {EVO_LEVEL_ATK_GT_DEF, 20, SPECIES_HITMONLEE}, 
+                                    {EVO_ITEM, ITEM_DUSK_STONE, SPECIES_HITMONLEE}, //Altered Method
+                                {EVO_LEVEL_ATK_EQ_DEF, 20, SPECIES_HITMONTOP},
+                                    {EVO_ITEM, ITEM_SHINY_STONE, SPECIES_HITMONTOP}), //Altered Method
     },
 #endif //P_GEN_2_CROSS_EVOS
 
@@ -10560,7 +10563,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_LIMBER, ABILITY_RECKLESS, ABILITY_UNBURDEN },
+        .abilities = { ABILITY_LIMBER, ABILITY_STRIKER, ABILITY_UNBURDEN },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Hitmonlee"),
         .cryId = CRY_HITMONLEE,

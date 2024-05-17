@@ -349,7 +349,7 @@ Route103_Text_RouteSign:
 script Route103_EventScript_Pete {
 	lock
 	faceplayer
-	msgbox (format("Hewoo there! me and my sister are playing Russian Roullete.\nits very fun!"), MSGBOX_AUTOCLOSE)
+	msgbox (format("Hewoo there! me and my sister are playing Russian Roullete.\nits very fun!"), MSGBOX_DEFAULT)
 	release
 	end
 }
@@ -357,7 +357,7 @@ script Route103_EventScript_Pete {
 script Route103_EventScript_Isabelle {
 	lock
 	faceplayer
-	msgbox (format("Hewoo there! me and my brother are playing Russian Roullete.\nits very fun!"), MSGBOX_AUTOCLOSE)
+	msgbox (format("Hewoo there! me and my brother are playing Russian Roullete.\nits very fun!"), MSGBOX_DEFAULT)
 	release
 	end
 }

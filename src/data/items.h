@@ -13017,7 +13017,7 @@ const struct Item gItemsInfo[] =
             "one. Infinite uses."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CommonCandy,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .effect = gItemEffect_RareCandy,
         .flingPower = 30,
     },

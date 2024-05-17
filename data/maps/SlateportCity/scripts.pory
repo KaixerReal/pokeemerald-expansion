@@ -735,17 +735,6 @@ SlateportCity_EventScript_Man3::
 	msgbox SlateportCity_Text_WonderIfLighthouseStartlesPokemon, MSGBOX_NPC
 	end
 
-SlateportCity_EventScript_BerryPowderClerk::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_POWDER_JAR, SlateportCity_EventScript_ReceivedPowderJar
-	msgbox SlateportCity_Text_ExplainBerries, MSGBOX_DEFAULT
-	giveitem ITEM_POWDER_JAR
-	setflag FLAG_RECEIVED_POWDER_JAR
-	msgbox SlateportCity_Text_ExplainBerryPowder, MSGBOX_DEFAULT
-	release
-	end
-
 SlateportCity_EventScript_ReceivedPowderJar::
 	setvar VAR_0x8004, 1
 	specialvar VAR_RESULT, HasEnoughBerryPowder
@@ -1385,3 +1374,15 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
 `
+
+script SlateportCity_EventScript_BerryPowderClerk{
+	lock
+	faceplayer
+	goto_if_set (FLAG_RECEIVED_POWDER_JAR, SlateportCity_EventScript_ReceivedPowderJar)
+	msgbox (SlateportCity_Text_ExplainBerries, MSGBOX_DEFAULT)
+	giveitem (ITEM_POWDER_JAR)
+	setflag (FLAG_RECEIVED_POWDER_JAR)
+	msgbox (SlateportCity_Text_ExplainBerryPowder, MSGBOX_DEFAULT)
+	release
+	end
+}
