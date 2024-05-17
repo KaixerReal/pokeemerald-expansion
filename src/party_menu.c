@@ -5604,6 +5604,11 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
         BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
     }
+    else if (holdEffectParam == 30 && sInitialLevel){
+        BufferMonStatsToTaskData(mon, arrayPtr);
+        cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
+        BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
+    }
     else
     {
         cannotUseEffect = TRUE;
@@ -5653,11 +5658,6 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
                 if (holdEffectParam == 0) // Rare Candy gets consumed, Candy Box and Infinite Candy and Common Candy don't
                     RemoveBagItem(gSpecialVar_ItemId, 1);
             }
-            else if (sFinalLevel < sInitialLevel && holdEffectParam == 30)
-            {
-                ConvertIntToDecimalStringN(gStringVar2, sFinalLevel, STR_CONV_MODE_LEFT_ALIGN, 3);
-                StringExpandPlaceholders(gStringVar4, gText_PkmnLoweredToLvVar2);
-            }
             else // Exp Candies
             {
                 ConvertIntToDecimalStringN(gStringVar2, sExpCandyExperienceTable[holdEffectParam - 1], STR_CONV_MODE_LEFT_ALIGN, 6);
@@ -5670,13 +5670,25 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
             ScheduleBgCopyTilemapToVram(2);
             gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
         }
+        else if (sFinalLevel < sInitialLevel)
+        {
+            PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
+            if (holdEffectParam == 30) //Common Candy
+            {
+                ConvertIntToDecimalStringN(gStringVar2, sFinalLevel, STR_CONV_MODE_LEFT_ALIGN, 3);
+                DebugPrintf("Allows the player to close the party menu?", gStringVar4);
+                StringExpandPlaceholders(gStringVar4, gText_PkmnLoweredToLvVar2);
+            }
+
+            DisplayPartyMenuMessage(gStringVar4, TRUE);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
+        }
         else
         {
             PlaySE(SE_USE_ITEM);
             gPartyMenuUseExitCallback = FALSE;
-            ConvertIntToDecimalStringN(gStringVar2, sExpCandyExperienceTable[holdEffectParam - 1], STR_CONV_MODE_LEFT_ALIGN, 6);
-            StringExpandPlaceholders(gStringVar4, gText_PkmnGainedExp);
-            DisplayPartyMenuMessage(gStringVar4, FALSE);
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
             ScheduleBgCopyTilemapToVram(2);
             gTasks[taskId].func = task;
         }
