@@ -273,19 +273,6 @@ RusturfTunnel_EventScript_TunnelBlockagePos3::
 	setvar VAR_TEMP_1, 3
 	end
 
-RusturfTunnel_EventScript_AquaGruntBackUp::
-	lockall
-	msgbox RusturfTunnel_Text_ComeAndGetSome, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntAndPeekoBackUp
-	applymovement LOCALID_PEEKO, RusturfTunnel_Movement_GruntAndPeekoBackUp
-	waitmovement 0
-	copyobjectxytoperm LOCALID_GRUNT
-	copyobjectxytoperm LOCALID_PEEKO
-	setvar VAR_RUSTURF_TUNNEL_STATE, 3
-	releaseall
-	end
-
 RusturfTunnel_Movement_GruntAndPeekoBackUp:
 	lock_facing_direction
 	walk_right
@@ -441,8 +428,8 @@ RusturfTunnel_Text_GruntIntro:
 	.string "So you want to battle me?$"
 
 RusturfTunnel_Text_GruntDefeat:
-	.string "Urrrggh! My career in crime comes to\n"
-	.string "a dead end!$"
+	.string "Urrrggh! I forgot to train my pokémon...\n"
+	.string "My career in crime comes to a dead end!$"
 
 RusturfTunnel_Text_GruntTakePackage:
 	.string "This is plain not right…\p"
@@ -530,3 +517,17 @@ RusturfTunnel_Text_MikePostBattle:
 	.string "They halted development here to\n"
 	.string "protect POKéMON, right?\l"
 	.string "There's a feel-good story!$"
+
+RusturfTunnel_EventScript_AquaGruntBackUp::
+	lockall
+	msgbox RusturfTunnel_Text_ComeAndGetSome, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GRUNT, RusturfTunnel_Movement_GruntAndPeekoBackUp
+	applymovement LOCALID_PEEKO, RusturfTunnel_Movement_GruntAndPeekoBackUp
+	waitmovement 0
+	copyobjectxytoperm LOCALID_GRUNT
+	copyobjectxytoperm LOCALID_PEEKO
+	setvar VAR_RUSTURF_TUNNEL_STATE, 3
+	releaseall
+	end
+

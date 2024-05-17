@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
+      "script": "RusturfTunnel_EventScript_AquaGruntBackUp",
       "flag": "FLAG_HIDE_RUSTURF_TUNNEL_BRINEY"
     },
     {
@@ -180,24 +180,6 @@
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_RUSTURF_TUNNEL_STATE",
-      "var_value": "2",
-      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 5,
-      "elevation": 3,
-      "var": "VAR_RUSTURF_TUNNEL_STATE",
-      "var_value": "2",
-      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
-    },
-    {
-      "type": "trigger",
       "x": 25,
       "y": 4,
       "elevation": 3,
@@ -213,6 +195,24 @@
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "RusturfTunnel_EventScript_TunnelBlockagePos3"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 4,
+      "elevation": 3,
+      "var": "VAR_RUSTURF_TUNNEL_STATE",
+      "var_value": "2",
+      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 5,
+      "elevation": 3,
+      "var": "VAR_RUSTURF_TUNNEL_STATE",
+      "var_value": "2",
+      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
     }
   ],
   "bg_events": [

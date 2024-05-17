@@ -53,14 +53,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 5,
-      "y": 12,
+      "x": 6,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "Route116_EventScript_Joey",
       "flag": "0"
     },
@@ -241,6 +241,42 @@
       "var": "VAR_ROUTE116_STATE",
       "var_value": "1",
       "script": "Route116_EventScript_BrineyTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_FIGHT_ROXANNE",
+      "var_value": "1",
+      "script": "RustboroCity_EventScript_GoFightRoxanne"
     }
   ],
   "bg_events": [
