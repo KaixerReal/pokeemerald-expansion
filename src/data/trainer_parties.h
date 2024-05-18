@@ -331,7 +331,7 @@ static const struct TrainerMon sParty_Dylan[] = { //Bird Keeper
     },
     {
         .species = SPECIES_NATU,
-        .lvl = PLAYER_MAX,
+        .lvl = 10,
         .ability = ABILITY_SYNCHRONIZE,
         .moves = {MOVE_CONFUSION, MOVE_AIR_CUTTER, MOVE_ROOST},
         .nature = NATURE_TIMID,
