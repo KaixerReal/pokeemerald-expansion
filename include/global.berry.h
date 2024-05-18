@@ -13,7 +13,7 @@ struct Berry
     u16 weedsBonus:3;
     u16 pestsBonus:3;
     u8 maxYield;
-    u8 minYield:4;
+    u8 minYield;
     u8 waterBonus:4;
     const u8 *description1;
     const u8 *description2;

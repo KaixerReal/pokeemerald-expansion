@@ -152,11 +152,6 @@ Route114_EventScript_Nolan::
 	msgbox Route114_Text_NolanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route114_EventScript_Tyra::
-	trainerbattle_double TRAINER_MAGMA_ROUTE_114_1, Route114_Text_TyraIntro, Route114_Text_TyraDefeat, Route114_Text_TyraNotEnoughMons
-	msgbox Route114_Text_TyraPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route114_EventScript_Ivy::
 	trainerbattle_double TRAINER_MAGMA_ROUTE_114_1, Route114_Text_IvyIntro, Route114_Text_IvyDefeat, Route114_Text_IvyNotEnoughMons
 	msgbox Route114_Text_IvyPostBattle, MSGBOX_AUTOCLOSE
@@ -200,3 +195,9 @@ Route114_Text_FossilManiacsHouseSign:
 
 Route114_Text_LanettesHouse:
 	.string "LANETTE'S HOUSE$"
+
+Route114_EventScript_MagmaGruntArthur::
+	trainerbattle_double TRAINER_MAGMA_ROUTE_114_1, Route114_Text_TyraIntro, Route114_Text_TyraDefeat, Route114_Text_TyraNotEnoughMons
+	msgbox Route114_Text_TyraPostBattle, MSGBOX_AUTOCLOSE
+	end
+
