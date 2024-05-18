@@ -196,3 +196,6 @@ The project has now gotten larger and DizzyEgg is now maintaining the project as
 A Discord-based ROM hacking community that has many members who hack using the disassembly and decompilation projects for Pokémon. Quite a few contributors to the original feature branches by DizzyEgg were members of ROM Hacking Hideout. You can call it RHH for short!
 
 [Click here to join the RHH Discord Server!](https://discord.gg/6CzjAG6GZk)
+# START MENU
+
+Credit `Pawkkie` and `Voluptua` if you are using any resource from this branch!
