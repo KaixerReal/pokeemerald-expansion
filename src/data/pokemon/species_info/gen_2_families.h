@@ -1995,7 +1995,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Hoppip)
         .levelUpLearnset = sHoppipLevelUpLearnset,
         .teachableLearnset = sHoppipTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_SKIPLOOM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_SKIPLOOM}),
     },
 
     [SPECIES_SKIPLOOM] =
@@ -2248,6 +2248,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
+        .itemCommon = ITEM_SUN_STONE,
+        .itemRare = ITEM_SUN_STONE,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
         .abilities = { ABILITY_CHLOROPHYLL, ABILITY_SOLAR_POWER, ABILITY_EARLY_BIRD },
         .bodyColor = BODY_COLOR_YELLOW,
@@ -2391,7 +2393,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         FOOTPRINT(Yanma)
         .levelUpLearnset = sYanmaLevelUpLearnset,
         .teachableLearnset = sYanmaTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_ANCIENT_POWER, SPECIES_YANMEGA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_YANMEGA}),
     },
 
 #if P_GEN_4_CROSS_EVOS

@@ -2184,7 +2184,7 @@
 	@ with probability '100% - percent'.
 	.macro randompercentage percent:req
 		random 100
-		goto_if_lt VAR_RESULT, \percent, 1f
+		goto_if_lt VAR_RESULT, \percent, 1
 		setvar VAR_RESULT, FALSE
 		goto 2f
 	1:

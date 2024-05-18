@@ -9,57 +9,28 @@ Common_EventScript_PkmnCenterUnionNurse::
 
 
 EventScript_PkmnCenterUnionNurse_Multichoice::
-	checktrainerflag TRAINER_BRAWLY_1
-	goto_if 0, EventScript_PkmnCenterUnionNurse_Multichoice_1
-	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, EventScript_PkmnCenterUnionNurse_Multichoice_Text_0, EventScript_PkmnCenterUnionNurse_Multichoice_Text_5, EventScript_PkmnCenterUnionNurse_Multichoice_Text_2, EventScript_PkmnCenterUnionNurse_Multichoice_Text_3
-	switch VAR_RESULT
-	case 0, EventScript_PkmnCenterUnionNurse_Multichoice_10
-	case 1, EventScript_PkmnCenterUnionNurse_Multichoice_11
-	case 2, EventScript_PkmnCenterUnionNurse_Multichoice_12
-	return
-
-EventScript_PkmnCenterUnionNurse_Multichoice_1:
 	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, EventScript_PkmnCenterUnionNurse_Multichoice_Text_0, EventScript_PkmnCenterUnionNurse_Multichoice_Text_1, EventScript_PkmnCenterUnionNurse_Multichoice_Text_2, EventScript_PkmnCenterUnionNurse_Multichoice_Text_3
 	switch VAR_RESULT
-	case 0, EventScript_PkmnCenterUnionNurse_Multichoice_5
-	case 1, EventScript_PkmnCenterUnionNurse_Multichoice_6
-	case 2, EventScript_PkmnCenterUnionNurse_Multichoice_7
+	case 0, EventScript_PkmnCenterUnionNurse_Multichoice_2
+	case 1, EventScript_PkmnCenterUnionNurse_Multichoice_3
+	case 2, EventScript_PkmnCenterUnionNurse_Multichoice_4
 	return
 
-EventScript_PkmnCenterUnionNurse_Multichoice_5:
+EventScript_PkmnCenterUnionNurse_Multichoice_2:
 	call EventScript_PkmnCenterUnionNurse_ChangeNickname
 	message PkmnCenterUnionNurse_AnythingElse
 	waitmessage
 	call EventScript_PkmnCenterUnionNurse_Multichoice
 	return
 
-EventScript_PkmnCenterUnionNurse_Multichoice_6:
-	msgbox EventScript_PkmnCenterUnionNurse_Multichoice_Text_4, MSGBOX_DEFAULT
-	goto Common_EventScript_PkmnCenterUnionNurse
-	return
-
-EventScript_PkmnCenterUnionNurse_Multichoice_7:
-	call EventScript_PkmnCenterUnionNurse_ChangeNature
-	message PkmnCenterUnionNurse_AnythingElse
-	waitmessage
-	call EventScript_PkmnCenterUnionNurse_Multichoice
-	return
-
-EventScript_PkmnCenterUnionNurse_Multichoice_10:
-	call EventScript_PkmnCenterUnionNurse_ChangeNickname
-	message PkmnCenterUnionNurse_AnythingElse
-	waitmessage
-	call EventScript_PkmnCenterUnionNurse_Multichoice
-	return
-
-EventScript_PkmnCenterUnionNurse_Multichoice_11:
+EventScript_PkmnCenterUnionNurse_Multichoice_3:
 	call EventScript_PkmnCenterUnionNurse_MoveRelearn
 	message PkmnCenterUnionNurse_AnythingElse
 	waitmessage
 	call EventScript_PkmnCenterUnionNurse_Multichoice
 	return
 
-EventScript_PkmnCenterUnionNurse_Multichoice_12:
+EventScript_PkmnCenterUnionNurse_Multichoice_4:
 	call EventScript_PkmnCenterUnionNurse_ChangeNature
 	message PkmnCenterUnionNurse_AnythingElse
 	waitmessage
@@ -235,6 +206,57 @@ EventScript_PkmnCenterUnionNurse_ChangeNature_14:
 	goto EventScript_PkmnCenterUnionNurse_ChangeNature_13
 
 
+EventScript_PkmnCenterUnionNurse_ApplyStatus::
+	lock
+	faceplayer
+	msgbox EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_0
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq EventScript_PkmnCenterUnionNurse_ApplyStatus_2
+EventScript_PkmnCenterUnionNurse_ApplyStatus_1:
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq EventScript_PkmnCenterUnionNurse_ApplyStatus_5
+	special BufferMonNickname
+	msgbox EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_2
+	dynmultipush EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_3, STATUS1_BURN
+	dynmultipush EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_4, STATUS1_POISON
+	dynmultipush EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_5, STATUS1_PARALYSIS
+	dynmultipush EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_6, STATUS1_SLEEP
+	dynmultipush EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_7, STATUS1_FROSTBITE
+	dynmultipush EventScript_PkmnCenterUnionNurse_Multichoice_Text_3, MULTI_B_PRESSED
+	dynmultistack 0, 0, TRUE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	compare VAR_RESULT, MULTI_B_PRESSED
+	goto_if_eq EventScript_PkmnCenterUnionNurse_ApplyStatus_8
+EventScript_PkmnCenterUnionNurse_ApplyStatus_7:
+	copyvar VAR_0x8005, VAR_RESULT
+	setstatus1 VAR_RESULT, 0
+	msgbox EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_8, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_PkmnCenterUnionNurse_ApplyStatus_11
+EventScript_PkmnCenterUnionNurse_ApplyStatus_10:
+	release
+	end
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_2:
+	goto EventScript_PkmnCenterUnionNurse_Multichoice
+	goto EventScript_PkmnCenterUnionNurse_ApplyStatus_1
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_5:
+	msgbox EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_1
+	release
+	end
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_8:
+	goto EventScript_PkmnCenterUnionNurse_Multichoice
+	goto EventScript_PkmnCenterUnionNurse_ApplyStatus_7
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_11:
+	goto EventScript_PkmnCenterUnionNurse_Multichoice
+	goto EventScript_PkmnCenterUnionNurse_ApplyStatus_10
+
+
 EventScript_AccessTimeChanger::
 	lock
 	dynmultipush EventScript_AccessTimeChanger_Text_0, TIME_DAY
@@ -342,20 +364,13 @@ EventScript_PkmnCenterUnionNurse_Multichoice_Text_0:
 	.string "Change nickname$"
 
 EventScript_PkmnCenterUnionNurse_Multichoice_Text_1:
-	.string "Relearn move {FIXED_CASE}{COLOR RED}LOCKED$"
+	.string "Relearn move$"
 
 EventScript_PkmnCenterUnionNurse_Multichoice_Text_2:
 	.string "Change Nature$"
 
 EventScript_PkmnCenterUnionNurse_Multichoice_Text_3:
 	.string "Cancel$"
-
-EventScript_PkmnCenterUnionNurse_Multichoice_Text_4:
-	.string "You'll have to defeat Brawly first\n"
-	.string "before using this Feature!$"
-
-EventScript_PkmnCenterUnionNurse_Multichoice_Text_5:
-	.string "Relearn move$"
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_0:
 	.string "sorry but to use this Feature you'll\n"
@@ -479,6 +494,34 @@ EventScript_PkmnCenterUnionNurse_ChangeNature_Text_30:
 	.string "{STR_VAR_1}'s training is complete.\p"
 	.string "Come back if you need to train another\n"
 	.string "Pokémon.$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_0:
+	.string "Which Pokémon should I status?$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_1:
+	.string "How foolish! An Egg cannot be statused!$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_2:
+	.string "Which status do you want to apply to\n"
+	.string "{STR_VAR_1}?$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_3:
+	.string "Burn$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_4:
+	.string "Poison$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_5:
+	.string "Paralyze$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_6:
+	.string "Sleep$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_7:
+	.string "Frostbite$"
+
+EventScript_PkmnCenterUnionNurse_ApplyStatus_Text_8:
+	.string "So {STR_VAR_1} should be statused?$"
 
 EventScript_AccessTimeChanger_Text_0:
 	.string "Day$"

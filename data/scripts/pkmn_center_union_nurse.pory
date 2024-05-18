@@ -10,27 +10,6 @@ script Common_EventScript_PkmnCenterUnionNurse {
 }
 //Credits go to @RavePossum on discord for helping me fix this.
 script EventScript_PkmnCenterUnionNurse_Multichoice {
-    if(!defeated(TRAINER_BRAWLY_1)){
-    dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Change nickname","Relearn move {FIXED_CASE}{COLOR RED}LOCKED","Change Nature","Cancel")
-    switch (var(VAR_RESULT)) {
-        case 0:
-            call(EventScript_PkmnCenterUnionNurse_ChangeNickname)
-            message(PkmnCenterUnionNurse_AnythingElse)
-            waitmessage
-            call(EventScript_PkmnCenterUnionNurse_Multichoice)
-        case 1:
-            msgbox(format("You'll have to defeat Brawly first before using this Feature!"),MSGBOX_DEFAULT) 
-            goto(Common_EventScript_PkmnCenterUnionNurse)
-        case 2:
-            call(EventScript_PkmnCenterUnionNurse_ChangeNature)
-            message(PkmnCenterUnionNurse_AnythingElse)
-            waitmessage
-            call(EventScript_PkmnCenterUnionNurse_Multichoice)
-        default:
-            return    
-        }
-    }
-    else {
     dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Change nickname","Relearn move","Change Nature","Cancel")
     switch (var(VAR_RESULT)) {
         case 0:
@@ -48,11 +27,16 @@ script EventScript_PkmnCenterUnionNurse_Multichoice {
             message(PkmnCenterUnionNurse_AnythingElse)
             waitmessage
             call(EventScript_PkmnCenterUnionNurse_Multichoice)
+        //case 3:
+        //    call(EventScript_PkmnCenterUnionNurse_ApplyStatus)
+        //   message(PkmnCenterUnionNurse_AnythingElse)
+        //    waitmessage
+        //    call(EventScript_PkmnCenterUnionNurse_Multichoice)
         default:
             return
         }
     }
-}
+
 //Credits go to @RavePossum on discord for helping me fix this.
 script EventScript_PkmnCenterUnionNurse_MoveRelearn {
 
@@ -198,6 +182,58 @@ script EventScript_PkmnCenterUnionNurse_ChangeNature {
 
     msgbox(format("{STR_VAR_1}'s training is complete.\pCome back if you need to train another Pokémon."))
     removeitem(ITEM_HEART_SCALE, 1)
+    release
+    end
+}
+
+script EventScript_PkmnCenterUnionNurse_ApplyStatus {
+    lock
+    faceplayer
+
+    msgbox(format("Which Pokémon should I status?"))
+    special(ChoosePartyMon)
+    waitstate
+
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
+
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+
+    if(var(VAR_RESULT) == SPECIES_EGG) {
+        msgbox(format("How foolish! An Egg cannot be statused!"))
+        release
+        end
+    }
+
+    special(BufferMonNickname)
+
+    msgbox(format("Which status do you want to apply to {STR_VAR_1}?"))
+    dynmultipush("Burn", STATUS1_BURN)
+    dynmultipush("Poison", STATUS1_POISON)
+    dynmultipush("Paralyze", STATUS1_PARALYSIS)
+    dynmultipush("Sleep", STATUS1_SLEEP)
+    dynmultipush("Frostbite", STATUS1_FROSTBITE)
+    dynmultipush("Cancel", MULTI_B_PRESSED)
+
+    //*setting initial selected to a non-existant ID will always have it point to the first option
+	dynmultistack(0, 0, TRUE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE)
+
+    if (var(VAR_RESULT) == MULTI_B_PRESSED) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
+
+    copyvar(VAR_0x8005, VAR_RESULT)
+    setstatus1(VAR_RESULT, 0)
+
+    msgbox(format("So {STR_VAR_1} should be statused?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == NO) {goto(EventScript_PkmnCenterUnionNurse_Multichoice)}
+
+    //fadescreen(FADE_TO_BLACK)
+    //special(trysetstatus1)
+    //playfanfare(MUS_OBTAIN_ITEM)
+	//waitfanfare
+    //closemessage
+    //fadescreen(FADE_FROM_BLACK)
+
+    //msgbox(format("{STR_VAR_1}'s training is complete.\pCome back if you need to train another Pokémon."))
     release
     end
 }
