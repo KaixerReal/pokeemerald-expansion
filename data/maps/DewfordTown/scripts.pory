@@ -808,20 +808,22 @@ script DewfordTown_EventScript_Briney{
 	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Sorry {COLOR GREEN}{PLAYER}{COLOR BLUE}... But you'll have to Beat Brawly first."), MSGBOX_DEFAULT)
 	closemessage
     call(DewfordTown_EventScript_CloseIfNo)
-	}elif(defeated(TRAINER_BRAWLY_1)){
-	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\nI see you got the letter from steven?\p"), MSGBOX_DEFAULT)
+	}elif(flag(FLAG_DELIVERED_STEVEN_LETTER)){
+	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Howdy {COLOR GREEN}{PLAYER}{COLOR BLUE}! i have a message from the Creator for you.\nits goes something like this.\p''Hello {COLOR GREEN}{PLAYER}{COLOR BLUE} thanks for play testing this demo.\ni will most likely have a new demo out in a few weeks (3 - 4 weeks.) If you have found any bugs or have any suggestions leave them in #Bug-Reports in the discord. hope you enjoyed this demo. this game is FARRRR from done. but im exicted to be working on this.'' "), MSGBOX_DEFAULT)
 	closemessage
-	dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Yes","No")
-    switch (var(VAR_RESULT)) {
-        case 0:
-            call(DewfordTown_EventScript_ChooseSlateport)
-        case 1:
-            call(DewfordTown_EventScript_CloseIfNo)
-	    case MULTI_B_PRESSED: 
-		    call(DewfordTown_EventScript_CloseIfNo)
-        default:
-		    return
-        }
+	//msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\nI see you got the letter from steven?\p"), MSGBOX_DEFAULT)
+	//closemessage
+	//dynmultichoice(0,0,FALSE,4,0,DYN_MULTICHOICE_CB_NONE,"Yes","No")
+    //switch (var(VAR_RESULT)) {
+    //    case 0:
+    //        call(DewfordTown_EventScript_ChooseSlateport)
+    //    case 1:
+    //        call(DewfordTown_EventScript_CloseIfNo)
+	//    case MULTI_B_PRESSED: 
+	//	    call(DewfordTown_EventScript_CloseIfNo)
+    //    default:
+	//	    return
+    //    }
 	}
 	end
 }

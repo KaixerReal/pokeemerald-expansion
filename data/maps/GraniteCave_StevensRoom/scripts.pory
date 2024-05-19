@@ -95,6 +95,15 @@ GraniteCave_StevensRoom_Text_OhBagIsFull:
 script GraniteCave_StevensRoom_EventScript_Steven{
 	lock
 	faceplayer
+	if(!defeated(TRAINER_BRAWLY_1)){
+	msgbox ("Hi there {PLAYER}.", MSGBOX_DEFAULT)
+	waitmessage
+	applymovement(1, Common_Movement_ExclamationMark)
+	waitmovement(0)	
+	msgbox ("i see u don't have the Kunckle Badge yet... Come back when have gotten the Kuckle Badge!", MSGBOX_DEFAULT)
+	waitmessage
+	}
+	else{
 	msgbox (GraniteCave_StevensRoom_Text_ImStevenLetterForMe, MSGBOX_DEFAULT)
 	setvar (VAR_0x8004, ITEM_LETTER)
 	call (Common_EventScript_PlayerHandedOverTheItem)
@@ -119,6 +128,7 @@ script GraniteCave_StevensRoom_EventScript_Steven{
 	call_if_eq (VAR_FACING, DIR_EAST, GraniteCave_StevensRoom_EventScript_StevenExitWestEast)
 	playse (SE_EXIT)
 	removeobject (LOCALID_STEVEN)
+	}
 	release
 	end 
 }

@@ -7,7 +7,6 @@ PetalburgWoods_MapScripts::
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
-	setvar VAR_FIGHT_ROXANNE, 1
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerLeft
 	waitmovement 0
@@ -115,8 +114,12 @@ PetalburgWoods_EventScript_DevonResearcherFinish::
 PetalburgWoods_EventScript_RemoveDevonResearcher::
 	removeobject LOCALID_DEVON_EMPLOYEE
 	setvar VAR_PETALBURG_WOODS_STATE, 1
+	msgbox LevelCapWentUpGruntWoods, MSGBOX_DEFAULT
 	releaseall
 	end
+
+LevelCapWentUpGruntWoods::
+	.string "Level Cap went up to level 16!"
 
 PetalburgWoods_Movement_DevonResearcherLookAround:
 	face_up

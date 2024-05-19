@@ -1303,13 +1303,13 @@ RustboroCity_EventScript_GoFightRoxanne::
 	lock
 	msgbox RustboroCity_EventScript_GoFightRoxanne_Text_0, MSGBOX_DEFAULT
 	waitmessage
-	applymovement OBJ_EVENT_ID_PLAYER, WalkLeft
+	applymovement OBJ_EVENT_ID_PLAYER, WalkDown
 	waitmovement 0
 	end
 
 
-WalkLeft:
-	walk_left
+WalkDown:
+	walk_down
 	step_end
 
 RustboroCity_EventScript_GoFightRoxanne_Text_0:

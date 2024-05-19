@@ -1596,10 +1596,16 @@ static bool8 StartMenuDexNavCallback(void)
     return TRUE;
 }
 
-extern const u8 EventScript_PC_FromStartMenu[];
+//extern const u8 EventScript_AccessPokemonBoxLink[];
 static bool8 StartMenuPCCallback(void)
 {
-    CreateTask(Task_AccessPokemonBoxLink, 0);
+    RemoveExtraStartMenuWindows();
+    HideStartMenu();
+    RemoveMapNamePopUpWindow();
+
+	PlaySE(SE_PC_ON);
+    ScriptContext_SetupScript(EventScript_AccessPokemonBoxLink);
+
     return TRUE;
 }
 
