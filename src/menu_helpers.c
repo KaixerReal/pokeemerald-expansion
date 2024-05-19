@@ -283,6 +283,9 @@ bool8 IsHoldingItemAllowed(u16 itemId)
        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRADE_CENTER))
        || InUnionRoom() == TRUE))
         return FALSE;
+    if (itemId == ITEM_LVLCAP_CANDY
+    || itemId == ITEM_INFINITE_CANDY)
+        return FALSE;
     else
         return TRUE;
 }
