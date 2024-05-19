@@ -11104,7 +11104,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_POKEMON_BOX_LINK] =
     {
-        .name = _("{PKMN} Box Link"),
+        .name = _("Porta-PC"),
         .price = 0,
         .description = COMPOUND_STRING(
             "This device grants\n"

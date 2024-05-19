@@ -358,7 +358,6 @@ static void BuildNormalStartMenu(void)
     
     if (FlagGet(FLAG_SYS_POKEMON_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEMON);
-        AddStartMenuAction(MENU_ACTION_PC);
 
     AddStartMenuAction(MENU_ACTION_BAG);
     AddStartMenuAction(MENU_ACTION_PLAYER);
@@ -1596,15 +1595,14 @@ static bool8 StartMenuDexNavCallback(void)
     return TRUE;
 }
 
-//extern const u8 EventScript_AccessPokemonBoxLink[];
+extern const u8 EventScript_PC_FromStartMenu[];
 static bool8 StartMenuPCCallback(void)
 {
     RemoveExtraStartMenuWindows();
     HideStartMenu();
-    RemoveMapNamePopUpWindow();
 
 	PlaySE(SE_PC_ON);
-    ScriptContext_SetupScript(EventScript_AccessPokemonBoxLink);
+    ScriptContext_SetupScript(EventScript_PC_FromStartMenu);
 
     return TRUE;
 }

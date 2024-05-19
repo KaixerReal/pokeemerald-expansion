@@ -714,6 +714,9 @@ static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
     if (gSaveBlock2Ptr->permanentRepel != 0)
         return FALSE;
 
+    if(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(LITTLEROOT_TOWN) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(LITTLEROOT_TOWN) && !(FlagGet(FLAG_SYS_POKEMON_GET)))
+        return FALSE;
+
     if (sWildEncounterImmunitySteps < 4)
     {
         sWildEncounterImmunitySteps++;

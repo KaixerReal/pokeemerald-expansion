@@ -1031,7 +1031,7 @@ LittlerootTown_EventScript_MegaTrainerTest::
 
 LittlerootTown_EventScript_Example::
 	lock
-	warp MAP_INSIDE_OF_TRUCK, 0, 0
+	warp MAP_INSIDE_OF_TRUCK, 2, 2
 	release
 	end
 
