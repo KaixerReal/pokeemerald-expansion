@@ -1012,6 +1012,7 @@ void ItemUseOutOfBattle_Pokevial(u8 taskId)
 	}
 	else
 	{
+        HealPlayerParty();
 		DisplayItemMessage(taskId, 1, gOtherText_PokevialHealed, CloseItemMessage);
 	}
 }
