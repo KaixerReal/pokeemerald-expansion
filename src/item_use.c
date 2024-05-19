@@ -46,6 +46,7 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/map_types.h"
+#include "script_pokemon_util.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -996,6 +997,23 @@ static void RemoveUsedItem(void)
         UpdatePyramidBagList();
         UpdatePyramidBagCursorPos();
     }
+}
+
+extern const u8 gOtherText_PokevialHealed[];
+const u8 gOtherText_PokevialHealed[] = _("The Pokevial healed the entire team!{PAUSE_UNTIL_PRESS}");
+
+void ItemUseOutOfBattle_Pokevial(u8 taskId)
+{
+	PlaySE(SE_PC_ON);
+	if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+	{
+        HealPlayerParty();
+		DisplayItemMessageOnField(taskId, gOtherText_PokevialHealed, Task_CloseCantUseKeyItemMessage);
+	}
+	else
+	{
+		DisplayItemMessage(taskId, 1, gOtherText_PokevialHealed, CloseItemMessage);
+	}
 }
 
 extern const u8 gOtherText_InfiniteRepelOn[];

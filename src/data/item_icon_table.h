@@ -905,6 +905,9 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_LVLCAP_CANDY] = {gItemIcon_LvLCapCandy, gItemIconPalette_LvLCapCandy},
     [ITEM_INFINITE_CANDY] = {gItemIcon_InfiniteCandy, gItemIconPalette_InfiniteCandy},
     [ITEM_COMMON_CANDY] = {gItemIcon_InfiniteCandy, gItemIconPalette_InfiniteCandy},
+    //Pokevial
+    [ITEM_POKEVIAL] = {gItemIcon_Antidote, gItemIconPalette_Antidote}, //Replace this.
+
     
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},

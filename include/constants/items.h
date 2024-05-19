@@ -1031,8 +1031,10 @@
 #define ITEM_LVLCAP_CANDY       (ITEM_POKESHI_DOLL + 24)
 #define ITEM_INFINITE_CANDY     (ITEM_POKESHI_DOLL + 25)
 #define ITEM_COMMON_CANDY       (ITEM_POKESHI_DOLL + 26)
+//POKEVIAL
+#define ITEM_POKEVIAL           (ITEM_POKESHI_DOLL + 27)
 
-#define ITEMS_COUNT (ITEM_COMMON_CANDY + 1)
+#define ITEMS_COUNT (ITEM_POKEVIAL + 1)
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

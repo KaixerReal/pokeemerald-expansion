@@ -13024,4 +13024,18 @@ const struct Item gItemsInfo[] =
         .flingPower = 30,
     },
 
+    [ITEM_POKEVIAL] =
+    {
+        .name = _("Pokevial"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Can be used to\n"
+            "fully heal the entire\n"
+            "team. Infinite use."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .importance = 1,
+        .fieldUseFunc = ItemUseOutOfBattle_Pokevial,
+    },
+
 };

@@ -142,6 +142,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_AgreeToSeeRival::
 	giveitem ITEM_INFINITE_CANDY, 1
 	giveitem ITEM_MAX_REPEL, 1
 	giveitem ITEM_POKEMON_BOX_LINK, 1
+	giveitem ITEM_POKEVIAL, 1
 	clearflag FLAG_HIDE_ROUTE_101_BOY
 	setvar VAR_BIRCH_LAB_STATE, 3
 	releaseall
