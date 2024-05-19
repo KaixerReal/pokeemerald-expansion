@@ -20,12 +20,6 @@ PetalburgCity_Mart_Pokemart_Basic:
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
-	.2byte ITEM_ESCAPE_ROPE
-	.2byte ITEM_REPEL
-	.2byte ITEM_X_SPEED
-	.2byte ITEM_X_ATTACK
-	.2byte ITEM_X_DEFENSE
-	.2byte ITEM_ORANGE_MAIL
 	.2byte ITEM_NONE
 	release
 	end
@@ -42,15 +36,13 @@ PetalburgCity_Mart_Pokemart_Expanded:
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_POTION
 	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_ESCAPE_ROPE
-	.2byte ITEM_REPEL
-	.2byte ITEM_X_SPEED
-	.2byte ITEM_X_ATTACK
-	.2byte ITEM_X_DEFENSE
-	.2byte ITEM_ORANGE_MAIL
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_ICE_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_SHINY_STONE
+	.2byte ITEM_LEAF_STONE
 	.2byte ITEM_NONE
 	release
 	end

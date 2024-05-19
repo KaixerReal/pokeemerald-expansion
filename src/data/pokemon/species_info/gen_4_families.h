@@ -3351,7 +3351,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_STEADFAST, ABILITY_INNER_FOCUS, ABILITY_PRANKSTER },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_PRANKSTER },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Riolu"),
         .cryId = CRY_RIOLU,
@@ -3384,7 +3384,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         FOOTPRINT(Riolu)
         .levelUpLearnset = sRioluLevelUpLearnset,
         .teachableLearnset = sRioluTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP_DAY, 0, SPECIES_LUCARIO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_LUCARIO}),
     },
 
     [SPECIES_LUCARIO] =
@@ -3405,7 +3405,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_STEADFAST, ABILITY_INNER_FOCUS, ABILITY_JUSTIFIED },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_AURA_BREAK },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Lucario"),
         .cryId = CRY_LUCARIO,

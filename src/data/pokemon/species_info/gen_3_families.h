@@ -1150,8 +1150,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sWurmpleLevelUpLearnset,
         .teachableLearnset = sWurmpleTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL_SILCOON, 7, SPECIES_SILCOON},
-                                {EVO_LEVEL_CASCOON, 7, SPECIES_CASCOON}),
+        .evolutions = EVOLUTION({EVO_LEVEL_DAY, 7, SPECIES_SILCOON},
+                                {EVO_LEVEL_NIGHT, 7, SPECIES_CASCOON}),
     },
 
     [SPECIES_SILCOON] =
@@ -1214,9 +1214,9 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseAttack    = 70,
         .baseDefense   = 75,
         .baseSpeed     = 105,
-        .baseSpAttack  = 120,
+        .baseSpAttack  = 100,
         .baseSpDefense = 85,
-        .types = MON_TYPES(TYPE_BUG, TYPE_FAIRY),
+        .types = MON_TYPES(TYPE_BUG, TYPE_FLYING),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 198,

@@ -436,7 +436,7 @@ static const struct TrainerMon sParty_Lyle[] = {
         .iv = HIDDEN_POWER_DARK,
     },
     {
-        .species = SPECIES_SURSKIT,
+        .species = SPECIES_SHELMET,
         .lvl = 9,
         .ability = ABILITY_SWARM,
         .moves = {MOVE_MEGA_DRAIN, MOVE_STRUGGLE_BUG, MOVE_VENOSHOCK, MOVE_PURSUIT},
