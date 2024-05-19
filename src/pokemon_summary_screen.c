@@ -749,6 +749,12 @@ static const u8 sButtons_Gfx[][4 * TILE_SIZE_4BPP] = {
     INCBIN_U8("graphics/summary_screen/b_button.4bpp"),
 };
 
+static const u8 sRLButtons_Gfx[][4 * TILE_SIZE_4BPP] = {
+    INCBIN_U8("graphics/summary_screen/r_button.4bpp"),
+    INCBIN_U8("graphics/summary_screen/l_button.4bpp"),
+};
+
+
 static void (*const sTextPrinterFunctions[])(void) =
 {
     [PSS_PAGE_INFO] = PrintInfoPageText,
@@ -1658,16 +1664,13 @@ static void CloseSummaryScreen(u8 taskId)
 // Cycle summary page between stats, IVs and EVs
 static void ChangeSummaryState (s16 *taskData, u8 taskId)
 {
-    switch (taskData[3])
+    switch (taskData[2])
     {
         case 0:
-            taskData[3] = 1;
+            taskData[2] = 1;
             break;
         case 1:
-            taskData[3] = 2;
-            break;
-        case 2:
-            taskData[3] = 0;
+            taskData[2] = 0;
             break;
     }
     gTasks[taskId].func = Task_HandleInput;
@@ -1676,7 +1679,7 @@ static void ChangeSummaryState (s16 *taskData, u8 taskId)
 // draw button prompts when cycling between stats, IVs and EVs
 static void DrawStatsButtonPrompt (s16 *taskData)
 {
-    switch (taskData[3])
+    switch (taskData[2])
     {
         case 0:
             // print IVs prompt
@@ -1684,11 +1687,6 @@ static void DrawStatsButtonPrompt (s16 *taskData)
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
             break;
         case 1:
-            // print EVs prompt
-            ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
-            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
-            break;
-        case 2:
             // print Stats prompt
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
@@ -1706,22 +1704,22 @@ static void Task_HandleInput(u8 taskId)
     {
         if (JOY_NEW(DPAD_UP))
         {
-            data[3] = 0;
+            data[2] = 0;
             ChangeSummaryPokemon(taskId, -1);
         }
         else if (JOY_NEW(DPAD_DOWN))
         {
-            data[3] = 0;
+            data[2] = 0;
             ChangeSummaryPokemon(taskId, 1);
         }
         else if ((JOY_NEW(DPAD_LEFT)) || GetLRKeysPressed() == MENU_L_PRESSED)
         {
-            data[3] = 0;
+            data[2] = 0;
             ChangePage(taskId, -1);
         }
         else if ((JOY_NEW(DPAD_RIGHT)) || GetLRKeysPressed() == MENU_R_PRESSED)
         {
-            data[3] = 0;
+            data[2] = 0;
             ChangePage(taskId, 1);
         }
         else if (JOY_NEW(A_BUTTON))
@@ -1740,11 +1738,11 @@ static void Task_HandleInput(u8 taskId)
                     SwitchToMoveSelection(taskId);
                 }
             } else {
-                // Cycle through IVs/EVs/stats on pressing A
+                // Cycle through IVs/stats on pressing A
                 ChangeSummaryState(data, taskId);
                 DrawStatsButtonPrompt(data);
                 PlaySE(SE_SELECT);
-                BufferIvOrEvStats(data[3]);
+                BufferIvOrEvStats(data[2]);
             }
         }
         else if (JOY_NEW(B_BUTTON))
@@ -3021,9 +3019,19 @@ static void PrintAOrBButtonIcon(u8 windowId, bool8 bButton, u32 x)
     BlitBitmapToWindow(windowId, button, x, 0, 16, 16);
 }
 
+static void PrintROrLButtonIcon(u8 windowId, bool8 lButton, u32 x)
+{
+    const u8 *button;
+    if (!lButton)
+        button = sRLButtons_Gfx[0];
+    else
+        button = sRLButtons_Gfx[1];
+
+    BlitBitmapToWindow(windowId, button, x, 0, 16, 16);
+}
+
 // view IVs and EVs on summary screen
 static const u8 gText_ViewIVs[] =     _("IVs");
-static const u8 gText_ViewEVs[] =     _("EVs");
 static const u8 gText_ViewStats[] =   _("Stats");
 
 static void PrintPageNamesAndStats(void)
@@ -3062,21 +3070,14 @@ static void PrintPageNamesAndStats(void)
     iconXPos = stringXPos - 16;
     if (iconXPos < 0)
         iconXPos = 0;
-    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_IVS, FALSE, iconXPos);
+    PrintROrLButtonIcon(PSS_LABEL_WINDOW_PROMPT_IVS, FALSE, iconXPos);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_IVS, gText_ViewIVs, stringXPos, 1, 0, 0);
-
-    stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, gText_ViewEVs, 62);
-    iconXPos = stringXPos - 16;
-    if (iconXPos < 0)
-        iconXPos = 0;
-    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_EVS, FALSE, iconXPos);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_EVS, gText_ViewEVs, stringXPos, 1, 0, 0);
 
     stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, gText_ViewStats, 62);
     iconXPos = stringXPos - 16;
     if (iconXPos < 0)
         iconXPos = 0;
-    PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_STATS, FALSE, iconXPos);
+    PrintROrLButtonIcon(PSS_LABEL_WINDOW_PROMPT_STATS, TRUE, iconXPos);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_STATS, gText_ViewStats, stringXPos, 1, 0, 0);
 
     PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL, gText_RentalPkmn, 0, 1, 0, 1);
@@ -3659,15 +3660,6 @@ static void BufferIvOrEvStats(u8 mode)
         spD = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_IV);
         spe = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_IV);
         break;
-    case 2: // ev mode
-        hp = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HP_EV);
-        atk = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK_EV);
-        def = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF_EV);
-
-        spA = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK_EV);
-        spD = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF_EV);
-        spe = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED_EV);
-        break;
     }
 
     FillWindowPixelBuffer(sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_SKILLS_STATS_LEFT], 0);
@@ -3691,7 +3683,6 @@ static void BufferIvOrEvStats(u8 mode)
         PrintRightColumnStats();
         break;
     case 1:
-    case 2:
         BufferStat(gStringVar1, 0, hp, 0, 7);
         BufferStat(gStringVar2, 0, atk, 1, 7);
         BufferStat(gStringVar3, 0, def, 2, 7);
