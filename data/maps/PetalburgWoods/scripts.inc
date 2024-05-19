@@ -7,6 +7,7 @@ PetalburgWoods_MapScripts::
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
+	setvar VAR_FIGHT_ROXANNE, 1
 	call PetalburgWoods_EventScript_DevonResearcherIntro
 	applymovement LOCALID_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherApproachPlayerLeft
 	waitmovement 0

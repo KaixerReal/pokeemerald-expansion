@@ -1304,11 +1304,11 @@ script RustboroCity_EventScript_GoFightRoxanne{
 	lock
 	msgbox(format("I should probably fight Roxanne First."), MSGBOX_DEFAULT)
 	waitmessage
-	applymovement(OBJ_EVENT_ID_PLAYER, WalkLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, WalkDown)
 	waitmovement (0)
 	end
 }
 
-movement WalkLeft{
-	walk_left
+movement WalkDown{
+	walk_down
 }
