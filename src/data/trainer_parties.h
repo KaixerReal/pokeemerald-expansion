@@ -151,7 +151,7 @@ static const struct TrainerMon sParty_Wattson2[] = {
 static const struct TrainerMon sParty_Calvin[] = { //Youngster
     {
         .species = SPECIES_SIZZLIPEDE,
-        .lvl = 7,
+        .lvl = 8,
         .ability = ABILITY_FLAME_BODY,
         .moves = {MOVE_POUNCE, MOVE_FLAME_WHEEL, MOVE_BUG_BITE},
         .nature = NATURE_JOLLY,
@@ -163,7 +163,7 @@ static const struct TrainerMon sParty_Calvin[] = { //Youngster
     },
     {
         .species = SPECIES_ROOKIDEE,
-        .lvl = 7,
+        .lvl = 8,
         .ability = ABILITY_UNNERVE,
         .moves = {MOVE_WING_ATTACK, MOVE_POWER_TRIP, MOVE_SWAGGER},
         .nature = NATURE_JOLLY,
@@ -175,7 +175,7 @@ static const struct TrainerMon sParty_Calvin[] = { //Youngster
     },
     {
         .species = SPECIES_RATTATA,
-        .lvl = 7,
+        .lvl = 8,
         .ability = ABILITY_GUTS,
         .moves = {MOVE_BITE, MOVE_QUICK_ATTACK, MOVE_CUT},
         .nature = NATURE_JOLLY,
@@ -190,7 +190,7 @@ static const struct TrainerMon sParty_Calvin[] = { //Youngster
 static const struct TrainerMon sParty_Rick[] = { //Bug Catcher
     {
         .species = SPECIES_DWEBBLE,
-        .lvl = 7,
+        .lvl = 9,
         .ability = ABILITY_STURDY,
         .moves = {MOVE_BUG_BITE, MOVE_ROCK_THROW, MOVE_AERIAL_ACE},
         .nature = NATURE_JOLLY,
@@ -202,7 +202,7 @@ static const struct TrainerMon sParty_Rick[] = { //Bug Catcher
     },
     {
         .species = SPECIES_DEWPIDER,
-        .lvl = 7,
+        .lvl = 9,
         .ability = ABILITY_WATER_BUBBLE,
         .moves = {MOVE_WATER_PULSE, MOVE_BUG_BITE, MOVE_ICY_WIND},
         .nature = NATURE_MILD,
@@ -214,7 +214,7 @@ static const struct TrainerMon sParty_Rick[] = { //Bug Catcher
     },
     {
         .species = SPECIES_NYMBLE,
-        .lvl = 7,
+        .lvl = 9,
         .ability = ABILITY_TINTED_LENS,
         .moves = {MOVE_BUG_BITE, MOVE_DOUBLE_KICK, MOVE_TRAILBLAZE},
         .nature = NATURE_JOLLY,
@@ -229,7 +229,7 @@ static const struct TrainerMon sParty_Rick[] = { //Bug Catcher
 static const struct TrainerMon sParty_Allen[] = { //Youngster
     {
         .species = SPECIES_HOUNDOUR,
-        .lvl = 7,
+        .lvl = 9,
         .ability = ABILITY_UNNERVE,
         .moves = {MOVE_INCINERATE, MOVE_SNARL, MOVE_HIDDEN_POWER},
         .nature = NATURE_JOLLY,
@@ -241,7 +241,7 @@ static const struct TrainerMon sParty_Allen[] = { //Youngster
     },
     {
         .species = SPECIES_CACNEA,
-        .lvl = 7,
+        .lvl = 9,
         .ability = ABILITY_WATER_ABSORB,
         .moves = {MOVE_MEGA_DRAIN, MOVE_ROCK_THROW, MOVE_SHOCK_WAVE},
         .nature = NATURE_TIMID,
@@ -253,7 +253,7 @@ static const struct TrainerMon sParty_Allen[] = { //Youngster
     },
     {
         .species = SPECIES_PSYDUCK,
-        .lvl = 7,
+        .lvl = 9,
         .ability = ABILITY_DAMP,
         .moves = {MOVE_WATER_GUN, MOVE_ICY_WIND, MOVE_PSYWAVE},
         .nature = NATURE_TIMID,
@@ -268,7 +268,7 @@ static const struct TrainerMon sParty_Allen[] = { //Youngster
 static const struct TrainerMon sParty_Tiana[] = { //Lass
     {
         .species = SPECIES_JIGGLYPUFF,
-        .lvl = 8,
+        .lvl = 9,
         .ability = ABILITY_CUTE_CHARM,
         .moves = {MOVE_THUNDER_WAVE, MOVE_ATTRACT, MOVE_METRONOME},
         .nature = NATURE_BASHFUL,
@@ -280,7 +280,7 @@ static const struct TrainerMon sParty_Tiana[] = { //Lass
     },
     {
         .species = SPECIES_SHELLOS,
-        .lvl = 8,
+        .lvl = 9,
         .ability = ABILITY_STICKY_HOLD,
         .moves = {MOVE_ICY_WIND, MOVE_WATER_PULSE, MOVE_MUD_SHOT},
         .nature = NATURE_IMPISH,
@@ -292,7 +292,7 @@ static const struct TrainerMon sParty_Tiana[] = { //Lass
     },
     {
         .species = SPECIES_PHANPY,
-        .lvl = 8,
+        .lvl = 9,
         .ability = ABILITY_CUTE_CHARM,
         .moves = {MOVE_ATTRACT, MOVE_BULLDOZE, MOVE_ROCK_TOMB},
         .nature = NATURE_ADAMANT,
@@ -307,7 +307,7 @@ static const struct TrainerMon sParty_Tiana[] = { //Lass
 static const struct TrainerMon sParty_Dylan[] = { //Bird Keeper
     {
         .species = SPECIES_PIKIPEK,
-        .lvl = 8,
+        .lvl = 10,
         .ability = ABILITY_FRISK,
         .moves = {MOVE_AERIAL_ACE, MOVE_ROCK_SMASH, MOVE_FURY_SWIPES},
         .nature = NATURE_JOLLY,
@@ -319,7 +319,7 @@ static const struct TrainerMon sParty_Dylan[] = { //Bird Keeper
     },
     {
         .species = SPECIES_DUCKLETT,
-        .lvl = 8,
+        .lvl = 10,
         .ability = ABILITY_KEEN_EYE,
         .moves = {MOVE_WATER_PULSE, MOVE_WING_ATTACK, MOVE_HIDDEN_POWER},
         .nature = NATURE_IMPISH,
@@ -331,7 +331,7 @@ static const struct TrainerMon sParty_Dylan[] = { //Bird Keeper
     },
     {
         .species = SPECIES_NATU,
-        .lvl = 8,
+        .lvl = 10,
         .ability = ABILITY_SYNCHRONIZE,
         .moves = {MOVE_CONFUSION, MOVE_AIR_CUTTER, MOVE_ROOST},
         .nature = NATURE_TIMID,
@@ -346,7 +346,7 @@ static const struct TrainerMon sParty_Dylan[] = { //Bird Keeper
 static const struct TrainerMon sParty_Darian[] = {
     {
         .species = SPECIES_FINIZEN,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_WATER_VEIL,
         .moves = {MOVE_BODY_SLAM, MOVE_ACROBATICS, MOVE_LIQUIDATION},
         .nature = NATURE_JOLLY,
@@ -358,7 +358,7 @@ static const struct TrainerMon sParty_Darian[] = {
     },
     {
         .species = SPECIES_GOLDEEN,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_LIGHTNING_ROD,
         .moves = {MOVE_PLUCK, MOVE_WATER_PULSE, MOVE_SHOCK_WAVE},
         .nature = NATURE_NAIVE,
@@ -370,7 +370,7 @@ static const struct TrainerMon sParty_Darian[] = {
     },
     {
         .species = SPECIES_SKRELP,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_ADAPTABILITY,
         .moves = {MOVE_CLEAR_SMOG, MOVE_WATER_GUN, MOVE_SHOCK_WAVE},
         .nature = NATURE_MODEST,
@@ -385,7 +385,7 @@ static const struct TrainerMon sParty_Darian[] = {
 static const struct TrainerMon sParty_Cindy[] = {
     {
         .species = SPECIES_PURRLOIN,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_UNBURDEN,
         .moves = {MOVE_NIGHT_SLASH, MOVE_AERIAL_ACE, MOVE_FAKE_OUT},
         .nature = NATURE_ADAMANT,
@@ -397,7 +397,7 @@ static const struct TrainerMon sParty_Cindy[] = {
     },
     {
         .species = SPECIES_GOTHITA,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_SHADOW_TAG,
         .moves = {MOVE_PSYBEAM, MOVE_DRAINING_KISS, MOVE_THUNDER_WAVE},
         .nature = NATURE_TIMID,
@@ -410,7 +410,7 @@ static const struct TrainerMon sParty_Cindy[] = {
     },
     {
         .species = SPECIES_SPRITZEE,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_FAIRY_AURA,
         .moves = {MOVE_DRAINING_KISS, MOVE_CONFUSION, MOVE_FLASH},
         .nature = NATURE_MODEST,
@@ -425,7 +425,7 @@ static const struct TrainerMon sParty_Cindy[] = {
 static const struct TrainerMon sParty_Lyle[] = {
     {
         .species = SPECIES_SURSKIT,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_SWIFT_SWIM,
         .moves = {MOVE_STRUGGLE_BUG, MOVE_WATER_GUN, MOVE_FLASH, MOVE_RAIN_DANCE},
         .nature = NATURE_MODEST,
@@ -437,7 +437,7 @@ static const struct TrainerMon sParty_Lyle[] = {
     },
     {
         .species = SPECIES_SHELMET,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_SWARM,
         .moves = {MOVE_MEGA_DRAIN, MOVE_STRUGGLE_BUG, MOVE_VENOSHOCK, MOVE_PURSUIT},
         .nature = NATURE_RELAXED,
@@ -449,7 +449,7 @@ static const struct TrainerMon sParty_Lyle[] = {
     },
     {
         .species = SPECIES_VENIPEDE,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_SPEED_BOOST,
         .moves = {MOVE_BUG_BITE, MOVE_POISON_TAIL, MOVE_ROLLOUT},
         .nature = NATURE_CAREFUL,
@@ -461,7 +461,7 @@ static const struct TrainerMon sParty_Lyle[] = {
     },
     {
         .species = SPECIES_KARRABLAST,
-        .lvl = 9,
+        .lvl = 10,
         .ability = ABILITY_NO_GUARD,
         .moves = {MOVE_FURY_CUTTER, MOVE_AERIAL_ACE, MOVE_FEINT_ATTACK, MOVE_PURSUIT},
         .nature = NATURE_JOLLY,
@@ -554,7 +554,7 @@ static const struct TrainerMon sParty_James[] = {
 static const struct TrainerMon sParty_Winston1[] = {
     {
         .species = SPECIES_SNUBBULL,
-        .lvl = 11,
+        .lvl = 13,
         .ability = ABILITY_INTIMIDATE,
         .moves = {MOVE_THUNDER_WAVE, MOVE_BITE, MOVE_FIRE_FANG, MOVE_COVET},
         .nature = NATURE_ADAMANT,
@@ -566,7 +566,7 @@ static const struct TrainerMon sParty_Winston1[] = {
     },
     {
         .species = SPECIES_RIOLU,
-        .lvl = 11,
+        .lvl = 13,
         .ability = ABILITY_INNER_FOCUS,
         .moves = {MOVE_FORCE_PALM, MOVE_ROCK_THROW, MOVE_BITE, MOVE_BULLET_PUNCH},
         .nature = NATURE_JOLLY,
@@ -578,7 +578,7 @@ static const struct TrainerMon sParty_Winston1[] = {
     },
     {
         .species = SPECIES_ELECTRIKE,
-        .lvl = 12,
+        .lvl = 13,
         .ability = ABILITY_STATIC,
         .moves = {MOVE_SHOCK_WAVE, MOVE_ICE_FANG, MOVE_FIRE_FANG, MOVE_PSYCHIC_FANGS},
         .nature = NATURE_NAIVE,
@@ -593,7 +593,7 @@ static const struct TrainerMon sParty_Winston1[] = {
 static const struct TrainerMon sParty_Haley1[] = {
     {
         .species = SPECIES_MEOWTH,
-        .lvl = 11,
+        .lvl = 13,
         .ability = ABILITY_TECHNICIAN,
         .moves = {MOVE_FAKE_OUT, MOVE_SHOCK_WAVE, MOVE_PAY_DAY, MOVE_COVET},
         .nature = NATURE_NAIVE,
@@ -605,7 +605,7 @@ static const struct TrainerMon sParty_Haley1[] = {
     },
     {
         .species = SPECIES_CUBONE,
-        .lvl = 12,
+        .lvl = 13,
         .ability = ABILITY_BATTLE_ARMOR,
         .moves = {MOVE_ICY_WIND, MOVE_SCORCHING_SANDS, MOVE_SHOCK_WAVE},
         .nature = NATURE_TIMID,
@@ -617,7 +617,7 @@ static const struct TrainerMon sParty_Haley1[] = {
     },
     {
         .species = SPECIES_CLEFAIRY,
-        .lvl = 11,
+        .lvl = 13,
         .ability = ABILITY_MAGIC_GUARD,
         .moves = {MOVE_DRAINING_KISS, MOVE_MAGICAL_LEAF, MOVE_ICY_WIND, MOVE_SHOCK_WAVE},
         .nature = NATURE_MODEST,
@@ -633,7 +633,7 @@ static const struct TrainerMon sParty_GinaAndMia1[] = {
     //Lead 1
     {
         .species = SPECIES_MACHOP,
-        .lvl = 12,
+        .lvl = 13,
         .ability = ABILITY_STEADFAST,
         .moves = {MOVE_FORCE_PALM, MOVE_ROCK_TOMB, MOVE_DUAL_CHOP, MOVE_BULLET_PUNCH},
         .nature = NATURE_ADAMANT,
@@ -646,7 +646,7 @@ static const struct TrainerMon sParty_GinaAndMia1[] = {
     //Lead 2
     {
         .species = SPECIES_ABRA,
-        .lvl = 12,
+        .lvl = 13,
         .ability = ABILITY_TRACE,
         .moves = {MOVE_CONFUSION, MOVE_ICY_WIND, MOVE_SHOCK_WAVE, MOVE_ELECTROWEB},
         .nature = NATURE_TIMID,
@@ -687,7 +687,7 @@ static const struct TrainerMon sParty_GinaAndMia1[] = {
 static const struct TrainerMon sParty_Ivan[] = {
     {
         .species = SPECIES_WINGULL,
-        .lvl = 12,
+        .lvl = 13,
         .ability = ABILITY_RAIN_DISH,
         .moves = {MOVE_ELECTROWEB, MOVE_AIR_CUTTER, MOVE_HIDDEN_POWER, MOVE_RAIN_DANCE},
         .nature = NATURE_TIMID,

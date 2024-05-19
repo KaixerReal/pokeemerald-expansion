@@ -4374,9 +4374,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_JOSH_BOSS] =
     {
-        .trainerClass = TRAINER_CLASS_COOLTRAINER,
+        .trainerClass = TRAINER_CLASS_YOUNGSTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_COOLTRAINER_M,
+        .trainerPic = TRAINER_PIC_YOUNGSTER,
         .trainerName = _("Josh"),
         .items = {},
         .mugshotEnabled = TRUE,
