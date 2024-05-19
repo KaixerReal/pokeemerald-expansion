@@ -1029,6 +1029,13 @@ LittlerootTown_EventScript_MegaTrainerTest::
 	end
 
 
+LittlerootTown_EventScript_Example::
+	lock
+	warp MAP_INSIDE_OF_TRUCK, 0, 0
+	release
+	end
+
+
 LittlerootTown_EventScript_MegaTrainerTest_Text_0:
 	.string "Hi im the Mega Pokemon Tester. I ONLY\n"
 	.string "exists in beta version of the game,\l"

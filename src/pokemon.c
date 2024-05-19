@@ -3247,7 +3247,6 @@ u16 GetMonAbility(struct Pokemon *mon)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u8 abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
-    u32 ability = gBattleMons[GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL)].ability;
 
     return GetAbilityBySpecies(species, abilityNum);
 }

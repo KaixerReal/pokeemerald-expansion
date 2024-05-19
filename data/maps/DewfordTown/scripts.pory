@@ -809,7 +809,7 @@ script DewfordTown_EventScript_Briney{
 	closemessage
     call(DewfordTown_EventScript_CloseIfNo)
 	}elif(flag(FLAG_DELIVERED_STEVEN_LETTER)){
-	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Howdy {COLOR GREEN}{PLAYER}{COLOR BLUE}! i have a message from the Creator for you.\nits goes something like this.\p''Hello {COLOR GREEN}{PLAYER}{COLOR BLUE} thanks for play testing this demo.\ni will most likely have a new demo out in a few weeks (3 - 4 weeks.) If you have found any bugs or have any suggestions leave them in #Bug-Reports in the discord. hope you enjoyed this demo. this game is FARRRR from done. but im exicted to be working on this.'' "), MSGBOX_DEFAULT)
+	msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Howdy {COLOR GREEN}{PLAYER}{COLOR BLUE}! i have a message from the Creator for you.\nits goes something like this.\p''Hello {COLOR GREEN}{PLAYER}{COLOR BLUE} thanks for play testing this demo.\ni will most likely have a new demo out in a few weeks (3 - 4 weeks.) If you have found any bugs or have any suggestions leave them in the Bug-Reports in the discord. hope you enjoyed this demo. this game is FARRRR from done. but im exicted to be working on this.'' "), MSGBOX_DEFAULT)
 	closemessage
 	//msgbox(format("{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\nI see you got the letter from steven?\p"), MSGBOX_DEFAULT)
 	//closemessage

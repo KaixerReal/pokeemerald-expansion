@@ -1030,3 +1030,10 @@ script LittlerootTown_EventScript_MegaTrainerTest{
 	releaseall
 	end
 }
+
+script LittlerootTown_EventScript_Example{
+	lock
+	warp(MAP_INSIDE_OF_TRUCK, 2, 2)
+	release
+	end
+}

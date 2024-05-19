@@ -93,6 +93,8 @@ GraniteCave_StevensRoom_Text_OhBagIsFull:
 GraniteCave_StevensRoom_EventScript_Steven::
 	lock
 	faceplayer
+	checktrainerflag TRAINER_BRAWLY_1
+	goto_if 0, GraniteCave_StevensRoom_EventScript_Steven_2
 	msgbox GraniteCave_StevensRoom_Text_ImStevenLetterForMe, MSGBOX_DEFAULT
 	setvar VAR_0x8004, ITEM_LETTER
 	call Common_EventScript_PlayerHandedOverTheItem
@@ -117,6 +119,22 @@ GraniteCave_StevensRoom_EventScript_Steven::
 	call_if_eq VAR_FACING, DIR_EAST, GraniteCave_StevensRoom_EventScript_StevenExitWestEast
 	playse SE_EXIT
 	removeobject LOCALID_STEVEN
+GraniteCave_StevensRoom_EventScript_Steven_1:
 	release
 	end
 
+GraniteCave_StevensRoom_EventScript_Steven_2:
+	msgbox GraniteCave_StevensRoom_EventScript_Steven_Text_0, MSGBOX_DEFAULT
+	waitmessage
+	applymovement 1, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox GraniteCave_StevensRoom_EventScript_Steven_Text_1, MSGBOX_DEFAULT
+	waitmessage
+	goto GraniteCave_StevensRoom_EventScript_Steven_1
+
+
+GraniteCave_StevensRoom_EventScript_Steven_Text_0:
+	.string "Hi there {PLAYER}.$"
+
+GraniteCave_StevensRoom_EventScript_Steven_Text_1:
+	.string "i see u don't have the Kunckle Badge yet... Come back when have gotten the Kuckle Badge!$"

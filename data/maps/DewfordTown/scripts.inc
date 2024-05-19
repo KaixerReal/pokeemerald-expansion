@@ -804,8 +804,7 @@ DewfordTown_EventScript_Briney::
 	faceplayer
 	waitmessage
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_Briney_2
-	checktrainerflag TRAINER_BRAWLY_1
-	goto_if 1, DewfordTown_EventScript_Briney_3
+	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_Briney_3
 DewfordTown_EventScript_Briney_1:
 	end
 
@@ -818,23 +817,6 @@ DewfordTown_EventScript_Briney_2:
 DewfordTown_EventScript_Briney_3:
 	msgbox DewfordTown_EventScript_Briney_Text_1, MSGBOX_DEFAULT
 	closemessage
-	dynmultichoice 0, 0, FALSE, 4, 0, DYN_MULTICHOICE_CB_NONE, DewfordTown_EventScript_Briney_Text_2, DewfordTown_EventScript_Briney_Text_3
-	switch VAR_RESULT
-	case 0, DewfordTown_EventScript_Briney_7
-	case 1, DewfordTown_EventScript_Briney_8
-	case MULTI_B_PRESSED, DewfordTown_EventScript_Briney_9
-	return
-
-DewfordTown_EventScript_Briney_7:
-	call DewfordTown_EventScript_ChooseSlateport
-	goto DewfordTown_EventScript_Briney_1
-
-DewfordTown_EventScript_Briney_8:
-	call DewfordTown_EventScript_CloseIfNo
-	goto DewfordTown_EventScript_Briney_1
-
-DewfordTown_EventScript_Briney_9:
-	call DewfordTown_EventScript_CloseIfNo
 	goto DewfordTown_EventScript_Briney_1
 
 
@@ -847,12 +829,15 @@ DewfordTown_EventScript_Briney_Text_0:
 	.string "have to Beat Brawly first.$"
 
 DewfordTown_EventScript_Briney_Text_1:
-	.string "{COLOR GREEN}MR BRINEY{COLOR BLUE}: Ahoy {COLOR GREEN}{PLAYER}{COLOR BLUE}!\n"
-	.string "I see you got the letter from steven?\p"
-	.string "$"
-
-DewfordTown_EventScript_Briney_Text_2:
-	.string "Yes$"
-
-DewfordTown_EventScript_Briney_Text_3:
-	.string "No$"
+	.string "{COLOR GREEN}MR BRINEY{COLOR BLUE}: Howdy {COLOR GREEN}{PLAYER}{COLOR BLUE}! i have a\n"
+	.string "message from the Creator for you.\n"
+	.string "its goes something like this.\p"
+	.string "''Hello {COLOR GREEN}{PLAYER}{COLOR BLUE} thanks for play\n"
+	.string "testing this demo.\n"
+	.string "i will most likely have a new demo out in\l"
+	.string "a few weeks (3 - 4 weeks.) If you have\l"
+	.string "found any bugs or have any suggestions\l"
+	.string "leave them in the Bug-Reports in the\l"
+	.string "discord. hope you enjoyed this demo.\l"
+	.string "this game is FARRRR from done. but im\l"
+	.string "exicted to be working on this.''$"
