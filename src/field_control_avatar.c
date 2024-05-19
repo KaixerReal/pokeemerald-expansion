@@ -711,6 +711,9 @@ static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
     if (FlagGet(OW_FLAG_NO_ENCOUNTER))
         return FALSE;
 
+    if (gSaveBlock2Ptr->permanentRepel != 0)
+        return FALSE;
+
     if (sWildEncounterImmunitySteps < 4)
     {
         sWildEncounterImmunitySteps++;

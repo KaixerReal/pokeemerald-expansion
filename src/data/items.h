@@ -1930,11 +1930,11 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 250,
         .description = COMPOUND_STRING(
             "Repels weak wild\n"
-            "Pokémon for Infinite\n"
-            "steps."),
+            "Pokémon Until\n"
+            "Turned off."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Repel,
+        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRepel,
         .flingPower = 30,
     },
 

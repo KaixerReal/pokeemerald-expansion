@@ -998,6 +998,40 @@ static void RemoveUsedItem(void)
     }
 }
 
+extern const u8 gOtherText_InfiniteRepelOn[];
+extern const u8 gOtherText_InfiniteRepelOff[];
+const u8 gOtherText_InfiniteRepelOn[] = _("The Infinite Repel was enabled!{PAUSE_UNTIL_PRESS}");
+const u8 gOtherText_InfiniteRepelOff[] = _("The Infinite Repel was disabled!{PAUSE_UNTIL_PRESS}");
+
+void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
+{
+    if (!gSaveBlock2Ptr->permanentRepel)
+	{
+		PlaySE(SE_REPEL);
+		if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+		{
+			DisplayItemMessageOnField(taskId, gOtherText_InfiniteRepelOn, Task_CloseCantUseKeyItemMessage);
+		}
+		else
+		{
+			DisplayItemMessage(taskId, 1, gOtherText_InfiniteRepelOn, CloseItemMessage);
+		}
+	}
+	else
+	{
+		PlaySE(SE_PC_OFF);
+		if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
+		{
+			DisplayItemMessageOnField(taskId, gOtherText_InfiniteRepelOff, Task_CloseCantUseKeyItemMessage);
+		}
+		else
+		{
+			DisplayItemMessage(taskId, 1, gOtherText_InfiniteRepelOff, CloseItemMessage);
+		}
+	}
+	gSaveBlock2Ptr->permanentRepel = !gSaveBlock2Ptr->permanentRepel;
+}
+
 void ItemUseOutOfBattle_Repel(u8 taskId)
 {
     if (REPEL_STEP_COUNT == 0)
