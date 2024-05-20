@@ -1736,7 +1736,7 @@ static void Task_HandleInput(u8 taskId)
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS){
             // Cycle through IVs/stats on pressing R
-            data[2] = 1;
+            data[2] = 0;
             ChangeSummaryState(data, taskId);
             DrawStatsButtonPrompt(data);
             PlaySE(SE_SELECT);
@@ -1747,7 +1747,7 @@ static void Task_HandleInput(u8 taskId)
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS){
             // Cycle through IVs/stats on pressing R
-            data[2] = 0;
+            data[2] = 1;
             ChangeSummaryState(data, taskId);
             DrawStatsButtonPrompt(data);
             PlaySE(SE_SELECT);

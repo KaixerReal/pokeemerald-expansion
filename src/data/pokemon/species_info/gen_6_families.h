@@ -748,7 +748,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         FOOTPRINT(Fletchling)
         .levelUpLearnset = sFletchlingLevelUpLearnset,
         .teachableLearnset = sFletchlingTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 17, SPECIES_FLETCHINDER}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_FLETCHINDER}),
     },
 
     [SPECIES_FLETCHINDER] =
