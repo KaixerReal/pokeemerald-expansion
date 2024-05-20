@@ -392,7 +392,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
 	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 2, Common_EventScript_ReadyPetalburgGymForBattle
+	call_if_eq VAR_PETALBURG_GYM_STATE, 4, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	closemessage

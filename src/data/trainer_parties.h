@@ -1449,7 +1449,7 @@ static const struct TrainerMon sParty_Brawly[] = {
     {
         .species = SPECIES_HITMONLEE,
         .lvl = 26,
-        .ability = ABILITY_STRIKER,
+        .ability = ABILITY_LIMBER,
         .moves = {MOVE_BOUNCE, MOVE_FAKE_OUT, MOVE_JUMP_KICK, MOVE_ROCK_SLIDE},
         .nature = NATURE_JOLLY,
         .gender = TRAINER_MON_MALE,
@@ -1462,12 +1462,12 @@ static const struct TrainerMon sParty_Brawly[] = {
     {
         .species = SPECIES_TAUROS_PALDEAN_BLAZE_BREED,
         .lvl = 26,
-        .ability = ABILITY_GLUTTONY,
+        .ability = ABILITY_INTIMIDATE,
         .moves = {MOVE_TEMPER_FLARE, MOVE_LOW_KICK, MOVE_ROCK_SLIDE, MOVE_ZEN_HEADBUTT},
         .nature = NATURE_JOLLY,
         .gender = TRAINER_MON_MALE,
         .friendship = 0,
-        .heldItem = ITEM_IAPAPA_BERRY,
+        .heldItem = ITEM_LEFTOVERS,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
         .iv = HIDDEN_POWER_DARK,

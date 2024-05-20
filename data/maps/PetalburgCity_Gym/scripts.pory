@@ -104,24 +104,6 @@ PetalburgCity_Gym_Movement_WallyExitGym:
 	delay_16
 	step_end
 
-PetalburgCity_Gym_EventScript_Norman::
-	lock
-	faceplayer
-	switch VAR_PETALBURG_GYM_STATE
-	case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
-	case 3, PetalburgCity_Gym_EventScript_NormanOneBadge
-	case 4, PetalburgCity_Gym_EventScript_NormanVisitDevonCorp
-    case 5, PetalburgCity_Gym_EventScript_NormanBattle
-	case 6, PetalburgCity_Gym_EventScript_NormanPostBattle
-	msgbox PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon, MSGBOX_DEFAULT
-	closemessage
-	switch VAR_FACING
-	case DIR_SOUTH, PetalburgCity_Gym_EventScript_BeginWallyTutorialSouth
-	case DIR_NORTH, PetalburgCity_Gym_EventScript_BeginWallyTutorialNorth
-	case DIR_WEST, PetalburgCity_Gym_EventScript_BeginWallyTutorialWest
-	case DIR_EAST, PetalburgCity_Gym_EventScript_BeginWallyTutorialEast
-	end
-
 PetalburgCity_Gym_EventScript_BeginWallyTutorialSouth::
 	setvar VAR_0x8008, 0
 	goto PetalburgCity_Gym_EventScript_BeginWallyTutorial
@@ -378,7 +360,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_PETALBURG_GYM
-	setvar VAR_PETALBURG_GYM_STATE, 7
+	setvar VAR_PETALBURG_GYM_STATE, 5
 	setflag FLAG_BADGE05_GET
 	special ResetHealLocationFromDewford
 	call EventScript_HideMrBriney
@@ -1593,6 +1575,47 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 	.string "with at least two POKéMON.$"
 
 `
+
+script PetalburgCity_Gym_EventScript_Norman{
+	lock
+	faceplayer
+	switch(var(VAR_PETALBURG_GYM_STATE)){
+		case 0:
+			//Wally Tutorial.
+			goto(PetalburgCity_Gym_EventScript_Norman_WallyTutorial)
+		break
+		case 1:
+			//No idea what goes here this is a failsafe.
+			msgbox(format("This is a failsafe. if you find this, file a bug report please."), MSGBOX_DEFAULT)
+			release
+			end
+		break
+		case 2:
+		    //Haven't Beaten Gym 1.
+			msgbox(PetalburgCity_Gym_Text_NormanGoToRustboro, MSGBOX_DEFAULT)
+			release
+			end
+		break
+		case 3:
+		    //Haven't Beaten Gym 2.
+			msgbox(PetalburgCity_Gym_Text_NormanGoToDewford, MSGBOX_DEFAULT)
+			release
+			end
+		break
+		case 4:
+		    //Beaten Brawly.
+			goto(PetalburgCity_Gym_EventScript_NormanBattle)
+			release
+			end
+		break
+		case 5:
+			msgbox(PetalburgCity_Gym_Text_DadGoingToKeepTraining, MSGBOX_DEFAULT)
+			release
+			end
+		break
+	}
+}
+
 
 script PetalburgCity_Gym_EventScript_NormanGiveMegaRing{
 	lock

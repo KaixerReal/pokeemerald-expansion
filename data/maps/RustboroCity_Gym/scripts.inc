@@ -205,7 +205,6 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	setvar VAR_FIGHT_ROXANNE, 1
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	giveitem ITEM_TM_ROCK_TOMB
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_ROCK_TOMB

@@ -5604,11 +5604,11 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
         BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
     }
-    else if (holdEffectParam == 30 && sInitialLevel){
+    /*else if (holdEffectParam == 30 && sInitialLevel){
         BufferMonStatsToTaskData(mon, arrayPtr);
         cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
         BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
-    }
+    }*/
     else
     {
         cannotUseEffect = TRUE;
@@ -5622,12 +5622,14 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         sInitialLevel = 0;
         sFinalLevel = 0;
 
-        if (holdEffectParam == 0)
+        if (holdEffectParam == 0 || holdEffectParam == 10 || holdEffectParam == 20)
             targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL);
 
         if (targetSpecies != SPECIES_NONE)
         {
+            if(holdEffectParam == 0){
             RemoveBagItem(gSpecialVar_ItemId, 1);
+            }
             FreePartyPointers();
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
             BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
