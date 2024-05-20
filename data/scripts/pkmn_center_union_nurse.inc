@@ -39,8 +39,9 @@ EventScript_PkmnCenterUnionNurse_Multichoice_4:
 
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn::
-	checktrainerflag TRAINER_BRAWLY_1
-	goto_if 1, EventScript_PkmnCenterUnionNurse_MoveRelearn_2
+	checkitem ITEM_HEART_SCALE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_2
 EventScript_PkmnCenterUnionNurse_MoveRelearn_1:
 	special ChooseMonForMoveRelearner
 	waitstate
@@ -48,41 +49,35 @@ EventScript_PkmnCenterUnionNurse_MoveRelearn_1:
 	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_5
 	special IsSelectedMonEgg
 	compare VAR_RESULT, TRUE
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_9
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_7
 	compare VAR_0x8005, 0
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_10
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_8
 	special TeachMoveRelearnerMove
 	waitstate
 	compare VAR_0x8004, 0
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_14
+	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_12
 	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_3
 	return
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn_2:
-	checkitem ITEM_HEART_SCALE, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_PkmnCenterUnionNurse_MoveRelearn_7
+	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_0, MSGBOX_DEFAULT
+	goto Common_EventScript_PkmnCenterUnionNurse
 	goto EventScript_PkmnCenterUnionNurse_MoveRelearn_1
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn_5:
 	return
 
 EventScript_PkmnCenterUnionNurse_MoveRelearn_7:
-	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_0, MSGBOX_DEFAULT
-	goto Common_EventScript_PkmnCenterUnionNurse
-	goto EventScript_PkmnCenterUnionNurse_MoveRelearn_1
-
-EventScript_PkmnCenterUnionNurse_MoveRelearn_9:
 	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_1
 	call EventScript_PkmnCenterUnionNurse_MoveRelearn
 	return
 
-EventScript_PkmnCenterUnionNurse_MoveRelearn_10:
+EventScript_PkmnCenterUnionNurse_MoveRelearn_8:
 	msgbox EventScript_PkmnCenterUnionNurse_MoveRelearn_Text_2
 	call EventScript_PkmnCenterUnionNurse_MoveRelearn
 	return
 
-EventScript_PkmnCenterUnionNurse_MoveRelearn_14:
+EventScript_PkmnCenterUnionNurse_MoveRelearn_12:
 	call EventScript_PkmnCenterUnionNurse_MoveRelearn
 	return
 

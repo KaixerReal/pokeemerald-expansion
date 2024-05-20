@@ -65,39 +65,40 @@ enum {
 #define PSS_LABEL_WINDOW_POKEMON_SKILLS_TITLE 1
 #define PSS_LABEL_WINDOW_BATTLE_MOVES_TITLE 2
 #define PSS_LABEL_WINDOW_CONTEST_MOVES_TITLE 3
+#define PSS_LABEL_WINDOW_POKEMON_IVS_TITLE 4
 
 // Button control text (upper right)
-#define PSS_LABEL_WINDOW_PROMPT_CANCEL 4
-#define PSS_LABEL_WINDOW_PROMPT_INFO 5
-#define PSS_LABEL_WINDOW_PROMPT_SWITCH 6
-#define PSS_LABEL_WINDOW_UNUSED1 7
+#define PSS_LABEL_WINDOW_PROMPT_CANCEL 5
+#define PSS_LABEL_WINDOW_PROMPT_INFO 6
+#define PSS_LABEL_WINDOW_PROMPT_SWITCH 7
+#define PSS_LABEL_WINDOW_UNUSED1 8
 
 // Info screen
-#define PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL 8
-#define PSS_LABEL_WINDOW_POKEMON_INFO_TYPE 9
+#define PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL 9
+#define PSS_LABEL_WINDOW_POKEMON_INFO_TYPE 10
 
 // Skills screen
-#define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT 10 // HP, Attack, Defense
-#define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT 11 // Sp. Attack, Sp. Defense, Speed
-#define PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP 12 // EXP, Next Level
-#define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATUS 13
+#define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT 11 // HP, Attack, Defense
+#define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT 12 // Sp. Attack, Sp. Defense, Speed
+#define PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP 13 // EXP, Next Level
+#define PSS_LABEL_WINDOW_POKEMON_SKILLS_STATUS 14
 
 // Moves screen
-#define PSS_LABEL_WINDOW_MOVES_POWER_ACC 14 // Also contains the power and accuracy values
-#define PSS_LABEL_WINDOW_MOVES_APPEAL_JAM 15
-#define PSS_LABEL_WINDOW_UNUSED2 16
+#define PSS_LABEL_WINDOW_MOVES_POWER_ACC 15 // Also contains the power and accuracy values
+#define PSS_LABEL_WINDOW_MOVES_APPEAL_JAM 16
+#define PSS_LABEL_WINDOW_UNUSED2 17
 
 // Above/below the pokemon's portrait (left)
-#define PSS_LABEL_WINDOW_PORTRAIT_DEX_NUMBER 17
-#define PSS_LABEL_WINDOW_PORTRAIT_NICKNAME 18 // The upper name
-#define PSS_LABEL_WINDOW_PORTRAIT_SPECIES 19 // The lower name
+#define PSS_LABEL_WINDOW_PORTRAIT_DEX_NUMBER 18
+#define PSS_LABEL_WINDOW_PORTRAIT_NICKNAME 19 // The upper name
+#define PSS_LABEL_WINDOW_PORTRAIT_SPECIES 20 // The lower name
 
 // additional button prompts for IVs and EVs
-#define PSS_LABEL_WINDOW_PROMPT_IVS 20
-#define PSS_LABEL_WINDOW_PROMPT_EVS 21
-#define PSS_LABEL_WINDOW_PROMPT_STATS 22
+#define PSS_LABEL_WINDOW_PROMPT_IVS 21
+#define PSS_LABEL_WINDOW_PROMPT_EVS 22
+#define PSS_LABEL_WINDOW_PROMPT_STATS 23
 
-#define PSS_LABEL_WINDOW_END 23
+#define PSS_LABEL_WINDOW_END 24
 
 // Dynamic fields for the Pokémon Info page
 #define PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER 0
@@ -436,6 +437,15 @@ static const struct WindowTemplate sSummaryTemplate[] =
         .height = 2,
         .paletteNum = 6,
         .baseBlock = 67,
+    },
+    [PSS_LABEL_WINDOW_POKEMON_IVS_TITLE] = {
+        .bg = 0,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 11,
+        .height = 2,
+        .paletteNum = 6,
+        .baseBlock = 23,
     },
     [PSS_LABEL_WINDOW_PROMPT_CANCEL] = {
         .bg = 0,
@@ -1688,7 +1698,7 @@ static void DrawStatsButtonPrompt (s16 *taskData)
             break;
         case 1:
             // print Stats prompt
-            ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+            ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
             PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
             break;
     }
@@ -1712,15 +1722,37 @@ static void Task_HandleInput(u8 taskId)
             data[2] = 0;
             ChangeSummaryPokemon(taskId, 1);
         }
-        else if ((JOY_NEW(DPAD_LEFT)) || GetLRKeysPressed() == MENU_L_PRESSED)
+        else if ((JOY_NEW(DPAD_LEFT)))
         {
             data[2] = 0;
             ChangePage(taskId, -1);
         }
-        else if ((JOY_NEW(DPAD_RIGHT)) || GetLRKeysPressed() == MENU_R_PRESSED)
+        else if ((JOY_NEW(DPAD_RIGHT)))
         {
             data[2] = 0;
             ChangePage(taskId, 1);
+        }
+        else if (JOY_NEW(R_BUTTON))
+        {
+            if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS){
+            // Cycle through IVs/stats on pressing R
+            data[2] = 1;
+            ChangeSummaryState(data, taskId);
+            DrawStatsButtonPrompt(data);
+            PlaySE(SE_SELECT);
+            BufferIvOrEvStats(data[2]);
+            }
+        }
+        else if (JOY_NEW(L_BUTTON))
+        {
+            if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS){
+            // Cycle through IVs/stats on pressing R
+            data[2] = 0;
+            ChangeSummaryState(data, taskId);
+            DrawStatsButtonPrompt(data);
+            PlaySE(SE_SELECT);
+            BufferIvOrEvStats(data[2]);
+            }
         }
         else if (JOY_NEW(A_BUTTON))
         {
@@ -1737,12 +1769,6 @@ static void Task_HandleInput(u8 taskId)
                     PlaySE(SE_SELECT);
                     SwitchToMoveSelection(taskId);
                 }
-            } else {
-                // Cycle through IVs/stats on pressing A
-                ChangeSummaryState(data, taskId);
-                DrawStatsButtonPrompt(data);
-                PlaySE(SE_SELECT);
-                BufferIvOrEvStats(data[2]);
             }
         }
         else if (JOY_NEW(B_BUTTON))
@@ -3031,8 +3057,9 @@ static void PrintROrLButtonIcon(u8 windowId, bool8 lButton, u32 x)
 }
 
 // view IVs and EVs on summary screen
-static const u8 gText_ViewIVs[] =     _("IVs");
+static const u8 gText_ViewIVs[] =     _("{FIXED_CASE}IVs{UNFIX_CASE}");
 static const u8 gText_ViewStats[] =   _("Stats");
+static const u8 gText_PkmnIvs[] =   _("Pokémon IVs");
 
 static void PrintPageNamesAndStats(void)
 {
@@ -3066,7 +3093,8 @@ static void PrintPageNamesAndStats(void)
     PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_SWITCH, FALSE, iconXPos);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_SWITCH, gText_Switch, stringXPos, 1, 0, 0);
 
-        stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, gText_ViewIVs, 62);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_IVS_TITLE, gText_PkmnSkills, 2, 1, 0, 1);
+    stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, gText_ViewIVs, 62);
     iconXPos = stringXPos - 16;
     if (iconXPos < 0)
         iconXPos = 0;
