@@ -435,6 +435,7 @@ struct SpeciesInfo /*0x8C*/
             u32 isHisuianForm:1;
             u32 isPaldeanForm:1;
             u32 isStarter:1; //was u32 padding4:16;
+            u32 isTradeMon:1;
             u32 cannotBeTraded:1;
             u32 allPerfectIVs:1;
             u32 dexForceRequired:1; // This species will be taken into account for Pokédex ratings even if they have the "isMythical" flag set.

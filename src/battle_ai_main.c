@@ -2722,33 +2722,33 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
     case EFFECT_SANDSTORM:
         if (ShouldSetSandstorm(battlerAtkPartner, atkPartnerAbility, atkPartnerHoldEffect))
         {
-            RETURN_SCORE_PLUS(WEAK_EFFECT);   // our partner benefits from sandstorm
+            RETURN_SCORE_PLUS(GOOD_EFFECT);   // our partner benefits from sandstorm
         }
         break;
     case EFFECT_RAIN_DANCE:
         if (ShouldSetRain(battlerAtkPartner, atkPartnerAbility, atkPartnerHoldEffect))
         {
-            RETURN_SCORE_PLUS(WEAK_EFFECT);   // our partner benefits from rain
+            RETURN_SCORE_PLUS(GOOD_EFFECT);   // our partner benefits from rain
         }
         break;
     case EFFECT_SUNNY_DAY:
         if (ShouldSetSun(battlerAtkPartner, atkPartnerAbility, atkPartnerHoldEffect))
         {
-            RETURN_SCORE_PLUS(WEAK_EFFECT);   // our partner benefits from sun
+            RETURN_SCORE_PLUS(GOOD_EFFECT);   // our partner benefits from sun
         }
         break;
     case EFFECT_HAIL:
         if (IsBattlerAlive(battlerAtkPartner)
          && ShouldSetHail(battlerAtkPartner, atkPartnerAbility, atkPartnerHoldEffect))
         {
-            RETURN_SCORE_PLUS(DECENT_EFFECT);   // our partner benefits from hail
+            RETURN_SCORE_PLUS(GOOD_EFFECT);   // our partner benefits from hail
         }
         break;
     case EFFECT_SNOWSCAPE:
         if (IsBattlerAlive(battlerAtkPartner)
          && ShouldSetSnow(battlerAtkPartner, atkPartnerAbility, atkPartnerHoldEffect))
         {
-            RETURN_SCORE_PLUS(DECENT_EFFECT);   // our partner benefits from snow
+            RETURN_SCORE_PLUS(GOOD_EFFECT);   // our partner benefits from snow
         }
         break;
     } // global move effect check
@@ -2794,13 +2794,13 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     && HasMoveWithCategory(battlerAtkPartner, DAMAGE_CATEGORY_SPECIAL)
                     && BattlerStatCanRise(battlerAtkPartner, atkPartnerAbility, STAT_SPATK))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case ABILITY_WATER_COMPACTION:
                 if (moveType == TYPE_WATER && GetNoOfHitsToKOBattler(battlerAtk, battlerDef, AI_THINKING_STRUCT->movesetIndex) >= 4)
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);   // only mon with this ability is weak to water so only make it okay if we do very little damage
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);   // only mon with this ability is weak to water so only make it okay if we do very little damage
                 }
                 RETURN_SCORE_MINUS(10);
                 break;
@@ -2809,7 +2809,7 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     && HasMoveWithType(battlerAtkPartner, TYPE_FIRE)
                     && !(gBattleResources->flags->flags[battlerAtkPartner] & RESOURCE_FLAG_FLASH_FIRE))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case ABILITY_SAP_SIPPER:
@@ -2817,7 +2817,7 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     && HasMoveWithCategory(battlerAtkPartner, DAMAGE_CATEGORY_PHYSICAL)
                     && BattlerStatCanRise(battlerAtkPartner, atkPartnerAbility, STAT_ATK))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case ABILITY_JUSTIFIED:
@@ -2827,7 +2827,7 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     && BattlerStatCanRise(battlerAtkPartner, atkPartnerAbility, STAT_ATK)
                     && !CanIndexMoveFaintTarget(battlerAtk, battlerAtkPartner, AI_THINKING_STRUCT->movesetIndex, 1))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case ABILITY_RATTLED:
@@ -2836,27 +2836,27 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     && BattlerStatCanRise(battlerAtkPartner, atkPartnerAbility, STAT_SPEED)
                     && !CanIndexMoveFaintTarget(battlerAtk, battlerAtkPartner, AI_THINKING_STRUCT->movesetIndex, 1))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case ABILITY_CONTRARY:
                 if (IsStatLoweringEffect(effect))
                 {
-                    RETURN_SCORE_PLUS(DECENT_EFFECT);
+                    RETURN_SCORE_PLUS(GOOD_EFFECT);
                 }
                 break;
             case ABILITY_DEFIANT:
                 if (IsStatLoweringEffect(effect)
                     && BattlerStatCanRise(battlerAtkPartner, atkPartnerAbility, STAT_ATK))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case ABILITY_COMPETITIVE:
                 if (IsStatLoweringEffect(effect)
                     && BattlerStatCanRise(battlerAtkPartner, atkPartnerAbility, STAT_SPATK))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             }
@@ -2880,7 +2880,7 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                   || atkPartnerHoldEffect == HOLD_EFFECT_CURE_CONFUSION
                   || atkPartnerHoldEffect == HOLD_EFFECT_CURE_STATUS))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case EFFECT_FLATTER:
@@ -2890,7 +2890,7 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                   || atkPartnerHoldEffect == HOLD_EFFECT_CURE_CONFUSION
                   || atkPartnerHoldEffect == HOLD_EFFECT_CURE_STATUS))
                 {
-                    RETURN_SCORE_PLUS(WEAK_EFFECT);
+                    RETURN_SCORE_PLUS(DECENT_EFFECT);
                 }
                 break;
             case EFFECT_BEAT_UP:
@@ -3792,6 +3792,8 @@ static u32 AI_CalcMoveScore(u32 battlerAtk, u32 battlerDef, u32 move)
             ADJUST_SCORE(DECENT_EFFECT);
         if (aiData->abilities[battlerDef] == ABILITY_CONTRARY)
             ADJUST_SCORE(GOOD_EFFECT);
+        if (aiData->items[battlerDef] == ITEM_MIRROR_HERB)
+            ADJUST_SCORE(BEST_EFFECT);
         IncreaseConfusionScore(battlerAtk, battlerDef, move, &score);
         break;
     case EFFECT_FURY_CUTTER:

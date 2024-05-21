@@ -985,7 +985,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
           || gSpeciesInfo[species].isMythical //Mythical,
           || gSpeciesInfo[species].isUltraBeast //Ultra Beast,
           || gSpeciesInfo[species].isParadoxForm //Paradox,
-          || gSpeciesInfo[species].isStarter) //Starter,
+          || gSpeciesInfo[species].isStarter //Starter,
+          || gSpeciesInfo[species].isTradeMon) //Trade Mon,
         {                                      //These Pokemon have 3 perfect ivs
             iv = MAX_PER_STAT_IVS;
             // Initialize a list of IV indices.

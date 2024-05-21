@@ -5619,7 +5619,8 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         u16 targetSpecies = SPECIES_NONE;
 
         // Resets values to 0 so other means of teaching moves doesn't overwrite levels
-        sInitialLevel = 0;
+        //sInitialLevel = 0;
+        sInitialLevel += 1;
         sFinalLevel = 0;
 
         if (holdEffectParam == 0 || holdEffectParam == 10 || holdEffectParam == 20)
@@ -5627,13 +5628,13 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
 
         if (targetSpecies != SPECIES_NONE)
         {
-            if(holdEffectParam == 0){
-            RemoveBagItem(gSpecialVar_ItemId, 1);
-            }
             FreePartyPointers();
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
             BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
             DestroyTask(taskId);
+        
+            if(holdEffectParam == 0)
+                RemoveBagItem(gSpecialVar_ItemId, 1);
         }
         else
         {
@@ -5670,7 +5671,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
 
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
+            gTasks[taskId].func = Task_TryLearnNewMoves;
         }
         else if (sFinalLevel < sInitialLevel)
         {
@@ -5684,7 +5685,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
 
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
+            gTasks[taskId].func = Task_TryLearnNewMoves;
         }
         else
         {

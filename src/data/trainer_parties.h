@@ -152,8 +152,8 @@ static const struct TrainerMon sParty_Calvin[] = { //Youngster
     {
         .species = SPECIES_SIZZLIPEDE,
         .lvl = 8,
-        .ability = ABILITY_FLAME_BODY,
-        .moves = {MOVE_POUNCE, MOVE_FLAME_WHEEL, MOVE_BUG_BITE},
+        .ability = ABILITY_FLASH_FIRE,
+        .moves = {MOVE_BUG_BITE, MOVE_FLAME_WHEEL, MOVE_BITE},
         .nature = NATURE_JOLLY,
         .friendship = 255,
         .heldItem = ITEM_FOCUS_SASH,
