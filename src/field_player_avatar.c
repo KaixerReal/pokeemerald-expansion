@@ -130,11 +130,11 @@ static u8 Fishing_ShowDots(struct Task *);
 static u8 Fishing_CheckForBite(struct Task *);
 static u8 Fishing_GotBite(struct Task *);
 static u8 Fishing_WaitForA(struct Task *);
-static u8 Fishing_CheckMoreDots(struct Task *);
+static u8 UNUSED Fishing_CheckMoreDots(struct Task *);
 static u8 Fishing_MonOnHook(struct Task *);
 static u8 Fishing_StartEncounter(struct Task *);
-static u8 Fishing_NotEvenNibble(struct Task *);
-static u8 Fishing_GotAway(struct Task *);
+static u8 UNUSED Fishing_NotEvenNibble(struct Task *);
+static u8 UNUSED Fishing_GotAway(struct Task *);
 static u8 Fishing_NoMon(struct Task *);
 static u8 Fishing_PutRodAway(struct Task *);
 static u8 Fishing_EndNoMon(struct Task *);
@@ -1911,7 +1911,7 @@ static bool8 Fishing_WaitForA(struct Task *task)
 }
 
 // Determine if we're going to play the dot game again
-static bool8 Fishing_CheckMoreDots(struct Task *task)
+static bool8 UNUSED Fishing_CheckMoreDots(struct Task *task)
 {
     const s16 moreDotsChance[][2] =
     {
@@ -1983,7 +1983,7 @@ static bool8 Fishing_StartEncounter(struct Task *task)
     return FALSE;
 }
 
-static bool8 Fishing_NotEvenNibble(struct Task *task)
+static bool8 UNUSED Fishing_NotEvenNibble(struct Task *task)
 {
     AlignFishingAnimationFrames();
     StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFishingNoCatchDirectionAnimNum(GetPlayerFacingDirection()));
@@ -1993,7 +1993,7 @@ static bool8 Fishing_NotEvenNibble(struct Task *task)
     return TRUE;
 }
 
-static bool8 Fishing_GotAway(struct Task *task)
+static bool8 UNUSED Fishing_GotAway(struct Task *task)
 {
     AlignFishingAnimationFrames();
     StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFishingNoCatchDirectionAnimNum(GetPlayerFacingDirection()));

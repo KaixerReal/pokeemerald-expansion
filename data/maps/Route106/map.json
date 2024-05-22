@@ -114,16 +114,16 @@
     },
     {
       "type": "hidden_item",
-      "x": 53,
-      "y": 12,
+      "x": 70,
+      "y": 2,
       "elevation": 0,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_106_STARDUST"
     },
     {
       "type": "hidden_item",
-      "x": 68,
-      "y": 15,
+      "x": 53,
+      "y": 12,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_106_HEART_SCALE"

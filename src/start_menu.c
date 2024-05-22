@@ -174,8 +174,8 @@ static const struct WindowTemplate sExtraWindowTemplate = {
     .tilemapTop  = 1,
     .width  = 13,
     .height = 5,
-    .paletteNum = 15,
-    .baseBlock = 8,
+    .paletteNum = 0xF,
+    .baseBlock = 0x8,
 };
 
 static const struct WindowTemplate sWindowTemplate_StartClock = {
@@ -277,7 +277,7 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .width = 16, 
     .height = 10, 
     .paletteNum = 15, 
-    .baseBlock = 8
+    .baseBlock = 0x8
 };
 
 // Local functions
@@ -765,8 +765,9 @@ static bool8 HandleStartMenuInput(void)
         
         gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
 
-        if (gMenuCallback != StartMenuExitCallback
-            && gMenuCallback != StartMenuDebugCallback
+        if (gMenuCallback != StartMenuSaveCallback
+            && gMenuCallback != StartMenuExitCallback
+			&& gMenuCallback != StartMenuDebugCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
             && gMenuCallback != StartMenuBattlePyramidRetireCallback)
         {
@@ -999,6 +1000,10 @@ static bool8 SaveCallback(void)
     case SAVE_IN_PROGRESS:
         return FALSE;
     case SAVE_CANCELED: // Back to start menu
+        ClearDialogWindowAndFrameToTransparent(0, FALSE);
+        InitStartMenu();
+        gMenuCallback = HandleStartMenuInput;
+        return FALSE;
     case SAVE_SUCCESS:
     case SAVE_ERROR:    // Close start menu
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
@@ -1006,6 +1011,16 @@ static bool8 SaveCallback(void)
         UnlockPlayerFieldControls();
         SoftResetInBattlePyramid();
         return TRUE;
+    /*case SAVE_IN_PROGRESS:
+        return FALSE;
+    case SAVE_CANCELED: // Back to start menu
+    case SAVE_SUCCESS:
+    case SAVE_ERROR:    // Close start menu
+        ClearDialogWindowAndFrameToTransparent(0, TRUE);
+        ScriptUnfreezeObjectEvents();
+        UnlockPlayerFieldControls();
+        SoftResetInBattlePyramid();
+        return TRUE;*/
     }
 
     return FALSE;
@@ -1503,7 +1518,6 @@ static void Task_SaveAfterLinkBattle(u8 taskId)
     }
 }
 
-static const u8 gText_SavingVersionNum[] = _("v0.1-D");
 static void ShowSaveInfoWindow(void)
 {
     struct WindowTemplate saveInfoWindow = sSaveInfoWindowTemplate;
