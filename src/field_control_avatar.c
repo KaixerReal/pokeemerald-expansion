@@ -85,10 +85,13 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->tookStep = FALSE;
     input->pressedBButton = FALSE;
     input->pressedRButton = FALSE;
+    input->heldLButton = FALSE;
+    input->input_field_1_0 = FALSE;
     input->input_field_1_1 = FALSE;
     input->input_field_1_2 = FALSE;
     input->input_field_1_3 = FALSE;
     input->dpadDirection = 0;
+    input->dpadDirectionRegister = 4;
 }
 
 void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
@@ -111,6 +114,10 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                 input->pressedBButton = TRUE;
             if (newKeys & R_BUTTON && !FlagGet(FLAG_SYS_DEXNAV_SEARCH))
                 input->pressedRButton = TRUE;
+            if (newKeys & L_BUTTON)
+                DrawRegisteredQuickAcces();
+            if (heldKeys & L_BUTTON)
+                input->heldLButton = TRUE;   
         }
 
         if (heldKeys & (DPAD_UP | DPAD_DOWN | DPAD_LEFT | DPAD_RIGHT))
@@ -144,6 +151,30 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         input->DEBUG_OVERWORLD_TRIGGER_EVENT = FALSE;
     }
 #endif
+
+    if (!input->heldLButton)
+    {
+        DestroyItemIconSprites();
+        if (heldKeys & DPAD_UP)
+            input->dpadDirection = DIR_NORTH;
+        else if (heldKeys & DPAD_DOWN)
+            input->dpadDirection = DIR_SOUTH;
+        else if (heldKeys & DPAD_LEFT)
+            input->dpadDirection = DIR_WEST;
+        else if (heldKeys & DPAD_RIGHT)
+            input->dpadDirection = DIR_EAST;
+    }
+    else
+    {
+        if (newKeys & DPAD_UP)
+            input->dpadDirectionRegister = 0;
+        else if (newKeys & DPAD_RIGHT)
+            input->dpadDirectionRegister = 1;
+        else if (newKeys & DPAD_DOWN)
+            input->dpadDirectionRegister = 2;
+        else if (newKeys & DPAD_LEFT)
+            input->dpadDirectionRegister = 3;
+    }
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)
@@ -204,7 +235,9 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->tookStep && TryFindHiddenPokemon())
         return TRUE;
     
-    if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
+    if (input->pressedSelectButton && UseRegisteredKeyItemOnField(0) == TRUE)
+
+    if (input->heldLButton && input->dpadDirectionRegister != 4 && UseRegisteredKeyItemOnField(input->dpadDirectionRegister))
         return TRUE;
     
     if (input->pressedRButton && TryStartDexnavSearch())

@@ -36,6 +36,26 @@ enum {
     ITEMWIN_COUNT
 };
 
+#define ITEMMENUACTION_USE           0
+#define ITEMMENUACTION_TOSS          1
+#define ITEMMENUACTION_REGISTER      2
+#define ITEMMENUACTION_GIVE          3
+#define ITEMMENUACTION_CANCEL        4
+#define ITEMMENUACTION_BATTLE_USE    5
+#define ITEMMENUACTION_CHECK         6
+#define ITEMMENUACTION_WALK          7
+#define ITEMMENUACTION_DESELECT      8
+#define ITEMMENUACTION_CHECK_TAG     9
+#define ITEMMENUACTION_CONFIRM      10
+#define ITEMMENUACTION_SHOW         11
+#define ITEMMENUACTION_GIVE_2       12
+#define ITEMMENUACTION_CONFIRM_2    13
+#define ITEMMENUACTION_BUTTON_UP    14
+#define ITEMMENUACTION_BUTTON_RIGHT 15
+#define ITEMMENUACTION_BUTTON_DOWN  16
+#define ITEMMENUACTION_BUTTON_LEFT  17
+#define ITEMMENUACTION_DUMMY        18
+
 #define ITEMMENU_SWAP_LINE_LENGTH 8  // Swap line is 8 sprites long
 enum {
     ITEMMENUSPRITE_BAG,
@@ -95,7 +115,7 @@ void UpdatePocketListPosition(u8 pocketId);
 void CB2_ReturnToBagMenuPocket(void);
 void CB2_BagMenuFromStartMenu(void);
 u8 GetItemListPosition(u8 pocketId);
-bool8 UseRegisteredKeyItemOnField(void);
+bool8 UseRegisteredKeyItemOnField(u8 button);
 void CB2_GoToSellMenu(void);
 void GoToBagMenu(u8 bagMenuType, u8 pocketId, void ( *exitCallback)());
 void DoWallyTutorialBagMenu(void);
@@ -110,5 +130,7 @@ void DisplayItemMessage(u8 taskId, u8 fontId, const u8 *str, void ( *callback)(u
 void DisplayItemMessageOnField(u8 taskId, const u8 *src, TaskFunc callback);
 void CloseItemMessage(u8 taskId);
 void ItemMenu_RotomCatalog(u8 taskId);
+void DrawRegisteredQuickAcces(void);
+void DestroyItemIconSprites(void);
 
 #endif //GUARD_ITEM_MENU_H
