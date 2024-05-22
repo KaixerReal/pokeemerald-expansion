@@ -1086,7 +1086,6 @@ struct SaveBlock1
     /*0x3???*/ struct WaldaPhrase waldaPhrase;
                u8 dexNavSearchLevels[NUM_SPECIES];
                u8 dexNavChain;
-            u16 registeredItemList[4];
     // sizeof: 0x3???
 };
 
