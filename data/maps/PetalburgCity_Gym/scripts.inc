@@ -1587,7 +1587,7 @@ PetalburgCity_Gym_EventScript_Norman::
 	return
 
 PetalburgCity_Gym_EventScript_Norman_2:
-	goto PetalburgCity_Gym_EventScript_BeginWallyTutorial
+	goto PetalburgCity_Gym_EventScript_Norman_WallyTutorial
 	return
 
 PetalburgCity_Gym_EventScript_Norman_3:
@@ -1619,6 +1619,34 @@ PetalburgCity_Gym_EventScript_Norman_7:
 	release
 	end
 	return
+
+
+PetalburgCity_Gym_EventScript_Norman_WallyTutorial::
+	msgbox PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_FACING
+	case DIR_SOUTH, PetalburgCity_Gym_EventScript_Norman_WallyTutorial_3
+	case DIR_NORTH, PetalburgCity_Gym_EventScript_Norman_WallyTutorial_4
+	case DIR_WEST, PetalburgCity_Gym_EventScript_Norman_WallyTutorial_5
+	case DIR_EAST, PetalburgCity_Gym_EventScript_Norman_WallyTutorial_6
+PetalburgCity_Gym_EventScript_Norman_WallyTutorial_1:
+	end
+
+PetalburgCity_Gym_EventScript_Norman_WallyTutorial_3:
+	goto PetalburgCity_Gym_EventScript_BeginWallyTutorialSouth
+	goto PetalburgCity_Gym_EventScript_Norman_WallyTutorial_1
+
+PetalburgCity_Gym_EventScript_Norman_WallyTutorial_4:
+	goto PetalburgCity_Gym_EventScript_BeginWallyTutorialNorth
+	goto PetalburgCity_Gym_EventScript_Norman_WallyTutorial_1
+
+PetalburgCity_Gym_EventScript_Norman_WallyTutorial_5:
+	goto PetalburgCity_Gym_EventScript_BeginWallyTutorialWest
+	goto PetalburgCity_Gym_EventScript_Norman_WallyTutorial_1
+
+PetalburgCity_Gym_EventScript_Norman_WallyTutorial_6:
+	goto PetalburgCity_Gym_EventScript_BeginWallyTutorialEast
+	goto PetalburgCity_Gym_EventScript_Norman_WallyTutorial_1
 
 
 PetalburgCity_Gym_EventScript_NormanGiveMegaRing::

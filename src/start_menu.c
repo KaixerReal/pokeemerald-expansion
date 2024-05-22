@@ -52,6 +52,8 @@
 #include "rtc.h"
 #include "ui_startmenu_full.h"
 
+#include "level_caps.h" //New
+
 #if (DECAP_ENABLED) && (DECAP_MIRRORING) && !(DECAP_START_MENU)
 #define AddTextPrinterParameterized (AddTextPrinterFixedCaseParameterized)
 #endif
@@ -102,6 +104,7 @@ EWRAM_DATA static u8 (*sSaveDialogCallback)(void) = NULL;
 EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
+EWRAM_DATA static bool8 canSave = 0;
 
 // Menu action callbacks
 static bool8 StartMenuPokedexCallback(void);
@@ -153,6 +156,8 @@ static void Task_SaveAfterLinkBattle(u8 taskId);
 static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
 
+static void ShowGameVersionWindow(void);
+
 static const struct WindowTemplate sWindowTemplate_SafariBalls = {
     .bg = 0,
     .tilemapLeft = 1,
@@ -163,10 +168,20 @@ static const struct WindowTemplate sWindowTemplate_SafariBalls = {
     .baseBlock = 0x8
 };
 
+static const struct WindowTemplate sExtraWindowTemplate = {
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop  = 1,
+    .width  = 13,
+    .height = 5,
+    .paletteNum = 15,
+    .baseBlock = 8,
+};
+
 static const struct WindowTemplate sWindowTemplate_StartClock = {
     .bg = 0, 
     .tilemapLeft = 1, 
-    .tilemapTop = 1, 
+    .tilemapTop = 8, 
     .width = 13, // If you want to shorten the dates to Sat., Sun., etc., change this to 9
     .height = 2, 
     .paletteNum = 15,
@@ -216,7 +231,6 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_BAG]             = {gText_MenuBag,     {.u8_void = StartMenuBagCallback}},
     [MENU_ACTION_POKENAV]         = {gText_MenuPokenav, {.u8_void = StartMenuPokeNavCallback}},
     [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,  {.u8_void = StartMenuPlayerNameCallback}},
-    [MENU_ACTION_SAVE]            = {gText_MenuSave,    {.u8_void = StartMenuSaveCallback}},
     [MENU_ACTION_OPTION]          = {gText_MenuOption,  {.u8_void = StartMenuOptionCallback}},
     [MENU_ACTION_EXIT]            = {gText_MenuExit,    {.u8_void = StartMenuExitCallback}},
     [MENU_ACTION_RETIRE_SAFARI]   = {gText_MenuRetire,  {.u8_void = StartMenuSafariZoneRetireCallback}},
@@ -257,12 +271,12 @@ static const struct WindowTemplate sWindowTemplates_LinkBattleSave[] =
 };
 
 static const struct WindowTemplate sSaveInfoWindowTemplate = {
-    .bg = 0,
-    .tilemapLeft = 1,
-    .tilemapTop = 1,
-    .width = 14,
-    .height = 10,
-    .paletteNum = 15,
+    .bg = 0, 
+    .tilemapLeft = 1, 
+    .tilemapTop = 1, 
+    .width = 16, 
+    .height = 10, 
+    .paletteNum = 15, 
     .baseBlock = 8
 };
 
@@ -353,6 +367,8 @@ static void AddStartMenuAction(u8 action)
 
 static void BuildNormalStartMenu(void)
 {    
+    canSave = TRUE;
+
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEDEX);
     
@@ -361,13 +377,13 @@ static void BuildNormalStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_BAG);
     AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
 static void BuildDebugStartMenu(void)
 {
+    canSave = TRUE;
     AddStartMenuAction(MENU_ACTION_DEBUG);
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKEDEX);
@@ -377,12 +393,12 @@ static void BuildDebugStartMenu(void)
     if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKENAV);
     AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
 }
 
 static void BuildSafariZoneStartMenu(void)
 {
+    canSave = FALSE;
     AddStartMenuAction(MENU_ACTION_RETIRE_SAFARI);
     AddStartMenuAction(MENU_ACTION_POKEDEX);
     AddStartMenuAction(MENU_ACTION_POKEMON);
@@ -394,6 +410,7 @@ static void BuildSafariZoneStartMenu(void)
 
 static void BuildLinkModeStartMenu(void)
 {
+    canSave = FALSE;
     AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
 
@@ -409,6 +426,7 @@ static void BuildLinkModeStartMenu(void)
 
 static void BuildUnionRoomStartMenu(void)
 {
+    canSave = FALSE;
     AddStartMenuAction(MENU_ACTION_POKEMON);
     AddStartMenuAction(MENU_ACTION_BAG);
 
@@ -497,7 +515,7 @@ const u8 *const gDayNameStringsTable[7] = {
     gText_Friday,
 };
 
-static void ShowTimeWindow(void)
+static void UNUSED ShowTimeWindow(void)
 {
     const u8 *suffix;
     u8* ptr;
@@ -558,9 +576,9 @@ static void RemoveExtraStartMenuWindows(void)
     }
     else
     {
-        ClearStdWindowAndFrameToTransparent(sStartClockWindowId, FALSE);
-        // CopyWindowToVram(sStartClockWindowId, COPYWIN_GFX);
-        RemoveWindow(sStartClockWindowId);
+    	ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
+        //CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
+        RemoveWindow(sSafariBallsWindowId);
     }
 }
 
@@ -619,10 +637,12 @@ static bool32 InitStartMenuStep(void)
             ShowSafariBallsWindow();
         else if (InBattlePyramid())
             ShowPyramidFloorWindow();
+        else
+            ShowGameVersionWindow();
         sInitStartMenuData[0]++;
         break;
     case 4:
-        ShowTimeWindow();
+        //ShowTimeWindow();
         sInitStartMenuData[0]++;
         break;
     case 5:
@@ -727,6 +747,13 @@ static bool8 HandleStartMenuInput(void)
         sStartMenuCursorPos = Menu_MoveCursor(1);
     }
 
+    if (JOY_NEW(SELECT_BUTTON) && canSave)
+    {
+        gMenuCallback = StartMenuSaveCallback;
+        PlaySE(SE_SELECT);
+        return FALSE;
+    }
+
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
@@ -735,14 +762,10 @@ static bool8 HandleStartMenuInput(void)
             if (GetNationalPokedexCount(FLAG_GET_SEEN) == 0)
                 return FALSE;
         }
-        if (sCurrentStartMenuActions[sStartMenuCursorPos] == MENU_ACTION_DEXNAV
-          && MapHasNoEncounterData())
-            return FALSE;
         
         gMenuCallback = sStartMenuItems[sCurrentStartMenuActions[sStartMenuCursorPos]].func.u8_void;
 
-        if (gMenuCallback != StartMenuSaveCallback
-            && gMenuCallback != StartMenuExitCallback
+        if (gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuDebugCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
             && gMenuCallback != StartMenuBattlePyramidRetireCallback)
@@ -761,7 +784,7 @@ static bool8 HandleStartMenuInput(void)
     }
 
     RemoveExtraStartMenuWindows();
-    ShowTimeWindow();
+    //ShowTimeWindow();
     return FALSE;
 }
 
@@ -796,7 +819,7 @@ static bool8 StartMenuPokemonCallback(void)
     if (!GetSafariZoneFlag() && !InBattlePyramid() && gSaveBlock2Ptr->playTimeSeconds == 0) 
     {
         RemoveExtraStartMenuWindows();
-        ShowTimeWindow();
+        //ShowTimeWindow();
     }
 
     return FALSE;
@@ -1480,6 +1503,7 @@ static void Task_SaveAfterLinkBattle(u8 taskId)
     }
 }
 
+static const u8 gText_SavingVersionNum[] = _("v0.1-D");
 static void ShowSaveInfoWindow(void)
 {
     struct WindowTemplate saveInfoWindow = sSaveInfoWindowTemplate;
@@ -1540,7 +1564,6 @@ static void ShowSaveInfoWindow(void)
     xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
     AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
 
-    CopyWindowToVram(sSaveInfoWindowId, COPYWIN_GFX);
 }
 
 static void RemoveSaveInfoWindow(void)
@@ -1593,6 +1616,30 @@ static bool8 StartMenuDexNavCallback(void)
 {
     CreateTask(Task_OpenDexNavFromStartMenu, 0);
     return TRUE;
+}
+
+static void ShowGameVersionWindow(void)
+{
+	static const u8 sText_Message_Save[]    =  _("{COLOR GREEN}Press SELECT to save{COLOR DARK_GRAY}\nLevel Cap: {STR_VAR_1}\nGame Version: v0.1$");
+    static const u8 sText_Message_No_Save[] =  _("You can't save here\nLevel Cap: {STR_VAR_1}\nGame Version: v0.1$");
+    u16 levelCap = GetCurrentLevelCap();
+	sSafariBallsWindowId = AddWindow(&sExtraWindowTemplate);
+    PutWindowTilemap(sSafariBallsWindowId);
+    DrawStdWindowFrame(sSafariBallsWindowId, FALSE);
+
+    if(levelCap > MAX_LEVEL)
+        levelCap = MAX_LEVEL;
+
+    //Level Cap
+    ConvertIntToDecimalStringN(gStringVar1, levelCap, STR_CONV_MODE_RIGHT_ALIGN, 3);
+
+    if(canSave)
+        StringExpandPlaceholders(gStringVar4, sText_Message_Save);
+    else
+        StringExpandPlaceholders(gStringVar4, sText_Message_No_Save);
+
+    AddTextPrinterParameterized(sSafariBallsWindowId, FONT_SMALL, gStringVar4, 0, 0, 0xFF, NULL);
+    CopyWindowToVram(sSafariBallsWindowId, 2);
 }
 
 extern const u8 EventScript_PC_FromStartMenu[];

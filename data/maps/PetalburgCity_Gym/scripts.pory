@@ -1582,7 +1582,7 @@ script PetalburgCity_Gym_EventScript_Norman{
 	switch(var(VAR_PETALBURG_GYM_STATE)){
 		case 0:
 			//Wally Tutorial.
-			goto(PetalburgCity_Gym_EventScript_BeginWallyTutorial)
+			goto(PetalburgCity_Gym_EventScript_Norman_WallyTutorial)
 		break
 		case 1:
 			//No idea what goes here this is a failsafe.
@@ -1616,6 +1616,25 @@ script PetalburgCity_Gym_EventScript_Norman{
 	}
 }
 
+script PetalburgCity_Gym_EventScript_Norman_WallyTutorial{
+	msgbox(PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon, MSGBOX_DEFAULT)
+	closemessage
+	switch(var(VAR_FACING)){
+		case DIR_SOUTH:
+			goto(PetalburgCity_Gym_EventScript_BeginWallyTutorialSouth)
+		break
+		case DIR_NORTH:
+			goto(PetalburgCity_Gym_EventScript_BeginWallyTutorialNorth)
+		break
+		case DIR_WEST:
+			goto(PetalburgCity_Gym_EventScript_BeginWallyTutorialWest)
+		break
+		case DIR_EAST:
+			goto(PetalburgCity_Gym_EventScript_BeginWallyTutorialEast)
+		break
+	}
+	end
+}
 
 script PetalburgCity_Gym_EventScript_NormanGiveMegaRing{
 	lock

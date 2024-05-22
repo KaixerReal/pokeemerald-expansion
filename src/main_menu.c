@@ -2150,6 +2150,7 @@ static void MainMenu_FormatSavegamePlayer(void)
 
 static void MainMenu_FormatSavegameTime(void)
 {
+    static const u8 gText_SavingVersionNum[] = _("{COLOR GREEN}Demo v0.1$");
     u8 str[0x20];
     u8 *ptr;
 
@@ -2159,6 +2160,10 @@ static void MainMenu_FormatSavegameTime(void)
     *ptr = 0xF0;
     ConvertIntToDecimalStringN(ptr + 1, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
     AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
+
+    //Game Version
+    //AddTextPrinterParameterized3(2, 1, 0x6C - 16, 1, sTextColor_Headers, -1, sText_GameVersion);
+    AddTextPrinterParameterized3(2, 1, GetStringRightAlignXOffset(1, gText_SavingVersionNum, 0xD0), 1, sTextColor_Headers, -1, gText_SavingVersionNum);
 }
 
 static void MainMenu_FormatSavegamePokedex(void)
