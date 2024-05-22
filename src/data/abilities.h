@@ -2627,33 +2627,21 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
 
     [ABILITY_GROUND_SHOCK] =
     {
-    #if B_EXPANDED_ABILITY_NAMES == TRUE
         .name = _("Ground Shock"),
-    #else
-        .name = _("Ground Shock"),
-    #endif
         .description = COMPOUND_STRING("Electric can hit Ground."),
         .aiRating = 10,
     },
 
     [ABILITY_SELF_SUFFICIENT] =
     {
-    #if B_EXPANDED_ABILITY_NAMES == TRUE
         .name = _("Self Sufficient"),
-    #else
-        .name = _("Self Sufficient"),
-    #endif
         .description = COMPOUND_STRING("Recovers health each turn."),
         .aiRating = 10,
     },
 
     [ABILITY_RAMPAGE] =
     {
-    #if B_EXPANDED_ABILITY_NAMES == TRUE
         .name = _("Rampage"),
-    #else
-        .name = _("Rampage"),
-    #endif
         .description = COMPOUND_STRING("No recharge after a KO."),
         .aiRating = 10,
     },
