@@ -1515,62 +1515,62 @@
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_GULPIN"
+                "species": "SPECIES_TYROGUE"
               },
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_NIDORAN_F"
+                "species": "SPECIES_SHROOMISH"
               },
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_ODDISH"
+                "species": "SPECIES_MAKUHITA"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_NIDORAN_M"
+                "species": "SPECIES_MANKEY"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_EKANS"
+                "species": "SPECIES_TIMBURR"
               },
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_WEEDLE"
+                "species": "SPECIES_MEDITITE"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_BUDEW"
+                "species": "SPECIES_RIOLU"
               },
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_CROAGUNK"
+                "species": "SPECIES_MIENFOO"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_SALANDIT"
+                "species": "SPECIES_SCRAGGY"
               },
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_GASTLY"
+                "species": "SPECIES_FARFETCHD_GALARIAN"
               },
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_SALANDIT"
+                "species": "SPECIES_CHIMCHAR"
               },
               {
                 "min_level": 8,
                 "max_level": 8,
-                "species": "SPECIES_GLIMMET"
+                "species": "SPECIES_CHIMCHAR"
               }
             ]
           }

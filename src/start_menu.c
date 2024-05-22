@@ -175,8 +175,9 @@ static const struct WindowTemplate sExtraWindowTemplate = {
     .width  = 13,
     .height = 5,
     .paletteNum = 0xF,
-    .baseBlock = 0x8,
+    .baseBlock = 8,
 };
+
 
 static const struct WindowTemplate sWindowTemplate_StartClock = {
     .bg = 0, 
@@ -231,6 +232,7 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_BAG]             = {gText_MenuBag,     {.u8_void = StartMenuBagCallback}},
     [MENU_ACTION_POKENAV]         = {gText_MenuPokenav, {.u8_void = StartMenuPokeNavCallback}},
     [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,  {.u8_void = StartMenuPlayerNameCallback}},
+    [MENU_ACTION_SAVE]            = {gText_MenuSave,    {.u8_void = StartMenuSaveCallback}},
     [MENU_ACTION_OPTION]          = {gText_MenuOption,  {.u8_void = StartMenuOptionCallback}},
     [MENU_ACTION_EXIT]            = {gText_MenuExit,    {.u8_void = StartMenuExitCallback}},
     [MENU_ACTION_RETIRE_SAFARI]   = {gText_MenuRetire,  {.u8_void = StartMenuSafariZoneRetireCallback}},
@@ -274,7 +276,7 @@ static const struct WindowTemplate sSaveInfoWindowTemplate = {
     .bg = 0, 
     .tilemapLeft = 1, 
     .tilemapTop = 1, 
-    .width = 16, 
+    .width = 14, 
     .height = 10, 
     .paletteNum = 15, 
     .baseBlock = 0x8
@@ -314,7 +316,7 @@ static void ShowSaveInfoWindow(void);
 static void RemoveSaveInfoWindow(void);
 static void HideStartMenuWindow(void);
 static void HideStartMenuDebug(void);
-static void ShowTimeWindow(void);
+static void UNUSED ShowTimeWindow(void);
 
 void SetDexPokemonPokenavFlags(void) // unused
 {
@@ -881,7 +883,9 @@ static bool8 StartMenuSaveCallback(void)
 {
     if (InBattlePyramid())
         RemoveExtraStartMenuWindows();
-
+        
+    ClearStdWindowAndFrameToTransparent(sSafariBallsWindowId, FALSE);
+    RemoveWindow(sSafariBallsWindowId);
     gMenuCallback = SaveStartCallback; // Display save menu
 
     return FALSE;
@@ -1578,6 +1582,7 @@ static void ShowSaveInfoWindow(void)
     xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 0x70);
     AddTextPrinterParameterized(sSaveInfoWindowId, FONT_NORMAL, gStringVar4, xOffset, yOffset, TEXT_SKIP_DRAW, NULL);
 
+    CopyWindowToVram(sSaveInfoWindowId, 2);
 }
 
 static void RemoveSaveInfoWindow(void)
@@ -1653,7 +1658,7 @@ static void ShowGameVersionWindow(void)
         StringExpandPlaceholders(gStringVar4, sText_Message_No_Save);
 
     AddTextPrinterParameterized(sSafariBallsWindowId, FONT_SMALL, gStringVar4, 0, 0, 0xFF, NULL);
-    CopyWindowToVram(sSafariBallsWindowId, 2);
+    CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
 }
 
 extern const u8 EventScript_PC_FromStartMenu[];
