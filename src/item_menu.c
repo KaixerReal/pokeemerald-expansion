@@ -221,9 +221,9 @@ static void Task_FadeAndCloseBagMenuIfMulch(u8 taskId);
 static void ItemMenu_RegisterSelect(u8 taskId);
 static void ItemMenu_RegisterList(u8 taskId);
 static void ItemMenu_Deselect(u8 taskId);
-static u8 Register_GetItemListPosition(u16 itemId);
-static bool8 Register_IsItemInList(u16 itemId);
-static void Task_ScrollingMultichoiceInput(u8 taskId);
+static u8 UNUSED Register_GetItemListPosition(u16 itemId);
+static bool8 UNUSED Register_IsItemInList(u16 itemId);
+static void UNUSED Task_ScrollingMultichoiceInput(u8 taskId);
 
 static const struct BgTemplate sBgTemplates_ItemMenu[] =
 {
@@ -281,23 +281,22 @@ static const struct ListMenuTemplate sItemListMenu =
 static const u8 sMenuText_Select[] = _("SELECT");
 static const u8 sMenuText_L[] = _("LIST");
 static const struct MenuAction sItemMenuActions[] = {
-    [ACTION_USE]               = {gMenuText_Use,      ItemMenu_UseOutOfBattle},
-    [ACTION_TOSS]              = {gMenuText_Toss,     ItemMenu_Toss},
-    [ACTION_REGISTER]          = {gMenuText_Register, ItemMenu_Register},
-    [ACTION_GIVE]              = {gMenuText_Give,     ItemMenu_Give},
-    [ACTION_CANCEL]            = {gText_Cancel2,      ItemMenu_Cancel},
-    [ACTION_BATTLE_USE]        = {gMenuText_Use,      ItemMenu_UseInBattle},
-    [ACTION_CHECK]             = {gMenuText_Check,    ItemMenu_UseOutOfBattle},
-    [ACTION_WALK]              = {gMenuText_Walk,     ItemMenu_UseOutOfBattle},
-    [ACTION_DESELECT]          = {gMenuText_Deselect, ItemMenu_Deselect},
-    [ACTION_CHECK_TAG]         = {gMenuText_CheckTag, ItemMenu_CheckTag},
-    [ACTION_CONFIRM]           = {gMenuText_Confirm,  Task_FadeAndCloseBagMenu},
-    [ACTION_SHOW]              = {gMenuText_Show,     ItemMenu_Show},
-    [ACTION_GIVE_FAVOR_LADY]   = {gMenuText_Give2,    ItemMenu_GiveFavorLady},
-    [ACTION_CONFIRM_QUIZ_LADY] = {gMenuText_Confirm,  ItemMenu_ConfirmQuizLady},
-    [ACTION_SELECT_BUTTON]     = {sMenuText_Select,   ItemMenu_RegisterSelect},
-    [ACTION_L_BUTTON]          = {sMenuText_L,        ItemMenu_RegisterList},
-    [ACTION_DUMMY]             = {gText_EmptyString2, NULL}
+    [ACTION_USE]               = {gMenuText_Use,      {ItemMenu_UseOutOfBattle}},
+    [ACTION_TOSS]              = {gMenuText_Toss,     {ItemMenu_Toss}},
+    [ACTION_REGISTER]          = {gMenuText_Register, {ItemMenu_Register}},
+    [ACTION_GIVE]              = {gMenuText_Give,     {ItemMenu_Give}},
+    [ACTION_CANCEL]            = {gText_Cancel2,      {ItemMenu_Cancel}},
+    [ACTION_BATTLE_USE]        = {gMenuText_Use,      {ItemMenu_UseInBattle}},
+    [ACTION_CHECK]             = {gMenuText_Check,    {ItemMenu_UseOutOfBattle}},
+    [ACTION_WALK]              = {gMenuText_Walk,     {ItemMenu_UseOutOfBattle}},
+    [ACTION_DESELECT]          = {gMenuText_Deselect, {ItemMenu_Register}},
+    [ACTION_CHECK_TAG]         = {gMenuText_CheckTag, {ItemMenu_CheckTag}},
+    [ACTION_CONFIRM]           = {gMenuText_Confirm,  {Task_FadeAndCloseBagMenu}},
+    [ACTION_SHOW]              = {gMenuText_Show,     {ItemMenu_Show}},
+    [ACTION_GIVE_FAVOR_LADY]   = {gMenuText_Give2,    {ItemMenu_GiveFavorLady}},
+    [ACTION_CONFIRM_QUIZ_LADY] = {gMenuText_Confirm,  {ItemMenu_ConfirmQuizLady}},
+    [ACTION_L_BUTTON]          = {sMenuText_L,        {ItemMenu_RegisterList}},
+    [ACTION_DUMMY]             = {gText_EmptyString2, {NULL}}
 };
 
 // these are all 2D arrays with a width of 2 but are represented as 1D arrays
@@ -580,7 +579,7 @@ static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
 
 //tx_registered_items_menu
 static EWRAM_DATA bool8 sRegisterSubMenu = FALSE;
-static EWRAM_DATA u8 sRegisteredItemsMenuIcon = 0xFF;
+static EWRAM_INIT u8 sRegisteredItemsMenuIcon = 0xFF;
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
 
 void ResetBagScrollPositions(void)
@@ -2052,8 +2051,8 @@ static const u8 gText_TooManyRegistered[] = _("You already have too\nmany items 
 static void ItemMenu_Cancel2(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
-    u16* scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
-    u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
+    //u16* scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
+    //u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
 
     sRegisterSubMenu = FALSE;
 
@@ -2734,7 +2733,7 @@ static void PrintTMHMMoveData(u16 itemId)
 // tx_registered_items_menu, based on code from ghoulslash
 static void ResetRegisteredItem(u16 itemId)
 {
-    u8 i;
+    //u8 i;
     if (gSaveBlock1Ptr->registeredItemSelect == itemId)
         gSaveBlock1Ptr->registeredItemSelect = ITEM_NONE;
     else
@@ -2801,7 +2800,7 @@ void ItemMenu_Register(u8 taskId)
 //    ItemMenu_Cancel(taskId);
 //}
 
-static void ItemMenu_RegisterSelect(u8 taskId)
+static void UNUSED ItemMenu_RegisterSelect(u8 taskId)
 {
     if (gSaveBlock1Ptr->registeredItemSelect == gSpecialVar_ItemId)
         gSaveBlock1Ptr->registeredItemSelect = ITEM_NONE;
@@ -2813,8 +2812,8 @@ static void ItemMenu_RegisterSelect(u8 taskId)
 
 static void ItemMenu_RegisterList(u8 taskId)
 {
-    u8 i;
-    u8 slot = 0xFF;
+    //u8 i;
+    //u8 slot = 0xFF;
 
     if (TxRegItemsMenu_AddRegisteredItem(gSpecialVar_ItemId))
         gTasks[taskId].func = ItemMenu_FinishRegister;
@@ -2822,11 +2821,11 @@ static void ItemMenu_RegisterList(u8 taskId)
         gTasks[taskId].func = ItemMenu_FailRegister;
 }
 
-static void ItemMenu_Deselect(u8 taskId)
+static void UNUSED ItemMenu_Deselect(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
-    u16* scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
-    u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
+    //u16* scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
+    //u16* cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
     int listPosition = ListMenu_ProcessInput(tListTaskId);
     u16 itemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition);
 
