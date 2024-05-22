@@ -104,24 +104,6 @@ PetalburgCity_Gym_Movement_WallyExitGym:
 	delay_16
 	step_end
 
-PetalburgCity_Gym_EventScript_Norman::
-	lock
-	faceplayer
-	switch VAR_PETALBURG_GYM_STATE
-	case 2, PetalburgCity_Gym_EventScript_NormanNoBadges
-	case 3, PetalburgCity_Gym_EventScript_NormanOneBadge
-	case 4, PetalburgCity_Gym_EventScript_NormanVisitDevonCorp
-    case 5, PetalburgCity_Gym_EventScript_NormanBattle
-	case 6, PetalburgCity_Gym_EventScript_NormanPostBattle
-	msgbox PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon, MSGBOX_DEFAULT
-	closemessage
-	switch VAR_FACING
-	case DIR_SOUTH, PetalburgCity_Gym_EventScript_BeginWallyTutorialSouth
-	case DIR_NORTH, PetalburgCity_Gym_EventScript_BeginWallyTutorialNorth
-	case DIR_WEST, PetalburgCity_Gym_EventScript_BeginWallyTutorialWest
-	case DIR_EAST, PetalburgCity_Gym_EventScript_BeginWallyTutorialEast
-	end
-
 PetalburgCity_Gym_EventScript_BeginWallyTutorialSouth::
 	setvar VAR_0x8008, 0
 	goto PetalburgCity_Gym_EventScript_BeginWallyTutorial
@@ -378,7 +360,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_PETALBURG_GYM
-	setvar VAR_PETALBURG_GYM_STATE, 7
+	setvar VAR_PETALBURG_GYM_STATE, 5
 	setflag FLAG_BADGE05_GET
 	special ResetHealLocationFromDewford
 	call EventScript_HideMrBriney
@@ -1592,6 +1574,53 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
 
+PetalburgCity_Gym_EventScript_Norman::
+	lock
+	faceplayer
+	switch VAR_PETALBURG_GYM_STATE
+	case 0, PetalburgCity_Gym_EventScript_Norman_2
+	case 1, PetalburgCity_Gym_EventScript_Norman_3
+	case 2, PetalburgCity_Gym_EventScript_Norman_4
+	case 3, PetalburgCity_Gym_EventScript_Norman_5
+	case 4, PetalburgCity_Gym_EventScript_Norman_6
+	case 5, PetalburgCity_Gym_EventScript_Norman_7
+	return
+
+PetalburgCity_Gym_EventScript_Norman_2:
+	goto PetalburgCity_Gym_EventScript_BeginWallyTutorial
+	return
+
+PetalburgCity_Gym_EventScript_Norman_3:
+	msgbox PetalburgCity_Gym_EventScript_Norman_Text_0, MSGBOX_DEFAULT
+	release
+	end
+	return
+
+PetalburgCity_Gym_EventScript_Norman_4:
+	msgbox PetalburgCity_Gym_Text_NormanGoToRustboro, MSGBOX_DEFAULT
+	release
+	end
+	return
+
+PetalburgCity_Gym_EventScript_Norman_5:
+	msgbox PetalburgCity_Gym_Text_NormanGoToDewford, MSGBOX_DEFAULT
+	release
+	end
+	return
+
+PetalburgCity_Gym_EventScript_Norman_6:
+	goto PetalburgCity_Gym_EventScript_NormanBattle
+	release
+	end
+	return
+
+PetalburgCity_Gym_EventScript_Norman_7:
+	msgbox PetalburgCity_Gym_Text_DadGoingToKeepTraining, MSGBOX_DEFAULT
+	release
+	end
+	return
+
+
 PetalburgCity_Gym_EventScript_NormanGiveMegaRing::
 	lock
 	msgbox PetalburgCity_Gym_EventScript_NormanGiveMegaRing_Text_0, MSGBOX_DEFAULT
@@ -1604,6 +1633,10 @@ PetalburgCity_Gym_EventScript_NormanVisitDevonCorp::
 	releaseall
 	end
 
+
+PetalburgCity_Gym_EventScript_Norman_Text_0:
+	.string "This is a failsafe. if you find this, file\n"
+	.string "a bug report please.$"
 
 PetalburgCity_Gym_EventScript_NormanGiveMegaRing_Text_0:
 	.string "I see you've gotten ur 5th gym badge$"

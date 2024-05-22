@@ -5138,6 +5138,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconPalIndex = 0,
         FOOTPRINT(Zorua)
         .isHisuianForm = TRUE,
+        .isTradeMon = TRUE,
         .levelUpLearnset = sZoruaHisuianLevelUpLearnset,
         .teachableLearnset = sZoruaHisuianTeachableLearnset,
         .formSpeciesIdTable = sZoruaFormSpeciesIdTable,

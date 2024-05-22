@@ -7,16 +7,6 @@ RustboroCity_Gym_EventScript_RoxanneRematch::
 	msgbox RustboroCity_Gym_Text_RoxannePostRematch, MSGBOX_AUTOCLOSE
 	end
 
-RustboroCity_Gym_EventScript_Tommy::
-	trainerbattle_single TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
-	msgbox RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-RustboroCity_Gym_EventScript_Marc::
-	trainerbattle_single TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat
-	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 RustboroCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
@@ -225,10 +215,21 @@ script RustboroCity_Gym_EventScript_GiveRockTomb{
 	end
 }
 
-
 script RustboroCity_Gym_EventScript_Josh{
 	trainerbattle_single (TRAINER_JOSH_BOSS, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat)
 	msgbox (RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script RustboroCity_Gym_EventScript_Tommy{
+	trainerbattle_single (TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat)
+	msgbox (RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script RustboroCity_Gym_EventScript_Marc{
+	trainerbattle_single (TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat)
+	msgbox (RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
 
@@ -253,6 +254,7 @@ text RustboroCity_Gym_Text_RoxanneDefeat{
 	"that TRAINERS are to be given this\l"
 	"if they defeat a GYM LEADER.\p"
 	"Please accept the official POKéMON\n"
+	"Gym Badge.\p"
     "{PLAYER} received the STONE BADGE\n"
 	"from ROXANNE.$"
 }

@@ -10999,7 +10999,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_GOOD_ROD] =
     {
-        .name = _("Good Rod"),
+        .name = _("Fishing Rod"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A decent fishing\n"
@@ -11009,12 +11009,12 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Rod,
-        .secondaryId = GOOD_ROD,
+        .secondaryId = FISHING_ROD,
     },
 
     [ITEM_SUPER_ROD] =
     {
-        .name = _("Super Rod"),
+        .name = _("Fishing Rod"),
         .price = 0,
         .description = COMPOUND_STRING(
             "The best fishing\n"
@@ -11024,7 +11024,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Rod,
-        .secondaryId = SUPER_ROD,
+        .secondaryId = FISHING_ROD,
     },
 
     [ITEM_DOWSING_MACHINE] =

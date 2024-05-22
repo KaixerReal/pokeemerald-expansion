@@ -1582,7 +1582,7 @@ script PetalburgCity_Gym_EventScript_Norman{
 	switch(var(VAR_PETALBURG_GYM_STATE)){
 		case 0:
 			//Wally Tutorial.
-			goto(PetalburgCity_Gym_EventScript_Norman_WallyTutorial)
+			goto(PetalburgCity_Gym_EventScript_BeginWallyTutorial)
 		break
 		case 1:
 			//No idea what goes here this is a failsafe.

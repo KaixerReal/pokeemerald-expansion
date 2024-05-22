@@ -7,16 +7,6 @@ RustboroCity_Gym_EventScript_RoxanneRematch::
 	msgbox RustboroCity_Gym_Text_RoxannePostRematch, MSGBOX_AUTOCLOSE
 	end
 
-RustboroCity_Gym_EventScript_Tommy::
-	trainerbattle_single TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
-	msgbox RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-RustboroCity_Gym_EventScript_Marc::
-	trainerbattle_single TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat
-	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 RustboroCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
@@ -201,8 +191,7 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE01_GET
 	setvar VAR_RUSTBORO_CITY_STATE, 1
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	setvar VAR_FIGHT_ROXANNE, 1
+	addvar VAR_FIGHT_ROXANNE, 1
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
 	giveitem ITEM_TM_ROCK_TOMB
@@ -227,6 +216,18 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 RustboroCity_Gym_EventScript_Josh::
 	trainerbattle_single TRAINER_JOSH_BOSS, RustboroCity_Gym_Text_JoshIntro, RustboroCity_Gym_Text_JoshDefeat
 	msgbox RustboroCity_Gym_Text_JoshPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
+RustboroCity_Gym_EventScript_Tommy::
+	trainerbattle_single TRAINER_TOMMY, RustboroCity_Gym_Text_TommyIntro, RustboroCity_Gym_Text_TommyDefeat
+	msgbox RustboroCity_Gym_Text_TommyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
+RustboroCity_Gym_EventScript_Marc::
+	trainerbattle_single TRAINER_MARC, RustboroCity_Gym_Text_MarcIntro, RustboroCity_Gym_Text_MarcDefeat
+	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
@@ -255,6 +256,7 @@ RustboroCity_Gym_Text_RoxanneDefeat::
 	.string "that TRAINERS are to be given this\l"
 	.string "if they defeat a GYM LEADER.\p"
 	.string "Please accept the official POKéMON\n"
+	.string "Gym Badge.\p"
 	.string "{PLAYER} received the STONE BADGE\n"
 	.string "from ROXANNE.$"
 

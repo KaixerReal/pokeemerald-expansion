@@ -76,66 +76,66 @@
           "map": "MAP_ROUTE101",
           "base_label": "gRoute101",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_LILLIPUP"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_POOCHYENA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_ZIGZAGOON_GALARIAN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_BUNNELBY"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_TEDDIURSA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_BUNEARY"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_SKITTY"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
-                "species": "SPECIES_PIDGEY"
+                "species": "SPECIES_ZORUA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_STARLY"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_LITLEO"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_SLAKOTH"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 4,
                 "species": "SPECIES_SLAKOTH"
               }
             ]
@@ -145,7 +145,7 @@
           "map": "MAP_ROUTE102",
           "base_label": "gRoute102",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 5,
@@ -1831,7 +1831,7 @@
               {
                 "min_level": 6,
                 "max_level": 6,
-                "species": "SPECIES_WURMPLE"
+                "species": "SPECIES_SHROOMISH"
               },
               {
                 "min_level": 5,
@@ -3264,7 +3264,22 @@
               {
                 "min_level": 5,
                 "max_level": 7,
-                "species": "SPECIES_OMANYTE"
+                "species": "SPECIES_GULPIN"
+              },
+              {
+                "min_level": 5,
+                "max_level": 7,
+                "species": "SPECIES_PSYDUCK"
+              },
+              {
+                "min_level": 5,
+                "max_level": 7,
+                "species": "SPECIES_GULPIN"
+              },
+              {
+                "min_level": 5,
+                "max_level": 7,
+                "species": "SPECIES_KABUTO"
               },
               {
                 "min_level": 5,
@@ -3279,7 +3294,7 @@
               {
                 "min_level": 5,
                 "max_level": 7,
-                "species": "SPECIES_KABUTO"
+                "species": "SPECIES_MARILL"
               },
               {
                 "min_level": 5,
@@ -3289,27 +3304,12 @@
               {
                 "min_level": 5,
                 "max_level": 7,
-                "species": "SPECIES_KABUTO"
+                "species": "SPECIES_PSYDUCK"
               },
               {
                 "min_level": 5,
                 "max_level": 7,
-                "species": "SPECIES_OMANYTE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 7,
-                "species": "SPECIES_KABUTO"
-              },
-              {
-                "min_level": 5,
-                "max_level": 7,
-                "species": "SPECIES_OMANYTE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 7,
-                "species": "SPECIES_KABUTO"
+                "species": "SPECIES_PSYDUCK"
               }
             ]
           }
@@ -9025,7 +9025,7 @@
             ]
           },
           "fishing_mons": {
-            "encounter_rate": 30,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 5,
@@ -11516,12 +11516,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_FENNEKIN"
+                "species": "SPECIES_SCORBUNNY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_FENNEKIN"
+                "species": "SPECIES_SCORBUNNY"
               }
             ]
           }
@@ -11530,7 +11530,7 @@
           "map": "MAP_LITTLEROOT_TOWN",
           "base_label": "gLittlerootTownDay",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 5,
@@ -11599,7 +11599,7 @@
           "map": "MAP_RUSTBORO_CITY",
           "base_label": "gRustboroCity",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 5,
@@ -11654,12 +11654,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YAMPER"
+                "species": "SPECIES_TOGEDEMARU"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YAMPER"
+                "species": "SPECIES_TOGEDEMARU"
               }
             ]
           }

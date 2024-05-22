@@ -378,8 +378,6 @@ DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons:
 //Scripts.
 script DewfordTown_Gym_EventScript_Brawly{
 	trainerbattle_single (TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC)
-	specialvar (VAR_RESULT, ShouldTryRematchBattle)
-	goto_if_eq (VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch)
 	goto_if_unset (FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp)
 	msgbox (DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT)
 	release
@@ -394,22 +392,11 @@ script DewfordTown_Gym_EventScript_BrawlyDefeated{
 	setflag (FLAG_DEFEATED_DEWFORD_GYM)
 	setflag (FLAG_BADGE02_GET)
 	addvar (VAR_PETALBURG_GYM_STATE, 1)
-	call_if_eq (VAR_PETALBURG_GYM_STATE, 4, Common_EventScript_ReadyPetalburgGymForBattle)
 	setvar (VAR_0x8008, 2)
 	call (Common_EventScript_SetGymTrainers)
 	closemessage
 	goto (DewfordTown_Gym_EventScript_GiveBulkUp)
-	//delay (30)
-	//playfanfare (MUS_REGISTER_MATCH_CALL)
-	//msgbox (DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT)
-	//waitfanfare
-	//closemessage
-	//delay (30)
-	//setflag (FLAG_ENABLE_BRAWLY_MATCH_CALL)
-	//setvar (VAR_ROXANNE_CALL_STEP_COUNTER, 0)
-	//setflag (FLAG_ENABLE_ROXANNE_FIRST_CALL)
-	//release
-	//end
+	end //Just in case.
 }
 
 script DewfordTown_Gym_EventScript_GiveBulkUp{
@@ -437,14 +424,14 @@ text DewfordTown_Gym_Text_BrawlyDefeat{
 	"splash than I expected!\p"
 	"You swamped me!\p"
 	"Okay, you've got me.\n"
-	"Take this GYM BADGE!$"
+	"Take this gym badge!$"
 	"{PLAYER} received the KNUCKLE BADGE\n"
 	"from BRAWLY.$"
 }
 
 text DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis{
 	"The KNUCKLE BADGE makes all POKéMON\n"
-	"up to Level 30, even those you get in\l"
+	"up to Level 37, even those you get in\l"
 	"trades, obey without question.\p"
 	"And, you'll be able to use the HM move\n"
 	"FLASH outside of battle.\p"
