@@ -411,6 +411,7 @@ bool32 IsDamageMoveUnusable(u32 move, u32 battlerAtk, u32 battlerDef)
             return TRUE;
         break;
     case ABILITY_EARTH_EATER:
+    case ABILITY_LEVITATE:
         if (moveType == TYPE_GROUND)
             return TRUE;
         break;
@@ -423,7 +424,7 @@ bool32 IsDamageMoveUnusable(u32 move, u32 battlerAtk, u32 battlerDef)
             return TRUE;
         break;
     case EFFECT_BELCH:
-        if (ItemId_GetPocket(GetUsedHeldItem(battlerAtk)) != POCKET_BERRIES)
+        if (IsBelchPreventingMove(battlerAtk, move))
             return TRUE;
         break;
     case EFFECT_LAST_RESORT:

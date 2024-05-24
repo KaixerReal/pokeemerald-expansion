@@ -1096,7 +1096,7 @@ static const struct TrainerMon sParty_Clark[] = {
 static const struct TrainerMon sParty_Devan[] = {
     {
         .species = SPECIES_GRAVELER,
-        .lvl = 21,
+        .lvl = 20,
         .ability = ABILITY_STURDY,
         .moves = {MOVE_THUNDER_PUNCH, MOVE_ROCK_SLIDE, MOVE_EXPLOSION, MOVE_STEALTH_ROCK},
         .nature = NATURE_JOLLY,
@@ -1108,7 +1108,7 @@ static const struct TrainerMon sParty_Devan[] = {
     },
     {
         .species = SPECIES_KLAWF,
-        .lvl = 21,
+        .lvl = 20,
         .ability = ABILITY_ANGER_SHELL,
         .moves = {MOVE_X_SCISSOR, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_KNOCK_OFF},
         .nature = NATURE_JOLLY,
@@ -1123,7 +1123,7 @@ static const struct TrainerMon sParty_Devan[] = {
 static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
     {
         .species = SPECIES_EKANS,
-        .lvl = 12,
+        .lvl = 20,
         .isShiny = TRUE,
         .ball = ITEM_MASTER_BALL,
         .iv = HIDDEN_POWER_DARK,
@@ -5757,6 +5757,7 @@ static const struct TrainerMon sParty_Karen1[] = {
     .species = SPECIES_SHROOMISH,
     }
 };
+
 
 static const struct TrainerMon sParty_Georgia[] = {
     {
