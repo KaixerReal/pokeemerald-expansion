@@ -10412,16 +10412,16 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_AISHA] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
+        .trainerClass = TRAINER_CLASS_PSYCHIC,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("AISHA"),
+        .trainerPic = TRAINER_PIC_PSYCHIC_M,
+        .trainerName = _("SAM"),
         .items = {},
         .mugshotEnabled = TRUE,
-        .mugshotColor = MUGSHOT_COLOR_YELLOW,
+        .mugshotColor = MUGSHOT_COLOR_PURPLE,
         .doubleBattle = FALSE,
         .aiFlags = AI_BOSS_FLAGS,
-        .party = TRAINER_PARTY(sParty_Aisha),
+        .party = TRAINER_PARTY(sParty_Sam),
     },
 
     [TRAINER_MAKAYLA] =

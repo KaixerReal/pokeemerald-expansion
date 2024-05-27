@@ -1192,11 +1192,172 @@ static const struct TrainerMon sParty_GruntRusturfTunnel[] = { //Not Used.
 
 static const struct TrainerMon sParty_Mike1[] = {
     {
-    .lvl = 20,
-    .species = SPECIES_PELIPPER,
-    .moves = {MOVE_GUST, MOVE_GROWL, MOVE_NONE, MOVE_NONE}
+        .species = SPECIES_GLIGAR,
+        .lvl = 20,
+        .ability = ABILITY_HYPER_CUTTER,
+        .moves = {MOVE_BULLDOZE, MOVE_AERIAL_ACE, MOVE_ROCK_TOMB, MOVE_FEINT_ATTACK},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_ONIX,
+        .lvl = 20,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_BULLDOZE, MOVE_BREAKING_SWIPE, MOVE_ROCK_TOMB, MOVE_DRAGON_DANCE},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_BERRY_JUICE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_SCYTHER,
+        .lvl = 20,
+        .ability = ABILITY_SWARM,
+        .moves = {MOVE_AERIAL_ACE, MOVE_BUG_BITE, MOVE_ROCK_SMASH, MOVE_PURSUIT},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
     },
 };
+
+static const struct TrainerMon sParty_Lydia1[] = {
+    {
+        .species = SPECIES_PONYTA,
+        .lvl = 20,
+        .ability = ABILITY_FLAME_BODY,
+        .moves = {MOVE_STOMP, MOVE_WILL_O_WISP, MOVE_FIRE_LASH, MOVE_PLAY_ROUGH},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_EELEKTRIK,
+        .lvl = 20,
+        .ability = ABILITY_LEVITATE,
+        .moves = {MOVE_SHOCK_WAVE, MOVE_WATER_PULSE, MOVE_TOXIC, MOVE_SUPER_FANG},
+        .nature = NATURE_TIMID,
+        .friendship = 0,
+        .heldItem = ITEM_BERRY_JUICE,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_POLIWHIRL,
+        .lvl = 20,
+        .ability = ABILITY_WATER_ABSORB,
+        .moves = {MOVE_DRAIN_PUNCH, MOVE_SURF, MOVE_ICE_BEAM, MOVE_THUNDER_PUNCH},
+        .nature = NATURE_MILD,
+        .friendship = 0,
+        .heldItem = ITEM_SHELL_BELL,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_PORYGON,
+        .lvl = 20,
+        .ability = ABILITY_DOWNLOAD,
+        .moves = {MOVE_TRI_ATTACK, MOVE_ICE_BEAM, MOVE_THUNDER_WAVE, MOVE_WILL_O_WISP},
+        .nature = NATURE_MODEST,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+};
+
+static const struct TrainerMon sParty_Derek[] = {
+    {
+        .species = SPECIES_DEWPIDER,
+        .lvl = 19,
+        .ability = ABILITY_WATER_BUBBLE,
+        .moves = {MOVE_SCALD},
+        .nature = NATURE_TIMID,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_ANORITH,
+        .lvl = 21,
+        .ability = ABILITY_SHELL_ARMOR,
+        .moves = {MOVE_ROCK_SLIDE, MOVE_X_SCISSOR, MOVE_BRICK_BREAK, MOVE_CROSS_POISON},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_MOTHIM,
+        .lvl = 21,
+        .ability = ABILITY_TINTED_LENS,
+        .moves = {MOVE_AIR_SLASH, MOVE_SILVER_WIND, MOVE_ELECTROWEB, MOVE_WATER_PULSE},
+        .nature = NATURE_TIMID,
+        .friendship = 0,
+        .heldItem = ITEM_CHARTI_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+};
+
+static const struct TrainerMon sParty_Sam[] = {
+    {
+        .species = SPECIES_MEOWSTIC_FEMALE,
+        .lvl = 21,
+        .ability = ABILITY_COMPETITIVE,
+        .moves = {MOVE_PSYBEAM, MOVE_MAGICAL_LEAF, MOVE_SHOCK_WAVE, MOVE_DRAINING_KISS},
+        .nature = NATURE_TIMID,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_SWOOBAT,
+        .lvl = 21,
+        .ability = ABILITY_SIMPLE,
+        .moves = {MOVE_PSYBEAM, MOVE_AIR_CUTTER, MOVE_SHADOW_BALL, MOVE_CALM_MIND},
+        .nature = NATURE_TIMID,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_STANTLER,
+        .lvl = 21,
+        .ability = ABILITY_INTIMIDATE,
+        .moves = {MOVE_SECRET_POWER, MOVE_SHADOW_BALL, MOVE_PSYCHIC, MOVE_HYPNOSIS},
+        .nature = NATURE_NAIVE,
+        .friendship = 0,
+        .heldItem = ITEM_SHELL_BELL,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+};
+
 
 static const struct TrainerMon sParty_Wattson[] = {
     {
@@ -5178,19 +5339,6 @@ static const struct TrainerMon sParty_Jeffrey1[] = {
     }
 };
 
-static const struct TrainerMon sParty_Derek[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 16,
-    .species = SPECIES_DUSTOX,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 16,
-    .species = SPECIES_BEAUTIFLY,
-    }
-};
-
 static const struct TrainerMon sParty_Jeffrey2[] = {
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
@@ -8841,33 +8989,6 @@ static const struct TrainerMon sParty_Isaac5[] = {
     }
 };
 
-static const struct TrainerMon sParty_Lydia1[] = {
-    {
-    .lvl = 11,
-    .species = SPECIES_WINGULL,
-    },
-    {
-    .lvl = 11,
-    .species = SPECIES_SHROOMISH,
-    },
-    {
-    .lvl = 11,
-    .species = SPECIES_MARILL,
-    },
-    {
-    .lvl = 11,
-    .species = SPECIES_ROSELIA,
-    },
-    {
-    .lvl = 11,
-    .species = SPECIES_SKITTY,
-    },
-    {
-    .lvl = 11,
-    .species = SPECIES_GOLDEEN,
-    }
-};
-
 static const struct TrainerMon sParty_Halle[] = {
     {
     .lvl = 43,
@@ -11290,13 +11411,6 @@ static const struct TrainerMon sParty_Brandi[] = {
     {
     .lvl = 17,
     .species = SPECIES_RALTS,
-    }
-};
-
-static const struct TrainerMon sParty_Aisha[] = {
-    {
-    .lvl = 17,
-    .species = SPECIES_MEDITITE,
     }
 };
 
