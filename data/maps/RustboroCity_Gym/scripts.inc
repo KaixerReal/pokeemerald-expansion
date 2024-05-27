@@ -191,7 +191,7 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE01_GET
 	setvar VAR_RUSTBORO_CITY_STATE, 1
-	addvar VAR_FIGHT_ROXANNE, 1
+	setvar VAR_FIGHT_ROXANNE, 2
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
 	giveitem ITEM_TM_ROCK_TOMB

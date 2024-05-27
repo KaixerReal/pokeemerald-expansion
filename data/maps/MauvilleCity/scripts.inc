@@ -667,3 +667,18 @@ MauvilleCity_Text_ExplainTV:
 
 MauvilleCity_Text_BeenCheckingOutTV:
 	.string "Hi, have you been checking out TVs?$"
+
+MauvilleCity_EventScript_WattsonRoute116::
+	lock
+	msgbox MauvilleCity_EventScript_WattsonRoute116_Text_0, MSGBOX_DEFAULT
+	waitmessage
+	releaseall
+	return
+
+
+MauvilleCity_EventScript_WattsonRoute116_Text_0:
+	.string "Hey trainer.\n"
+	.string "Oh your'e looking to fight Wattson, the\l"
+	.string "Mauville City gym leader?\l"
+	.string "I Heard hes checking in by the trainer\l"
+	.string "hill.$"
