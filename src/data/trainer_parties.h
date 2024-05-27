@@ -1358,6 +1358,95 @@ static const struct TrainerMon sParty_Sam[] = {
     },
 };
 
+static const struct TrainerMon sParty_Dylan1[] = {
+    {
+        .species = SPECIES_BRUXISH,
+        .lvl = 22,
+        .ability = ABILITY_DAZZLING,
+        .moves = {MOVE_AQUA_JET, MOVE_PSYCHO_CUT, MOVE_AERIAL_ACE, MOVE_HYPNOSIS},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_LUM_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_GROVYLE,
+        .lvl = 22,
+        .ability = ABILITY_UNBURDEN,
+        .moves = {MOVE_LEAF_BLADE, MOVE_BRICK_BREAK, MOVE_AERIAL_ACE, MOVE_HONE_CLAWS},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_FOCUS_SASH,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_FLETCHINDER,
+        .lvl = 22,
+        .ability = ABILITY_TECHNICIAN,
+        .moves = {MOVE_AERIAL_ACE, MOVE_FLAME_CHARGE, MOVE_ROCK_THROW},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_CHARTI_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+};
+
+static const struct TrainerMon sParty_WallyMauville[] = { //Joke Trainer.
+    {
+    .lvl = 26,
+    .species = SPECIES_KIRLIA,
+    },
+    {
+    .lvl = 4,
+    .species = SPECIES_ZIGZAGOON,
+    },
+};
+
+static const struct TrainerMon sParty_Bianca[] = {
+              //TODO: Update the team.
+    {
+        .species = SPECIES_SEADRA,
+        .lvl = 24,
+        .ability = ABILITY_TECHNICIAN,
+        .moves = {MOVE_AERIAL_ACE, MOVE_FLAME_CHARGE, MOVE_ROCK_THROW},
+        .nature = NATURE_JOLLY,
+        .friendship = 0,
+        .heldItem = ITEM_CHARTI_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+};
+
+static const struct TrainerMon sParty_Hayden[] = {
+              //TODO: Update the team.
+    {
+    .lvl = 18,
+    .species = SPECIES_NUMEL,
+    }
+};
+
+static const struct TrainerMon sParty_Tyron[] = {
+                //TODO: Update the team.
+    {
+    .lvl = 19,
+    .species = SPECIES_SANDSHREW,
+    }
+};
+
+static const struct TrainerMon sParty_Celina[] = {
+              //TODO: Update the team.
+    {
+    .lvl = 18,
+    .species = SPECIES_ROSELIA,
+    }
+};
 
 static const struct TrainerMon sParty_Wattson[] = {
     {
@@ -6849,13 +6938,6 @@ static const struct TrainerMon sParty_Abigail5[] = {
     }
 };
 
-static const struct TrainerMon sParty_Dylan1[] = {
-    {
-    .lvl = 17,
-    .species = SPECIES_DODUO,
-    }
-};
-
 static const struct TrainerMon sParty_Dylan2[] = {
     {
     .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
@@ -10241,14 +10323,6 @@ static const struct TrainerMon sParty_Ashley[] = {
     }
 };
 
-static const struct TrainerMon sParty_WallyMauville[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 16,
-    .species = SPECIES_RALTS,
-    }
-};
-
 static const struct TrainerMon sParty_WallyVR2[] = {
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
@@ -10919,34 +10993,6 @@ static const struct TrainerMon sParty_Alyssa[] = {
     {
     .lvl = 15,
     .species = SPECIES_MAGNEMITE,
-    }
-};
-
-static const struct TrainerMon sParty_Tyron[] = {
-    {
-    .lvl = 19,
-    .species = SPECIES_SANDSHREW,
-    }
-};
-
-static const struct TrainerMon sParty_Celina[] = {
-    {
-    .lvl = 18,
-    .species = SPECIES_ROSELIA,
-    }
-};
-
-static const struct TrainerMon sParty_Bianca[] = {
-    {
-    .lvl = 18,
-    .species = SPECIES_SHROOMISH,
-    }
-};
-
-static const struct TrainerMon sParty_Hayden[] = {
-    {
-    .lvl = 18,
-    .species = SPECIES_NUMEL,
     }
 };
 
