@@ -1742,7 +1742,7 @@ static void MoveSelectionDisplayPpNumber(u32 battler)
 static const u8 gText_MoveInterfaceSuperEffective[] = _(" {UP_ARROW}");
 static const u8 gText_MoveInterfaceNotVeryEffective[] = _(" {DOWN_ARROW}");
 static const u8 gText_MoveInterfaceImmune[] = _(" X");
-static const u8 gText_MoveInterfaceSTAB[] = _("{FIXED_CASE}STAB{UNFIX_CASE}");
+static const u8 gText_MoveInterfaceSTAB[] = _("STAB");
 
 u8 TypeEffectiveness(u8 targetId, u32 battler)
 {

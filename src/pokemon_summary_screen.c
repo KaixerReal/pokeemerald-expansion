@@ -3046,7 +3046,7 @@ static void PrintROrLButtonIcon(u8 windowId, bool8 lButton, u32 x)
 }
 
 // view IVs and EVs on summary screen
-static const u8 gText_ViewIVs[] =     _("{FIXED_CASE}IVs{UNFIX_CASE}");
+static const u8 gText_ViewIVs[] =     _("IVs");
 static const u8 gText_ViewStats[] =   _("Stats");
 static const u8 gText_PkmnIvs[] =   _("Pokémon IVs");
 

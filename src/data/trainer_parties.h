@@ -1116,37 +1116,37 @@ static const struct TrainerMon sParty_Melina[] = {
 
 static const struct TrainerMon sParty_Clark[] = {
     {
-        .species = SPECIES_TYRUNT,
-        .lvl = 20,
-        .ability = ABILITY_STRONG_JAW,
-        .moves = {MOVE_CRUNCH, MOVE_FIRE_FANG, MOVE_ROCK_SLIDE, MOVE_DRAGON_DANCE},
+        .species = SPECIES_DREDNAW,
+        .lvl = 19,
+        .ability = ABILITY_SHELL_ARMOR,
+        .moves = {MOVE_RAZOR_SHELL, MOVE_STOMPING_TANTRUM, MOVE_ROCK_SLIDE, MOVE_CURSE},
         .nature = NATURE_JOLLY,
         .friendship = 255,
-        .heldItem = ITEM_BERRY_JUICE,
+        .heldItem = ITEM_LUM_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
         .iv = HIDDEN_POWER_DARK,
     },
     {
-        .species = SPECIES_KABUTO,
-        .lvl = 20,
-        .ability = ABILITY_BATTLE_ARMOR,
-        .moves = {MOVE_LIQUIDATION, MOVE_ROCK_SLIDE, MOVE_HIDDEN_POWER, MOVE_FLIP_TURN},
+        .species = SPECIES_GLIGAR,
+        .lvl = 19,
+        .ability = ABILITY_HYPER_CUTTER,
+        .moves = {MOVE_ACROBATICS, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_KNOCK_OFF},
         .nature = NATURE_JOLLY,
         .friendship = 255,
-        .heldItem = ITEM_MYSTIC_WATER,
+        .heldItem = ITEM_NONE, //No Item
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
-        .iv = HIDDEN_POWER_GRASS,
+        .iv = HIDDEN_POWER_DARK,
     },
     {
-        .species = SPECIES_CRANIDOS,
-        .lvl = 20,
-        .ability = ABILITY_SHEER_FORCE,
-        .moves = {MOVE_AERIAL_ACE, MOVE_ROCK_SLIDE, MOVE_ZEN_HEADBUTT, MOVE_TRAILBLAZE},
+        .species = SPECIES_KROKOROK,
+        .lvl = 19,
+        .ability = ABILITY_INTIMIDATE,
+        .moves = {MOVE_CRUNCH, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_HONE_CLAWS},
         .nature = NATURE_JOLLY,
         .friendship = 255,
-        .heldItem = ITEM_MUSCLE_BAND,
+        .heldItem = ITEM_SITRUS_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
         .iv = HIDDEN_POWER_DARK,
@@ -1155,25 +1155,37 @@ static const struct TrainerMon sParty_Clark[] = {
 
 static const struct TrainerMon sParty_Devan[] = {
     {
-        .species = SPECIES_GRAVELER,
+        .species = SPECIES_PRIMEAPE,
         .lvl = 20,
-        .ability = ABILITY_STURDY,
-        .moves = {MOVE_THUNDER_PUNCH, MOVE_ROCK_SLIDE, MOVE_EXPLOSION, MOVE_STEALTH_ROCK},
+        .ability = ABILITY_DEFIANT,
+        .moves = {MOVE_BRICK_BREAK, MOVE_ROCK_SLIDE, MOVE_RAGE_FIST, MOVE_BULK_UP},
         .nature = NATURE_JOLLY,
         .friendship = 255,
-        .heldItem = ITEM_CUSTAP_BERRY,
+        .heldItem = ITEM_MUSCLE_BAND,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
         .iv = HIDDEN_POWER_DARK,
     },
     {
-        .species = SPECIES_KLAWF,
+        .species = SPECIES_GABITE,
         .lvl = 20,
-        .ability = ABILITY_ANGER_SHELL,
-        .moves = {MOVE_X_SCISSOR, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM, MOVE_KNOCK_OFF},
+        .ability = ABILITY_ROUGH_SKIN,
+        .moves = {MOVE_DUAL_CHOP, MOVE_FIRE_FANG, MOVE_STOMPING_TANTRUM, MOVE_STEALTH_ROCK},
         .nature = NATURE_JOLLY,
         .friendship = 255,
-        .heldItem = ITEM_LEFTOVERS,
+        .heldItem = ITEM_SITRUS_BERRY,
+        .isShiny = FALSE,
+        .ball = ITEM_POKE_BALL,
+        .iv = HIDDEN_POWER_DARK,
+    },
+    {
+        .species = SPECIES_STUNFISK_GALARIAN,
+        .lvl = 20,
+        .ability = ABILITY_MIMICRY,
+        .moves = {MOVE_IRON_HEAD, MOVE_FIRE_FANG, MOVE_STOMPING_TANTRUM, MOVE_ELECTRIC_TERRAIN},
+        .nature = NATURE_ADAMANT,
+        .friendship = 255,
+        .heldItem = ITEM_LUM_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
         .iv = HIDDEN_POWER_DARK,
@@ -1192,10 +1204,10 @@ static const struct TrainerMon sParty_GruntRusturfTunnel[] = { //Not Used.
 
 static const struct TrainerMon sParty_Mike1[] = {
     {
-        .species = SPECIES_GLIGAR,
+        .species = SPECIES_SANDACONDA,
         .lvl = 20,
-        .ability = ABILITY_HYPER_CUTTER,
-        .moves = {MOVE_BULLDOZE, MOVE_AERIAL_ACE, MOVE_ROCK_TOMB, MOVE_FEINT_ATTACK},
+        .ability = ABILITY_SAND_SPIT,
+        .moves = {MOVE_BULLDOZE, MOVE_GLARE, MOVE_ROCK_TOMB, MOVE_SUPER_FANG},
         .nature = NATURE_JOLLY,
         .friendship = 0,
         .heldItem = ITEM_LUM_BERRY,
@@ -1204,23 +1216,23 @@ static const struct TrainerMon sParty_Mike1[] = {
         .iv = HIDDEN_POWER_DARK,
     },
     {
-        .species = SPECIES_ONIX,
+        .species = SPECIES_RHYDON,
         .lvl = 20,
-        .ability = ABILITY_STURDY,
-        .moves = {MOVE_BULLDOZE, MOVE_BREAKING_SWIPE, MOVE_ROCK_TOMB, MOVE_DRAGON_DANCE},
-        .nature = NATURE_JOLLY,
+        .ability = ABILITY_ROCK_HEAD,
+        .moves = {MOVE_BULLDOZE, MOVE_ROCK_TOMB, MOVE_HORN_ATTACK, MOVE_FIRE_FANG},
+        .nature = NATURE_ADAMANT,
         .friendship = 0,
-        .heldItem = ITEM_BERRY_JUICE,
+        .heldItem = ITEM_LUM_BERRY,
         .isShiny = FALSE,
         .ball = ITEM_POKE_BALL,
         .iv = HIDDEN_POWER_DARK,
     },
     {
-        .species = SPECIES_SCYTHER,
+        .species = SPECIES_CAMERUPT,
         .lvl = 20,
-        .ability = ABILITY_SWARM,
-        .moves = {MOVE_AERIAL_ACE, MOVE_BUG_BITE, MOVE_ROCK_SMASH, MOVE_PURSUIT},
-        .nature = NATURE_JOLLY,
+        .ability = ABILITY_MAGMA_ARMOR,
+        .moves = {MOVE_BULLDOZE, MOVE_INCINERATE, MOVE_STOMP, MOVE_YAWN},
+        .nature = NATURE_SASSY,
         .friendship = 0,
         .heldItem = ITEM_LUM_BERRY,
         .isShiny = FALSE,
@@ -1230,6 +1242,7 @@ static const struct TrainerMon sParty_Mike1[] = {
 };
 
 static const struct TrainerMon sParty_Lydia1[] = {
+              //TODO: Update the team.
     {
         .species = SPECIES_PONYTA,
         .lvl = 20,
@@ -1281,6 +1294,7 @@ static const struct TrainerMon sParty_Lydia1[] = {
 };
 
 static const struct TrainerMon sParty_Derek[] = {
+              //TODO: Update the team.
     {
         .species = SPECIES_DEWPIDER,
         .lvl = 19,
@@ -1320,6 +1334,7 @@ static const struct TrainerMon sParty_Derek[] = {
 };
 
 static const struct TrainerMon sParty_Sam[] = {
+              //TODO: Update the team.
     {
         .species = SPECIES_MEOWSTIC_FEMALE,
         .lvl = 21,
@@ -1359,6 +1374,7 @@ static const struct TrainerMon sParty_Sam[] = {
 };
 
 static const struct TrainerMon sParty_Dylan1[] = {
+              //TODO: Update the team.
     {
         .species = SPECIES_BRUXISH,
         .lvl = 22,
